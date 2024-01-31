@@ -1,0 +1,166 @@
+// \/\/\/ RESET START \/\/\/
+
+/* HTML5 display-role reset for older browsers */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: auto;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+//  /\/\/\ RESET END /\/\/\
+
+body{
+    --font-primary: var(--font-anton, sans-serif);
+    --font-secondary: var(--font-roboto, sans-serif);
+}
+
+:root {
+    --color-primary: #9000ff;
+    --color-secondary: #5114d1;
+    --color-ascent: #060c94;
+    --color-background: #FFF9F1;
+    --color-text: #00080E;
+    --color-text-reverse: #FFF9F1;
+    --color-text-light-still: #FFF9F1;
+    --color-text-dark-still: #00080E;
+    --black-100: #212126;
+    --black-75: rgba(33, 33, 38, 0.75);
+    --black-50: rgba(33, 33, 38, 0.50);
+    --black-25: rgba(33, 33, 38, 0.25);
+    --black-10: rgba(33, 33, 38, 0.10);
+    --multiplier: 1;
+}
+
+.dark-theme {
+    --color-primary: #9000ff;
+    --color-secondary: #5114d1;
+    --color-ascent: #060c94;
+    --color-background: #00080E;
+    --color-text: #FFF9F1;
+    --color-text-reverse: #00080E;
+    --color-text-light-still: #FFF9F1;
+    --color-text-dark-still: #00080E;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body{
+    background: var(--color-background);
+    color: var(--color-text);
+    text-align: center;
+}
+
+p {
+    font-size: 1.6rem;
+    font-family: var(--font-secondary);
+}
+
+h1 {
+    font-size: 9.04rem; 
+    font-family: var(--font-primary);
+}
+
+h2 {
+    font-size: 6.4rem;
+    font-family: var(--font-primary);
+}
+
+h3 {
+    font-size: 4.52rem;
+    font-family: var(--font-primary);
+}
+
+h4 {
+    font-size: 3.2rem;
+    font-family: var(--font-primary);
+}
+
+h5 {
+    font-size: 2.26rem;
+    font-family: var(--font-primary);
+}
+
+h6 {
+    font-size: 1.6rem;
+    font-family: var(--font-primary);
+}
+
+.g-enable-text-selection {
+    -webkit-user-select: text; /* Safari */
+    -ms-user-select: text; /* IE 10 and IE 11 */
+    user-select: text; /* Standard syntax */
+}
+
+* {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+@media only screen and (min-width: 850px){
+    p {
+        font-size: 2.1rem;
+        line-height: 130%;
+    }
+    
+    h1 {
+        font-size: 11.87rem; 
+    }
+    
+    h2 {
+        font-size: 8.39rem;
+    }
+    
+    h3 {
+        font-size: 5.94rem;
+    }
+    
+    h4 {
+        font-size: 4.2rem;
+    }
+    
+    h5 {
+        font-size: 2.97rem;
+    }
+    
+    h6 {
+        font-size: 2.1rem;
+    }
+}
