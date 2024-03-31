@@ -33,7 +33,6 @@ const Menu = ({
   // menu will be dropdown (false) or inline (true)
   const [canBeInline, setCanBeInline] = useState(true);
   // update state widthOfContainer
-  console.log(widthOfAllLinks, widthOfContainer);
   const updateWidthOfContainer = () => {
     try {
       const newWidth = document.getElementById(

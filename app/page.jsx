@@ -7,12 +7,12 @@ import styles from "./page.module.scss";
 // Context
 
 // Componenets
-
+import Hero from "../containers/hero/hero.container"
 
 export default function Home() {
   return (
     <main>
-      X
+      <Hero></Hero>
     </main>
   );
 }

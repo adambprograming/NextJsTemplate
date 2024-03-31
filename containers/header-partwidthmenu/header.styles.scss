@@ -3,7 +3,7 @@
   flex-direction: row;
   gap: 2vw;
   padding: 2rem clamp(1rem, 5%, 4rem);
-  max-width: 1440px;
+  max-width: var(--breakpoint-1440);
   .header-container-settings {
     margin: auto 0;
     width: calc((100% - 4vw - clamp(75px, 10vw, 100px)) / 2);

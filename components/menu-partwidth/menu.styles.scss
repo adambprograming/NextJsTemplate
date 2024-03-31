@@ -205,7 +205,7 @@
 }
 
 #nav-inline.side-right {
-  .menu-inline{
+  .menu-inline {
     justify-content: right;
   }
 }
@@ -337,7 +337,7 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
   50% {
     transform: translate3d(
         0,
-        calc($menu-icon-line-offsetY * var(--multiplier)),
+        $menu-icon-line-offsetY,
         0
       )
       rotate(0);
@@ -345,7 +345,7 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
   100% {
     transform: translate3d(
         0,
-        calc($menu-icon-line-offsetY * var(--multiplier)),
+        $menu-icon-line-offsetY,
         0
       )
       rotate(45deg);
@@ -368,7 +368,7 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
   50% {
     transform: translate3d(
         0,
-        calc(-1 * $menu-icon-line-offsetY * var(--multiplier)),
+        calc(-1 * $menu-icon-line-offsetY),
         0
       )
       rotate(0);
@@ -377,7 +377,7 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
   100% {
     transform: translate3d(
         0,
-        calc(-1 * $menu-icon-line-offsetY * var(--multiplier)),
+        calc(-1 * $menu-icon-line-offsetY),
         0
       )
       rotate(-45deg);
@@ -387,7 +387,7 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
   0% {
     transform: translate3d(
         0,
-        calc($menu-icon-line-offsetY * var(--multiplier)),
+        $menu-icon-line-offsetY,
         0
       )
       rotate(45deg);
@@ -395,7 +395,7 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
   50% {
     transform: translate3d(
         0,
-        calc($menu-icon-line-offsetY * var(--multiplier)),
+        $menu-icon-line-offsetY,
         0
       )
       rotate(0);
@@ -419,7 +419,7 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
   0% {
     transform: translate3d(
         0,
-        calc(-1 * $menu-icon-line-offsetY * var(--multiplier)),
+        calc(-1 * $menu-icon-line-offsetY),
         0
       )
       rotate(-45deg);
@@ -427,7 +427,7 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
   50% {
     transform: translate3d(
         0,
-        calc(-1 * $menu-icon-line-offsetY * var(--multiplier)),
+        calc(-1 * $menu-icon-line-offsetY),
         0
       )
       rotate(0);

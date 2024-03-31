@@ -9,8 +9,8 @@ import "./globals.scss";
 // Context
 
 // Components
-import Header from '../containers/header-partwidthmenu/header.component.jsx'
-import Footer from '../containers/footer/footer.component.jsx'
+import Header from '../containers/header-partwidthmenu/header.container.jsx'
+import Footer from '../containers/footer/footer.container.jsx'
 
 const anton = Anton({weight: '400', subsets: ['latin'], variable: '--font-anton'});
 const roboto = Roboto({weight: ['400', '500', '700', '900'], subsets: ['latin'], variable: '--font-roboto'});

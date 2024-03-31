@@ -1,0 +1,67 @@
+"use client";
+// Styles
+import "./btn-onclick.styles.scss";
+
+/*
+INSTRUCTIONS 
+  content           text of button (default set to BtnOnClick)
+  functionOnClick   function that happend onClick
+  fontSize          fontSize in px (* multiplier)
+  fontFamily        fontFamily (could be like var(--font-primary), if fonts are set in variables)
+  borderRadius      borderRadius (default set to 0px)
+  borderSize        size of border (default set to 1px)
+  borderColor       color of border
+  bgColor           color of background
+  textColor         color of text
+  opacity           opacity of button background (default set to 1.0)
+  paddingOfBtn      padding will be aplied if fontSize is not defined
+  */
+
+const BtnOnClick = ({
+  content = "BtnOnClick",
+  functionOnClick,
+  fontSize = "12px",
+  fontFamily = "var(--font-primary)",
+  borderRadius = "0px",
+  borderSize = "1px",
+  borderColor = "var(--black-100)",
+  bgColor = "var(--color-primary)",
+  textColor = "var(--color-text)",
+  opacity = 1,
+  paddingOfBtn = "10px 20px 5px 20px",
+}) => {
+  return (
+    <button
+      className="btn-onclick"
+      style={{
+        borderRadius: `${borderRadius}`,
+        border: `${borderSize} solid ${borderColor}`,
+        ...(typeof fontSize === "undefined"
+          ? { padding: paddingOfBtn }
+          : {
+              padding: `calc(${fontSize} * 0.3 + 2.5px) calc(${fontSize} + 5px)`,
+            }),
+      }}
+      onClick={functionOnClick}
+    >
+      <span
+        className="btn-onclick-bg"
+        style={{ backgroundColor: `${bgColor}`, opacity: opacity }}
+      ></span>
+      <h4
+        className="btn-onclick-text"
+        style={{
+          color: textColor,
+          ...(typeof fontSize !== "undefined" && {
+            fontSize: `${fontSize}`,
+          }),
+          ...(typeof fontFamily !== "undefined" && { fontFamily: fontFamily }),
+        }}
+      >
+        {content}
+      </h4>
+    </button>
+  );
+};
+
+export default BtnOnClick;
