@@ -16,30 +16,42 @@ INSTRUCTIONS
             others: .leftlogo-rightmenu-rightsettings
 */
 const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
+  const renderMenu = (location) => {
+    return (
+      <Menu location={location}>
+      <MenuItem content="‎ TEST ‎">
+        <MenuItem content="TEST" href="/test"></MenuItem>
+        <MenuItem content="TEST" href="/test"></MenuItem>
+        <MenuItem content="TEST" href="/test"></MenuItem>
+      </MenuItem>
+      <MenuItem content="TEST">
+        <MenuItem content="TEST" href="/test"></MenuItem>
+        <MenuItem content="TEST" href="/test"></MenuItem>
+        <MenuItem content="TEST" href="/test"></MenuItem>
+      </MenuItem>
+      <MenuItem content="TEST" href="/test" />
+      <MenuItem content="TEST" href="/test" />
+    </Menu>
+    );
+  };
+  const renderSettings = () => {
+    return (
+      <></>
+    )
+  }
   if (variant === "leftsettings-centerlogo-rightmenu") {
     return (
       <header id="article-header" className={`${variant}`}>
-        <div className="header-container-settings"></div>
+        <div className="header-container-settings">
+          {renderSettings()}
+        </div>
         <div className="header-container-logo">
           <Link href="/">
             <Logo alt="Logo" id="logo-header" />
           </Link>
         </div>
         <div id="header-container-menu">
-          <Menu location="right">
-            <MenuItem content="‎ TEST ‎">
-              <MenuItem content="TEST" href="/test"></MenuItem>
-              <MenuItem content="TEST" href="/test"></MenuItem>
-              <MenuItem content="TEST" href="/test"></MenuItem>
-            </MenuItem>
-            <MenuItem content="TEST">
-              <MenuItem content="TEST" href="/test"></MenuItem>
-              <MenuItem content="TEST" href="/test"></MenuItem>
-              <MenuItem content="TEST" href="/test"></MenuItem>
-            </MenuItem>
-            <MenuItem content="TEST" href="/test" />
-            <MenuItem content="TEST" href="/test" />
-          </Menu>
+          {renderMenu("right")}
         </div>
       </header>
     );
@@ -52,22 +64,11 @@ const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
           </Link>
         </div>
         <div id="header-container-menu">
-          <Menu location="right">
-            <MenuItem content="‎ TEST ‎">
-              <MenuItem content="TEST" href="/test"></MenuItem>
-              <MenuItem content="TEST" href="/test"></MenuItem>
-              <MenuItem content="TEST" href="/test"></MenuItem>
-            </MenuItem>
-            <MenuItem content="TEST">
-              <MenuItem content="TEST" href="/test"></MenuItem>
-              <MenuItem content="TEST" href="/test"></MenuItem>
-              <MenuItem content="TEST" href="/test"></MenuItem>
-            </MenuItem>
-            <MenuItem content="TEST" href="/test" />
-            <MenuItem content="TEST" href="/test" />
-          </Menu>
+          {renderMenu("right")}
         </div>
-        <div className="header-container-settings"></div>
+        <div className="header-container-settings">\
+          {renderSettings()}
+        </div>
       </header>
     );
   } else {
