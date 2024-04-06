@@ -6,7 +6,7 @@ import Link from "next/link";
 
 /*
 INSTRUCTIONS 
-  content       text of button (default set to BtnLink)
+  disabled      defines if button is disabled (default false)
   itsScroll     false(default, link to another page)/true(link to something on page)
   href          target of button onClick (if itsScroll===true, href must be id of target element) (default set to /)
   fontSize      fontSize in px (* multiplier)
@@ -21,7 +21,8 @@ INSTRUCTIONS
   */
 
 const BtnLink = ({
-  content = "BtnLink",
+  children,
+  disabled = false,
   itsScroll = false,
   href = "/",
   fontSize,
@@ -37,6 +38,7 @@ const BtnLink = ({
   return (
     <button
       className="btn-link"
+      disabled={disabled}
       style={{
         borderRadius: `${borderRadius}`,
         border: `${borderSize} solid ${borderColor}`,
@@ -70,7 +72,7 @@ const BtnLink = ({
           ...(typeof fontFamily !== "undefined" && { fontFamily: fontFamily }),
         }}
       >
-        {content}
+        {children}
       </h4>
     </button>
   );

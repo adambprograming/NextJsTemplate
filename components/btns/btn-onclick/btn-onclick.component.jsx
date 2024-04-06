@@ -4,7 +4,7 @@ import "./btn-onclick.styles.scss";
 
 /*
 INSTRUCTIONS 
-  content           text of button (default set to BtnOnClick)
+  disabled          defines if button is disabled (default false)
   functionOnClick   function that happend onClick
   fontSize          fontSize in px (* multiplier)
   fontFamily        fontFamily (could be like var(--font-primary), if fonts are set in variables)
@@ -18,7 +18,8 @@ INSTRUCTIONS
   */
 
 const BtnOnClick = ({
-  content = "BtnOnClick",
+  children,
+  disabled = false,
   functionOnClick,
   fontSize = "12px",
   fontFamily = "var(--font-primary)",
@@ -33,6 +34,7 @@ const BtnOnClick = ({
   return (
     <button
       className="btn-onclick"
+      disabled={disabled}
       style={{
         borderRadius: `${borderRadius}`,
         border: `${borderSize} solid ${borderColor}`,
@@ -58,7 +60,7 @@ const BtnOnClick = ({
           ...(typeof fontFamily !== "undefined" && { fontFamily: fontFamily }),
         }}
       >
-        {content}
+        {children}
       </h4>
     </button>
   );

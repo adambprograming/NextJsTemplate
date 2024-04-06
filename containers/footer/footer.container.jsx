@@ -154,14 +154,13 @@ const Footer = () => {
           <p>
             Vytvořil{" "}
             <BtnLink
-              content="Adam Bartůšek"
               href="https://www.adam-bartusek.cz/"
               fontSize="var(--fontsize-small)"
               fontFamily="var(--font-secondary)"
               bgColor="var(--color-text-light-still)"
               opacity="0.75"
               borderRadius="20px"
-            ></BtnLink>
+            >Adam Bartůšek</BtnLink>
             . Všechna práva vyhrazena.
           </p>
         </div>
