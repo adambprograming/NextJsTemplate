@@ -1,0 +1,28 @@
+.inputFloatinglabel {
+    position: relative;
+    margin: 3rem 0 0 0;
+    label {
+      position: absolute;
+      top: 50%;
+      white-space: nowrap;
+      transform: translateY(-50%);
+      transition: all 0.4s ease-in-out;
+      color: var(--black-50);
+      pointer-events: none; // Disable click interaction on label
+    }
+    .active {
+      top: -35%;
+      color: var(--color-ascent);
+    }
+  
+    input {
+      width: 100%;
+      outline: none;
+      transition: all 0.4s ease-in-out;
+      width: max-content;
+      &:focus {
+        border-color: var(--color-ascent);
+        box-shadow: 0 0 5px var(--black-50);
+      }
+    }
+  }
