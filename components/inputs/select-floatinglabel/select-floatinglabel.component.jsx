@@ -18,6 +18,7 @@ INSTRUCTIONS
   reference         reference using useRef
   functionOnChange  functionOnChange
   functionOnBlur    functionOnBlur
+  functionOnKeyDown functionOnKeyDown
   fontSize          fontSize in px (* multiplier)
   fontFamily        fontFamily (could be like var(--font-primary), if fonts are set in variables)
   borderRadius      borderRadius (default set to 0px)
@@ -36,6 +37,7 @@ const SelectFloatingLabel = ({
   reference,
   functionOnChange,
   functionOnBlur,
+  functionOnKeyDown,
   fontSize = "var(--fontsize-h6)",
   fontFamily = "var(--font-secondary)",
   borderRadius = "0px",
@@ -77,6 +79,7 @@ const SelectFloatingLabel = ({
         onBlur={handleBlur}
         value={value}
         onChange={functionOnChange}
+        onKeyDown={functionOnKeyDown}
         style={{
           fontSize: `${fontSize}`,
           borderRadius: `${borderRadius}`,
