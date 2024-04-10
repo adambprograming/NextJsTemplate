@@ -1,6 +1,6 @@
 "use client";
 // Styles
-import styles from "./input-floatinglabel.module.scss";
+import styles from "./select-floatinglabel.module.scss";
 // Public & Assets
 
 // React/Next Functions
@@ -13,7 +13,7 @@ import { useState } from "react";
 INSTRUCTIONS
   label             content of label
   name              name and id of Input and htmlFor in label
-  type              type of Input
+  options           options of select { label: "USA", value: "USA" }
   value             value of Input
   reference         reference using useRef
   functionOnChange  functionOnChange
@@ -27,10 +27,10 @@ INSTRUCTIONS
   width             width of element
 */
 
-const InputFloatingLabel = ({
+const SelectFloatingLabel = ({
   label,
   name,
-  type = "text",
+  options = [],
   value,
   reference,
   functionOnChange,
@@ -53,7 +53,7 @@ const InputFloatingLabel = ({
     functionOnBlur;
   };
   return (
-    <fieldset className={styles.inputFloatinglabel} >
+    <fieldset className={styles.selectFloatinglabel} >
       <label
         htmlFor={name}
         style={{
@@ -65,14 +65,14 @@ const InputFloatingLabel = ({
       >
         {label}
       </label>
-      <input
-        type={type}
+      <select
         id={name}
         name={name}
         ref={reference}
         onFocus={handleFocus}
-        onBlur={handleBlur}
+        // onBlur={handleBlur}
         value={value}
+        onSelect={handleBlur}
         onChange={functionOnChange}
         style={{
           fontSize: `${fontSize}`,
@@ -82,9 +82,16 @@ const InputFloatingLabel = ({
           border: `${borderSize} solid ${borderColor}`,
           padding: `${paddingOfBtn}`,
         }}
-      />
+      >
+        <option hidden selected value=""></option>
+        {options.map((option, index) => (
+          <option key={index} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
     </fieldset>
   );
 };
 
-export default InputFloatingLabel;
+export default SelectFloatingLabel;

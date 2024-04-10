@@ -15,13 +15,14 @@ INSTRUCTIONS
   textColor         color of text
   opacity           opacity of button background (default set to 1.0)
   paddingOfBtn      padding will be aplied if fontSize is not defined
-  */
+  width             width of element
+*/
 
 const BtnOnClick = ({
   children,
   disabled = false,
   functionOnClick,
-  fontSize = "12px",
+  fontSize = "var(--fontsize-h5)",
   fontFamily = "var(--font-primary)",
   borderRadius = "0px",
   borderSize = "1px",
@@ -29,7 +30,8 @@ const BtnOnClick = ({
   bgColor = "var(--color-primary)",
   textColor = "var(--color-text)",
   opacity = 1,
-  paddingOfBtn = "10px 20px 5px 20px",
+  paddingOfBtn = "10px 20px",
+  width,
 }) => {
   return (
     <button
@@ -38,26 +40,21 @@ const BtnOnClick = ({
       style={{
         borderRadius: `${borderRadius}`,
         border: `${borderSize} solid ${borderColor}`,
-        ...(typeof fontSize === "undefined"
-          ? { padding: paddingOfBtn }
-          : {
-              padding: `calc(${fontSize} * 0.3 + 2.5px) calc(${fontSize} + 5px)`,
-            }),
+        padding: `${paddingOfBtn}`,
+        width: `${width}`,
       }}
       onClick={functionOnClick}
     >
       <span
         className="btn-onclick-bg"
-        style={{ backgroundColor: `${bgColor}`, opacity: opacity }}
+        style={{ backgroundColor: `${bgColor}`, opacity: `${opacity}` }}
       ></span>
       <h4
         className="btn-onclick-text"
         style={{
-          color: textColor,
-          ...(typeof fontSize !== "undefined" && {
-            fontSize: `${fontSize}`,
-          }),
-          ...(typeof fontFamily !== "undefined" && { fontFamily: fontFamily }),
+          color: `${textColor}`,
+          fontSize: `${fontSize}`,
+          fontFamily: `${fontFamily}`,
         }}
       >
         {children}

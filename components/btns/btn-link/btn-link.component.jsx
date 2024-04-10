@@ -6,18 +6,19 @@ import Link from "next/link";
 
 /*
 INSTRUCTIONS 
-  disabled      defines if button is disabled (default false)
-  itsScroll     false(default, link to another page)/true(link to something on page)
-  href          target of button onClick (if itsScroll===true, href must be id of target element) (default set to /)
-  fontSize      fontSize in px (* multiplier)
-  fontFamily    fontFamily (could be like var(--font-primary), if fonts are set in variables)
-  borderRadius  borderRadius (default set to 0px)
-  borderSize    size of border (default set to 1px)
-  borderColor   color of border
-  bgColor       color of background
-  textColor     color of text
-  opacity       opacity of button background (default set to 1.0)
-  paddingOfBtn  padding will be aplied if fontSize is not defined
+  disabled          defines if button is disabled (default false)
+  itsScroll         false(default, link to another page)/true(link to something on page)
+  href              target of button onClick (if itsScroll===true, href must be id of target element) (default set to /)
+  fontSize          fontSize in px (* multiplier)
+  fontFamily        fontFamily (could be like var(--font-primary), if fonts are set in variables)
+  borderRadius      borderRadius (default set to 0px)
+  borderSize        size of border (default set to 1px)
+  borderColor       color of border
+  bgColor           color of background
+  textColor         color of text
+  opacity           opacity of button background (default set to 1.0)
+  paddingOfBtn      padding will be aplied if fontSize is not defined
+  width             width of element
   */
 
 const BtnLink = ({
@@ -33,7 +34,8 @@ const BtnLink = ({
   bgColor = "var(--color-primary)",
   textColor = "var(--color-text)",
   opacity = 1,
-  paddingOfBtn = "10px 20px 5px 20px",
+  paddingOfBtn = "10px 20px",
+  width,
 }) => {
   return (
     <button
@@ -42,11 +44,8 @@ const BtnLink = ({
       style={{
         borderRadius: `${borderRadius}`,
         border: `${borderSize} solid ${borderColor}`,
-        ...(typeof fontSize === "undefined"
-          ? { padding: paddingOfBtn }
-          : {
-              padding: `calc(${fontSize} * 0.3 + 2.5px) calc(${fontSize} + 5px)`,
-            }),
+        padding: `${paddingOfBtn}`,
+        width: `${width}`,
       }}
       onClick={() => {
         itsScroll &&
@@ -57,7 +56,7 @@ const BtnLink = ({
     >
       <span
         className="btn-link-bg"
-        style={{ backgroundColor: `${bgColor}`, opacity: opacity }}
+        style={{ backgroundColor: `${bgColor}`, opacity: `${opacity}` }}
       ></span>
       {itsScroll === false && (
         <Link className="btn-link-link" href={href}></Link>
@@ -65,11 +64,9 @@ const BtnLink = ({
       <h4
         className="btn-link-text"
         style={{
-          color: textColor,
-          ...(typeof fontSize !== "undefined" && {
-            fontSize: `${fontSize}`,
-          }),
-          ...(typeof fontFamily !== "undefined" && { fontFamily: fontFamily }),
+          color: `${textColor}`,
+          fontSize: `${fontSize}`,
+          fontFamily: `${fontFamily}`,
         }}
       >
         {children}
