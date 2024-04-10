@@ -23,6 +23,7 @@ INSTRUCTIONS
   borderRadius      borderRadius (default set to 0px)
   borderSize        size of border (default set to 1px)
   borderColor       color of border
+  bgColor           background color of input
   paddingOfBtn      padding will be aplied if fontSize is not defined
   width             width of element
 */
@@ -40,6 +41,7 @@ const InputFloatingLabel = ({
   borderRadius = "0px",
   borderSize = "1px",
   borderColor = "var(--black-100)",
+  bgColor = "var(--color-text-reverse)",
   paddingOfBtn = "10px 20px",
   width,
 }) => {
@@ -53,7 +55,9 @@ const InputFloatingLabel = ({
     functionOnBlur;
   };
   return (
-    <fieldset className={styles.inputFloatinglabel} >
+    <fieldset
+      className={styles.inputFloatinglabel}
+    >
       <label
         htmlFor={name}
         style={{
@@ -81,8 +85,10 @@ const InputFloatingLabel = ({
           width: `${width}`,
           border: `${borderSize} solid ${borderColor}`,
           padding: `${paddingOfBtn}`,
+          backgroundColor: `${bgColor}`,
         }}
-      />
+      >
+      </input>
     </fieldset>
   );
 };

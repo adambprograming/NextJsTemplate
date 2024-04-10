@@ -17,7 +17,7 @@
 }
 
 @media only screen and (pointer: fine) {
-    .btn-onlick:hover{
+    .btn-onclick:hover{
         transition: filter 0.1s;
         filter: brightness(1.15) drop-shadow(0 0 5px var(--black-50));
     }

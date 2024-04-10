@@ -23,6 +23,7 @@ INSTRUCTIONS
   borderRadius      borderRadius (default set to 0px)
   borderSize        size of border (default set to 1px)
   borderColor       color of border
+  bgColor           background color of select
   paddingOfBtn      padding will be aplied if fontSize is not defined
   width             width of element
 */
@@ -40,6 +41,7 @@ const SelectFloatingLabel = ({
   borderRadius = "0px",
   borderSize = "1px",
   borderColor = "var(--black-100)",
+  bgColor = "var(--color-text-reverse)",
   paddingOfBtn = "10px 20px",
   width,
 }) => {
@@ -49,11 +51,13 @@ const SelectFloatingLabel = ({
   };
 
   const handleBlur = () => {
-    setIsActive(value !== "");
+    setIsActive(value);
     functionOnBlur;
   };
   return (
-    <fieldset className={styles.selectFloatinglabel} >
+    <fieldset
+      className={styles.selectFloatinglabel}
+    >
       <label
         htmlFor={name}
         style={{
@@ -70,9 +74,8 @@ const SelectFloatingLabel = ({
         name={name}
         ref={reference}
         onFocus={handleFocus}
-        // onBlur={handleBlur}
+        onBlur={handleBlur}
         value={value}
-        onSelect={handleBlur}
         onChange={functionOnChange}
         style={{
           fontSize: `${fontSize}`,
@@ -81,9 +84,10 @@ const SelectFloatingLabel = ({
           width: `${width}`,
           border: `${borderSize} solid ${borderColor}`,
           padding: `${paddingOfBtn}`,
+          backgroundColor: `${bgColor}`,
         }}
       >
-        <option hidden selected value=""></option>
+        <option hidden value=""></option>
         {options.map((option, index) => (
           <option key={index} value={option.value}>
             {option.label}
