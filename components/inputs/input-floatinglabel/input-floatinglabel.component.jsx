@@ -4,13 +4,14 @@ import styles from "./input-floatinglabel.module.scss";
 // Public & Assets
 
 // React/Next Functions
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // Context & Actions
 
 // Componenets
 
 /*
 INSTRUCTIONS
+  disabled          defines if button is disabled (default false)
   label             content of label
   name              name and id of Input and htmlFor in label
   type              type of Input
@@ -30,6 +31,7 @@ INSTRUCTIONS
 */
 
 const InputFloatingLabel = ({
+  disabled = false,
   label,
   name,
   type = "text",
@@ -53,9 +55,14 @@ const InputFloatingLabel = ({
   };
 
   const handleBlur = () => {
-    setIsActive(value !== "");
+    setIsActive(value !== "" && value !== null && value !== undefined);
     functionOnBlur;
   };
+  useEffect(() => {
+    setIsActive(value !== "" && value !== null && value !== undefined);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  
   return (
     <fieldset
       className={styles.inputFloatinglabel}
@@ -76,6 +83,7 @@ const InputFloatingLabel = ({
         id={name}
         name={name}
         ref={reference}
+        disabled={disabled}
         onFocus={handleFocus}
         onBlur={handleBlur}
         value={value}

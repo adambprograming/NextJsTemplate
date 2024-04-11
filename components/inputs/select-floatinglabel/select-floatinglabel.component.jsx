@@ -4,13 +4,14 @@ import styles from "./select-floatinglabel.module.scss";
 // Public & Assets
 
 // React/Next Functions
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // Context & Actions
 
 // Componenets
 
 /*
 INSTRUCTIONS
+  disabled          defines if button is disabled (default false)
   label             content of label
   name              name and id of Input and htmlFor in label
   options           options of select { label: "USA", value: "USA" }
@@ -30,6 +31,7 @@ INSTRUCTIONS
 */
 
 const SelectFloatingLabel = ({
+  disabled = false,
   label,
   name,
   options = [],
@@ -53,9 +55,13 @@ const SelectFloatingLabel = ({
   };
 
   const handleBlur = () => {
-    setIsActive(value);
+    setIsActive(value !== "" && value !== null && value !== undefined);
     functionOnBlur;
   };
+  useEffect(() => {
+    setIsActive(value !== "" && value !== null && value !== undefined);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   return (
     <fieldset
       className={styles.selectFloatinglabel}
@@ -75,6 +81,7 @@ const SelectFloatingLabel = ({
         id={name}
         name={name}
         ref={reference}
+        disabled={disabled}
         onFocus={handleFocus}
         onBlur={handleBlur}
         value={value}
