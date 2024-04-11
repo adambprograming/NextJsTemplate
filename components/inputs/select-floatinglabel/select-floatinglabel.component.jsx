@@ -58,10 +58,12 @@ const SelectFloatingLabel = ({
     setIsActive(value !== "" && value !== null && value !== undefined);
     functionOnBlur;
   };
+
   useEffect(() => {
     setIsActive(value !== "" && value !== null && value !== undefined);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [value])
+  
   return (
     <fieldset
       className={styles.selectFloatinglabel}
