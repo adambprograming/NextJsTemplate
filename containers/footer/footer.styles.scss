@@ -1,8 +1,9 @@
 #article-footer {
   background-color: var(--black-75);
   color: var(--color-text-light-still);
-  width: 100vw;
+  // width: 100vw;
   &.fixed-footer {
+    width: 100vw;
     position: absolute;
     bottom: 0;
   }

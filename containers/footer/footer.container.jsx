@@ -12,7 +12,7 @@ import IconTiktok from "../../components/svgs/footer-icons/icon-tiktok.component
 import IconX from "../../components/svgs/footer-icons/icon-x.component";
 // React/Next Functions
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 // Context & Actions
 
 // Components
@@ -22,49 +22,66 @@ import Popup from "../../components/popup/popup.component";
 const Footer = () => {
   const [popupPhone, setPopupPhone] = useState(false);
   const [popupEmail, setPopupEmail] = useState(false);
+  const footerRef = useRef(null);
+
+  function listenForDomChanges(targetNode, callback) {
+    // Check browser compatibility
+    if (!window.MutationObserver) {
+      console.warn("MutationObserver is not supported by your browser.");
+      return;
+    }
+    // Create a MutationObserver instance
+    const observer = new MutationObserver(callback);
+    // Define the configuration object for the observer
+    const config = {
+      childList: true, // Observe changes in child nodes
+      subtree: true, // Observe changes in all descendant nodes
+      attributes: true, // Observe attribute changes
+    };
+    // Start observing the target node
+    observer.observe(targetNode, config);
+    // Function to disconnect the observer (optional)
+    return () => {
+      observer.disconnect();
+    };
+  }
+
   useEffect(() => {
-    window.addEventListener("resize", () => {
-      changeHeights();
-    });
-    changeHeights();
+    window.addEventListener("resize", changeHeights);
+    const disconnectObserver = listenForDomChanges(document, changeHeights);
+    return () => {
+      disconnectObserver();
+      window.removeEventListener("resize", changeHeights);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   const changeHeights = () => {
-    window.removeEventListener("resize", () => {
-      changeHeights();
-    });
     const heightWindow = window.innerHeight;
     const heightContent = document.querySelector("body").scrollHeight;
-    const heightFooter = document.querySelector("footer").scrollHeight;
+    const heightFooter = footerRef.current.scrollHeight;
     const heightContentPlusFooter = heightContent + heightFooter;
-    const isFixed = document
-      .getElementById("article-footer")
-      .classList.contains("fixed-footer");
+    const isFixed = footerRef.current.classList.contains("fixed-footer");
     if (isFixed) {
       if (heightWindow <= heightContentPlusFooter) {
-        document
-          .getElementById("article-footer")
-          .classList.remove("fixed-footer");
+        footerRef.current.classList.remove("fixed-footer");
       }
     } else {
       if (heightWindow >= heightContent) {
-        document.getElementById("article-footer").classList.add("fixed-footer");
+        footerRef.current.classList.add("fixed-footer");
       }
     }
-    return () => {
-      window.addEventListener("resize", () => {
-        changeHeights();
-      });
-    };
   };
   const copyToClipboard = (toClipboard, popup) => {
     navigator.clipboard.writeText(toClipboard);
     switch (popup) {
       case "email":
         setPopupEmail(true);
+        setPopupPhone(false)
         break;
       case "phone":
         setPopupPhone(true);
+        setPopupEmail(false)
         break;
     }
     setTimeout(() => {
@@ -80,7 +97,7 @@ const Footer = () => {
   };
 
   return (
-    <footer id="article-footer">
+    <footer id="article-footer" ref={footerRef}>
       <div className="footer-container">
         <div className="footer-container-info">
           <div className="footer-nav">
@@ -90,13 +107,7 @@ const Footer = () => {
                 <Link href="/">Domovská stránka</Link>
               </li>
               <li>
-                <Link href="/about">O mně</Link>
-              </li>
-              <li>
-                <Link href="/services">Služby</Link>
-              </li>
-              <li>
-                <Link href="/contact">Kontakt</Link>
+                <Link href="/analysis">Analýza</Link>
               </li>
             </ul>
           </div>
@@ -150,7 +161,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-container-copyright">
-          <p> NAZEV FIRMY &copy; 2022-2024.</p>
+          <p> Adam Bartůšek &copy; 2022-2024.</p>
           <p>
             Vytvořil{" "}
             <BtnLink
@@ -160,7 +171,9 @@ const Footer = () => {
               bgColor="var(--color-text-light-still)"
               opacity="0.75"
               borderRadius="20px"
-            >Adam Bartůšek</BtnLink>
+            >
+              Adam Bartůšek
+            </BtnLink>
             . Všechna práva vyhrazena.
           </p>
         </div>
