@@ -12,9 +12,9 @@ import IconTiktok from "../../components/svgs/footer-icons/icon-tiktok.component
 import IconX from "../../components/svgs/footer-icons/icon-x.component";
 // React/Next Functions
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 // Context & Actions
-
+import { LanguageContext } from "@/context/lang.context";
 // Components
 import BtnLink from "../../components/btns/btn-link/btn-link.component";
 import Popup from "../../components/popup/popup.component";
@@ -23,7 +23,7 @@ const Footer = () => {
   const [popupPhone, setPopupPhone] = useState(false);
   const [popupEmail, setPopupEmail] = useState(false);
   const footerRef = useRef(null);
-
+  const { languageDict, language } = useContext(LanguageContext)
   function listenForDomChanges(targetNode, callback) {
     // Check browser compatibility
     if (!window.MutationObserver) {
@@ -57,19 +57,23 @@ const Footer = () => {
   }, []);
 
   const changeHeights = () => {
-    const heightWindow = window.innerHeight;
-    const heightContent = document.querySelector("body").scrollHeight;
-    const heightFooter = footerRef.current.scrollHeight;
-    const heightContentPlusFooter = heightContent + heightFooter;
-    const isFixed = footerRef.current.classList.contains("fixed-footer");
-    if (isFixed) {
-      if (heightWindow <= heightContentPlusFooter) {
-        footerRef.current.classList.remove("fixed-footer");
+    try {
+      const heightWindow = window.innerHeight;
+      const heightContent = document.querySelector("body").scrollHeight;
+      const heightFooter = footerRef.current.scrollHeight;
+      const heightContentPlusFooter = heightContent + heightFooter;
+      const isFixed = footerRef.current.classList.contains("fixed-footer");
+      if (isFixed) {
+        if (heightWindow <= heightContentPlusFooter) {
+          footerRef.current.classList.remove("fixed-footer");
+        }
+      } else {
+        if (heightWindow >= heightContent) {
+          footerRef.current.classList.add("fixed-footer");
+        }
       }
-    } else {
-      if (heightWindow >= heightContent) {
-        footerRef.current.classList.add("fixed-footer");
-      }
+    } catch (error) {
+      
     }
   };
   const copyToClipboard = (toClipboard, popup) => {
@@ -101,18 +105,18 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-container-info">
           <div className="footer-nav">
-            <h4>Odkazy</h4>
+            <h4>{languageDict.footer.nav.title}</h4>
             <ul>
               <li>
-                <Link href="/">Domovská stránka</Link>
+                <Link href={`/${language}`}>{languageDict.footer.nav.homePage}</Link>
               </li>
               <li>
-                <Link href="/analysis">Analýza</Link>
+                <Link href={`/${language}/analysis`}>{languageDict.footer.nav.analysis}</Link>
               </li>
             </ul>
           </div>
           <div className="footer-contacts">
-            <h4>Kontakty</h4>
+            <h4>{languageDict.footer.contacts.title}</h4>
             <div className="footer-icons">
               <span
                 className="footer-email"
@@ -163,7 +167,7 @@ const Footer = () => {
         <div className="footer-container-copyright">
           <p> Adam Bartůšek &copy; 2022-2024.</p>
           <p>
-            Vytvořil{" "}
+          {languageDict.footer.created.part1}{" "}
             <BtnLink
               href="https://www.adam-bartusek.cz/"
               fontSize="var(--fontsize-small)"
@@ -174,7 +178,7 @@ const Footer = () => {
             >
               Adam Bartůšek
             </BtnLink>
-            . Všechna práva vyhrazena.
+            {". "}{languageDict.footer.created.part2}{"."}
           </p>
         </div>
       </div>

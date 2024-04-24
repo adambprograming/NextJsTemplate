@@ -1,0 +1,29 @@
+{
+    "lang": "cz",
+    "header": {
+        "nav": {
+
+        }
+    },
+    "footer": {
+        "nav": {
+            "title": "Menu",
+            "homePage": "Domovská stránka"
+        },
+        "contacts": {
+            "title": "Kontakty"
+        },
+        "created": {
+            "part1": "Vytvořil",
+            "part2": "Všechna práva vyhrazena"
+        }
+    },
+    "notFound": {
+        "title": "Stránka nenalezena",
+        "msg": "Vámi požadovaná stránka nebyla nalezena. Možná není dostupná nebo byla odstraněna.",
+        "btn": "Zpět na domovskou stránku"
+    },
+    "root": {
+        
+    }
+}

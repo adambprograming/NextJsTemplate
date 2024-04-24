@@ -1,0 +1,29 @@
+{
+    "lang": "en",
+    "header": {
+        "nav": {
+            
+        }
+    },
+    "footer": {
+        "nav": {
+            "title": "Menu",
+            "homePage": "Home Page"
+        },
+        "contacts": {
+            "title": "Contacts"
+        },
+        "created": {
+            "part1": "Created by",
+            "part2": "All rights reserved"
+        }
+    },
+    "notFound": {
+        "title": "Page Not Found",
+        "msg": "The page you requested could not be found. It might be unavailable or removed.",
+        "btn": "Go back to home page"
+    },
+    "root": {
+        
+    }
+}

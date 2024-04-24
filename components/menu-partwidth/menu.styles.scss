@@ -16,8 +16,12 @@
 #nav-dropdown {
   margin: 0;
   padding: 0.5em 0;
+  position: relative;
   .menu-icon {
-    margin-left: 5%;
+    margin-left: 0;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
     &.active {
       .line-1,
       .line-2,
@@ -32,13 +36,14 @@
     z-index: 100;
     list-style-type: none;
     padding-top: 0.5em;
-    left: 5%;
+    left: 0;
     &.active {
       visibility: visible;
       @include ul-tilt-in-left-animation();
     }
     & > li {
       margin: 0;
+      background-color: var(--color-background);
       cursor: pointer;
       text-align: center;
       position: relative;
@@ -75,6 +80,7 @@
           }
           & > li {
             margin: 0;
+            background-color: var(--color-background);
             cursor: pointer;
             text-align: center;
             position: relative;
@@ -104,11 +110,13 @@
 
 #nav-dropdown.side-right {
   .menu-icon {
-    margin-right: 5%;
+    margin-right: 0;
     margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
   }
   .menu-dropdown {
-    right: 5%;
+    right: 0;
     left: auto;
     &.active {
       visibility: visible;

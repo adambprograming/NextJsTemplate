@@ -2,53 +2,69 @@
 // Styles
 import "./header.styles.scss";
 // Public & Assets
-import Logo from "../../components/svgs/logo.component.jsx";
+import Logo from "@/components/svgs/logo.component.jsx";
 // React/Next Functions
+import { useContext } from "react";
 import Link from "next/link";
 // Context & Actions
-
+import { LanguageContext } from "@/context/lang.context";
 // Components
-import Menu from "../../components/menu-partwidth/menu.component.jsx";
-import MenuItem from "../../components/menu-partwidth/menu-item.component.jsx";
+import Menu from "@/components/menu-partwidth/menu.component.jsx";
+import MenuItem from "@/components/menu-partwidth/menu-item.component.jsx";
+import MenuLanguage from "@/components/menu-language/menu-language.component";
 /*
 INSTRUCTIONS
   variant           variant of menu (default is leftsettings-centerlogo-rightmenu)
-            others: .leftlogo-rightmenu-rightsettings
+            others: 
+              .leftlogo-rightmenu-rightsettings
+              .leftmenu-centerlogo-rightsettings
 */
 const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
+  const { languageDict, language } = useContext(LanguageContext)
   const renderMenu = (location) => {
     return (
       <Menu location={location}>
       <MenuItem content="‎ TEST ‎">
-        <MenuItem content="TEST" href="/test"></MenuItem>
-        <MenuItem content="TEST" href="/test"></MenuItem>
-        <MenuItem content="TEST" href="/test"></MenuItem>
+        <MenuItem content="TEST" href={`/${language}/test`} ></MenuItem>
+        <MenuItem content="TEST" href={`/${language}/test`} ></MenuItem>
+        <MenuItem content="TEST" href={`/${language}/test`} ></MenuItem>
       </MenuItem>
       <MenuItem content="TEST">
-        <MenuItem content="TEST" href="/test"></MenuItem>
-        <MenuItem content="TEST" href="/test"></MenuItem>
-        <MenuItem content="TEST" href="/test"></MenuItem>
+        <MenuItem content="TEST" href={`/${language}/test`} ></MenuItem>
+        <MenuItem content="TEST" href={`/${language}/test`} ></MenuItem>
+        <MenuItem content="TEST" href={`/${language}/test`} ></MenuItem>
       </MenuItem>
-      <MenuItem content="TEST" href="/test" />
-      <MenuItem content="TEST" href="/test" />
+      <MenuItem content="TEST" href={`/${language}/test`} />
+      <MenuItem content="TEST" href={`/${language}/test`} />
     </Menu>
     );
   };
+
   const renderSettings = () => {
     return (
-      <></>
-    )
-  }
+      <div className="header-settings">
+        <MenuLanguage languages={["cz", "en"/*, "sk", "de", "pl", "hu"*/]}/>
+      </div>
+    );
+  };
+
+  const renderLogo = () => {
+    return (
+      <Link href={`/${language}`}>
+        <Logo alt="Logo" id="logo-header" />
+      </Link>
+    );
+  };
+
+  // returns based on variants
   if (variant === "leftsettings-centerlogo-rightmenu") {
     return (
       <header id="article-header" className={`${variant}`}>
         <div className="header-container-settings">
-          {renderSettings()}
+          {renderSettings("left")}
         </div>
         <div className="header-container-logo">
-          <Link href="/">
-            <Logo alt="Logo" id="logo-header" />
-          </Link>
+          {renderLogo()}
         </div>
         <div id="header-container-menu">
           {renderMenu("right")}
@@ -59,15 +75,27 @@ const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
     return (
       <header id="article-header" className={`${variant}`}>
         <div className="header-container-logo">
-          <Link href="/">
-            <Logo alt="Logo" id="logo-header" />
-          </Link>
+          {renderLogo()}
         </div>
         <div id="header-container-menu">
           {renderMenu("right")}
         </div>
-        <div className="header-container-settings">\
-          {renderSettings()}
+        <div className="header-container-settings">
+          {renderSettings("right")}
+        </div>
+      </header>
+    );
+  } else if (variant === "leftmenu-centerlogo-rightsettings") {
+    return (
+      <header id="article-header" className={`${variant}`}>
+        <div id="header-container-menu">
+          {renderMenu("left")}
+        </div>
+        <div className="header-container-logo">
+          {renderLogo()}
+        </div>
+        <div className="header-container-settings">
+          {renderSettings("right")}
         </div>
       </header>
     );
