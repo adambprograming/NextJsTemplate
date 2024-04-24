@@ -43,7 +43,7 @@ const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
   const renderSettings = () => {
     return (
       <div className="header-settings">
-        <MenuLanguage languages={["cz", "en"/*, "sk", "de", "pl", "hu"*/]}/>
+        <MenuLanguage languages={["cs", "en"/*, "sk", "de", "pl", "hu"*/]}/>
       </div>
     );
   };
@@ -51,7 +51,7 @@ const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
   const renderLogo = () => {
     return (
       <Link href={`/${language}`}>
-        <Logo alt="Logo" id="logo-header" />
+        <Logo alt="Logo" id="logo-header" aria-label="Go to home page"/>
       </Link>
     );
   };

@@ -26,6 +26,7 @@ const BtnLink = ({
   disabled = false,
   itsScroll = false,
   href = "/",
+  ariaLabel = `${children}`,
   fontSize = "var(--fontsize-h5)",
   fontFamily = "var(--font-primary)",
   borderRadius = "0px",
@@ -59,7 +60,7 @@ const BtnLink = ({
         style={{ backgroundColor: `${bgColor}`, opacity: `${opacity}` }}
       ></span>
       {itsScroll === false && (
-        <Link className="btn-link-link" href={href}></Link>
+        <Link className="btn-link-link" href={href} aria-label={`${ariaLabel}`}></Link>
       )}
       <h4
         className="btn-link-text"

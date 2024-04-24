@@ -170,6 +170,7 @@ const Footer = () => {
           {languageDict.footer.created.part1}{" "}
             <BtnLink
               href="https://www.adam-bartusek.cz/"
+              ariaLabel="Created by Adam Bartůšek. Visit the developer website."
               fontSize="var(--fontsize-small)"
               fontFamily="var(--font-secondary)"
               bgColor="var(--color-text-light-still)"

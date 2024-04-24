@@ -2,19 +2,19 @@
 // React Functions
 import { createContext, useState, useEffect } from "react";
 // Databases
-import cz from "../locales/cz.json";
+import cs from "../locales/cs.json";
 import en from "../locales/en.json";
 // Choose Language Dict
 const chooseLanguageDict = (lang) => {
-  if (lang == "cz") {
-    return cz;
+  if (lang == "cs") {
+    return cs;
   } else {
     return en;
   }
 };
 // Create Context
 export const LanguageContext = createContext({
-  language: "cz",
+  language: "",
   languageDict: {},
 });
 // Create Provider with props from RootLayout = lang, bcs of first load

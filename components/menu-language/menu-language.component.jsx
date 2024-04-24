@@ -1,7 +1,7 @@
 "use client";
 import "./menu-language.styles.scss";
 // Public & Assets
-import FlagOfCz from "../../public/flags/Flag_of_the_Czech_Republic.png";
+import FlagOfCs from "../../public/flags/Flag_of_the_Czech_Republic.png";
 import FlagOfSk from "../../public/flags/Flag_of_Slovakia.png";
 import FlagOfUk from "../../public/flags/Flag_of_the_United_Kingdom.png";
 import FlagOfDe from "../../public/flags/Flag_of_Germany.png";
@@ -26,10 +26,10 @@ const MenuLanguage = ({
   paddingOfBtn = "auto",
 }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedLanguageName, setSelectedLanguageName] = useState("English");
-  const [selectedFlagTag, setSelectedFlagTag] = useState(FlagOfUk);
+  const [selectedLanguageName, setSelectedLanguageName] = useState("Česky");
+  const [selectedFlagTag, setSelectedFlagTag] = useState(FlagOfCs);
   const { setLanguage, language } = useContext(LanguageContext);
-  // Get other parts of pathname then language ('cz'/'en')
+  // Get other parts of pathname then language (locale)
   const pathname = usePathname().split("/").slice(2);
   const router = useRouter()
 
@@ -44,8 +44,8 @@ const MenuLanguage = ({
   const chooseLanguageNameOrFlagTagByTag = (languageTag, result) => {
     if (result === "flagTag") {
       switch (languageTag) {
-        case "cz":
-          return FlagOfCz;
+        case "cs":
+          return FlagOfCs;
         case "en":
           return FlagOfUk;
         case "sk":
@@ -59,7 +59,7 @@ const MenuLanguage = ({
       }
     } else {
       switch (languageTag) {
-        case "cz":
+        case "cs":
           return "Česky";
         case "sk":
           return "Slovensky";
@@ -101,11 +101,11 @@ const MenuLanguage = ({
       </button>
 
       <div className={`menu-dropdown ${isDropdownOpen ? "active" : ""}`}>
-        {selectedLanguageName !== "Česky" && languages.includes("cz") && (
-          <button onClick={() => handleLanguageChange("cz", "Česky", FlagOfCz)} style={{
+        {selectedLanguageName !== "Česky" && languages.includes("cs") && (
+          <button onClick={() => handleLanguageChange("cs", "Česky", FlagOfCs)} style={{
             padding: `${paddingOfBtn}`,
           }} >
-            <Image src={FlagOfCz} alt="Flag of Czech" />
+            <Image src={FlagOfCs} alt="Flag of Czech" />
             <span style={{
               fontSize: `${fontSize}`,
               fontFamily: `${fontFamily}`
