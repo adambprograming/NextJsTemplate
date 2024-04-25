@@ -108,10 +108,10 @@ const Footer = () => {
             <h4>{languageDict.footer.nav.title}</h4>
             <ul>
               <li>
-                <Link href={`/${language}`}>{languageDict.footer.nav.homePage}</Link>
+                <Link href={`/${language}`} >{languageDict.footer.nav.homePage}</Link>
               </li>
               <li>
-                <Link href={`/${language}/analysis`}>{languageDict.footer.nav.analysis}</Link>
+                <Link href={`/${language}/analysis`} >{languageDict.footer.nav.analysis}</Link>
               </li>
             </ul>
           </div>
@@ -146,19 +146,19 @@ const Footer = () => {
               >
                 <IconLocation />
               </span>
-              <Link href="https://facebook.com">
+              <Link href="https://facebook.com" aria-label={languageDict.footer.contacts.labels.facebook}>
                 <IconFacebook />
               </Link>
-              <Link href="https://instagram.com">
+              <Link href="https://instagram.com" aria-label={languageDict.footer.contacts.labels.instagram}>
                 <IconInstagram />
               </Link>
-              <Link href="https://www.tiktok.com/">
+              <Link href="https://www.tiktok.com/" aria-label={languageDict.footer.contacts.labels.tiktok}>
                 <IconTiktok />
               </Link>
-              <Link href="https://linkedin.com">
+              <Link href="https://linkedin.com" aria-label={languageDict.footer.contacts.labels.linkedin}>
                 <IconLinkedin />
               </Link>
-              <Link href="https://twitter.com">
+              <Link href="https://twitter.com" aria-label={languageDict.footer.contacts.labels.twitter}>
                 <IconX />
               </Link>
             </div>

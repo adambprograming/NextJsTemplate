@@ -11,7 +11,15 @@
             "homePage": "Domovská stránka"
         },
         "contacts": {
-            "title": "Kontakty"
+            "title": "Kontakty",
+            "copy": "Zkopírováno!",
+            "labels": {
+                "facebook": "Odkaz na náš Facebook profil.",
+                "instagram": "Odkaz na náš Instagram profil.",
+                "tiktok": "Odkaz na náš TikTok profil.",
+                "linkedin": "Odkaz na náš Linkedin profil.",
+                "twitter": "Odkaz na náš Twitter profil."
+            }
         },
         "created": {
             "part1": "Vytvořil",

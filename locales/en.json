@@ -11,7 +11,15 @@
             "homePage": "Home Page"
         },
         "contacts": {
-            "title": "Contacts"
+            "title": "Contacts",
+            "copy": "Copied!",
+            "labels": {
+                "facebook": "Link to our facebook profile.",
+                "instagram": "Link to our instagram profile.",
+                "tiktok": "Link to our tiktok profile.",
+                "linkedin": "Link to our linkedin profile.",
+                "twitter": "Link to our twitter profile."
+            }
         },
         "created": {
             "part1": "Developed by",

@@ -12,6 +12,7 @@ import { LanguageContext } from "@/context/lang.context";
 import Menu from "@/components/menu-partwidth/menu.component.jsx";
 import MenuItem from "@/components/menu-partwidth/menu-item.component.jsx";
 import MenuLanguage from "@/components/menu-language/menu-language.component";
+import ColorThemeSwitch from "@/components/color-theme-switch/color-theme-switch.component";
 /*
 INSTRUCTIONS
   variant           variant of menu (default is leftsettings-centerlogo-rightmenu)
@@ -44,6 +45,7 @@ const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
     return (
       <div className="header-settings">
         <MenuLanguage languages={["cs", "en"/*, "sk", "de", "pl", "hu"*/]}/>
+        <ColorThemeSwitch></ColorThemeSwitch>
       </div>
     );
   };
