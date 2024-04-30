@@ -60,9 +60,9 @@ const ColorThemeSwitch = () => {
   return (
     <label className="switch" aria-label="{languageDict.article_header.buttons.button_themes_aria_label}">
         <input type="checkbox" checked={isDarkTheme} onChange={() => {setIsDarkTheme(!isDarkTheme)}}/>
-        {/* <span className="slider"></span> */}
-        {/* <Image className='left-icon-btn' src={IconDay} alt="{languageDict.article_header.buttons.icon_light_theme_alt}" /> */}
-        {/* <Image className='right-icon-btn' src={IconNight} alt="{languageDict.article_header.buttons.icon_dark_theme_alt}" /> */}
+        <span className="slider"></span>
+        <Image className='left-icon-btn' src={IconDay} alt="{languageDict.article_header.buttons.icon_light_theme_alt}" />
+        <Image className='right-icon-btn' src={IconNight} alt="{languageDict.article_header.buttons.icon_dark_theme_alt}" />
     </label>
   );
 };
