@@ -1,11 +1,11 @@
 "use client";
 // Styles
-// import './buttons-settings.styles.scss'
+import styles from "./color-theme-switch.module.scss";
 // Public & Assets
-// import IconDay from "../../public/theme_day.svg";
-// import IconNight from "../../public/theme_night.svg";
+import LightThemeIcon from "../svgs/theme-icons/light.component";
+import DarkThemeIcon from "../svgs/theme-icons/dark.component";
 // Next Functions
-import Image from "next/image";
+
 // React Functions
 import { useState, useEffect } from "react";
 // Context
@@ -15,36 +15,33 @@ import { LanguageContext } from "../../context/lang.context";
 const ColorThemeSwitch = () => {
   // Use local storage for theme persistence
   const [isDarkTheme, setIsDarkTheme] = useState(() => {
-      // Retrieve initial theme from local storage, defaulting to 'light'
-      var storedTheme;
-      try {
-        storedTheme = localStorage.getItem("theme");
-      } catch (error) {
-        
-      }
-      if (storedTheme) {
-        console.log("storedTheme", storedTheme);
-        if (storedTheme === "dark") {
-          console.log('x');
-          return true;
-        } else {
-          return false;
-        }
+    // Retrieve initial theme from local storage, defaulting to 'light'
+    var storedTheme;
+    try {
+      storedTheme = localStorage.getItem("theme");
+    } catch (error) {}
+    if (storedTheme) {
+      console.log("storedTheme", storedTheme);
+      if (storedTheme === "dark") {
+        console.log("x");
+        return true;
       } else {
-        var prefersDarkTheme;
-        try {
-          prefersDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        } catch (error) {
-          
-        }
-        console.log("prefersDarkTheme", prefersDarkTheme);
-        if (prefersDarkTheme) {
-          
-          return true;
-        } else {
-          return false;
-        }
+        return false;
       }
+    } else {
+      var prefersDarkTheme;
+      try {
+        prefersDarkTheme =
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+      } catch (error) {}
+      console.log("prefersDarkTheme", prefersDarkTheme);
+      if (prefersDarkTheme) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   });
   useEffect(() => {
     console.log(isDarkTheme);
@@ -54,16 +51,21 @@ const ColorThemeSwitch = () => {
     } else {
       document.documentElement.classList.remove("dark-theme");
     }
-  }, [isDarkTheme])
-  
+  }, [isDarkTheme]);
+
+  const toggleTheme = () => setIsDarkTheme(!isDarkTheme);
 
   return (
-    <label className="switch" aria-label="{languageDict.article_header.buttons.button_themes_aria_label}">
-        <input type="checkbox" checked={isDarkTheme} onChange={() => {setIsDarkTheme(!isDarkTheme)}}/>
-        <span className="slider"></span>
-        <Image className='left-icon-btn' src={IconDay} alt="{languageDict.article_header.buttons.icon_light_theme_alt}" />
-        <Image className='right-icon-btn' src={IconNight} alt="{languageDict.article_header.buttons.icon_dark_theme_alt}" />
-    </label>
+    // <div
+      // id={`${styles.themeSwitch}`}
+      // aria-label="{languageDict.article_header.buttons.button_themes_aria_label}"
+    // >
+      // {/* <input type="checkbox" checked={isDarkTheme} onChange={toggleTheme} /> */}
+      <button id={`${styles.themeSwitch}`} className={`${isDarkTheme ? styles.dark : styles.light}`} onClick={toggleTheme}>
+        <LightThemeIcon className={styles.lightIcon} />
+        <DarkThemeIcon className={styles.darkIcon} />
+      </button>
+    // {/* </div> */}
   );
 };
 

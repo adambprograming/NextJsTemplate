@@ -1,0 +1,54 @@
+#themeSwitch {
+  margin: auto 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: clamp(30px, 3vw, 40px);
+  height: clamp(30px, 3vw, 40px);
+  border: 1px solid var(--color-text);
+  border-radius: 34px;
+  transition: background-color 0.1s linear 0.05s;
+  &.light {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    background-color: var(--color-text-light-still);
+    .lightIcon {
+      transition: transform 0.1s linear 0.1s;
+      transform: rotateY(0deg);
+    }
+    .darkIcon {
+      transition: transform 0.1s linear;
+      transform: rotateY(90deg);
+    }
+  }
+  &.dark {
+    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.2);
+    background-color: var(--color-text-dark-still);
+    .lightIcon {
+      transition: transform 0.1s linear;
+      transform: rotateY(-90deg);
+    }
+    .darkIcon {
+      transition: transform 0.1s linear 0.1s;
+      transform: rotateY(0deg);
+    }
+  }
+  .lightIcon,
+  .darkIcon {
+    margin: 0;
+    position: absolute;
+    width: 80%;
+    height: 80%;
+  }
+  .lightIcon {
+    & > * {
+      fill: var(--color-text-dark-still);
+    }
+  }
+  .darkIcon {
+    & > * {
+      fill: var(--color-text-light-still);
+    }
+  }
+}
