@@ -1,5 +1,9 @@
-#themeSwitch {
+$color-light-slider: rgba(33, 33, 38, 0.25);
+$color-dark-slider: rgba(222, 222, 217, 0.4);
+
+#themeSwitch.firstVariant {
   margin: auto 0;
+  padding: 10px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -7,11 +11,11 @@
   cursor: pointer;
   width: clamp(30px, 3vw, 40px);
   height: clamp(30px, 3vw, 40px);
-  border: 1px solid var(--color-text);
   border-radius: 34px;
   transition: background-color 0.1s linear 0.05s;
   &.light {
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--color-border);
+    box-shadow: 0px 0px 5px var(--color-boxshadow);
     background-color: var(--color-text-light-still);
     .lightIcon {
       transition: transform 0.1s linear 0.1s;
@@ -23,7 +27,8 @@
     }
   }
   &.dark {
-    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--color-border);
+    box-shadow: 0px 0px 5px var(--color-boxshadow);
     background-color: var(--color-text-dark-still);
     .lightIcon {
       transition: transform 0.1s linear;
@@ -38,8 +43,163 @@
   .darkIcon {
     margin: 0;
     position: absolute;
-    width: 80%;
-    height: 80%;
+    width: 65%;
+    height: 65%;
+  }
+  .lightIcon {
+    & > * {
+      fill: var(--color-text-dark-still);
+    }
+  }
+  .darkIcon {
+    & > * {
+      fill: var(--color-text-light-still);
+    }
+  }
+}
+#themeSwitch.secondVariant {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  width: 60px;
+  height: 30px;
+  border-radius: 34px;
+  background-color: var(--color-background);
+  transition: background-color 0.3s ease-in-out;
+  &.light {
+    border: 1px solid var(--color-border);
+    box-shadow: 0px 0px 5px var(--color-boxshadow);
+  }
+  &.dark {
+    border: 1px solid var(--color-border);
+    box-shadow: 0px 0px 5px var(--color-boxshadow);
+  }
+  .slider {
+    position: absolute;
+    left: calc(5% - 1px);
+    right: auto;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: $color-light-slider;
+    box-shadow: 0px 0px 1px var(--color-boxshadow);
+    transition: background-color 0.3s ease-in-out;
+  }
+  &.dark .slider {
+    background-color: $color-dark-slider;
+    box-shadow: 0px 0px 1px var(--color-boxshadow);
+    left: calc(95% + 1px - 22px);
+  }
+
+  .lightIcon {
+    position: absolute;
+    left: 5%;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    transition: fill 0.3s ease-in-out;
+    & > * {
+      fill: var(--color-text-dark-still);
+    }
+  }
+  .darkIcon {
+    position: absolute;
+    right: 5%;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    transition: fill 0.3s ease-in-out;
+    & > * {
+      fill: var(--color-text-light-still);
+    }
+  }
+  &.light .darkIcon > * {
+    fill: $color-light-slider;
+  }
+  &.dark .lightIcon > * {
+    fill: $color-dark-slider;
+  }
+}
+#themeSwitch.thirdVariant {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  width: 50px;
+  height: 30px;
+  border-radius: 34px;
+  background-color: var(--color-background);
+  transition: background-color 0.3s ease-in-out;
+  &.light {
+    border: 1px solid var(--color-border);
+    box-shadow: 0px 0px 5px var(--color-boxshadow);
+  }
+  &.dark {
+    border: 1px solid var(--color-border);
+    box-shadow: 0px 0px 5px var(--color-boxshadow);
+  }
+  .slider {
+    position: absolute;
+    left: calc(5% - 1px);
+    right: auto;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: $color-light-slider;
+    box-shadow: 0px 0px 1px var(--color-boxshadow);
+    transition: left 0.1s linear;
+  }
+  &.dark .slider {
+    background-color: $color-dark-slider;
+    box-shadow: 0px 0px 1px var(--color-boxshadow);
+    left: calc(95% + 1px - 22px);
+  }
+  &.light {
+    border: 1px solid var(--color-border);
+    box-shadow: 0px 0px 5px var(--color-boxshadow);
+    background-color: var(--color-text-light-still);
+    .lightIcon {
+      transition: transform 0.1s linear 0.1s, left 0.1s linear;
+      transform: rotateY(0deg);
+    }
+    .darkIcon {
+      transition: transform 0.1s linear, left 0.1s linear;
+      transform: rotateY(90deg);
+    }
+  }
+  &.dark {
+    border: 1px solid var(--color-border);
+    box-shadow: 0px 0px 5px var(--color-boxshadow);
+    background-color: var(--color-text-dark-still);
+    .lightIcon {
+      transition: transform 0.1s linear, left 0.1s linear;
+      transform: rotateY(-90deg);
+    }
+    .darkIcon {
+      transition: transform 0.1s linear 0.1s, left 0.1s linear;
+      transform: rotateY(0deg);
+    }
+  }
+  .lightIcon,
+  .darkIcon {
+    position: absolute;
+    left: 5%;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+  }
+  &.dark {
+    .lightIcon,
+    .darkIcon {
+      left: calc(95% - 20px);
+    }
   }
   .lightIcon {
     & > * {

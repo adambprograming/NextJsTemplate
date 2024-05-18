@@ -7,58 +7,189 @@
 // Context
 
 // Componenets
-import Hero from "@/containers/hero/hero.container"
+import Hero from "@/containers/hero/hero.container";
 
 export default function Home() {
   return (
     <main>
       <Hero></Hero>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
-      <h1>X</h1>
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
+      <br />
+      <span>X</span>
     </main>
   );
 }

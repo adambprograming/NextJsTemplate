@@ -24,6 +24,7 @@ const Footer = () => {
   const [popupEmail, setPopupEmail] = useState(false);
   const footerRef = useRef(null);
   const { languageDict, language } = useContext(LanguageContext)
+  const dict = languageDict.containers.footer
   function listenForDomChanges(targetNode, callback) {
     // Check browser compatibility
     if (!window.MutationObserver) {
@@ -105,18 +106,15 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-container-info">
           <div className="footer-nav">
-            <h4>{languageDict.footer.nav.title}</h4>
+            <span>{dict.nav.title}</span>
             <ul>
               <li>
-                <Link href={`/${language}`} >{languageDict.footer.nav.homePage}</Link>
-              </li>
-              <li>
-                <Link href={`/${language}/analysis`} >{languageDict.footer.nav.analysis}</Link>
+                <Link href={`/${language}`} >{dict.nav.homePage}</Link>
               </li>
             </ul>
           </div>
           <div className="footer-contacts">
-            <h4>{languageDict.footer.contacts.title}</h4>
+            <span>{dict.contacts.title}</span>
             <div className="footer-icons">
               <span
                 className="footer-email"
@@ -146,19 +144,19 @@ const Footer = () => {
               >
                 <IconLocation />
               </span>
-              <Link href="https://facebook.com" aria-label={languageDict.footer.contacts.labels.facebook}>
+              <Link href="https://facebook.com" aria-label={dict.contacts.labels.facebook}>
                 <IconFacebook />
               </Link>
-              <Link href="https://instagram.com" aria-label={languageDict.footer.contacts.labels.instagram}>
+              <Link href="https://instagram.com" aria-label={dict.contacts.labels.instagram}>
                 <IconInstagram />
               </Link>
-              <Link href="https://www.tiktok.com/" aria-label={languageDict.footer.contacts.labels.tiktok}>
+              <Link href="https://www.tiktok.com/" aria-label={dict.contacts.labels.tiktok}>
                 <IconTiktok />
               </Link>
-              <Link href="https://linkedin.com" aria-label={languageDict.footer.contacts.labels.linkedin}>
+              <Link href="https://linkedin.com" aria-label={dict.contacts.labels.linkedin}>
                 <IconLinkedin />
               </Link>
-              <Link href="https://twitter.com" aria-label={languageDict.footer.contacts.labels.twitter}>
+              <Link href="https://twitter.com" aria-label={dict.contacts.labels.twitter}>
                 <IconX />
               </Link>
             </div>
@@ -167,7 +165,7 @@ const Footer = () => {
         <div className="footer-container-copyright">
           <p> Adam Bartůšek &copy; 2022-2024.</p>
           <p>
-          {languageDict.footer.created.part1}{" "}
+          {dict.created.part1}{" "}
             <BtnLink
               href="https://www.adam-bartusek.cz/"
               ariaLabel="Created by Adam Bartůšek. Visit the developer website."
@@ -179,7 +177,7 @@ const Footer = () => {
             >
               Adam Bartůšek
             </BtnLink>
-            {". "}{languageDict.footer.created.part2}{"."}
+            {". "}{dict.created.part2}{"."}
           </p>
         </div>
       </div>

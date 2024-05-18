@@ -68,6 +68,8 @@ body{
     --color-text-light-still: #FFF9F1;
     --color-text-dark-still: #00080E;
     --color-error: #ed1c24;
+    --color-border: rgba(33, 33, 38, 0.25);
+    --color-boxshadow: rgba(0, 0, 0, 0.5);
     --black-100: #212126;
     --black-75: rgba(33, 33, 38, 0.75);
     --black-50: rgba(33, 33, 38, 0.50);
@@ -91,10 +93,16 @@ body{
     --color-text-reverse: #00080E;
     --color-text-light-still: #FFF9F1;
     --color-text-dark-still: #00080E;
+    --color-border: rgba(222, 222, 217, 0.25);
+    --color-boxshadow: rgba(255, 255, 255, 0.5);
 }
 
 html {
     font-size: 62.5%;
+}
+
+body  {
+    transition: background-color 0.1s linear, color 0.1s linear, fill 0.1s linear;
 }
 
 body{

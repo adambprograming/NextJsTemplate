@@ -21,7 +21,8 @@ INSTRUCTIONS
               .leftmenu-centerlogo-rightsettings
 */
 const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
-  const { languageDict, language } = useContext(LanguageContext)
+  const { languageDict, language } = useContext(LanguageContext);
+  const dict = languageDict.containers.header;
   const renderMenu = (location) => {
     return (
       <Menu location={location}>
@@ -45,7 +46,7 @@ const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
     return (
       <div className="header-settings">
         <MenuLanguage languages={["cs", "en"/*, "sk", "de", "pl", "hu"*/]}/>
-        <ColorThemeSwitch></ColorThemeSwitch>
+        <ColorThemeSwitch variant="third"/>
       </div>
     );
   };

@@ -1,31 +1,5 @@
 {
     "lang": "cz",
-    "header": {
-        "nav": {
-
-        }
-    },
-    "footer": {
-        "nav": {
-            "title": "Menu",
-            "homePage": "Domovská stránka"
-        },
-        "contacts": {
-            "title": "Kontakty",
-            "copy": "Zkopírováno!",
-            "labels": {
-                "facebook": "Odkaz na náš Facebook profil.",
-                "instagram": "Odkaz na náš Instagram profil.",
-                "tiktok": "Odkaz na náš TikTok profil.",
-                "linkedin": "Odkaz na náš Linkedin profil.",
-                "twitter": "Odkaz na náš Twitter profil."
-            }
-        },
-        "created": {
-            "part1": "Vytvořil",
-            "part2": "Všechna práva vyhrazena"
-        }
-    },
     "notFound": {
         "title": "Stránka nenalezena",
         "msg": "Vámi požadovaná stránka nebyla nalezena. Možná není dostupná nebo byla odstraněna.",
@@ -33,5 +7,38 @@
     },
     "root": {
         
+    },
+    "components": {
+        "colorThemeSwitch": {
+            "btnArialabel": "Tlačítko po kliknutí změní barevný režim webové stránky."
+        }
+    },
+    "containers": {
+        "header": {
+            "nav": {
+    
+            }
+        },
+        "footer": {
+            "nav": {
+                "title": "Menu",
+                "homePage": "Domovská stránka"
+            },
+            "contacts": {
+                "title": "Kontakty",
+                "copy": "Zkopírováno!",
+                "labels": {
+                    "facebook": "Odkaz na náš Facebook profil.",
+                    "instagram": "Odkaz na náš Instagram profil.",
+                    "tiktok": "Odkaz na náš TikTok profil.",
+                    "linkedin": "Odkaz na náš Linkedin profil.",
+                    "twitter": "Odkaz na náš Twitter profil."
+                }
+            },
+            "created": {
+                "part1": "Vytvořil",
+                "part2": "Všechna práva vyhrazena"
+            }
+        }
     }
 }

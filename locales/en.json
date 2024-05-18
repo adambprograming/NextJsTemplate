@@ -1,37 +1,44 @@
 {
-    "lang": "en",
+  "lang": "en",
+  "notFound": {
+    "title": "Page Not Found",
+    "msg": "The page you requested could not be found. It might be unavailable or removed.",
+    "btn": "Go back to home page"
+  },
+  "root": {
+
+  },
+  "components": {
+    "colorThemeSwitch": {
+        "btnArialabel": "Button that change color theme of website on click."
+    }
+  },
+  "containers": {
     "header": {
-        "nav": {
-            
-        }
+      "nav": {
+
+      }
     },
     "footer": {
-        "nav": {
-            "title": "Menu",
-            "homePage": "Home Page"
-        },
-        "contacts": {
-            "title": "Contacts",
-            "copy": "Copied!",
-            "labels": {
-                "facebook": "Link to our facebook profile.",
-                "instagram": "Link to our instagram profile.",
-                "tiktok": "Link to our tiktok profile.",
-                "linkedin": "Link to our linkedin profile.",
-                "twitter": "Link to our twitter profile."
-            }
-        },
-        "created": {
-            "part1": "Developed by",
-            "part2": "All rights reserved"
+      "nav": {
+        "title": "Menu",
+        "homePage": "Home Page"
+      },
+      "contacts": {
+        "title": "Contacts",
+        "copy": "Copied!",
+        "labels": {
+          "facebook": "Link to our facebook profile.",
+          "instagram": "Link to our instagram profile.",
+          "tiktok": "Link to our tiktok profile.",
+          "linkedin": "Link to our linkedin profile.",
+          "twitter": "Link to our twitter profile."
         }
-    },
-    "notFound": {
-        "title": "Page Not Found",
-        "msg": "The page you requested could not be found. It might be unavailable or removed.",
-        "btn": "Go back to home page"
-    },
-    "root": {
-        
+      },
+      "created": {
+        "part1": "Developed by",
+        "part2": "All rights reserved"
+      }
     }
+  }
 }

@@ -7,65 +7,73 @@ import DarkThemeIcon from "../svgs/theme-icons/dark.component";
 // Next Functions
 
 // React Functions
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 // Context
 import { LanguageContext } from "../../context/lang.context";
 
 // Create btn that will change color theme of website
-const ColorThemeSwitch = () => {
+const ColorThemeSwitch = ({ variant = "first" }) => {
+  const { languageDict } = useContext(LanguageContext);
+  const dict = languageDict.components.colorThemeSwitch;
   // Use local storage for theme persistence
-  const [isDarkTheme, setIsDarkTheme] = useState(() => {
+  const [isDarkTheme, setIsDarkTheme] = useState(null);
+  useEffect(() => {
     // Retrieve initial theme from local storage, defaulting to 'light'
-    var storedTheme;
+    let storedTheme;
     try {
       storedTheme = localStorage.getItem("theme");
     } catch (error) {}
     if (storedTheme) {
-      console.log("storedTheme", storedTheme);
-      if (storedTheme === "dark") {
-        console.log("x");
-        return true;
-      } else {
-        return false;
-      }
+      setIsDarkTheme(storedTheme === "dark");
     } else {
-      var prefersDarkTheme;
+      let prefersDarkTheme;
       try {
         prefersDarkTheme =
           window.matchMedia &&
           window.matchMedia("(prefers-color-scheme: dark)").matches;
       } catch (error) {}
       console.log("prefersDarkTheme", prefersDarkTheme);
-      if (prefersDarkTheme) {
-        return true;
-      } else {
-        return false;
-      }
+      setIsDarkTheme(prefersDarkTheme);
     }
-  });
+  }, []);
   useEffect(() => {
-    console.log(isDarkTheme);
-    localStorage.setItem("theme", isDarkTheme ? "dark" : "light");
-    if (isDarkTheme) {
-      document.documentElement.classList.add("dark-theme");
-    } else {
-      document.documentElement.classList.remove("dark-theme");
+    if (isDarkTheme !== null) {
+      localStorage.setItem("theme", isDarkTheme ? "dark" : "light");
+      if (isDarkTheme) {
+        document.documentElement.classList.add("dark-theme");
+      } else {
+        document.documentElement.classList.remove("dark-theme");
+      }
     }
   }, [isDarkTheme]);
 
   const toggleTheme = () => setIsDarkTheme(!isDarkTheme);
 
+  if (isDarkTheme === null) {
+    // Prevent mismatched initial render by not rendering the button until the theme is determined
+    return null;
+  }
   return (
-    // <div
-      // id={`${styles.themeSwitch}`}
-      // aria-label="{languageDict.article_header.buttons.button_themes_aria_label}"
-    // >
-      // {/* <input type="checkbox" checked={isDarkTheme} onChange={toggleTheme} /> */}
-      <button id={`${styles.themeSwitch}`} className={`${isDarkTheme ? styles.dark : styles.light}`} onClick={toggleTheme}>
-        <LightThemeIcon className={styles.lightIcon} />
-        <DarkThemeIcon className={styles.darkIcon} />
-      </button>
-    // {/* </div> */}
+    <button
+      id={`${styles.themeSwitch}`}
+      className={`${isDarkTheme ? styles.dark : styles.light} ${
+        variant === "first"
+          ? styles.firstVariant
+          : variant === "second"
+          ? styles.secondVariant
+          : variant === "third"
+          ? styles.thirdVariant
+          : ""
+      }`}
+      aria-label={dict.btnArialabel}
+      onClick={toggleTheme}
+    >
+      {(variant === "second" || variant === "third") && (
+        <span className={`${styles.slider}`}></span>
+      )}
+      <LightThemeIcon className={styles.lightIcon} />
+      <DarkThemeIcon className={styles.darkIcon} />
+    </button>
   );
 };
 
