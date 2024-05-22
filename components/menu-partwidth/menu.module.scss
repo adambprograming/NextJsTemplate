@@ -13,24 +13,24 @@
   -webkit-animation: ul-tilt-in-right 0.2s ease-out 0s 1 normal forwards;
 }
 
-#nav-dropdown {
+#navDropdown {
   margin: 0;
   padding: 0.5em 0;
   position: relative;
-  .menu-icon {
+  .menuIcon {
     margin-left: 0;
     margin-right: auto;
     margin-top: auto;
     margin-bottom: auto;
     &.active {
-      .line-1,
-      .line-2,
-      .line-3 {
+      .line1,
+      .line2,
+      .line3 {
         background-color: var(--color-ascent);
       }
     }
   }
-  .menu-dropdown {
+  .menuDropdown {
     visibility: hidden;
     position: absolute;
     z-index: 100;
@@ -55,10 +55,10 @@
       &:first-child {
         border-top: 1px solid var(--black-25);
       }
-      &:has(ul.active) > .item-link-element {
+      &:has(ul.active) > .itemLinkElement {
         color: var(--color-ascent);
       }
-      & > .item-link-element {
+      & > .itemLinkElement {
         position: relative;
         padding: 1em 2vw;
         display: block;
@@ -92,7 +92,7 @@
             &:first-child {
               border-top: 1px solid var(--black-25);
             }
-            & > .item-link-element {
+            & > .itemLinkElement {
               position: relative;
               padding: 1em;
               display: block;
@@ -108,21 +108,21 @@
   }
 }
 
-#nav-dropdown.side-right {
-  .menu-icon {
+#navDropdown.sideRight {
+  .menuIcon {
     margin-right: 0;
     margin-left: auto;
     margin-top: auto;
     margin-bottom: auto;
   }
-  .menu-dropdown {
+  .menuDropdown {
     right: 0;
     left: auto;
     &.active {
       visibility: visible;
       @include ul-tilt-in-right-animation();
     }
-    & > li > .item-link-element ul {
+    & > li > .itemLinkElement ul {
       right: 100%;
       left: auto;
       &.active {
@@ -133,10 +133,10 @@
   }
 }
 
-#nav-inline {
+#navInline {
   margin: 0;
   width: 100%;
-  .menu-inline {
+  .menuInline {
     display: flex;
     flex-direction: row;
     gap: clamp(0.5rem, 1vw, 2rem);
@@ -165,10 +165,10 @@
           box-shadow: 0px 18px 20px -13px var(--color-ascent);
         }
       }
-      &:has(ul.active) > .item-link-element {
+      &:has(ul.active) > .itemLinkElement {
         color: var(--color-ascent);
       }
-      & > .item-link-element {
+      & > .itemLinkElement {
         position: relative;
         padding: 1rem 2vw;
         display: block;
@@ -196,7 +196,7 @@
             cursor: pointer;
             text-align: center;
             position: relative;
-            & > .item-link-element {
+            & > .itemLinkElement {
               position: relative;
               padding: 8px 0;
               display: block;
@@ -212,21 +212,21 @@
   }
 }
 
-#nav-inline.side-right {
-  .menu-inline {
+#navInline.sideRight {
+  .menuInline {
     justify-content: right;
   }
 }
 
 @media only screen and (pointer: fine) {
-  #nav-inline .menu-inline > li {
+  #navInline .menuInline > li {
     &:hover {
       border-bottom: 1px solid var(--color-text);
       &::before {
         box-shadow: 0px 16px 14px -14px var(--color-ascent);
       }
     }
-    .item-link-element:hover {
+    .itemLinkElement:hover {
       transform: scale(1.05) translate3d(1, 0, 0);
       color: var(--color-ascent);
       ul:not(.active) {
@@ -235,22 +235,22 @@
         @include ul-tilt-in-top-animation();
       }
     }
-    .item-link-element ul li .item-link-element:hover {
+    .itemLinkElement ul li .itemLinkElement:hover {
       transform: scale(1.05) translate3d(1, 0, 0);
       color: var(--color-ascent);
     }
   }
-  #nav-dropdown {
-    .menu-icon:hover ~ .menu-dropdown:not(.active) {
+  #navDropdown {
+    .menuIcon:hover ~ .menuDropdown:not(.active) {
       visibility: visible;
       @include ul-tilt-in-left-animation();
     }
-    .menu-dropdown:not(.active):hover {
+    .menuDropdown:not(.active):hover {
       visibility: visible;
       @include ul-tilt-in-left-animation();
     }
-    .menu-dropdown li {
-      .item-link-element:hover {
+    .menuDropdown li {
+      .itemLinkElement:hover {
         transform: scale(1.05) translate3d(1, 0, 0);
         color: var(--color-ascent);
         ul:not(.active) {
@@ -259,28 +259,28 @@
           @include ul-tilt-in-left-animation();
         }
       }
-      .item-link-element ul li .item-link-element:hover {
+      .itemLinkElement ul li .itemLinkElement:hover {
         transform: scale(1.05) translate3d(1, 0, 0);
         color: var(--color-ascent);
       }
     }
   }
-  #nav-dropdown.side-right {
-    .menu-icon:hover ~ .menu-dropdown:not(.active) {
+  #navDropdown.sideRight {
+    .menuIcon:hover ~ .menuDropdown:not(.active) {
       visibility: visible;
       @include ul-tilt-in-right-animation();
     }
-    .menu-dropdown:not(.active):hover {
+    .menuDropdown:not(.active):hover {
       visibility: visible;
       @include ul-tilt-in-right-animation();
     }
-    .menu-dropdown li .item-link-element:hover ul:not(.active) {
+    .menuDropdown li .itemLinkElement:hover ul:not(.active) {
       z-index: 300;
       visibility: visible;
       @include ul-tilt-in-right-animation();
     }
   }
-  .menu-icon:hover {
+  .menuIcon:hover {
     .line-1,
     .line-2,
     .line-3 {
@@ -290,50 +290,50 @@
 }
 
 // Variables Menu Icon
-$menu-icon-line-height: 4px;
-$menu-icon-line-space: 5px;
-$menu-icon-line-offsetY: $menu-icon-line-height + $menu-icon-line-space;
-$menu-icon-height: (3 * $menu-icon-line-height) + (2 * $menu-icon-line-space);
+$menuIcon-line-height: 4px;
+$menuIcon-line-space: 5px;
+$menuIcon-line-offsetY: $menuIcon-line-height + $menuIcon-line-space;
+$menuIcon-height: (3 * $menuIcon-line-height) + (2 * $menuIcon-line-space);
 $cubic-bezier-in: cubic-bezier(0.3, 1, 0.7, 1);
 $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
 
-.menu-icon {
+.menuIcon {
   width: calc(25px);
-  height: calc($menu-icon-height);
+  height: calc($menuIcon-height);
   cursor: pointer;
   z-index: 50;
-  .line-1,
-  .line-2,
-  .line-3 {
-    height: calc($menu-icon-line-height);
+  .line1,
+  .line2,
+  .line3 {
+    height: calc($menuIcon-line-height);
     width: 100%;
     background-color: var(--color-text);
     border-radius: 3px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
   }
-  .line-1 {
+  .line1 {
     animation: animate-line-1-rev 0.7s ease-in-out;
   }
-  .line-2 {
-    margin: calc($menu-icon-line-space) 0;
+  .line2 {
+    margin: calc($menuIcon-line-space) 0;
     animation: animate-line-2-rev 0.7s ease-in-out;
   }
-  .line-3 {
+  .line3 {
     animation: animate-line-3-rev 0.7s ease-in-out;
   }
   &.active {
-    .line-1 {
+    .line1 {
       animation: animate-line-1 0.7s $cubic-bezier-in forwards;
     }
-    .line-2 {
+    .line2 {
       animation: animate-line-2 0.7s $cubic-bezier-in forwards;
     }
-    .line-3 {
+    .line3 {
       animation: animate-line-3 0.7s $cubic-bezier-in forwards;
     }
   }
 }
-.no-animation {
+.noAnimation {
   -webkit-animation: none !important;
   animation: none !important;
 }
@@ -345,7 +345,7 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
   50% {
     transform: translate3d(
         0,
-        $menu-icon-line-offsetY,
+        $menuIcon-line-offsetY,
         0
       )
       rotate(0);
@@ -353,7 +353,7 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
   100% {
     transform: translate3d(
         0,
-        $menu-icon-line-offsetY,
+        $menuIcon-line-offsetY,
         0
       )
       rotate(45deg);
@@ -376,7 +376,7 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
   50% {
     transform: translate3d(
         0,
-        calc(-1 * $menu-icon-line-offsetY),
+        calc(-1 * $menuIcon-line-offsetY),
         0
       )
       rotate(0);
@@ -385,7 +385,7 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
   100% {
     transform: translate3d(
         0,
-        calc(-1 * $menu-icon-line-offsetY),
+        calc(-1 * $menuIcon-line-offsetY),
         0
       )
       rotate(-45deg);
@@ -395,7 +395,7 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
   0% {
     transform: translate3d(
         0,
-        $menu-icon-line-offsetY,
+        $menuIcon-line-offsetY,
         0
       )
       rotate(45deg);
@@ -403,7 +403,7 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
   50% {
     transform: translate3d(
         0,
-        $menu-icon-line-offsetY,
+        $menuIcon-line-offsetY,
         0
       )
       rotate(0);
@@ -427,7 +427,7 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
   0% {
     transform: translate3d(
         0,
-        calc(-1 * $menu-icon-line-offsetY),
+        calc(-1 * $menuIcon-line-offsetY),
         0
       )
       rotate(-45deg);
@@ -435,7 +435,7 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
   50% {
     transform: translate3d(
         0,
-        calc(-1 * $menu-icon-line-offsetY),
+        calc(-1 * $menuIcon-line-offsetY),
         0
       )
       rotate(0);

@@ -1,6 +1,6 @@
 "use client";
 // Styles
-import "./menu.styles.scss";
+import styles from "./menu.module.scss";
 // React Functions
 import { Children, cloneElement } from "react";
 import { useState, useEffect } from "react";
@@ -48,8 +48,9 @@ const Menu = ({
       const listOfHeights = [];
       // find all inline items
       const listOfLinksInline = document.querySelectorAll(
-        "#nav-inline .menu-inline > li"
+        `#${styles.navInline} .${styles.menuInline} > li`
       );
+      console.log(listOfLinksInline);
       for (let i = 0; i < listOfLinksInline.length; i++) {
         const width = listOfLinksInline[i].clientWidth;
         const height = listOfLinksInline[i].clientHeight;
@@ -64,7 +65,9 @@ const Menu = ({
         setWidthOfAllLinks(newWidth);
         setHeightOfLink(newHeight);
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
   // on initial load make listeners for resize that will call both func; updateWidthOfContainer & updateSizeOfLinks
   useEffect(() => {
@@ -92,21 +95,21 @@ const Menu = ({
   if activeMenu state is false then set it to true */
   const handleMenuClick = () => {
     document
-      .getElementsByClassName("menu-icon")
+      .getElementsByClassName(styles.menuIcon)
       .item(0)
-      .classList.toggle("active");
+      .classList.toggle(styles.active);
     document
-      .getElementsByClassName("line-1")
+      .getElementsByClassName(styles.line1)
       .item(0)
-      .classList.remove("no-animation");
+      .classList.remove(styles.noAnimation);
     document
-      .getElementsByClassName("line-2")
+      .getElementsByClassName(styles.line2)
       .item(0)
-      .classList.remove("no-animation");
+      .classList.remove(styles.noAnimation);
     document
-      .getElementsByClassName("line-3")
+      .getElementsByClassName(styles.line3)
       .item(0)
-      .classList.remove("no-animation");
+      .classList.remove(styles.noAnimation);
     if (activeMenu === true) {
       setActiveMenu(false);
       disactiveSubmenus();
@@ -120,10 +123,10 @@ const Menu = ({
   }, [canBeInline]);
   // Disactive active submenu
   const disactiveSubmenus = () => {
-    const listOfSubmenus = document.getElementsByClassName("submenu-dropdown");
+    const listOfSubmenus = document.getElementsByClassName(styles.submenuDropdown);
     for (let i = 0; i < listOfSubmenus.length; i++) {
       const element = listOfSubmenus[i];
-      element.classList.remove("active");
+      element.classList.remove(styles.active);
     }
   };
   /* 
@@ -133,27 +136,27 @@ const Menu = ({
   */
   return (
     <nav
-      id={`${canBeInline ? "nav-inline" : "nav-dropdown"}`}
-      className={`${location === "right" ? "side-right" : "side-left"}`}
+      id={`${canBeInline ? styles.navInline : styles.navDropdown}`}
+      className={`${location === "right" ? styles.sideRight : styles.sideLeft}`}
       style={{ fontFamily: `${fontFamily}`}}
       onClick={() => {
         !canBeInline && !activeMenu && handleMenuClick();
       }}
     >
       <div
-        className="menu-icon"
+        className={styles.menuIcon}
         style={{ display: `${canBeInline ? "none" : "block"}` }}
         onClick={() => {
           activeMenu && handleMenuClick();
         }}
       >
-        <div className="line-1 no-animation"></div>
-        <div className="line-2 no-animation"></div>
-        <div className="line-3 no-animation"></div>
+        <div className={`${styles.line1} ${styles.noAnimation}`}></div>
+        <div className={`${styles.line2} ${styles.noAnimation}`}></div>
+        <div className={`${styles.line3} ${styles.noAnimation}`}></div>
       </div>
       <ul
-        className={`${canBeInline ? "menu-inline" : "menu-dropdown"} ${
-          activeMenu === true ? "active" : ""
+        className={`${canBeInline ? styles.menuInline : styles.menuDropdown} ${
+          activeMenu === true ? styles.active : ""
         }`}
       >
         {Children.map(children, (child) => {

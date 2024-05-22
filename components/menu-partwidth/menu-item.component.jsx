@@ -1,4 +1,5 @@
 "use client";
+import styles from "./menu.module.scss"
 // React Functions
 import { Children, cloneElement } from "react";
 import Link from "next/link";
@@ -20,25 +21,25 @@ const MenuItem = ({
   paddingOfEachLinkBlock,
 }) => {
   const handleSubmenuClick = (e) => {
-    const listOfSubmenus = document.getElementsByClassName("submenu-dropdown");
+    const listOfSubmenus = document.getElementsByClassName(styles.submenuDropdown);
     const activeSubmenu = [];
-    const targetSubmenu = e.target.querySelector(".submenu-dropdown");
+    const targetSubmenu = e.target.querySelector(`.${styles.submenuDropdown}`);
     for (let i = 0; i < listOfSubmenus.length; i++) {
       const element = listOfSubmenus[i];
-      if (element.classList.contains("active")) {
+      if (element.classList.contains(styles.active)) {
         activeSubmenu.push(element);
       }
-      element.classList.remove("active");
+      element.classList.remove(styles.active);
     }
     if (activeSubmenu[0] !== targetSubmenu && targetSubmenu) {
-      targetSubmenu.classList.add("active");
+      targetSubmenu.classList.add(styles.active);
     }
   };
   return (
     <li>
       {href ? (
         <Link
-          className="item-link-element"
+          className={styles.itemLinkElement}
           href={href}
           style={{ padding: paddingOfEachLinkBlock, fontSize: fontSize }}
         >
@@ -46,14 +47,14 @@ const MenuItem = ({
         </Link>
       ) : (
         <span
-          className="item-link-element"
+          className={styles.itemLinkElement}
           onClick={(e) => {
             handleSubmenuClick(e);
           }}
           style={{ padding: paddingOfEachLinkBlock, fontSize: fontSize }}
         >
           {content}
-          <ul className={`submenu-dropdown`}>
+          <ul className={`${styles.submenuDropdown}`}>
             {Children.map(children, (child) => {
               return cloneElement(child, {
                 fontSize: fontSize,
