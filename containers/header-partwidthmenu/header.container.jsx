@@ -45,8 +45,8 @@ const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
   const renderSettings = () => {
     return (
       <div className="header-settings">
-        <MenuLanguage languages={["cs", "en"/*, "sk", "de", "pl", "hu"*/]}/>
         <ColorThemeSwitch variant="third"/>
+        <MenuLanguage iconOnly={true} variant="second" languages={["cs", "en"/*, "sk", "de", "pl", "hu"*/]}/>
       </div>
     );
   };

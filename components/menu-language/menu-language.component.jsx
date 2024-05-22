@@ -1,5 +1,5 @@
 "use client";
-import "./menu-language.styles.scss";
+import styles from "./menu-language.module.scss";
 // Public & Assets
 import FlagOfCs from "../../public/flags/Flag_of_the_Czech_Republic.png";
 import FlagOfSk from "../../public/flags/Flag_of_Slovakia.png";
@@ -20,8 +20,10 @@ INSTRUCTIONS
   In styles it needs to be changed width of both spans to optimal ch
 */
 const MenuLanguage = ({
+  iconOnly = false,
+  variant = "first",
   languages = [],
-  fontSize = "var(--fontsize-h6)",
+  fontSize = "14px",
   fontFamily = "var(--font-secondary)",
   paddingOfBtn = "auto",
 }) => {
@@ -31,7 +33,7 @@ const MenuLanguage = ({
   const { setLanguage, language } = useContext(LanguageContext);
   // Get other parts of pathname then language (locale)
   const pathname = usePathname().split("/").slice(2);
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     setSelectedLanguageName(
@@ -89,85 +91,157 @@ const MenuLanguage = ({
   };
 
   return (
-    <div id="menu-language">
-      <button onClick={toggleDropdown} className="menu-toggle" style={{
-        padding: `${paddingOfBtn}`,
-      }} >
+    <div
+      id={`${styles.menuLanguage}`}
+      className={`${
+        variant === "first"
+          ? styles.firstVariant
+          : variant === "second"
+          ? styles.secondVariant
+          : variant === "third"
+          ? styles.thirdVariant
+          : styles.firstVariant
+      }`}
+    >
+      <button
+        onClick={toggleDropdown}
+        className={`${styles.menuToggle}`}
+        style={{
+          padding: `${paddingOfBtn}`,
+        }}
+      >
         <Image src={selectedFlagTag} alt="Flag of choiced country" />
-        <span style={{
-          fontSize: `${fontSize}`,
-          fontFamily: `${fontFamily}`
-        }} >{selectedLanguageName}</span>
+        {!iconOnly && (
+          <span
+            style={{
+              fontSize: `${fontSize}`,
+              fontFamily: `${fontFamily}`,
+            }}
+          >
+            {selectedLanguageName}
+          </span>
+        )}
       </button>
 
-      <div className={`menu-dropdown ${isDropdownOpen ? "active" : ""}`}>
+      <div className={`${styles.menuDropdown} ${isDropdownOpen ? "active" : ""}`}>
         {selectedLanguageName !== "Česky" && languages.includes("cs") && (
-          <button onClick={() => handleLanguageChange("cs", "Česky", FlagOfCs)} style={{
-            padding: `${paddingOfBtn}`,
-          }} >
+          <button
+            onClick={() => handleLanguageChange("cs", "Česky", FlagOfCs)}
+            style={{
+              padding: `${paddingOfBtn}`,
+            }}
+          >
             <Image src={FlagOfCs} alt="Flag of Czech" />
-            <span style={{
-              fontSize: `${fontSize}`,
-              fontFamily: `${fontFamily}`
-            }} >Česky</span>
+            {!iconOnly && (
+              <span
+                style={{
+                  fontSize: `${fontSize}`,
+                  fontFamily: `${fontFamily}`,
+                }}
+              >
+                Česky
+              </span>
+            )}
           </button>
         )}
         {selectedLanguageName !== "Slovensky" && languages.includes("sk") && (
-          <button onClick={() => handleLanguageChange("sk", "Slovensky", FlagOfSk)} style={{
-            padding: `${paddingOfBtn}`,
-          }} >
+          <button
+            onClick={() => handleLanguageChange("sk", "Slovensky", FlagOfSk)}
+            style={{
+              padding: `${paddingOfBtn}`,
+            }}
+          >
             <Image src={FlagOfSk} alt="Flag of Slovakia" />
-            <span style={{
-              fontSize: `${fontSize}`,
-              fontFamily: `${fontFamily}`
-            }} >Slovensky</span>
+            {!iconOnly && (
+              <span
+                style={{
+                  fontSize: `${fontSize}`,
+                  fontFamily: `${fontFamily}`,
+                }}
+              >
+                Slovensky
+              </span>
+            )}
           </button>
         )}
         {selectedLanguageName !== "English" && languages.includes("en") && (
           <button
-            onClick={() => handleLanguageChange("en", "English", FlagOfUk)} style={{
+            onClick={() => handleLanguageChange("en", "English", FlagOfUk)}
+            style={{
               padding: `${paddingOfBtn}`,
-
-            }} 
+            }}
           >
             <Image src={FlagOfUk} alt="Flag of United Kingdom" />
-            <span style={{
-              fontSize: `${fontSize}`,
-              fontFamily: `${fontFamily}`
-            }} >English</span>
+            {!iconOnly && (
+              <span
+                style={{
+                  fontSize: `${fontSize}`,
+                  fontFamily: `${fontFamily}`,
+                }}
+              >
+                English
+              </span>
+            )}
           </button>
         )}
         {selectedLanguageName !== "Deutsch" && languages.includes("de") && (
-          <button onClick={() => handleLanguageChange("de", "Deutsch", FlagOfDe)} style={{
-            padding: `${paddingOfBtn}`,
-          }} >
+          <button
+            onClick={() => handleLanguageChange("de", "Deutsch", FlagOfDe)}
+            style={{
+              padding: `${paddingOfBtn}`,
+            }}
+          >
             <Image src={FlagOfDe} alt="Flag of Germany" />
-            <span style={{
-              fontSize: `${fontSize}`,
-              fontFamily: `${fontFamily}`
-            }} >Deutsch</span>
+            {!iconOnly && (
+              <span
+                style={{
+                  fontSize: `${fontSize}`,
+                  fontFamily: `${fontFamily}`,
+                }}
+              >
+                Deutsch
+              </span>
+            )}
           </button>
         )}
         {selectedLanguageName !== "Polski" && languages.includes("pl") && (
-          <button onClick={() => handleLanguageChange("pl", "Polski", FlagOfPl)} style={{
-            padding: `${paddingOfBtn}`,
-          }} >
+          <button
+            onClick={() => handleLanguageChange("pl", "Polski", FlagOfPl)}
+            style={{
+              padding: `${paddingOfBtn}`,
+            }}
+          >
             <Image src={FlagOfPl} alt="Flag of Poland" />
-            <span style={{
-              fontSize: `${fontSize}`,
-              fontFamily: `${fontFamily}`
-            }} >Polski</span>
+            {!iconOnly && (
+              <span
+                style={{
+                  fontSize: `${fontSize}`,
+                  fontFamily: `${fontFamily}`,
+                }}
+              >
+                Polski
+              </span>
+            )}
           </button>
         )}
         {selectedLanguageName !== "Magyar" && languages.includes("hu") && (
-          <button onClick={() => handleLanguageChange("hu", "Magyar", FlagOfHu)} style={{
-            padding: `${paddingOfBtn}`,
-          }} >
+          <button
+            onClick={() => handleLanguageChange("hu", "Magyar", FlagOfHu)}
+            style={{
+              padding: `${paddingOfBtn}`,
+            }}
+          >
             <Image src={FlagOfHu} alt="Flag of Hungary" />
-            <span style={{
-              fontSize: `${fontSize}`,
-              fontFamily: `${fontFamily}`
-            }} >Magyar</span>
+            {!iconOnly && (
+              <span
+                style={{
+                  fontSize: `${fontSize}`,
+                  fontFamily: `${fontFamily}`,
+                }}
+              >
+                Magyar
+              </span>
+            )}
           </button>
         )}
       </div>
