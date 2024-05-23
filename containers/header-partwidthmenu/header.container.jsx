@@ -31,11 +31,6 @@ const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
         <MenuItem content="TEST" href={`/${language}/test`} ></MenuItem>
         <MenuItem content="TEST" href={`/${language}/test`} ></MenuItem>
       </MenuItem>
-      <MenuItem content="TEST">
-        <MenuItem content="TEST" href={`/${language}/test`} ></MenuItem>
-        <MenuItem content="TEST" href={`/${language}/test`} ></MenuItem>
-        <MenuItem content="TEST" href={`/${language}/test`} ></MenuItem>
-      </MenuItem>
       <MenuItem content="TEST" href={`/${language}/test`} />
       <MenuItem content="TEST" href={`/${language}/test`} />
     </Menu>

@@ -1,7 +1,6 @@
 #article-footer {
   background-color: var(--black-75);
   color: var(--color-text-light-still);
-  // width: 100vw;
   &.fixed-footer {
     width: 100vw;
     position: absolute;
@@ -39,7 +38,6 @@
               color: var(--color-text-light-still);
               text-decoration: none;
               opacity: 0.75;
-              // transition: color 0.3s ease;
               font-size: var(--fontsize-h6);
               font-family: var(--font-secondary);
               &:hover {
