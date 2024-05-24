@@ -12,7 +12,7 @@ const Hero = () => {
     return (
         <div>
             <h1>
-            Hero
+            x
             </h1>
         </div>
     );
