@@ -32,7 +32,7 @@ const MenuLanguage = ({
   const [selectedFlagTag, setSelectedFlagTag] = useState(FlagOfCs);
   const { setLanguage, language } = useContext(LanguageContext);
   // Get other parts of pathname then language (locale)
-  const pathname = usePathname().split("/").slice(2);
+  const pathname = usePathname().split("/").slice(2).join("/");
   const router = useRouter();
 
   useEffect(() => {
