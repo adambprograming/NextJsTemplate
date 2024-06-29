@@ -25,7 +25,7 @@ const MenuLanguage = ({
   languages = [],
   fontSize = "14px",
   fontFamily = "var(--font-secondary)",
-  paddingOfBtn = "auto",
+  paddingOfBtn,
 }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [selectedLanguageName, setSelectedLanguageName] = useState("Česky");
@@ -123,7 +123,7 @@ const MenuLanguage = ({
         )}
       </button>
 
-      <div className={`${styles.menuDropdown} ${isDropdownOpen ? "active" : ""}`}>
+      <div className={`${styles.menuDropdown} ${isDropdownOpen ? styles.active : ""}`}>
         {selectedLanguageName !== "Česky" && languages.includes("cs") && (
           <button
             onClick={() => handleLanguageChange("cs", "Česky", FlagOfCs)}
