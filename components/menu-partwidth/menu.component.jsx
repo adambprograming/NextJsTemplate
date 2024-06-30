@@ -50,7 +50,6 @@ const Menu = ({
       const listOfLinksInline = document.querySelectorAll(
         `#${styles.navInline} .${styles.menuInline} > li`
       );
-      console.log(listOfLinksInline);
       for (let i = 0; i < listOfLinksInline.length; i++) {
         const width = listOfLinksInline[i].clientWidth;
         const height = listOfLinksInline[i].clientHeight;
