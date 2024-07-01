@@ -116,6 +116,14 @@ const Menu = ({
       setActiveMenu(true);
     }
   };
+  const closeMenuFunction = () => {
+    document
+      .getElementsByClassName(styles.menuIcon)
+      .item(0)
+      .classList.remove(styles.active);
+    setActiveMenu(false);
+    disactiveSubmenus();
+  };
   // If menu change to hamburger menu or oposite way, remove active submenu
   useEffect(() => {
     disactiveSubmenus();
@@ -162,6 +170,7 @@ const Menu = ({
           return cloneElement(child, {
             fontSize: fontSize,
             paddingOfEachLinkBlock: paddingOfEachLinkBlock,
+            closeMenuFunction: closeMenuFunction,
           });
         })}
       </ul>

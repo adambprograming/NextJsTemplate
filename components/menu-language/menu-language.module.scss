@@ -4,6 +4,7 @@
   }
   
   #menuLanguage.firstVariant {
+    margin: auto 0;
     position: relative;
     display: inline-block;
     .menuToggle {
@@ -68,6 +69,7 @@
   }
 
   #menuLanguage.secondVariant {
+    margin: auto 0;
     position: relative;
     .menuToggle {
       border: 1px solid var(--color-border);

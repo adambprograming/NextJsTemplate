@@ -47,7 +47,9 @@
       cursor: pointer;
       text-align: center;
       position: relative;
-      border-right: 1px solid var(--black-25);
+      // Faked border bcs of real border takes 1px thats unhoverable
+      box-shadow: 1px 0 0 0 var(--black-25); /* Border right */
+      border-right: none;
       border-left: 1px solid var(--black-25);
       &:last-child {
         border-bottom: 1px solid var(--black-25);
@@ -84,7 +86,9 @@
             cursor: pointer;
             text-align: center;
             position: relative;
-            border-right: 1px solid var(--black-25);
+            // Faked border bcs of real border takes 1px thats unhoverable
+            box-shadow: 1px 0 0 0 var(--black-25); /* Border right */
+            border-right: none;
             border-left: 1px solid var(--black-25);
             &:last-child {
               border-bottom: 1px solid var(--black-25);
@@ -122,12 +126,24 @@
       visibility: visible;
       @include ul-tilt-in-right-animation();
     }
-    & > li > .itemLinkElement ul {
-      right: 100%;
-      left: auto;
-      &.active {
-        visibility: visible;
-        @include ul-tilt-in-right-animation();
+    & > li {
+      // Faked border bcs of real border takes 1px thats unhoverable
+      box-shadow: -1px 0 0 0 var(--black-25); /* Border right */
+      border-right: 1px solid var(--black-25);
+      border-left: none;
+      & > .itemLinkElement ul {
+        right: 100%;
+        left: auto;
+        & > li {
+          // Faked border bcs of real border takes 1px thats unhoverable
+          box-shadow: -1px 0 0 0 var(--black-25); /* Border right */
+          border-right: 1px solid var(--black-25);
+          border-left: none;
+        }
+        &.active {
+          visibility: visible;
+          @include ul-tilt-in-right-animation();
+        }
       }
     }
   }
@@ -343,20 +359,10 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
     transform: translate3d(0, 0, 0) rotate(0deg);
   }
   50% {
-    transform: translate3d(
-        0,
-        $menuIcon-line-offsetY,
-        0
-      )
-      rotate(0);
+    transform: translate3d(0, $menuIcon-line-offsetY, 0) rotate(0);
   }
   100% {
-    transform: translate3d(
-        0,
-        $menuIcon-line-offsetY,
-        0
-      )
-      rotate(45deg);
+    transform: translate3d(0, $menuIcon-line-offsetY, 0) rotate(45deg);
   }
 }
 @keyframes animate-line-2 {
@@ -374,39 +380,20 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
     transform: translate3d(0, 0, 0) rotate(0deg);
   }
   50% {
-    transform: translate3d(
-        0,
-        calc(-1 * $menuIcon-line-offsetY),
-        0
-      )
-      rotate(0);
+    transform: translate3d(0, calc(-1 * $menuIcon-line-offsetY), 0) rotate(0);
   }
 
   100% {
-    transform: translate3d(
-        0,
-        calc(-1 * $menuIcon-line-offsetY),
-        0
-      )
+    transform: translate3d(0, calc(-1 * $menuIcon-line-offsetY), 0)
       rotate(-45deg);
   }
 }
 @keyframes animate-line-1-rev {
   0% {
-    transform: translate3d(
-        0,
-        $menuIcon-line-offsetY,
-        0
-      )
-      rotate(45deg);
+    transform: translate3d(0, $menuIcon-line-offsetY, 0) rotate(45deg);
   }
   50% {
-    transform: translate3d(
-        0,
-        $menuIcon-line-offsetY,
-        0
-      )
-      rotate(0);
+    transform: translate3d(0, $menuIcon-line-offsetY, 0) rotate(0);
   }
 
   100% {
@@ -425,20 +412,11 @@ $cubic-bezier-out: cubic-bezier(1, 0.7, 1, 0.3);
 }
 @keyframes animate-line-3-rev {
   0% {
-    transform: translate3d(
-        0,
-        calc(-1 * $menuIcon-line-offsetY),
-        0
-      )
+    transform: translate3d(0, calc(-1 * $menuIcon-line-offsetY), 0)
       rotate(-45deg);
   }
   50% {
-    transform: translate3d(
-        0,
-        calc(-1 * $menuIcon-line-offsetY),
-        0
-      )
-      rotate(0);
+    transform: translate3d(0, calc(-1 * $menuIcon-line-offsetY), 0) rotate(0);
   }
 
   100% {

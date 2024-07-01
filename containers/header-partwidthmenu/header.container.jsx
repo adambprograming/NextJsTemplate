@@ -17,8 +17,8 @@ import ColorThemeSwitch from "@/components/color-theme-switch/color-theme-switch
 INSTRUCTIONS
   variant           variant of menu (default is leftsettings-centerlogo-rightmenu)
             others: 
-              .leftlogo-rightmenu-rightsettings
-              .leftmenu-centerlogo-rightsettings
+              leftlogo-rightmenu-rightsettings
+              leftmenu-centerlogo-rightsettings
 */
 const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
   const { languageDict, language } = useContext(LanguageContext);

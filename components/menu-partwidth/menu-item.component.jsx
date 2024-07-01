@@ -19,6 +19,7 @@ const MenuItem = ({
   href,
   fontSize,
   paddingOfEachLinkBlock,
+  closeMenuFunction,
 }) => {
   const handleSubmenuClick = (e) => {
     const listOfSubmenus = document.getElementsByClassName(styles.submenuDropdown);
@@ -42,6 +43,7 @@ const MenuItem = ({
           className={styles.itemLinkElement}
           href={href}
           style={{ padding: paddingOfEachLinkBlock, fontSize: fontSize }}
+          onClick={closeMenuFunction}
         >
           {content}
         </Link>
@@ -59,6 +61,7 @@ const MenuItem = ({
               return cloneElement(child, {
                 fontSize: fontSize,
                 paddingOfEachLinkBlock: paddingOfEachLinkBlock,
+                closeMenuFunction: closeMenuFunction,
               });
             })}
           </ul>
