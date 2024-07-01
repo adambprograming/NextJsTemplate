@@ -3,7 +3,7 @@
 import styles from "./menu.module.scss";
 // React Functions
 import { Children, cloneElement } from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 /*
 INSTRUCTIONS
   children                MenuItem components should be there (If MenuItem have more Menu items, it will create submenu, else it will be Link)
@@ -32,6 +32,27 @@ const Menu = ({
   const [heightOfLink, setHeightOfLink] = useState(0);
   // menu will be dropdown (false) or inline (true)
   const [canBeInline, setCanBeInline] = useState(true);
+  // ref for menu
+  const menuRef = useRef(null)
+  // func to handle click outside of menu and all child - if menu active, close it
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      if (menuRef.current.getElementsByClassName(styles.active)) {
+        closeMenuFunction()
+      }
+    }
+  };
+  // Listener for mouseClick
+  useEffect(() => {
+    // Add event listener when the component is mounted
+    document.addEventListener('mousedown', handleClickOutside);
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   // update state widthOfContainer
   const updateWidthOfContainer = () => {
     try {
@@ -149,6 +170,7 @@ const Menu = ({
       onClick={() => {
         !canBeInline && !activeMenu && handleMenuClick();
       }}
+      ref={menuRef}
     >
       <div
         className={styles.menuIcon}
