@@ -8,7 +8,7 @@ import FlagOfDe from "../../public/flags/Flag_of_Germany.png";
 import FlagOfPl from "../../public/flags/Flag_of_Poland.png";
 import FlagOfHu from "../../public/flags/Flag_of_Hungary.png";
 // React/Next Functions
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 // Context & Actions
@@ -34,6 +34,30 @@ const MenuLanguage = ({
   // Get other parts of pathname then language (locale)
   const pathname = usePathname().split("/").slice(2).join("/");
   const router = useRouter();
+  // ref for menu
+  const langMenuRef = useRef(null);
+  // func to handle click outside of menu and all child - if menu active, close it
+  const handleClickOutside = (event) => {
+    if (langMenuRef.current && !langMenuRef.current.contains(event.target)) {
+      if (langMenuRef.current.getElementsByClassName(styles.active)) {
+        closeLangMenuFunction();
+      }
+    }
+  };
+  const closeLangMenuFunction = () => {
+    setDropdownOpen(false)
+  };
+  // Listener for mouseClick
+  useEffect(() => {
+    // Add event listener when the component is mounted
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     setSelectedLanguageName(
@@ -102,6 +126,7 @@ const MenuLanguage = ({
           ? styles.thirdVariant
           : styles.firstVariant
       }`}
+      ref={langMenuRef}
     >
       <button
         onClick={toggleDropdown}
@@ -123,7 +148,11 @@ const MenuLanguage = ({
         )}
       </button>
 
-      <div className={`${styles.menuDropdown} ${isDropdownOpen ? styles.active : ""}`}>
+      <div
+        className={`${styles.menuDropdown} ${
+          isDropdownOpen ? styles.active : ""
+        }`}
+      >
         {selectedLanguageName !== "Česky" && languages.includes("cs") && (
           <button
             onClick={() => handleLanguageChange("cs", "Česky", FlagOfCs)}
