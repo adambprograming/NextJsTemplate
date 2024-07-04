@@ -1,0 +1,60 @@
+.btnOnclick{
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    background-color: transparent;
+    right: 50px;
+    bottom: 50px;
+    padding: 0;
+    &.withBackdropFilter {
+        .btnOnclickBg {
+            backdrop-filter: var(--localBackdropFilter);
+        }
+        .btnOnclickBg::before {
+            content: "";
+            position: absolute; /* Ensure it is positioned relative to its parent */
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            width: 100%;
+            height: 100%;
+            background-color: var(--localBgHoverColor) !important;
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+        .btnOnclickText {
+            background: linear-gradient(to right, var(--localTextHoverColor) 50%, var(--localTextColor) 50%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: background-position 0.5s ease;
+            background-size: 200% 100%;
+            background-position: 100% 0;
+        }
+    }
+    .btnOnclickBg{
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+    .btnOnclickText{
+        color: var(--localTextColor);
+        position: relative;
+    }
+}
+
+@media only screen and (pointer: fine) {
+    .btnOnclick.withoutBackdropFilter:hover {
+        transition: filter 0.1s;
+        filter: var(--localFilter);
+    }
+    .btnOnclick.withBackdropFilter:hover .btnOnclickBg::before{
+        transform: translateX(0);
+    }
+    .btnOnclick.withBackdropFilter:hover .btnOnclickText {
+        background-position: 0 0;
+    }
+}

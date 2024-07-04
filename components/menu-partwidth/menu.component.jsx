@@ -20,7 +20,6 @@ const Menu = ({
   fontSize = "var(--fontsize-h5)",
   fontFamily = "var(--font-primary), sans-serif",
   paddingOfEachLinkBlock = "10px 10px 5px 10px",
-  // paddingOfEachLinkBlock = "10px 10px 5px 10px",
 }) => {
   // if menu is dropdown, this state have value if its active or not
   const [activeMenu, setActiveMenu] = useState(false);

@@ -1,6 +1,6 @@
 "use client";
 // Styles
-import "./btn-onclick.styles.scss";
+import styles from "./btn-onclick.module.scss";
 
 /*
 INSTRUCTIONS 
@@ -24,6 +24,7 @@ const BtnOnClick = ({
   functionOnClick,
   fontSize = "var(--fontsize-h5)",
   fontFamily = "var(--font-primary)",
+  fontWeight,
   borderRadius = "0px",
   borderSize = "1px",
   borderColor = "var(--black-100)",
@@ -32,29 +33,45 @@ const BtnOnClick = ({
   opacity = 1,
   paddingOfBtn = "10px 20px",
   width,
+  backdropFilter,
+  filter,
+  bgHoverColor,
+  textHoverColor,
 }) => {
   return (
     <button
-      className="btn-onclick"
+      className={`${styles.btnOnclick} ${
+        backdropFilter
+          ? styles.withBackdropFilter
+          : styles.withoutBackdropFilter
+      }`}
       disabled={disabled}
       style={{
         borderRadius: `${borderRadius}`,
         border: `${borderSize} solid ${borderColor}`,
-        padding: `${paddingOfBtn}`,
         width: `${width}`,
+        "--localFilter": `${filter}`,
       }}
       onClick={functionOnClick}
     >
       <span
-        className="btn-onclick-bg"
-        style={{ backgroundColor: `${bgColor}`, opacity: `${opacity}` }}
+        className={`${styles.btnOnclickBg}`}
+        style={{
+          backgroundColor: `${bgColor}`,
+          opacity: `${opacity}`,
+          "--localBackdropFilter": `${backdropFilter}`,
+          "--localBgHoverColor": `${bgHoverColor}`,
+        }}
       ></span>
       <h4
-        className="btn-onclick-text"
+        className={`${styles.btnOnclickText}`}
         style={{
-          color: `${textColor}`,
+          "--localTextColor": `${textColor}`,
+          "--localTextHoverColor": `${textHoverColor}`,
           fontSize: `${fontSize}`,
           fontFamily: `${fontFamily}`,
+          fontWeight: `${fontWeight}`,
+          padding: `${paddingOfBtn}`,
         }}
       >
         {children}
