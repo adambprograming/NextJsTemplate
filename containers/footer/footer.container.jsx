@@ -171,6 +171,7 @@ const Footer = () => {
               ariaLabel="Created by Adam Bartůšek. Visit the developer website."
               fontSize="var(--fontsize-small)"
               fontFamily="var(--font-secondary)"
+              textColor="var(--color-text-dark-still)"
               bgColor="var(--color-text-light-still)"
               opacity="0.75"
               borderRadius="20px"

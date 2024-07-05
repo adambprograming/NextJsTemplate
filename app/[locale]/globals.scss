@@ -59,19 +59,19 @@ body{
 }
 
 :root {
-    --color-primary: #9000ff;
-    --color-secondary: #5114d1;
-    --color-ascent: #060c94;
-    --color-background: #FFF9F1;
-    --color-text: #00080E;
-    --color-text-reverse: #FFF9F1;
-    --color-text-light-still: #FFF9F1;
-    --color-text-dark-still: #00080E;
+    --color-primary: #005f99; /* Medium Blue */
+    --color-secondary: #3399ff; /* Light Blue */
+    --color-ascent: #ff9933; /* Warm Orange */
+    --color-background: #f0f8ff; /* Alice Blue */
+    --color-text: #00080E; /* Dark Navy */
+    --color-text-reverse: #f0f8ff; /* Alice Blue */
+    --color-text-light-still: #f0f8ff; /* Alice Blue */
+    --color-text-dark-still: #00264d; /* Dark Navy */
+    --color-border: rgba(33, 33, 38, 0.25);
+    --color-boxshadow: rgba(0, 0, 0, 0.5);
     --color-error: rgb(243, 18, 96);
     --color-warning: rgb(245, 165, 36);
     --color-success: rgb(23, 201, 100);
-    --color-border: rgba(33, 33, 38, 0.25);
-    --color-boxshadow: rgba(0, 0, 0, 0.5);
     --black-100: #212126;
     --black-75: rgba(33, 33, 38, 0.75);
     --black-50: rgba(33, 33, 38, 0.50);
@@ -87,14 +87,14 @@ body{
 }
 
 .dark-theme {
-    --color-primary: #9000ff;
-    --color-secondary: #5114d1;
-    --color-ascent: #060c94;
-    --color-background: #00080E;
-    --color-text: #FFF9F1;
-    --color-text-reverse: #00080E;
-    --color-text-light-still: #FFF9F1;
-    --color-text-dark-still: #00080E;
+    --color-primary: #3399ff; /* Light Blue */
+    --color-secondary: #80bfff; /* Pastel Blue */
+    --color-ascent: #ffcc00; /* Golden Yellow */
+    --color-background: #00264d; /* Dark Navy */
+    --color-text: #f0f5ff; /* Very Light Blue */
+    --color-text-reverse: #00264d; /* Dark Navy */
+    --color-text-light-still: #f0f5ff; /* Very Light Blue */
+    --color-text-dark-still: #00264d; /* Dark Navy */
     --color-border: rgba(222, 222, 217, 0.25);
     --color-boxshadow: rgba(255, 255, 255, 0.5);
 }

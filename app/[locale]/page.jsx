@@ -14,15 +14,16 @@ export default function Home() {
   return (
     <main>
       <HeroSection variant="first" imgSrc={FlagOfCs} title="Cus" />
-      <Btn
+      {/* <Btn
         borderColor="black"
         borderRadius="0px"
         borderSize="2px"
         bgColor="transparent"
         backdropFilter="blur(4px)"
-        bgHoverColor="blue"
+        bgHoverColor="var(--color-primary)"
         textHoverColor="var(--color-text-reverse)"
         hoverEffect="colorFillBottom"
+        fontFamily="var(--font-secondary)"
       >
         Klikni na me
       </Btn>
@@ -33,190 +34,12 @@ export default function Home() {
         borderSize="0px"
         paddingOfBtn="5px 10px"
         bgColor="var(--color-background)"
-        bgHoverColor="lightgray"
+        bgHoverColor="var(--color-secondary)"
         filter="drop-shadow(0 0 5px var(--black-50))"
         hoverEffect="bgHover"
       >
         ClickMe
-      </Btn>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
-      <br />
-      <span>X</span>
+      </Btn> */}
     </main>
   );
 }
