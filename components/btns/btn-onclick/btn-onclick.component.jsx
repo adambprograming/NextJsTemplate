@@ -4,18 +4,29 @@ import styles from "./btn-onclick.module.scss";
 
 /*
 INSTRUCTIONS 
-  disabled          defines if button is disabled (default false)
-  functionOnClick   function that happend onClick
-  fontSize          fontSize in px (* multiplier)
-  fontFamily        fontFamily (could be like var(--font-primary), if fonts are set in variables)
-  borderRadius      borderRadius (default set to 0px)
-  borderSize        size of border (default set to 1px)
-  borderColor       color of border
-  bgColor           color of background
-  textColor         color of text
-  opacity           opacity of button background (default set to 1.0)
-  paddingOfBtn      padding will be aplied if fontSize is not defined
-  width             width of element
+  disabled              defines if button is disabled (default false)
+  functionOnClick       function that happend onClick
+  fontSize              fontSize in px (* multiplier)
+  fontFamily            fontFamily (could be like var(--font-primary), if fonts are set in variables)
+  borderRadius          borderRadius (default set to 0px)
+  borderSize            size of border (default set to 1px)
+  borderColor           color of border
+  bgColor               color of background
+  textColor             color of text
+  opacity               opacity of button background (default set to 1.0)
+  paddingOfBtn          padding will be aplied if fontSize is not defined
+  width                 width of element
+  backdropFilter        backdropfilter apply to btnOnclickBg as var
+  filter                filter apply to btnOnclick as var
+  bgHoverColor          background hover color
+  bgHoverBorderRadius   border radius for hovering bg (::before)
+  textHoverColor        text hover color
+  hoverEffect           hover effect (choose from preset of effects)
+                          1: bgHover (transition of bgHoverColor)
+                          2: colorFillLeft (slide bgHoverColorFrom left with changing textHoverColor (if declared))
+                          3: colorFillRight (slide bgHoverColorFrom right with changing textHoverColor (if declared))
+                          4: colorFillBottom (slide bgHoverColorFrom bottom with changing textHoverColor (if declared))
+                          5: colorFillTop (slide bgHoverColorFrom top with changing textHoverColor (if declared))
 */
 
 const BtnOnClick = ({
@@ -24,7 +35,7 @@ const BtnOnClick = ({
   functionOnClick,
   fontSize = "var(--fontsize-h5)",
   fontFamily = "var(--font-primary)",
-  fontWeight,
+  fontWeight = "",
   borderRadius = "0px",
   borderSize = "1px",
   borderColor = "var(--black-100)",
@@ -32,19 +43,17 @@ const BtnOnClick = ({
   textColor = "var(--color-text)",
   opacity = 1,
   paddingOfBtn = "10px 20px",
-  width,
-  backdropFilter,
-  filter,
-  bgHoverColor,
-  textHoverColor,
+  width = "",
+  backdropFilter = "",
+  filter = "",
+  bgHoverColor = "",
+  bgHoverBorderRadius = "",
+  textHoverColor = "",
+  hoverEffect= "",
 }) => {
   return (
     <button
-      className={`${styles.btnOnclick} ${
-        backdropFilter
-          ? styles.withBackdropFilter
-          : styles.withoutBackdropFilter
-      }`}
+      className={`${styles.btnOnclick} ${styles[hoverEffect]}`}
       disabled={disabled}
       style={{
         borderRadius: `${borderRadius}`,
@@ -57,17 +66,18 @@ const BtnOnClick = ({
       <span
         className={`${styles.btnOnclickBg}`}
         style={{
-          backgroundColor: `${bgColor}`,
+          "--localBgColor": `${bgColor}`,
           opacity: `${opacity}`,
           "--localBackdropFilter": `${backdropFilter}`,
           "--localBgHoverColor": `${bgHoverColor}`,
+          "--localBgHoverBorderRadius": `${bgHoverBorderRadius}`
         }}
       ></span>
       <h4
         className={`${styles.btnOnclickText}`}
         style={{
           "--localTextColor": `${textColor}`,
-          "--localTextHoverColor": `${textHoverColor}`,
+          "--localTextHoverColor": `${textHoverColor ? textHoverColor : textColor}`,
           fontSize: `${fontSize}`,
           fontFamily: `${fontFamily}`,
           fontWeight: `${fontWeight}`,

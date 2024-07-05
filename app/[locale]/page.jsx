@@ -15,25 +15,26 @@ export default function Home() {
     <main>
       <HeroSection variant="first" imgSrc={FlagOfCs} title="Cus" />
       <BtnOnClick
-        borderColor="white"
+        borderColor="black"
         borderRadius="35px"
-        borderSize="2px"
-        bgColor="transparent"
+        borderSize="1px"
+        bgColor="red"
         backdropFilter="blur(4px)"
-        bgHoverColor="red"
+        bgHoverColor="blue"
         textHoverColor="var(--color-text-reverse)"
-        
+        hoverEffect="colorFillLeft"
       >
-        ClickMe
+        Klikni na me
       </BtnOnClick>
       <BtnOnClick
         borderColor="black"
         borderRadius="15px"
-        borderSize="2px"
-        bgColor="transparent"
-        bgHoverColor="red"
-        filter="brightness(1.15) drop-shadow(0 0 5px var(--black-50))"
-        // backdropFilter="blur(4px)"
+        borderSize="0px"
+        paddingOfBtn="5px 10px"
+        bgColor="var(--color-background)"
+        bgHoverColor="lightgray"
+        filter="drop-shadow(0 0 5px var(--black-50))"
+        hoverEffect="bgHover"
       >
         ClickMe
       </BtnOnClick>
