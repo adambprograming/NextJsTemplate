@@ -8,7 +8,7 @@ import { useContext } from "react";
 // Context & Actions
 import { LanguageContext } from "@/context/lang.context";
 // Componenets
-import BtnLink from "@/components/btns/btn-link/btn-link.component";
+import Btn from "@/components/btn/btn.component";
 
 export default function NotFound() {
   const { languageDict, language } = useContext(LanguageContext);
@@ -29,7 +29,7 @@ export default function NotFound() {
       <p style={{ margin: 0 }}>
         {languageDict.notFound.msg}
       </p>
-      <BtnLink
+      <Btn
         href={`/${language}`}
         fontFamily="var(--font-secondary)"
         fontSize="var(--fontsize-h6)"
@@ -39,7 +39,7 @@ export default function NotFound() {
         paddingOfBtn="8px 16px"
       >
         {languageDict.notFound.btn}
-      </BtnLink>
+      </Btn>
     </div>
   );
 }

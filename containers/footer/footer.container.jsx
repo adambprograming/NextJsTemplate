@@ -16,7 +16,7 @@ import { useState, useEffect, useRef, useContext } from "react";
 // Context & Actions
 import { LanguageContext } from "@/context/lang.context";
 // Components
-import BtnLink from "../../components/btns/btn-link/btn-link.component";
+import Btn from "@/components/btn/btn.component";
 import Popup from "../../components/popup/popup.component";
 
 const Footer = () => {
@@ -166,7 +166,7 @@ const Footer = () => {
           <p> Adam Bartůšek &copy; 2022-2024.</p>
           <p>
           {dict.created.part1}{" "}
-            <BtnLink
+            <Btn
               href="https://www.adam-bartusek.cz/"
               ariaLabel="Created by Adam Bartůšek. Visit the developer website."
               fontSize="var(--fontsize-small)"
@@ -174,9 +174,10 @@ const Footer = () => {
               bgColor="var(--color-text-light-still)"
               opacity="0.75"
               borderRadius="20px"
+              filter="brightness(1.15) drop-shadow(0 0 5px var(--black-50))"
             >
               Adam Bartůšek
-            </BtnLink>
+            </Btn>
             {". "}{dict.created.part2}{"."}
           </p>
         </div>

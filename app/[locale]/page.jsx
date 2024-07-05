@@ -8,25 +8,26 @@ import FlagOfCs from "../../public/flags/Flag_of_the_Czech_Republic.png";
 
 // Componenets
 import HeroSection from "@/containers/hero/hero.container";
-import BtnOnClick from "@/components/btns/btn-onclick/btn-onclick.component";
+import Btn from "@/components/btn/btn.component";
 
 export default function Home() {
   return (
     <main>
       <HeroSection variant="first" imgSrc={FlagOfCs} title="Cus" />
-      <BtnOnClick
+      <Btn
         borderColor="black"
-        borderRadius="35px"
-        borderSize="1px"
-        bgColor="red"
+        borderRadius="0px"
+        borderSize="2px"
+        bgColor="transparent"
         backdropFilter="blur(4px)"
         bgHoverColor="blue"
         textHoverColor="var(--color-text-reverse)"
         hoverEffect="colorFillLeft"
       >
         Klikni na me
-      </BtnOnClick>
-      <BtnOnClick
+      </Btn>
+      <Btn
+        href="/e"
         borderColor="black"
         borderRadius="15px"
         borderSize="0px"
@@ -37,7 +38,7 @@ export default function Home() {
         hoverEffect="bgHover"
       >
         ClickMe
-      </BtnOnClick>
+      </Btn>
       <br />
       <span>X</span>
       <br />

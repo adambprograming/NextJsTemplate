@@ -1,6 +1,8 @@
 "use client";
 // Styles
-import styles from "./btn-onclick.module.scss";
+import styles from "./btn.module.scss";
+// React Functions
+import Link from "next/link";
 
 /*
 INSTRUCTIONS 
@@ -16,8 +18,8 @@ INSTRUCTIONS
   opacity               opacity of button background (default set to 1.0)
   paddingOfBtn          padding will be aplied if fontSize is not defined
   width                 width of element
-  backdropFilter        backdropfilter apply to btnOnclickBg as var
-  filter                filter apply to btnOnclick as var
+  backdropFilter        backdropfilter apply to btnBg as var
+  filter                filter apply to btn as var
   bgHoverColor          background hover color
   bgHoverBorderRadius   border radius for hovering bg (::before)
   textHoverColor        text hover color
@@ -29,9 +31,12 @@ INSTRUCTIONS
                           5: colorFillTop (slide bgHoverColorFrom top with changing textHoverColor (if declared))
 */
 
-const BtnOnClick = ({
+const Btn = ({
   children,
   disabled = false,
+  itsScroll = false,
+  href = "",
+  ariaLabel = `${children}`,
   functionOnClick,
   fontSize = "var(--fontsize-h5)",
   fontFamily = "var(--font-primary)",
@@ -49,11 +54,12 @@ const BtnOnClick = ({
   bgHoverColor = "",
   bgHoverBorderRadius = "",
   textHoverColor = "",
-  hoverEffect= "",
+  hoverEffect = "",
 }) => {
+  const itsLinkBtn = href && !functionOnClick ? true : false;
   return (
     <button
-      className={`${styles.btnOnclick} ${styles[hoverEffect]}`}
+      className={`${styles.btn} ${styles[hoverEffect]}`}
       disabled={disabled}
       style={{
         borderRadius: `${borderRadius}`,
@@ -61,23 +67,39 @@ const BtnOnClick = ({
         width: `${width}`,
         "--localFilter": `${filter}`,
       }}
-      onClick={functionOnClick}
+      onClick={() => {
+        itsLinkBtn
+          ? itsScroll &&
+            document
+              .getElementById(`${href}`)
+              .scrollIntoView({ behavior: "smooth" })
+          : functionOnClick;
+      }}
     >
       <span
-        className={`${styles.btnOnclickBg}`}
+        className={`${styles.btnBg}`}
         style={{
           "--localBgColor": `${bgColor}`,
           opacity: `${opacity}`,
           "--localBackdropFilter": `${backdropFilter}`,
           "--localBgHoverColor": `${bgHoverColor}`,
-          "--localBgHoverBorderRadius": `${bgHoverBorderRadius}`
+          "--localBgHoverBorderRadius": `${bgHoverBorderRadius}`,
         }}
       ></span>
+      {itsLinkBtn && !itsScroll && (
+        <Link
+          className={`${styles.btnLink}`}
+          href={href}
+          aria-label={`${ariaLabel}`}
+        ></Link>
+      )}
       <h4
-        className={`${styles.btnOnclickText}`}
+        className={`${styles.btnText}`}
         style={{
           "--localTextColor": `${textColor}`,
-          "--localTextHoverColor": `${textHoverColor ? textHoverColor : textColor}`,
+          "--localTextHoverColor": `${
+            textHoverColor ? textHoverColor : textColor
+          }`,
           fontSize: `${fontSize}`,
           fontFamily: `${fontFamily}`,
           fontWeight: `${fontWeight}`,
@@ -90,4 +112,4 @@ const BtnOnClick = ({
   );
 };
 
-export default BtnOnClick;
+export default Btn;

@@ -1,13 +1,11 @@
-.btnOnclick {
+.btn {
   cursor: pointer;
   overflow: hidden;
   position: relative;
   background-color: transparent;
-  right: 50px;
-  bottom: 50px;
   padding: 0;
   transition: filter 0.2s;
-  .btnOnclickBg {
+  .btnBg {
     background-color: var(--localBgColor);
     backdrop-filter: var(--localBackdropFilter);
     display: block;
@@ -17,15 +15,24 @@
     left: 0;
     top: 0;
   }
-  .btnOnclickText {
+  .btnLink {
+    display: block;
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    z-index: 1;
+    left: 0;
+    top: 0;
+  }
+  .btnText {
     color: var(--localTextColor);
     position: relative;
   }
-  &.bgHover .btnOnclickBg {
+  &.bgHover .btnBg {
     transition: background-color 0.2s;
   }
   &.colorFillLeft {
-    .btnOnclickBg::before {
+    .btnBg::before {
       content: "";
       position: absolute; /* Ensure it is positioned relative to its parent */
       top: 0;
@@ -37,7 +44,7 @@
       transform: translateX(-100%);
       transition: transform 0.4s ease;
     }
-    .btnOnclickText {
+    .btnText {
       background: linear-gradient(
         to right,
         var(--localTextHoverColor) 50%,
@@ -52,7 +59,7 @@
     }
   }
   &.colorFillRight {
-    .btnOnclickBg::before {
+    .btnBg::before {
       content: "";
       position: absolute; /* Ensure it is positioned relative to its parent */
       top: 0;
@@ -63,7 +70,7 @@
       transform: translateX(100%);
       transition: transform 0.4s ease;
     }
-    .btnOnclickText {
+    .btnText {
       background: linear-gradient(
         to right,
         var(--localTextHoverColor) 50%,
@@ -78,7 +85,7 @@
     }
   }
   &.colorFillBottom {
-    .btnOnclickBg::before {
+    .btnBg::before {
       content: "";
       position: absolute; /* Ensure it is positioned relative to its parent */
       top: 0;
@@ -89,7 +96,7 @@
       transform: translateY(100%);
       transition: transform 0.4s ease;
     }
-    .btnOnclickText {
+    .btnText {
       background: linear-gradient(
         to bottom,
         var(--localTextHoverColor) 50%,
@@ -104,7 +111,7 @@
     }
   }
   &.colorFillTop {
-    .btnOnclickBg::before {
+    .btnBg::before {
       content: "";
       position: absolute; /* Ensure it is positioned relative to its parent */
       top: 0;
@@ -115,7 +122,7 @@
       transform: translateY(-100%);
       transition: transform 0.4s ease;
     }
-    .btnOnclickText {
+    .btnText {
       background: linear-gradient(
         to bottom,
         var(--localTextHoverColor) 50%,
@@ -132,44 +139,44 @@
 }
 
 @media only screen and (pointer: fine) {
-  .btnOnclick {
+  .btn {
     &:hover {
       filter: var(--localFilter);
     }
     &.bgHover:hover {
-      .btnOnclickBg {
+      .btnBg {
         background-color: var(--localBgHoverColor) !important;
       }
     }
     &.colorFillLeft:hover {
-      .btnOnclickText {
+      .btnText {
         background-position: 0 0;
       }
-      .btnOnclickBg::before {
+      .btnBg::before {
         transform: translateX(0);
       }
     }
     &.colorFillRight:hover {
-      .btnOnclickText {
+      .btnText {
         background-position: 0 0;
       }
-      .btnOnclickBg::before {
+      .btnBg::before {
         transform: translateX(0);
       }
     }
     &.colorFillBottom:hover {
-      .btnOnclickText {
+      .btnText {
         background-position: 0 0;
       }
-      .btnOnclickBg::before {
+      .btnBg::before {
         transform: translateY(0);
       }
     }
     &.colorFillTop:hover {
-      .btnOnclickText {
+      .btnText {
         background-position: 0 0;
       }
-      .btnOnclickBg::before {
+      .btnBg::before {
         transform: translateY(0);
       }
     }
