@@ -9,7 +9,7 @@ import "./globals.scss";
 // Context
 import { LanguageProvider } from "@/context/lang.context.jsx";
 // Components
-import Header from "@/containers/header-partwidthmenu/header.container.jsx";
+import Header from "@/containers/header/header.container.jsx";
 import Footer from "@/containers/footer/footer.container.jsx";
 
 const anton = Anton({

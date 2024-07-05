@@ -9,8 +9,8 @@ import Link from "next/link";
 // Context & Actions
 import { LanguageContext } from "@/context/lang.context";
 // Components
-import Menu from "@/components/menu-partwidth/menu.component.jsx";
-import MenuItem from "@/components/menu-partwidth/menu-item.component.jsx";
+import Menu from "@/components/menu/menu.component.jsx";
+import MenuItem from "@/components/menu/menu-item.component.jsx";
 import MenuLanguage from "@/components/menu-language/menu-language.component";
 import ColorThemeSwitch from "@/components/color-theme-switch/color-theme-switch.component";
 /*

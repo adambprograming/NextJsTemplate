@@ -22,12 +22,12 @@ export default function Home() {
         backdropFilter="blur(4px)"
         bgHoverColor="blue"
         textHoverColor="var(--color-text-reverse)"
-        hoverEffect="colorFillLeft"
+        hoverEffect="colorFillBottom"
       >
         Klikni na me
       </Btn>
       <Btn
-        href="/e"
+        href="https://ui-patterns.com/patterns"
         borderColor="black"
         borderRadius="15px"
         borderSize="0px"
