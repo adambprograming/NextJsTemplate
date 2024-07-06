@@ -26,22 +26,29 @@ const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
   const renderMenu = (location) => {
     return (
       <Menu location={location}>
-      <MenuItem content="‎ TEST ‎">
-        <MenuItem content="TEST" href={`/${language}/test`} ></MenuItem>
-        <MenuItem content="TEST" href={`/${language}/test`} ></MenuItem>
-        <MenuItem content="TEST" href={`/${language}/test`} ></MenuItem>
-      </MenuItem>
-      <MenuItem content="TEST" href={`/${language}/test`} />
-      <MenuItem content="TEST" href={`/${language}/test`} />
-    </Menu>
+        {/* <MenuItem content="‎ TEST ‎">
+          <MenuItem content="TEST" href={`/${language}/test`}></MenuItem>
+          <MenuItem content="TEST" href={`/${language}/test`}></MenuItem>
+          <MenuItem content="TEST" href={`/${language}/test`}></MenuItem>
+        </MenuItem> */}
+        <MenuItem content="O mně" href={`/${language}/about-me`} />
+        <MenuItem content="Portfolio" href={`/${language}/portfolio`} />
+        <MenuItem content="Služby" href={`/${language}/services`} />
+        <MenuItem content="Ceník" href={`/${language}/pricing`} />
+        <MenuItem content="Kontakt" href={`/${language}/contact`} />
+      </Menu>
     );
   };
 
   const renderSettings = () => {
     return (
       <div className="header-settings">
-        <ColorThemeSwitch variant="third"/>
-        <MenuLanguage iconOnly={true} variant="second" languages={["cs", "en"/*, "sk", "de", "pl", "hu"*/]}/>
+        <ColorThemeSwitch variant="third" />
+        <MenuLanguage
+          iconOnly={true}
+          variant="second"
+          languages={["cs", "en" /*, "sk", "de", "pl", "hu"*/]}
+        />
       </div>
     );
   };
@@ -49,7 +56,7 @@ const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
   const renderLogo = () => {
     return (
       <Link href={`/${language}`}>
-        <Logo alt="Logo" id="logo-header" aria-label="Go to home page"/>
+        <Logo alt="Logo" id="logo-header" aria-label="Go to home page" />
       </Link>
     );
   };
@@ -61,23 +68,15 @@ const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
         <div className="header-container-settings">
           {renderSettings("left")}
         </div>
-        <div className="header-container-logo">
-          {renderLogo()}
-        </div>
-        <div id="header-container-menu">
-          {renderMenu("right")}
-        </div>
+        <div className="header-container-logo">{renderLogo()}</div>
+        <div id="header-container-menu">{renderMenu("right")}</div>
       </header>
     );
   } else if (variant === "leftlogo-rightmenu-rightsettings") {
     return (
       <header id="article-header" className={`${variant}`}>
-        <div className="header-container-logo">
-          {renderLogo()}
-        </div>
-        <div id="header-container-menu">
-          {renderMenu("right")}
-        </div>
+        <div className="header-container-logo">{renderLogo()}</div>
+        <div id="header-container-menu">{renderMenu("right")}</div>
         <div className="header-container-settings">
           {renderSettings("right")}
         </div>
@@ -86,12 +85,8 @@ const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
   } else if (variant === "leftmenu-centerlogo-rightsettings") {
     return (
       <header id="article-header" className={`${variant}`}>
-        <div id="header-container-menu">
-          {renderMenu("left")}
-        </div>
-        <div className="header-container-logo">
-          {renderLogo()}
-        </div>
+        <div id="header-container-menu">{renderMenu("left")}</div>
+        <div className="header-container-logo">{renderLogo()}</div>
         <div className="header-container-settings">
           {renderSettings("right")}
         </div>
