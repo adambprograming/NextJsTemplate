@@ -1,5 +1,5 @@
 // For 1 & 2
-$padding-header: 2rem clamp(1rem, 5%, 4rem);
+$padding-header: var(--padding-sections);
 $gap-header: 2vw;
 $width-logo: clamp(50px, 15vw, 150px);
 

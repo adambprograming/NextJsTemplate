@@ -28,10 +28,22 @@
     color: var(--localTextColor);
     position: relative;
   }
-  &.bgHover .btnBg {
-    transition: background-color 0.2s color 0.2s;
+  &.bgHover {
+    .btnBg::before {
+      content: "";
+      position: absolute; /* Ensure it is positioned relative to its parent */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      transition: background-color 0.4s ease;
+    }
+    .btnText {
+      transition: color 0.1s ease;
+    }
   }
-  &.colorFillLeft {
+  &.cfLeft {
     .btnBg::before {
       content: "";
       position: absolute; /* Ensure it is positioned relative to its parent */
@@ -41,7 +53,7 @@
       height: 100%;
       border-radius: var(--localBgHoverBorderRadius);
       background-color: var(--localBgHoverColor) !important;
-      transform: translateX(-100%);
+      transform: translateX(-105%);
       transition: transform 0.4s ease;
     }
     .btnText {
@@ -58,7 +70,7 @@
       background-position: 100% 0;
     }
   }
-  &.colorFillRight {
+  &.cfRight {
     .btnBg::before {
       content: "";
       position: absolute; /* Ensure it is positioned relative to its parent */
@@ -66,8 +78,9 @@
       left: 0;
       width: 100%;
       height: 100%;
+      border-radius: var(--localBgHoverBorderRadius);
       background-color: var(--localBgHoverColor) !important;
-      transform: translateX(100%);
+      transform: translateX(105%);
       transition: transform 0.4s ease;
     }
     .btnText {
@@ -84,7 +97,7 @@
       background-position: -100% 0;
     }
   }
-  &.colorFillBottom {
+  &.cfBottom {
     .btnBg::before {
       content: "";
       position: absolute; /* Ensure it is positioned relative to its parent */
@@ -92,8 +105,9 @@
       left: 0;
       width: 100%;
       height: 100%;
+      border-radius: var(--localBgHoverBorderRadius);
       background-color: var(--localBgHoverColor) !important;
-      transform: translateY(100%);
+      transform: translateY(105%);
       transition: transform 0.4s ease;
     }
     .btnText {
@@ -110,7 +124,7 @@
       background-position: 0 -100%;
     }
   }
-  &.colorFillTop {
+  &.cfTop {
     .btnBg::before {
       content: "";
       position: absolute; /* Ensure it is positioned relative to its parent */
@@ -118,8 +132,9 @@
       left: 0;
       width: 100%;
       height: 100%;
+      border-radius: var(--localBgHoverBorderRadius);
       background-color: var(--localBgHoverColor) !important;
-      transform: translateY(-100%);
+      transform: translateY(-105%);
       transition: transform 0.4s ease;
     }
     .btnText {
@@ -136,6 +151,22 @@
       background-position: 0 100%;
     }
   }
+  &.brc {
+    transition: border-radius 0.4s ease;
+    .btnBg::before {
+      content: "";
+      position: absolute; /* Ensure it is positioned relative to its parent */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      transition: background-color 0.4s ease;
+    }
+    .btnText {
+      transition: color 0.1s ease;
+    }
+  }
 }
 
 @media only screen and (pointer: fine) {
@@ -144,14 +175,14 @@
       filter: var(--localFilter);
     }
     &.bgHover:hover {
-      .btnBg {
+      .btnBg::before {
         background-color: var(--localBgHoverColor) !important;
       }
-      .btnText{
-        color: var(--localTextHoverColor)
+      .btnText {
+        color: var(--localTextHoverColor);
       }
     }
-    &.colorFillLeft:hover {
+    &.cfLeft:hover {
       .btnText {
         background-position: 0 0;
       }
@@ -159,7 +190,7 @@
         transform: translateX(0);
       }
     }
-    &.colorFillRight:hover {
+    &.cfRight:hover {
       .btnText {
         background-position: 0 0;
       }
@@ -167,7 +198,7 @@
         transform: translateX(0);
       }
     }
-    &.colorFillBottom:hover {
+    &.cfBottom:hover {
       .btnText {
         background-position: 0 0;
       }
@@ -175,12 +206,21 @@
         transform: translateY(0);
       }
     }
-    &.colorFillTop:hover {
+    &.cfTop:hover {
       .btnText {
         background-position: 0 0;
       }
       .btnBg::before {
         transform: translateY(0);
+      }
+    }
+    &.brc:hover {
+      border-radius: var(--localBorderHoverRadius) !important;
+      .btnBg::before {
+        background-color: var(--localBgHoverColor) !important;
+      }
+      .btnText {
+        color: var(--localTextHoverColor);
       }
     }
   }

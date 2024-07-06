@@ -84,6 +84,7 @@ body{
     --breakpoint-768: 768px; // < Tablet < 1024px
     --breakpoint-480: 480px; // > Mobile (Between 480px & 768px is small tablet)
     --breakpoint-300: 320px; // Smallest phone width
+    --padding-sections: 2rem clamp(1rem, 5%, 4rem);
 }
 
 .dark-theme {

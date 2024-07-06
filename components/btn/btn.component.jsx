@@ -6,29 +6,34 @@ import Link from "next/link";
 
 /*
 INSTRUCTIONS 
-  disabled              defines if button is disabled (default false)
-  functionOnClick       function that happend onClick
-  fontSize              fontSize in px (* multiplier)
-  fontFamily            fontFamily (could be like var(--font-primary), if fonts are set in variables)
-  borderRadius          borderRadius (default set to 0px)
-  borderSize            size of border (default set to 1px)
-  borderColor           color of border
-  bgColor               color of background
-  textColor             color of text
-  opacity               opacity of button background (default set to 1.0)
-  paddingOfBtn          padding will be aplied if fontSize is not defined
-  width                 width of element
-  backdropFilter        backdropfilter apply to btnBg as var
-  filter                filter apply to btn as var
-  bgHoverColor          background hover color
-  bgHoverBorderRadius   border radius for hovering bg (::before)
-  textHoverColor        text hover color
-  hoverEffect           hover effect (choose from preset of effects)
+  disabled              (*)defines if button is disabled (default false)
+  itsScroll             (*)if link should be just on page (scroll)
+  href                  (*)link or id of element to scroll to
+  ariaLabel             (*)label for link
+  functionOnClick       (*)function that happend onClick
+  fontSize              (*)fontSize in px (* multiplier)
+  fontFamily            (*)fontFamily (could be like var(--font-primary), if fonts are set in variables)
+  borderRadius          (*)borderRadius (default set to 0px)
+  borderHoverRadius     (6)its new radius of btn
+  borderSize            (*)size of border (default set to 1px)
+  borderColor           (*)color of border
+  bgColor               (*)color of background
+  textColor             (*)color of text
+  opacity               (*)opacity of button background (default set to 1.0)
+  paddingOfBtn          (*)padding will be aplied if fontSize is not defined
+  width                 (*)width of element
+  backdropFilter        (*)backdropfilter apply to btnBg as var
+  filter                (*)filter apply to btn as var
+  bgHoverColor          (*)background hover color
+  bgHoverBorderRadius   (2,3,4,5)border radius for hovering bg (::before)
+  textHoverColor        (*)text hover color
+  hoverEffect           (*)hover effect (choose from preset of effects)
                           1: bgHover (transition of bgHoverColor)
-                          2: colorFillLeft (slide bgHoverColorFrom left with changing textHoverColor (if declared))
-                          3: colorFillRight (slide bgHoverColorFrom right with changing textHoverColor (if declared))
-                          4: colorFillBottom (slide bgHoverColorFrom bottom with changing textHoverColor (if declared))
-                          5: colorFillTop (slide bgHoverColorFrom top with changing textHoverColor (if declared))
+                          2: cfLeft (color fill left) (slide bgHoverColorFrom left with changing textHoverColor (if declared))
+                          3: cfRight (color fill right) (slide bgHoverColorFrom right with changing textHoverColor (if declared))
+                          4: cfBottom (color fill bottom) (slide bgHoverColorFrom bottom with changing textHoverColor (if declared))
+                          5: cfTop (color fill top) (slide bgHoverColorFrom top with changing textHoverColor (if declared))
+                          6: brc (border radius change) (border radius of btn change to borderHoverRadius)
 */
 
 const Btn = ({
@@ -42,9 +47,10 @@ const Btn = ({
   fontFamily = "var(--font-primary)",
   fontWeight = "",
   borderRadius = "0px",
+  borderHoverRadius = "",
   borderSize = "1px",
-  borderColor = "var(--black-100)",
-  bgColor = "var(--color-primary)",
+  borderColor = "var(--color-border)",
+  bgColor = "var(--color-secondary)",
   textColor = "var(--color-text)",
   opacity = 1,
   paddingOfBtn = "10px 20px",
@@ -63,6 +69,7 @@ const Btn = ({
       disabled={disabled}
       style={{
         borderRadius: `${borderRadius}`,
+        "--localBorderHoverRadius": `${borderHoverRadius}`,
         border: `${borderSize} solid ${borderColor}`,
         width: `${width}`,
         "--localFilter": `${filter}`,
