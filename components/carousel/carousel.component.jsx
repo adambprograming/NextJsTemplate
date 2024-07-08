@@ -8,37 +8,44 @@ import { cloneElement } from "react";
 import { useState, useEffect, useRef } from "react";
 // Context & Actions
 
-// Componenets
-import Btn from "../btn/btn.component";
+// Components
 
 /*
 INSTRUCTIONS
-
+infinite        three options 
+                  1: notInfinite for swiping just right to last item and there is no right arrow
+                  2: pseudoInfinite for swiping to last element and at last element right arrow do swipe back to first element
+                  3: infinite for endless swiping
 */
-
-const Carousel = ({ children }) => {
+const Carousel = ({ children, infinite = "notInfinite" }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [startPosition, setStartPosition] = useState(0);
+  const [currentTranslate, setCurrentTranslate] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const transitionRef = useRef(null);
   const length = children.length;
 
   // Cloning the first and last children for the infinite loop effect
-  const clonedChildren = [
-    cloneElement(children[length - 1], { key: length + 1 }),
-    ...children,
-    cloneElement(children[0], { key: length + 2 }),
-  ];
+  const clonedChildren = infinite === "infinite"
+    ? [
+        cloneElement(children[length - 1], { key: length + 1 }),
+        ...children,
+        cloneElement(children[0], { key: length + 2 }),
+      ]
+    : children;
 
   useEffect(() => {
     if (isTransitioning) {
       const transitionEnd = () => {
         setIsTransitioning(false);
-        if (currentIndex === length) {
-          setCurrentIndex(0);
-        } else if (currentIndex === -1) {
-          setCurrentIndex(length - 1);
+        if (infinite === "infinite") {
+          if (currentIndex === length) {
+            setCurrentIndex(0);
+          } else if (currentIndex === -1) {
+            setCurrentIndex(length - 1);
+          }
+          setCurrentTranslate(0);
         }
       };
       const transitionRefCurrent = transitionRef.current;
@@ -51,19 +58,29 @@ const Carousel = ({ children }) => {
         );
       };
     }
-  }, [isTransitioning, currentIndex, length]);
+  }, [isTransitioning, currentIndex, length, infinite]);
 
   const next = () => {
     if (!isTransitioning) {
-      setIsTransitioning(true);
-      setCurrentIndex((prevIndex) => prevIndex + 1);
+      if (infinite === "infinite" || currentIndex < length - 1) {
+        setIsTransitioning(true);
+        setCurrentIndex((prevIndex) => prevIndex + 1);
+      } else if (infinite === "pseudoInfinite" && currentIndex === length - 1) {
+        setIsTransitioning(true);
+        setCurrentIndex(0);
+      }
     }
   };
 
   const prev = () => {
     if (!isTransitioning) {
-      setIsTransitioning(true);
-      setCurrentIndex((prevIndex) => prevIndex - 1);
+      if (infinite === "infinite" || currentIndex > 0) {
+        setIsTransitioning(true);
+        setCurrentIndex((prevIndex) => prevIndex - 1);
+      } else if (infinite === "pseudoInfinite" && currentIndex === 0) {
+        setIsTransitioning(true);
+        setCurrentIndex(length - 1);
+      }
     }
   };
 
@@ -84,17 +101,20 @@ const Carousel = ({ children }) => {
     if (!isDragging) return;
     const currentPosition = e.pageX;
     const diff = startPosition - currentPosition;
-    if (diff > 50) {
-      next();
-      setIsDragging(false);
-    } else if (diff < -50) {
-      prev();
-      setIsDragging(false);
-    }
+    setCurrentTranslate(diff);
   };
 
   const handleMouseUp = () => {
-    setIsDragging(false);
+    if (isDragging) {
+      if (currentTranslate > 50) {
+        next();
+      } else if (currentTranslate < -50) {
+        prev();
+      } else {
+        setCurrentTranslate(0);
+      }
+      setIsDragging(false);
+    }
   };
 
   const handleTouchStart = (e) => {
@@ -106,17 +126,25 @@ const Carousel = ({ children }) => {
     if (!isDragging) return;
     const currentPosition = e.touches[0].clientX;
     const diff = startPosition - currentPosition;
-    if (diff > 50) {
-      next();
-      setIsDragging(false);
-    } else if (diff < -50) {
-      prev();
+    setCurrentTranslate(diff);
+  };
+
+  const handleTouchEnd = () => {
+    if (isDragging) {
+      if (currentTranslate > 50) {
+        next();
+      } else if (currentTranslate < -50) {
+        prev();
+      } else {
+        setCurrentTranslate(0);
+      }
       setIsDragging(false);
     }
   };
 
-  const handleTouchEnd = () => {
+  const handleMouseLeave = () => {
     setIsDragging(false);
+    setCurrentTranslate(0);
   };
 
   return (
@@ -129,23 +157,29 @@ const Carousel = ({ children }) => {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       onWheel={handleWheel}
+      onMouseLeave={handleMouseLeave}
+      tabIndex={0} // Add tabIndex to make the div focusable
     >
-      <button onClick={prev} className={styles.navButton}>
-        {"<"}
-      </button>
+      {(infinite === "infinite" || infinite === "pseudoInfinite" || currentIndex > 0) && (
+        <button onClick={prev} className={`${styles.navBtn} ${styles.leftBtn}`}>
+          {"<"}
+        </button>
+      )}
       <div
         className={styles.carouselInner}
         style={{
-          transform: `translateX(-${(currentIndex + 1) * 100}%)`,
+          transform: `translateX(calc(-${(currentIndex + (infinite === "infinite" ? 1 : 0)) * 100}% - ${currentTranslate}px))`,
           transition: isTransitioning ? "transform 0.5s ease" : "none",
         }}
         ref={transitionRef}
       >
         {clonedChildren}
       </div>
-      <button onClick={next} className={styles.navButton}>
-        {">"}
-      </button>
+      {(infinite === "infinite" || infinite === "pseudoInfinite" || currentIndex < length - 1) && (
+        <button onClick={next} className={`${styles.navBtn} ${styles.rightBtn}`}>
+          {">"}
+        </button>
+      )}
     </div>
   );
 };

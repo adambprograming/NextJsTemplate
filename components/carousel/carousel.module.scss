@@ -12,7 +12,7 @@
     transition: transform 0.5s ease;
     width: 100%;
   }
-  .navButton {
+  .navBtn {
     font-size: large;
     position: absolute;
     z-index: 1;
@@ -23,10 +23,10 @@
     border: none;
     cursor: pointer;
     padding: 10px;
-    &:nth-of-type(1) {
+    &.leftBtn {
       left: 5px;
     }
-    &:nth-of-type(2) {
+    &.rightBtn {
       right: 5px;
     }
   }
