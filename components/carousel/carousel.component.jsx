@@ -16,8 +16,11 @@ infinite        three options
                   1: notInfinite for swiping just right to last item and there is no right arrow
                   2: pseudoInfinite for swiping to last element and at last element right arrow do swipe back to first element
                   3: infinite for endless swiping
+fullWidth       if true, one item take full potential width, else take 86% and 7% on each side take previous and next item
+animation       animation of carousel, options:
+                  "cube": 
 */
-const Carousel = ({ children, infinite = "notInfinite" }) => {
+const Carousel = ({ children, infinite = "notInfinite", fullWidth = true, animation = "none" }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [startPosition, setStartPosition] = useState(0);
@@ -147,9 +150,24 @@ const Carousel = ({ children, infinite = "notInfinite" }) => {
     setCurrentTranslate(0);
   };
 
+  const getRelativePosition = (index) => {
+    if(infinite === "notInfinite" || infinite === "pseudoInfinite") {
+      if (index === currentIndex) return "active";
+      if (index === (currentIndex + 1) % length) return "rightToActive";
+      if (index === (currentIndex - 1 + length) % length) return "leftToActive";
+    } else if (infinite === "infinite") {
+      if (index - 1 === currentIndex) return "active";
+      if (index - 1 === (currentIndex + 1) % length) return "rightToActive";
+      if (index - 1 === (currentIndex - 1 + length) % length) return "leftToActive";
+      if (index === 0 && currentIndex === 0) return "leftToActive"
+      if (index - 1 === length && currentIndex + 1 === length) return "rightToActive"
+    }
+    return "other";
+  };
+
   return (
     <div
-      className={styles.carousel}
+      className={`${styles.carousel} ${styles[animation]}`}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
@@ -168,12 +186,18 @@ const Carousel = ({ children, infinite = "notInfinite" }) => {
       <div
         className={styles.carouselInner}
         style={{
+          width: `${fullWidth ? "100%" : "86%"}`,
           transform: `translateX(calc(-${(currentIndex + (infinite === "infinite" ? 1 : 0)) * 100}% - ${currentTranslate}px))`,
           transition: isTransitioning ? "transform 0.5s ease" : "none",
         }}
         ref={transitionRef}
       >
-        {clonedChildren}
+        {clonedChildren.map((child, index) =>
+          cloneElement(child, {
+            key: index,
+            "active": getRelativePosition(index),
+          })
+        )}
       </div>
       {(infinite === "infinite" || infinite === "pseudoInfinite" || currentIndex < length - 1) && (
         <button onClick={next} className={`${styles.navBtn} ${styles.rightBtn}`}>

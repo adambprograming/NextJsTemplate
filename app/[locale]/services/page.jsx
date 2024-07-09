@@ -16,47 +16,33 @@ import Btn from "@/components/btn/btn.component";
 const ServicesPage = () => {
   return (
     <main className={styles.main}>
-      <Carousel infinite="infinite" >
+      <Carousel infinite="infinite" fullWidth={false} >
         <CarouselItem>
           <div
-            style={{ backgroundColor: "red", height: "100%", width: "100%" }}
+            style={{ backgroundColor: "red", height: "100px", width: "100%" }}
           >
             Slide 1
           </div>
         </CarouselItem>
         <CarouselItem>
           <div
-            style={{ backgroundColor: "green", height: "100%", width: "100%" }}
+            style={{ backgroundColor: "green", height: "100px", width: "100%" }}
           >
             Slide 2
           </div>
         </CarouselItem>
         <CarouselItem>
           <div
-            style={{ backgroundColor: "blue", height: "100%", width: "100%" }}
+            style={{ backgroundColor: "blue", height: "100px", width: "100%" }}
           >
             Slide 3
           </div>
         </CarouselItem>
         <CarouselItem>
           <div
-            style={{ backgroundColor: "blue", height: "100%", width: "100%" }}
+            style={{ backgroundColor: "blue", height: "100px", width: "100%" }}
           >
             Slide 4
-          </div>
-        </CarouselItem>
-        <CarouselItem>
-          <div
-            style={{ backgroundColor: "blue", height: "100%", width: "100%" }}
-          >
-            Slide 5
-          </div>
-        </CarouselItem>
-        <CarouselItem>
-          <div
-            style={{ backgroundColor: "blue", height: "100%", width: "100%" }}
-          >
-            Slide 6
           </div>
         </CarouselItem>
       </Carousel>

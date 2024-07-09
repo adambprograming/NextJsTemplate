@@ -1,3 +1,4 @@
+'use client'
 // Styles
 import styles from './carousel.module.scss';
 // Public & Assets
@@ -13,10 +14,9 @@ INSTRUCTIONS
 
 */
 
-const CarouselItem = ({children, height}) => {
-
+const CarouselItem = ({children, active, height}) => {
     return (
-        <div className={styles.carouselItem} style={{height: `${height}`}}>
+        <div onClick={() => {console.log(styles[active])}} className={`${styles.carouselItem} ${styles[active]}`} style={{height: `${height}`}}>
             {children}
         </div>
     );
