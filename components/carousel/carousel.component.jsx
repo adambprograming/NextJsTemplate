@@ -28,6 +28,7 @@ const Carousel = ({ children, infinite = "notInfinite", fullWidth = true, animat
   const [isDragging, setIsDragging] = useState(false);
   const transitionRef = useRef(null);
   const length = children.length;
+  const carouselRef = useRef(null);
 
   // Cloning the first and last children for the infinite loop effect
   const clonedChildren = infinite === "infinite"
@@ -95,30 +96,38 @@ const Carousel = ({ children, infinite = "notInfinite", fullWidth = true, animat
     }
   };
 
-  const handleMouseDown = (e) => {
-    setStartPosition(e.pageX);
-    setIsDragging(true);
-  };
+  // const handleMouseDown = (e) => {
+  //   setStartPosition(e.pageX);
+  //   setIsDragging(true);
+  // };
 
-  const handleMouseMove = (e) => {
-    if (!isDragging) return;
-    const currentPosition = e.pageX;
-    const diff = startPosition - currentPosition;
-    setCurrentTranslate(diff);
-  };
+  // const handleMouseMove = (e) => {
+  //   if (!isDragging) return;
+  //   const currentPosition = e.pageX;
+  //   const diff = startPosition - currentPosition;
+  //   if (diff > 50) {
+  //     next();
+  //     setIsDragging(false);
+  //   } else if (diff < -50) {
+  //     prev();
+  //     setIsDragging(false);
+  //   } else {
+  //     setCurrentTranslate(diff);
+  //   }
+  // };
 
-  const handleMouseUp = () => {
-    if (isDragging) {
-      if (currentTranslate > 50) {
-        next();
-      } else if (currentTranslate < -50) {
-        prev();
-      } else {
-        setCurrentTranslate(0);
-      }
-      setIsDragging(false);
-    }
-  };
+  // const handleMouseUp = () => {
+  //   if (isDragging) {
+  //     if (currentTranslate > 25) {
+  //       next();
+  //     } else if (currentTranslate < -25) {
+  //       prev();
+  //     } else {
+  //       setCurrentTranslate(0);
+  //     }
+  //     setIsDragging(false);
+  //   }
+  // };
 
   const handleTouchStart = (e) => {
     setStartPosition(e.touches[0].clientX);
@@ -129,14 +138,22 @@ const Carousel = ({ children, infinite = "notInfinite", fullWidth = true, animat
     if (!isDragging) return;
     const currentPosition = e.touches[0].clientX;
     const diff = startPosition - currentPosition;
-    setCurrentTranslate(diff);
+    if (diff > 75) {
+      next();
+      setIsDragging(false);
+    } else if (diff < -75) {
+      prev();
+      setIsDragging(false);
+    } else {
+      setCurrentTranslate(diff);
+    }
   };
 
   const handleTouchEnd = () => {
     if (isDragging) {
-      if (currentTranslate > 50) {
+      if (currentTranslate > 25) {
         next();
-      } else if (currentTranslate < -50) {
+      } else if (currentTranslate < -25) {
         prev();
       } else {
         setCurrentTranslate(0);
@@ -168,15 +185,16 @@ const Carousel = ({ children, infinite = "notInfinite", fullWidth = true, animat
   return (
     <div
       className={`${styles.carousel} ${styles[animation]}`}
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
+      // onMouseDown={handleMouseDown}
+      // onMouseMove={handleMouseMove}
+      // onMouseUp={handleMouseUp}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       onWheel={handleWheel}
       onMouseLeave={handleMouseLeave}
       tabIndex={0} // Add tabIndex to make the div focusable
+      ref={carouselRef}
     >
       {(infinite === "infinite" || infinite === "pseudoInfinite" || currentIndex > 0) && (
         <button onClick={prev} className={`${styles.navBtn} ${styles.leftBtn}`}>
