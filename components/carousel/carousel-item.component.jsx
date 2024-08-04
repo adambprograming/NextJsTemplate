@@ -16,7 +16,7 @@ INSTRUCTIONS
 
 const CarouselItem = ({children, active, height}) => {
     return (
-        <div onClick={() => {console.log(styles[active])}} className={`${styles.carouselItem} ${styles[active]}`} style={{height: `${height}`}}>
+        <div className={`${styles.carouselItem} ${styles[active]}`} style={{height: `${height}`}}>
             {children}
         </div>
     );

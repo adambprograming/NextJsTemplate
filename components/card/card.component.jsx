@@ -11,7 +11,10 @@ import styles from "./card.module.scss";
 /*
 opacity is for cardBg
 if needed opacity just for one of colors, apply "rgb(from var(--color-secondary) r g b / 0.1"
-INSTRUCTIONS 
+INSTRUCTIONS
+  gapFlex               (*) gap for content
+  gapFlexRow            (*) gap for rows of content (if not set, gapFlex picked for gapRow)
+  gapFlexColumn         (*) gap for columns of content (if not set, gapFlex picked for gapColumn)
   borderRadius          (*)borderRadius (default set to 0px)
   borderHoverRadius     (2)its new radius of card
   borderSize            (*)size of border (default set to 1px)
@@ -31,6 +34,9 @@ INSTRUCTIONS
 
 const Card = ({
   children,
+  gapFlex = "0px",
+  gapFlexRow = "",
+  gapFlexColumn = "",
   borderRadius = "0px",
   borderHoverRadius = "",
   borderSize = "1px",
@@ -64,7 +70,10 @@ const Card = ({
           "--localBgHoverColor": `${bgHoverColor}`,
         }}
       ></span>
-      <div className={`${styles.content}`}>
+      <div className={`${styles.content}`} style={{
+        rowGap: `${gapFlexRow ? gapFlexRow : gapFlex}`,
+        columnGap: `${gapFlexColumn ? gapFlexColumn : gapFlex}`
+      }}>
         {children}
       </div>
     </div>

@@ -119,6 +119,8 @@
       p {
         font-size: var(--fontsize-small);
         font-family: var(--font-secondary);
+        display: flex;
+        align-items: center;
       }
     }
   }

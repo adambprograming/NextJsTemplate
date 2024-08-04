@@ -22,6 +22,7 @@ INSTRUCTIONS
   opacity               (*)opacity of button background (default set to 1.0)
   paddingOfBtn          (*)padding will be aplied if fontSize is not defined
   width                 (*)width of element
+  display               (*)display of content
   backdropFilter        (*)backdropfilter apply to btnBg as var
   filter                (*)filter apply to btn as var
   bgHoverColor          (*)background hover color
@@ -34,6 +35,8 @@ INSTRUCTIONS
                           4: cfBottom (color fill bottom) (slide bgHoverColorFrom bottom with changing textHoverColor (if declared))
                           5: cfTop (color fill top) (slide bgHoverColorFrom top with changing textHoverColor (if declared))
                           6: brc (border radius change) (border radius of btn change to borderHoverRadius)
+                          7: scaleForward (scale forward) (Btn will scale forward little bit (1.15))
+                          8: scaleBackward (scale backward) (Btn will scale backward little bit (1.15))
 */
 
 const Btn = ({
@@ -57,6 +60,7 @@ const Btn = ({
   opacity = 1,
   paddingOfBtn = "10px 20px",
   width = "",
+  display = "",
   backdropFilter = "",
   filter = "",
   bgHoverBorderRadius = "",
@@ -65,7 +69,7 @@ const Btn = ({
   const itsLinkBtn = href && !functionOnClick ? true : false;
   return (
     <button
-      className={`${styles.btn} ${styles[hoverEffect]}`}
+      className={`${styles.btn} ${!disabled && styles[hoverEffect]}`}
       disabled={disabled}
       style={{
         borderRadius: `${borderRadius}`,
@@ -73,6 +77,7 @@ const Btn = ({
         border: `${borderSize} solid ${borderColor}`,
         width: `${width}`,
         "--localFilter": `${filter}`,
+        cursor: `${disabled ? "default" : "pointer"}`
       }}
       onClick={() => {
         itsLinkBtn
@@ -80,7 +85,7 @@ const Btn = ({
             document
               .getElementById(`${href}`)
               .scrollIntoView({ behavior: "smooth" })
-          : functionOnClick;
+          : functionOnClick();
       }}
     >
       <span
@@ -100,7 +105,7 @@ const Btn = ({
           aria-label={`${ariaLabel}`}
         ></Link>
       )}
-      <h4
+      <span
         className={`${styles.btnText}`}
         style={{
           "--localTextColor": `${textColor}`,
@@ -111,10 +116,11 @@ const Btn = ({
           fontFamily: `${fontFamily}`,
           fontWeight: `${fontWeight}`,
           padding: `${paddingOfBtn}`,
+          display: `${display}`,
         }}
       >
         {children}
-      </h4>
+      </span>
     </button>
   );
 };

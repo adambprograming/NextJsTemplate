@@ -12,40 +12,12 @@ import Carousel from "@/components/carousel/carousel.component";
 import CarouselItem from "@/components/carousel/carousel-item.component";
 import Card from "@/components/card/card.component";
 import Btn from "@/components/btn/btn.component";
+import InteractiveChooser from "@/components/interactive-chooser/interactive-chooser.component";
 
 const ServicesPage = () => {
   return (
     <main className={styles.main}>
-      <Carousel infinite="infinite" fullWidth={false} >
-        <CarouselItem>
-          <div
-            style={{ backgroundColor: "red", height: "100px", width: "100%" }}
-          >
-            Slide 1
-          </div>
-        </CarouselItem>
-        <CarouselItem>
-          <div
-            style={{ backgroundColor: "green", height: "100px", width: "100%" }}
-          >
-            Slide 2
-          </div>
-        </CarouselItem>
-        <CarouselItem>
-          <div
-            style={{ backgroundColor: "blue", height: "100px", width: "100%" }}
-          >
-            Slide 3
-          </div>
-        </CarouselItem>
-        <CarouselItem>
-          <div
-            style={{ backgroundColor: "blue", height: "100px", width: "100%" }}
-          >
-            Slide 4
-          </div>
-        </CarouselItem>
-      </Carousel>
+      <InteractiveChooser />
       <div className={styles.servicesPage}>
         <section className={styles.servicesOverview}>
           <h1>Our Services</h1>

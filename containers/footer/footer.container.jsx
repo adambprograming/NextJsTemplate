@@ -165,7 +165,7 @@ const Footer = () => {
         <div className="footer-container-copyright">
           <p> Adam Bartůšek &copy; 2022-2024.</p>
           <p>
-          {dict.created.part1}{" "}
+          {dict.created.part1}
             <Btn
               href="https://www.adam-bartusek.cz/"
               ariaLabel="Created by Adam Bartůšek. Visit the developer website."
@@ -179,7 +179,7 @@ const Footer = () => {
             >
               Adam Bartůšek
             </Btn>
-            {". "}{dict.created.part2}{"."}
+            {dict.created.part2}
           </p>
         </div>
       </div>

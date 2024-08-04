@@ -5,6 +5,10 @@
   background-color: transparent;
   padding: 0;
   transition: filter 0.2s;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
   .btnBg {
     background-color: var(--localBgColor);
     backdrop-filter: var(--localBackdropFilter);
@@ -27,6 +31,7 @@
   .btnText {
     color: var(--localTextColor);
     position: relative;
+    display: block;
   }
   &.bgHover {
     .btnBg::before {
@@ -167,6 +172,12 @@
       transition: color 0.1s ease;
     }
   }
+  &.scaleForward {
+    transition: transform 0.4s ease;
+  }
+  &.scaleBackward {
+    transition: transform 0.4s ease;
+  }
 }
 
 @media only screen and (pointer: fine) {
@@ -222,6 +233,12 @@
       .btnText {
         color: var(--localTextHoverColor);
       }
+    }
+    &.scaleForward:hover {
+      transform: scale(1.1);
+    }
+    &.scaleBackward:hover {
+      transform: scale(0.9);
     }
   }
 }

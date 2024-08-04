@@ -3,10 +3,10 @@
     overflow: hidden;
     position: relative;
     width: 100%;
-    cursor: grab;
-    &:active{
-        cursor: grabbing;
-    }
+    // cursor: grab;
+    // &:active{
+    //     cursor: grabbing;
+    // }
   .navBtn {
     font-size: large;
     position: absolute;
@@ -49,7 +49,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #f0f0f0; // Example background color
+      background-color: transparent; // Example background color
       img {
           width: 100%;
           height: auto;

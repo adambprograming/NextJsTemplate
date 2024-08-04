@@ -79,6 +79,13 @@ body{
     --black-15: rgba(33, 33, 38, 0.15);
     --black-10: rgba(33, 33, 38, 0.10);
     --black-5: rgba(33, 33, 38, 0.05);
+    --shadow-100: #212126;
+    --shadow-75: rgba(33, 33, 38, 0.75);
+    --shadow-50: rgba(33, 33, 38, 0.50);
+    --shadow-25: rgba(33, 33, 38, 0.25);
+    --shadow-15: rgba(33, 33, 38, 0.15);
+    --shadow-10: rgba(33, 33, 38, 0.10);
+    --shadow-5: rgba(33, 33, 38, 0.05);
     --breakpoint-1440: 1440px; // Largest monitor width (It should be set at max width of body)
     --breakpoint-1024: 1024px; // < Monitor
     --breakpoint-768: 768px; // < Tablet < 1024px
@@ -98,6 +105,13 @@ body{
     --color-text-dark-still: #00264d; /* Dark Navy */
     --color-border: rgba(222, 222, 217, 0.25);
     --color-boxshadow: rgba(255, 255, 255, 0.5);
+    --shadow-100: #DEDED9;
+    --shadow-75: rgba(222, 222, 217, 0.75);
+    --shadow-50: rgba(222, 222, 217, 0.50);
+    --shadow-25: rgba(222, 222, 217, 0.25);
+    --shadow-15: rgba(222, 222, 217, 0.15);
+    --shadow-10: rgba(222, 222, 217, 0.10);
+    --shadow-5: rgba(222, 222, 217, 0.05);
 }
 
 html {

@@ -1,0 +1,846 @@
+"use client";
+// Styles
+import styles from "./interactive-chooser.module.scss";
+// Public & Assets
+import IconWeb from "@/public/web.png";
+import IconEshop from "@/public/eshop.png";
+import IconWebapp from "@/public/webapp.png";
+import IconCheckCircle from "@/components/svgs/check-circle.component";
+import IconInfoCircle from "@/components/svgs/info-circle.component";
+import IconArrowBack from "@/components/svgs/arrow-left-circle.component";
+import IconXCircle from "../svgs/x-circle.component";
+// React/Next Functions
+import Image from "next/image";
+import { useEffect, useState } from "react";
+// Context & Actions
+
+// Componenets
+import Card from "@/components/card/card.component";
+import Btn from "@/components/btn/btn.component";
+import Carousel from "../carousel/carousel.component";
+import CarouselItem from "../carousel/carousel-item.component";
+
+/*
+INSTRUCTIONS
+
+*/
+
+const InteractiveChooser = () => {
+  const [widthOfWindow, setWidthOfWindow] = useState(1440)
+  useEffect(() => {
+    const getAndSetInnerWidthOfWindow = () => {
+      setWidthOfWindow(window.innerWidth)
+    }
+    getAndSetInnerWidthOfWindow()
+    window.addEventListener("resize", getAndSetInnerWidthOfWindow)
+    return () => {
+      window.removeEventListener("resize", getAndSetInnerWidthOfWindow)
+    }
+  }, [])
+  const [isFirstCardPicked, setIsFirstCardPicked] = useState(false);
+  const [firstCardPick, setFirstCardPick] = useState(0);
+  const [isSecondCardPicked, setIsSecondCardPicked] = useState(false);
+  const [secondCardPick, setSecondCardPick] = useState(0);
+  const [isThirdCardPicked, setIsThirdCardPicked] = useState(false);
+  const [thirdCardPick, setThirdCardPick] = useState(0);
+  const handleFirstCardFirstOptionClick = () => {
+    setIsFirstCardPicked(true);
+    setFirstCardPick(1);
+    // setSecondCardPick(0)
+    // setThirdCardPick(0)
+  };
+  const handleFirstCardSecondOptionClick = () => {
+    setIsFirstCardPicked(true);
+    setFirstCardPick(2);
+    // setSecondCardPick(0)
+    // setThirdCardPick(0)
+  };
+  const handleFirstCardThirdOptionClick = () => {
+    setIsFirstCardPicked(true);
+    setFirstCardPick(3);
+    // setSecondCardPick(0)
+    // setThirdCardPick(0)
+  };
+  const handleSecondCardFirstOptionClick = () => {
+    setIsSecondCardPicked(true);
+    setSecondCardPick(1);
+    // setThirdCardPick(0)
+  };
+  const handleSecondCardSecondOptionClick = () => {
+    setIsSecondCardPicked(true);
+    setSecondCardPick(2);
+    // setThirdCardPick(0)
+  };
+  const handleSecondCardThirdOptionClick = () => {
+    setIsSecondCardPicked(true);
+    setSecondCardPick(3);
+    // setThirdCardPick(0)
+  };
+  const handlePrevious = () => {
+    // If first is choosed, is second choosed ? if true, is next choosed? if not reset last choosedPick
+    if (isFirstCardPicked) {
+      if (isSecondCardPicked) {
+        if (isThirdCardPicked) {
+          setIsThirdCardPicked(false);
+        } else {
+          setIsSecondCardPicked(false);
+        }
+      } else {
+        setIsFirstCardPicked(false);
+      }
+    }
+  };
+  const handleResetFromFirst = () => {
+    setIsFirstCardPicked(false);
+    setIsSecondCardPicked(false);
+    setIsThirdCardPicked(false);
+  };
+  const handleResetFromSecond = () => {
+    setIsSecondCardPicked(false);
+    setIsThirdCardPicked(false);
+  };
+  return (
+    <section className={`${styles.interactiveChooserSection}`}>
+      {/* PATH */}
+      <div className={`${styles.pathChooser}`}>
+        <div
+          className={`${styles.pathArrow} ${
+            isFirstCardPicked ? styles.active : styles.disactive
+          }`}
+        >
+          <Btn
+            disabled={!isFirstCardPicked}
+            functionOnClick={handlePrevious}
+            bgColor="none"
+            borderSize="0"
+            hoverEffect="scaleBackward"
+          >
+            <IconArrowBack alt="go back" width={25} height={25} />
+          </Btn>
+        </div>
+        <div
+          className={`${styles.pathFirst} ${
+            isFirstCardPicked ? styles.active : styles.disactive
+          }`}
+        >
+          <Btn
+            functionOnClick={handleResetFromFirst}
+            bgColor="none"
+            fontSize="var(--fontsize-h6)"
+            borderSize="0"
+            hoverEffect="scaleBackward"
+            paddingOfBtn="10px"
+          >
+            / Výběr služby
+          </Btn>
+        </div>
+        <div
+          className={`${styles.pathSecond} ${
+            isSecondCardPicked ? styles.active : styles.disactive
+          }`}
+        >
+          <Btn
+            functionOnClick={handleResetFromSecond}
+            bgColor="none"
+            fontSize="var(--fontsize-h6)"
+            borderSize="0"
+            hoverEffect="scaleBackward"
+            paddingOfBtn="10px"
+          >{`/ ${
+            firstCardPick === 1
+              ? "Výběr typu webových stránek"
+              : firstCardPick === 2
+              ? "Výběr typu e-shopu"
+              : ""
+          }`}</Btn>
+        </div>
+        <div
+          className={`${styles.pathThird} ${
+            isThirdCardPicked ? styles.active : styles.disactive
+          }`}
+        >
+          <Btn
+            functionOnClick={handleResetFromSecond}
+            bgColor="none"
+            fontSize="var(--fontsize-h6)"
+            borderSize="0"
+            hoverEffect="scaleBackward"
+            paddingOfBtn="10px"
+          >{`/ ${
+            firstCardPick === 1
+              ? "?"
+              : firstCardPick === 2
+              ? "Výběr typu e-shopu"
+              : ""
+          }`}</Btn>
+        </div>
+      </div>
+      {/* FIRST PICK */}
+      <div className={`${styles.interactiveChooser}`}>
+        <div className={`${styles.cardContainer} ${styles.firstCardContainer}`}>
+          <Card
+            gapFlex="25px"
+            paddingOfCard="100px 25px 160px 25px"
+            bgColor="rgb(from var(--color-secondary) r g b / 0.15)"
+            borderSize="none"
+            borderRadius="15px"
+          >
+            <h1>O jaké služby máte zájem?</h1>
+            <div className={`${styles.chooseContainer} ${widthOfWindow < 880 ? styles.carousel : styles.inline}`}>
+            {widthOfWindow < 880 ?
+              <Carousel fullWidth={true} infinite="pseudoInfinite">
+                <CarouselItem>
+                  {/* <div className={`${styles.btnContainer}`}> */}
+                    <Btn
+                      functionOnClick={handleFirstCardFirstOptionClick}
+                      paddingOfBtn="20px 10px"
+                      bgColor="transparent"
+                      borderSize="none"
+                      borderRadius="10px"
+                      bgHoverColor="var(--black-10)"
+                      hoverEffect="bgHover"
+                    >
+                      <div className={`${styles.imgContainer}`}>
+                        <Image src={IconWeb} alt="" height="100" />
+                      </div>
+                      <div className={`${styles.descriptionContainer}`}>
+                        <h3 className={`${styles.btnTitle}`}>Webové stránky</h3>
+                        <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Osobní či firemní prezentace</p></div>
+                        <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčnost</p></div>
+                        <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
+                        <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                        <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace</p></div>
+                      </div>
+                    </Btn>
+                  {/* </div> */}
+                </CarouselItem>
+                <CarouselItem>
+                {/* <div className={`${styles.btnContainer}`}> */}
+                  <Btn
+                    functionOnClick={handleFirstCardSecondOptionClick}
+                    paddingOfBtn="20px 10px"
+                    bgColor="transparent"
+                    borderSize="none"
+                    borderRadius="10px"
+                    bgHoverColor="var(--black-10)"
+                    hoverEffect="bgHover"
+                  >
+                    <div className={`${styles.imgContainer}`}>
+                      <Image src={IconEshop} alt="" height="100" />
+                    </div>
+                    <div className={`${styles.descriptionContainer}`}>
+                      <h3 className={`${styles.btnTitle}`}>E-shop</h3>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Uživatelské rozhranní</p></div>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní řešení pro malé<br />podnikatele bez zbytečných<br />poplatků</p></div>
+                    </div>
+                  </Btn>
+                {/* </div> */}
+                </CarouselItem>
+                <CarouselItem>
+                {/* <div className={`${styles.btnContainer}`}> */}
+                  <Btn
+                    functionOnClick={handleFirstCardThirdOptionClick}
+                    paddingOfBtn="20px 10px"
+                    bgColor="transparent"
+                    borderSize="none"
+                    borderRadius="10px"
+                    bgHoverColor="var(--black-10)"
+                    hoverEffect="bgHover"
+                  >
+                    <div className={`${styles.imgContainer}`}>
+                      <Image src={IconWebapp} alt="" height="100" />
+                    </div>
+                    <div className={`${styles.descriptionContainer}`}>
+                      <h3 className={`${styles.btnTitle}`}>Webová aplikace</h3>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Indiviální řešení na míru</p></div>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Interní firemní aplikace</p></div>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Spolupráce na vytváření<br/>webových softwarů</p></div>
+                    </div>
+                  </Btn>
+                {/* </div> */}
+                </CarouselItem>
+              </Carousel>
+              :
+              <>
+                {/* <div className={`${styles.btnContainer}`}> */}
+                  <Btn
+                    functionOnClick={handleFirstCardFirstOptionClick}
+                    paddingOfBtn="20px 10px"
+                    bgColor="transparent"
+                    borderSize="none"
+                    borderRadius="10px"
+                    bgHoverColor="var(--black-10)"
+                    hoverEffect="bgHover"
+                  >
+                    <div className={`${styles.imgContainer}`}>
+                      <Image src={IconWeb} alt="" height="100" />
+                    </div>
+                    <div className={`${styles.descriptionContainer}`}>
+                      <h3 className={`${styles.btnTitle}`}>Webové stránky</h3>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Osobní či firemní prezentace</p></div>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčnost</p></div>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace</p></div>
+                    </div>
+                  </Btn>
+                {/* </div> */}
+                {/* <div className={`${styles.btnContainer}`}> */}
+                  <Btn
+                    functionOnClick={handleFirstCardSecondOptionClick}
+                    paddingOfBtn="20px 10px"
+                    bgColor="transparent"
+                    borderSize="none"
+                    borderRadius="10px"
+                    bgHoverColor="var(--black-10)"
+                    hoverEffect="bgHover"
+                  >
+                    <div className={`${styles.imgContainer}`}>
+                      <Image src={IconEshop} alt="" height="100" />
+                    </div>
+                    <div className={`${styles.descriptionContainer}`}>
+                      <h3 className={`${styles.btnTitle}`}>E-shop</h3>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Uživatelské rozhranní</p></div>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní řešení pro malé<br />podnikatele bez zbytečných<br />poplatků</p></div>
+                    </div>
+                  </Btn>
+                {/* </div> */}
+                {/* <div className={`${styles.btnContainer}`}> */}
+                  <Btn
+                    functionOnClick={handleFirstCardThirdOptionClick}
+                    paddingOfBtn="20px 10px"
+                    bgColor="transparent"
+                    borderSize="none"
+                    borderRadius="10px"
+                    bgHoverColor="var(--black-10)"
+                    hoverEffect="bgHover"
+                  >
+                    <div className={`${styles.imgContainer}`}>
+                      <Image src={IconWebapp} alt="" height="100" />
+                    </div>
+                    <div className={`${styles.descriptionContainer}`}>
+                      <h3 className={`${styles.btnTitle}`}>Webová aplikace</h3>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Indiviální řešení na míru</p></div>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Interní firemní aplikace</p></div>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Spolupráce na vytváření<br/>webových softwarů</p></div>
+                    </div>
+                  </Btn>
+                {/* </div> */}
+              </>
+            }
+            </div>
+          </Card>
+        </div>
+        {/* SECOND PICK */}
+        <div
+          className={`${styles.cardContainer} ${
+            isFirstCardPicked ? styles.active : styles.disactive
+          } ${styles.secondCardContainer}`}
+        >
+          <Card
+            height="calc(100% - 160px)"
+            gapFlex="25px"
+            paddingOfCard="80px 25px"
+            bgColor="rgb(from var(--color-secondary) r g b / 0.2)"
+            borderSize="none"
+            borderRadius="15px"
+          >
+            {firstCardPick === 1 ? (
+              <>
+                <h1>
+                  O jaké webové stránky máte zájem?
+                </h1>
+                <div className={`${styles.chooseContainer} ${widthOfWindow < 880 ? styles.carousel : styles.inline}`}>
+                  {widthOfWindow < 880 ?
+                    <Carousel fullWidth={true} infinite="pseudoInfinite">
+                      <CarouselItem>
+                        <Btn
+                          functionOnClick={handleSecondCardFirstOptionClick}
+                          bgColor="transparent"
+                          borderSize="none"
+                          borderRadius="15px"
+                          bgHoverColor="var(--black-10)"
+                          hoverEffect="bgHover"
+                        >
+                          <div className={`${styles.imgContainer}`}>
+                            <Image src={IconWeb} alt="" height="100" />
+                          </div>
+                          <div className={`${styles.descriptionContainer}`}>
+                            <h3 className={`${styles.btnTitle}`}>
+                              Jednoduché
+                            </h3>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>1 stránka</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Optimalizavané</p></div>
+                            <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Denní a noční režim</p></div>
+                            <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Vícejazyčné</p></div>
+                            <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Redakční systém</p></div>
+                          </div>
+                        </Btn>
+                      </CarouselItem>
+                      <CarouselItem>
+                        <Btn
+                          functionOnClick={handleSecondCardSecondOptionClick}
+                          bgColor="transparent"
+                          borderSize="none"
+                          borderRadius="15px"
+                          bgHoverColor="var(--black-10)"
+                          hoverEffect="bgHover"
+                        >
+                          <div className={`${styles.imgContainer}`}>
+                            <Image src={IconWeb} alt="" height="100" />
+                          </div>
+                          <div className={`${styles.descriptionContainer}`}>
+                            <h3 className={`${styles.btnTitle}`}>
+                              Komplexní
+                            </h3>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>1-5 stránek</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
+                            <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Vícejazyčné</p></div>
+                            <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Redakční systém</p></div>
+                          </div>
+                        </Btn>
+                      </CarouselItem>
+                      <CarouselItem>
+                        <Btn
+                          functionOnClick={handleSecondCardSecondOptionClick}
+                          bgColor="transparent"
+                          borderSize="none"
+                          borderRadius="15px"
+                          bgHoverColor="var(--black-10)"
+                          hoverEffect="bgHover"
+                        >
+                          <div className={`${styles.imgContainer}`}>
+                            <Image src={IconWeb} alt="" height="100" />
+                          </div>
+                          <div className={`${styles.descriptionContainer}`}>
+                            <h3 className={`${styles.btnTitle}`}>
+                              Profesionální
+                            </h3>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>5+ stránek</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Interaktivní</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčné</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                          </div>
+                        </Btn>
+                      </CarouselItem>
+                    </Carousel>
+                    :
+                    <>
+                      <Btn
+                        functionOnClick={handleSecondCardFirstOptionClick}
+                        bgColor="transparent"
+                        borderSize="none"
+                        borderRadius="15px"
+                        bgHoverColor="var(--black-10)"
+                        hoverEffect="bgHover"
+                      >
+                        <div className={`${styles.imgContainer}`}>
+                          <Image src={IconWeb} alt="" height="100" />
+                        </div>
+                        <div className={`${styles.descriptionContainer}`}>
+                          <h3 className={`${styles.btnTitle}`}>
+                            Jednoduché
+                          </h3>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>1 stránka</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Optimalizavané</p></div>
+                          <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Denní a noční režim</p></div>
+                          <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Vícejazyčné</p></div>
+                          <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Redakční systém</p></div>
+                        </div>
+                      </Btn>
+                      <Btn
+                        functionOnClick={handleSecondCardSecondOptionClick}
+                        bgColor="transparent"
+                        borderSize="none"
+                        borderRadius="15px"
+                        bgHoverColor="var(--black-10)"
+                        hoverEffect="bgHover"
+                      >
+                        <div className={`${styles.imgContainer}`}>
+                          <Image src={IconWeb} alt="" height="100" />
+                        </div>
+                        <div className={`${styles.descriptionContainer}`}>
+                          <h3 className={`${styles.btnTitle}`}>
+                            Komplexní
+                          </h3>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>1-5 stránek</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
+                          <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Vícejazyčné</p></div>
+                          <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Redakční systém</p></div>
+                        </div>
+                      </Btn>
+                      <Btn
+                        functionOnClick={handleSecondCardThirdOptionClick}
+                        bgColor="transparent"
+                        borderSize="none"
+                        borderRadius="15px"
+                        bgHoverColor="var(--black-10)"
+                        hoverEffect="bgHover"
+                      >
+                        <div className={`${styles.imgContainer}`}>
+                          <Image src={IconWeb} alt="" height="100" />
+                        </div>
+                        <div className={`${styles.descriptionContainer}`}>
+                          <h3 className={`${styles.btnTitle}`}>
+                            Profesionální
+                          </h3>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>5+ stránek</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Interaktivní</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčné</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                        </div>
+                      </Btn>
+                    </> 
+                  }
+                </div>
+                <div className={`${styles.infoContainer}`}>
+                  <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Rozdělení je pouze orientační, vždy se můžeme domluvit na individuálním řešení.</p></div>
+                  <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>V případě, že již máte webové stránky, můžeme společně domluvit lepší podmínky pro vedení stránek, nebo je zmodernizovat.</p></div>
+                </div>
+              </>
+            ) : firstCardPick === 2 ? (
+              <>
+                <h1>Jaký typ podnikání vlastníte?</h1>
+                <div className={`${styles.chooseContainer} ${widthOfWindow < 880 ? styles.carousel : styles.inline}`}>
+                  {widthOfWindow < 880 ?
+                    <Carousel fullWidth={true} infinite="pseudoInfinite">
+                      <CarouselItem>
+                        <Btn
+                          functionOnClick={handleSecondCardFirstOptionClick}
+                          bgColor="transparent"
+                          borderSize="none"
+                          borderRadius="15px"
+                          bgHoverColor="var(--black-10)"
+                          hoverEffect="bgHover"
+                          >
+                          <div className={`${styles.imgContainer}`}>
+                            <Image src={IconWeb} alt="" height="60" />
+                          </div>
+                          <div className={`${styles.descriptionContainer}`}>
+                            <h3 className={`${styles.btnTitle}`}>
+                              Jedinec
+                            </h3>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>1-3 produkty</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Řešení prodeje bez platební brány</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                            <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Vícejazyčné</p></div>
+                            <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Uživatelské rozhraní</p></div>
+                          </div>
+                        </Btn>
+                      </CarouselItem>
+                      <CarouselItem>
+                        <Btn
+                          functionOnClick={handleSecondCardSecondOptionClick}
+                          bgColor="transparent"
+                          borderSize="none"
+                          borderRadius="15px"
+                          bgHoverColor="var(--black-10)"
+                          hoverEffect="bgHover"
+                          >
+                          <div className={`${styles.imgContainer}`}>
+                            <Image src={IconWeb} alt="" height="60" />
+                          </div>
+                          <div className={`${styles.descriptionContainer}`}>
+                            <h3 className={`${styles.btnTitle}`}>
+                              Maloobchod
+                            </h3>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Do 10 produktů</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčné</p></div>
+                            <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Uživatelské rozhraní</p></div>
+                          </div>
+                        </Btn>
+                      </CarouselItem>
+                      <CarouselItem>
+                        <Btn
+                          functionOnClick={handleSecondCardThirdOptionClick}
+                          bgColor="transparent"
+                          borderSize="none"
+                          borderRadius="15px"
+                          bgHoverColor="var(--black-10)"
+                          hoverEffect="bgHover"
+                          >
+                          <div className={`${styles.imgContainer}`}>
+                            <Image src={IconWeb} alt="" height="60" />
+                          </div>
+                          <div className={`${styles.descriptionContainer}`}>
+                            <h3 className={`${styles.btnTitle}`}>
+                              Velkoobchod
+                            </h3>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>10+ produktů</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčné</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Uživatelské rozhraní</p></div>
+                          </div>
+                        </Btn>
+                      </CarouselItem>
+                    </Carousel>
+                  :
+                    <>
+                      <Btn
+                        functionOnClick={handleSecondCardFirstOptionClick}
+                        bgColor="transparent"
+                        borderSize="none"
+                        borderRadius="15px"
+                        bgHoverColor="var(--black-10)"
+                        hoverEffect="bgHover"
+                        >
+                        <div className={`${styles.imgContainer}`}>
+                          <Image src={IconWeb} alt="" height="60" />
+                        </div>
+                        <div className={`${styles.descriptionContainer}`}>
+                          <h3 className={`${styles.btnTitle}`}>
+                            Jedinec
+                          </h3>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>1-3 produkty</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Řešení prodeje bez platební brány</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                          <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Vícejazyčné</p></div>
+                          <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Uživatelské rozhraní</p></div>
+                        </div>
+                      </Btn>
+                      <Btn
+                        functionOnClick={handleSecondCardSecondOptionClick}
+                        bgColor="transparent"
+                        borderSize="none"
+                        borderRadius="15px"
+                        bgHoverColor="var(--black-10)"
+                        hoverEffect="bgHover"
+                        >
+                        <div className={`${styles.imgContainer}`}>
+                          <Image src={IconWeb} alt="" height="60" />
+                        </div>
+                        <div className={`${styles.descriptionContainer}`}>
+                          <h3 className={`${styles.btnTitle}`}>
+                            Maloobchod
+                          </h3>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Do 10 produktů</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčné</p></div>
+                          <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Uživatelské rozhraní</p></div>
+                        </div>
+                      </Btn>
+                      <Btn
+                        functionOnClick={handleSecondCardThirdOptionClick}
+                        bgColor="transparent"
+                        borderSize="none"
+                        borderRadius="15px"
+                        bgHoverColor="var(--black-10)"
+                        hoverEffect="bgHover"
+                        >
+                        <div className={`${styles.imgContainer}`}>
+                          <Image src={IconWeb} alt="" height="60" />
+                        </div>
+                        <div className={`${styles.descriptionContainer}`}>
+                          <h3 className={`${styles.btnTitle}`}>
+                            Velkoobchod
+                          </h3>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>10+ produktů</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčné</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Uživatelské rozhraní</p></div>
+                        </div>
+                      </Btn>
+                    </>
+                  }
+                </div>
+                <div className={`${styles.infoContainer}`}>
+                  <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Rozdělení je pouze orientační, vždy se můžeme domluvit na individuálním řešení.</p></div>
+                </div>
+              </>
+            ) : (
+              <>
+                <h1>Individuální webová aplikace na míru</h1>
+                <div className={`${styles.contentContainer}`}>
+                  <Image src={IconWeb} alt="" height="60" />
+                </div>
+              </>
+            )}
+          </Card>
+        </div>
+        {/* THIRD PICK - CONTENT */}
+        <div
+          className={`${styles.cardContainer} ${
+            isSecondCardPicked ? styles.active : styles.disactive
+          } ${styles.thirdCardContainer}`}
+        >
+          <Card
+            height="calc(100% - 120px)"
+            gapFlex="25px"
+            paddingOfCard="60px 25px"
+            bgColor="rgb(from var(--color-secondary) r g b / 0.25)"
+            borderSize="none"
+            borderRadius="15px"
+          >
+            {firstCardPick === 1 && secondCardPick === 1 ? (
+              <>
+                <h1>Jednoduché webové stránky</h1>
+                <div className={`${styles.contentContainer}`}>
+                  <div className={`${styles.categoryDescription}`}>
+                    <p>
+                      Jednoduché webové stránky jsou ideální pro jednotlivce nebo malé firmy, které
+                      potřebují online prezentaci s minimálním obsahem. Tato varianta nabízí jednu stránku s
+                      důrazem na jednoduchost.
+                    </p>
+                    {/* <Image src={IconWeb} alt="" height="120" /> */}
+                  </div>
+                  <div className={`${styles.checkboxDescription}`}>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Stránka bude optimalizovaná pro mobily i počítače.</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Stránka bude funkční pro všechny velké prohlížeče.</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Kvalitní struktura webu zajistí dobré výsledky SEO.</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Zajištění vlastní domény včetně možnosti firemního e-mailu.</p></div>
+                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Možnost rozšíření - napojení na redakční systém, vícejazyčnost a denní/noční režim.</p></div>
+                  </div>
+                  <div className={`${styles.ctaBtns}`}>
+                    <Btn
+                      functionOnClick={"TODO"}
+                      width="clamp(100px, 100%, 250px)"
+                      bgColor="var(--color-secondary)"
+                      textColor="var(--color-text)"
+                      borderSize="none"
+                      borderRadius="15px"
+                      hoverEffect="scaleForward"
+                    >
+                      Předvyplnit formulář
+                    </Btn>
+                    <Btn
+                      functionOnClick={"TODO"}
+                      width="clamp(100px, 100%, 250px)"
+                      bgColor="transparent"
+                      borderSize="none"
+                      borderRadius="15px"
+                      bgHoverColor="var(--color-primary)"
+                      textHoverColor="var(--color-text-reverse)"
+                      hoverEffect="cfLeft"
+                    >
+                      Zavolejte mi
+                    </Btn>
+                  </div>
+                  <div className={`${styles.infoContainer}`}>
+                    <h4>~ 10.000 CZK</h4>
+                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Cena je pouze orientační, odvíjí se primárně od náročnosti a velikosti obsahu stránky, standartně je počítána podle hodin strávených na projektu.</p></div>
+                  </div>
+                </div>
+              </>
+            ) : firstCardPick === 1 && secondCardPick === 2 ? (
+              <>
+                <h1>Komplexní webové stránky</h1>
+                <div className={`${styles.contentContainer}`}>
+                  <div className={`${styles.categoryDescription}`}>
+                    <p>
+                    Komplexní webové stránky jsou vhodné pro firmy, které potřebují více obsahu a
+                    rychlou navigaci mezi 1-5 stránkami. Tento typ webu zahrnuje také změnu režimu mezi
+                    denním a nočním pro příjmenější návštěvu webu.
+                    </p>
+                    {/* <Image src={IconWeb} alt="" height="120" /> */}
+                  </div>
+                  <div className={`${styles.checkboxDescription}`}>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Stránka bude optimalizovaná pro mobily i počítače.</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Stránka bude funkční pro všechny velké prohlížeče.</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Kvalitní struktura webu zajistí dobré výsledky SEO.</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Zajištění vlastní domény včetně možnosti firemního e-mailu.</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rozlišení mezi denním a nočním režimem.</p></div>
+                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Možnost rozšíření - napojení na redakční systém a vícejazyčnost</p></div>
+                  </div>
+                  <div className={`${styles.ctaBtns}`}>
+                    <Btn
+                      functionOnClick={"TODO"}
+                      width="clamp(100px, 100%, 250px)"
+                      bgColor="var(--color-secondary)"
+                      textColor="var(--color-text)"
+                      borderSize="none"
+                      borderRadius="15px"
+                      hoverEffect="scaleForward"
+                    >
+                      Předvyplnit formulář
+                    </Btn>
+                    <Btn
+                      functionOnClick={"TODO"}
+                      width="clamp(100px, 100%, 250px)"
+                      bgColor="transparent"
+                      borderSize="none"
+                      borderRadius="15px"
+                      bgHoverColor="var(--color-primary)"
+                      textHoverColor="var(--color-text-reverse)"
+                      hoverEffect="cfLeft"
+                    >
+                      Zavolejte mi
+                    </Btn>
+                  </div>
+                  <div className={`${styles.infoContainer}`}>
+                    <h4>~ 25.000 CZK</h4>
+                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Cena je pouze orientační, odvíjí se primárně od náročnosti a velikosti obsahu stránky, standartně je počítána podle hodin strávených na projektu.</p></div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <h1>Profesionální webové stránky</h1>
+                <div className={`${styles.contentContainer}`}>
+                  <div className={`${styles.categoryDescription}`}>
+                    <p>
+                    Profesionální webové stránky jsou ideální pro firmy, které potřebují rozsáhlý a
+                    interaktivní web s více než 5 stránkami. Tento typ webu zahrnuje redakční systém,
+                    vícejazyčnou podporu a denní/noční režim.
+                    </p>
+                    {/* <Image src={IconWeb} alt="" height="120" /> */}
+                  </div>
+                  <div className={`${styles.checkboxDescription}`}>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Stránka bude optimalizovaná pro mobily i počítače.</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Stránka bude funkční pro všechny velké prohlížeče.</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Kvalitní struktura webu zajistí dobré výsledky SEO.</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Zajištění vlastní domény včetně možnosti firemního e-mailu.</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rozlišení mezi denním a nočním režimem.</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Provedení stránky do více světových jazyků, podle Vašeho výběru.</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Napojení na redakční systém, abyste snadno mohli spravovat obsah vašeho webu.</p></div>
+                  </div>
+                  <div className={`${styles.ctaBtns}`}>
+                    <Btn
+                      functionOnClick={"TODO"}
+                      width="clamp(100px, 100%, 250px)"
+                      bgColor="var(--color-secondary)"
+                      textColor="var(--color-text)"
+                      borderSize="none"
+                      borderRadius="15px"
+                      hoverEffect="scaleForward"
+                    >
+                      Předvyplnit formulář
+                    </Btn>
+                    <Btn
+                      functionOnClick={"TODO"}
+                      width="clamp(100px, 100%, 250px)"
+                      bgColor="transparent"
+                      borderSize="none"
+                      borderRadius="15px"
+                      bgHoverColor="var(--color-primary)"
+                      textHoverColor="var(--color-text-reverse)"
+                      hoverEffect="cfLeft"
+                    >
+                      Zavolejte mi
+                    </Btn>
+                  </div>
+                  <div className={`${styles.infoContainer}`}>
+                    <h4>~ 45.000 CZK</h4>
+                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Cena je pouze orientační, odvíjí se primárně od náročnosti a velikosti obsahu stránky, standartně je počítána podle hodin strávených na projektu.</p></div>
+                  </div>
+                </div>
+              </>
+            )}
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default InteractiveChooser;
