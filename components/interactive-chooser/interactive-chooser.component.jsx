@@ -190,80 +190,6 @@ const InteractiveChooser = () => {
             {widthOfWindow < 880 ?
               <Carousel fullWidth={true} infinite="pseudoInfinite">
                 <CarouselItem>
-                  {/* <div className={`${styles.btnContainer}`}> */}
-                    <Btn
-                      functionOnClick={handleFirstCardFirstOptionClick}
-                      paddingOfBtn="20px 10px"
-                      bgColor="transparent"
-                      borderSize="none"
-                      borderRadius="10px"
-                      bgHoverColor="var(--black-10)"
-                      hoverEffect="bgHover"
-                    >
-                      <div className={`${styles.imgContainer}`}>
-                        <Image src={IconWeb} alt="" height="100" />
-                      </div>
-                      <div className={`${styles.descriptionContainer}`}>
-                        <h3 className={`${styles.btnTitle}`}>Webové stránky</h3>
-                        <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Osobní či firemní prezentace</p></div>
-                        <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčnost</p></div>
-                        <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
-                        <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
-                        <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace</p></div>
-                      </div>
-                    </Btn>
-                  {/* </div> */}
-                </CarouselItem>
-                <CarouselItem>
-                {/* <div className={`${styles.btnContainer}`}> */}
-                  <Btn
-                    functionOnClick={handleFirstCardSecondOptionClick}
-                    paddingOfBtn="20px 10px"
-                    bgColor="transparent"
-                    borderSize="none"
-                    borderRadius="10px"
-                    bgHoverColor="var(--black-10)"
-                    hoverEffect="bgHover"
-                  >
-                    <div className={`${styles.imgContainer}`}>
-                      <Image src={IconEshop} alt="" height="100" />
-                    </div>
-                    <div className={`${styles.descriptionContainer}`}>
-                      <h3 className={`${styles.btnTitle}`}>E-shop</h3>
-                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
-                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Uživatelské rozhranní</p></div>
-                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní řešení pro malé<br />podnikatele bez zbytečných<br />poplatků</p></div>
-                    </div>
-                  </Btn>
-                {/* </div> */}
-                </CarouselItem>
-                <CarouselItem>
-                {/* <div className={`${styles.btnContainer}`}> */}
-                  <Btn
-                    functionOnClick={handleFirstCardThirdOptionClick}
-                    paddingOfBtn="20px 10px"
-                    bgColor="transparent"
-                    borderSize="none"
-                    borderRadius="10px"
-                    bgHoverColor="var(--black-10)"
-                    hoverEffect="bgHover"
-                  >
-                    <div className={`${styles.imgContainer}`}>
-                      <Image src={IconWebapp} alt="" height="100" />
-                    </div>
-                    <div className={`${styles.descriptionContainer}`}>
-                      <h3 className={`${styles.btnTitle}`}>Webová aplikace</h3>
-                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Indiviální řešení na míru</p></div>
-                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Interní firemní aplikace</p></div>
-                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Spolupráce na vytváření<br/>webových softwarů</p></div>
-                    </div>
-                  </Btn>
-                {/* </div> */}
-                </CarouselItem>
-              </Carousel>
-              :
-              <>
-                {/* <div className={`${styles.btnContainer}`}> */}
                   <Btn
                     functionOnClick={handleFirstCardFirstOptionClick}
                     paddingOfBtn="20px 10px"
@@ -285,8 +211,8 @@ const InteractiveChooser = () => {
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace</p></div>
                     </div>
                   </Btn>
-                {/* </div> */}
-                {/* <div className={`${styles.btnContainer}`}> */}
+                </CarouselItem>
+                <CarouselItem>
                   <Btn
                     functionOnClick={handleFirstCardSecondOptionClick}
                     paddingOfBtn="20px 10px"
@@ -306,8 +232,8 @@ const InteractiveChooser = () => {
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní řešení pro malé<br />podnikatele bez zbytečných<br />poplatků</p></div>
                     </div>
                   </Btn>
-                {/* </div> */}
-                {/* <div className={`${styles.btnContainer}`}> */}
+                </CarouselItem>
+                <CarouselItem>
                   <Btn
                     functionOnClick={handleFirstCardThirdOptionClick}
                     paddingOfBtn="20px 10px"
@@ -327,7 +253,69 @@ const InteractiveChooser = () => {
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Spolupráce na vytváření<br/>webových softwarů</p></div>
                     </div>
                   </Btn>
-                {/* </div> */}
+                </CarouselItem>
+              </Carousel>
+              :
+              <>
+                <Btn
+                  functionOnClick={handleFirstCardFirstOptionClick}
+                  paddingOfBtn="20px 10px"
+                  bgColor="transparent"
+                  borderSize="none"
+                  borderRadius="10px"
+                  bgHoverColor="var(--black-10)"
+                  hoverEffect="bgHover"
+                >
+                  <div className={`${styles.imgContainer}`}>
+                    <Image src={IconWeb} alt="" height="100" />
+                  </div>
+                  <div className={`${styles.descriptionContainer}`}>
+                    <h3 className={`${styles.btnTitle}`}>Webové stránky</h3>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Osobní či firemní prezentace</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčnost</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace</p></div>
+                  </div>
+                </Btn>
+                <Btn
+                  functionOnClick={handleFirstCardSecondOptionClick}
+                  paddingOfBtn="20px 10px"
+                  bgColor="transparent"
+                  borderSize="none"
+                  borderRadius="10px"
+                  bgHoverColor="var(--black-10)"
+                  hoverEffect="bgHover"
+                >
+                  <div className={`${styles.imgContainer}`}>
+                    <Image src={IconEshop} alt="" height="100" />
+                  </div>
+                  <div className={`${styles.descriptionContainer}`}>
+                    <h3 className={`${styles.btnTitle}`}>E-shop</h3>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Uživatelské rozhranní</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní řešení pro malé<br />podnikatele bez zbytečných<br />poplatků</p></div>
+                  </div>
+                </Btn>
+                <Btn
+                  functionOnClick={handleFirstCardThirdOptionClick}
+                  paddingOfBtn="20px 10px"
+                  bgColor="transparent"
+                  borderSize="none"
+                  borderRadius="10px"
+                  bgHoverColor="var(--black-10)"
+                  hoverEffect="bgHover"
+                >
+                  <div className={`${styles.imgContainer}`}>
+                    <Image src={IconWebapp} alt="" height="100" />
+                  </div>
+                  <div className={`${styles.descriptionContainer}`}>
+                    <h3 className={`${styles.btnTitle}`}>Webová aplikace</h3>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Indiviální řešení na míru</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Interní firemní aplikace</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Spolupráce na vytváření<br/>webových softwarů</p></div>
+                  </div>
+                </Btn>
               </>
             }
             </div>
@@ -660,9 +648,48 @@ const InteractiveChooser = () => {
               </>
             ) : (
               <>
-                <h1>Individuální webová aplikace na míru</h1>
+                <h1>Webová aplikace na míru</h1>
                 <div className={`${styles.contentContainer}`}>
-                  <Image src={IconWeb} alt="" height="60" />
+                  <div className={`${styles.categoryDescription}`}>
+                    <p>
+                      V případě, že potřebujete specifickou webovou aplikaci, nebo máte nápad a potřebujete pomoc s jeho realizací v podobě webové aplikace, neváhejte mě kontaktovat. V následujících bodech jsou příklady kategorií webových aplikací.
+                    </p>
+                  </div>
+                  <div className={`${styles.checkboxDescription}`}>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Blog</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Finanční nástroje</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Interní firemní aplikace</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Webový software</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém správy</p></div>
+                  </div>
+                  <div className={`${styles.ctaBtns}`}>
+                    <Btn
+                      functionOnClick={"TODO"}
+                      width="clamp(100px, 100%, 250px)"
+                      bgColor="var(--color-secondary)"
+                      textColor="var(--color-text)"
+                      borderSize="none"
+                      borderRadius="15px"
+                      hoverEffect="scaleForward"
+                    >
+                      Vyplnit formulář
+                    </Btn>
+                    <Btn
+                      functionOnClick={"TODO"}
+                      width="clamp(100px, 100%, 250px)"
+                      bgColor="transparent"
+                      borderSize="none"
+                      borderRadius="15px"
+                      bgHoverColor="var(--color-primary)"
+                      textHoverColor="var(--color-text-reverse)"
+                      hoverEffect="cfLeft"
+                    >
+                      Zavolejte mi
+                    </Btn>
+                  </div>
+                  <div className={`${styles.infoContainer}`}>
+                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Cena zde nejde přesně určit, odvíjí se primárně od složitosti a velikosti webové aplikace, standartně je počítána podle hodin strávených na projektu.</p></div>
+                  </div>
                 </div>
               </>
             )}
@@ -692,14 +719,14 @@ const InteractiveChooser = () => {
                       potřebují online prezentaci s minimálním obsahem. Tato varianta nabízí jednu stránku s
                       důrazem na jednoduchost.
                     </p>
-                    {/* <Image src={IconWeb} alt="" height="120" /> */}
                   </div>
                   <div className={`${styles.checkboxDescription}`}>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Stránka bude optimalizovaná pro mobily i počítače.</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Stránka bude funkční pro všechny velké prohlížeče.</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Kvalitní struktura webu zajistí dobré výsledky SEO.</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Zajištění vlastní domény včetně možnosti firemního e-mailu.</p></div>
-                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Možnost rozšíření - napojení na redakční systém, vícejazyčnost a denní/noční režim.</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>1 stránka</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Responzivita webu</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Optimalizace SEO</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní doména včetně možnosti firemního e-mailu</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace na stránce</p></div>
+                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Možnost rozšíření - denní a noční režim, vícejazyčnost a redakční systém</p></div>
                   </div>
                   <div className={`${styles.ctaBtns}`}>
                     <Btn
@@ -711,7 +738,7 @@ const InteractiveChooser = () => {
                       borderRadius="15px"
                       hoverEffect="scaleForward"
                     >
-                      Předvyplnit formulář
+                      Vyplnit formulář
                     </Btn>
                     <Btn
                       functionOnClick={"TODO"}
@@ -742,15 +769,15 @@ const InteractiveChooser = () => {
                     rychlou navigaci mezi 1-5 stránkami. Tento typ webu zahrnuje také změnu režimu mezi
                     denním a nočním pro příjmenější návštěvu webu.
                     </p>
-                    {/* <Image src={IconWeb} alt="" height="120" /> */}
                   </div>
                   <div className={`${styles.checkboxDescription}`}>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Stránka bude optimalizovaná pro mobily i počítače.</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Stránka bude funkční pro všechny velké prohlížeče.</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Kvalitní struktura webu zajistí dobré výsledky SEO.</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Zajištění vlastní domény včetně možnosti firemního e-mailu.</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rozlišení mezi denním a nočním režimem.</p></div>
-                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Možnost rozšíření - napojení na redakční systém a vícejazyčnost</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>1-5 stránek</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Responzivita webu</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Optimalizace SEO</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní doména včetně možnosti firemního e-mailu.</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace na stránce</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
+                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Možnost rozšíření - vícejazyčnost a redakční systém</p></div>
                   </div>
                   <div className={`${styles.ctaBtns}`}>
                     <Btn
@@ -762,7 +789,7 @@ const InteractiveChooser = () => {
                       borderRadius="15px"
                       hoverEffect="scaleForward"
                     >
-                      Předvyplnit formulář
+                      Vyplnit formulář
                     </Btn>
                     <Btn
                       functionOnClick={"TODO"}
@@ -783,7 +810,7 @@ const InteractiveChooser = () => {
                   </div>
                 </div>
               </>
-            ) : (
+            ) : firstCardPick === 1 && secondCardPick === 3 ? (
               <>
                 <h1>Profesionální webové stránky</h1>
                 <div className={`${styles.contentContainer}`}>
@@ -793,16 +820,16 @@ const InteractiveChooser = () => {
                     interaktivní web s více než 5 stránkami. Tento typ webu zahrnuje redakční systém,
                     vícejazyčnou podporu a denní/noční režim.
                     </p>
-                    {/* <Image src={IconWeb} alt="" height="120" /> */}
                   </div>
                   <div className={`${styles.checkboxDescription}`}>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Stránka bude optimalizovaná pro mobily i počítače.</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Stránka bude funkční pro všechny velké prohlížeče.</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Kvalitní struktura webu zajistí dobré výsledky SEO.</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Zajištění vlastní domény včetně možnosti firemního e-mailu.</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rozlišení mezi denním a nočním režimem.</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Provedení stránky do více světových jazyků, podle Vašeho výběru.</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Napojení na redakční systém, abyste snadno mohli spravovat obsah vašeho webu.</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>5+ stránek</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Responzivita webu</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Optimalizace SEO</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní doména včetně možnosti firemního e-mailu</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace na stránce</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčnost</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
                   </div>
                   <div className={`${styles.ctaBtns}`}>
                     <Btn
@@ -814,7 +841,7 @@ const InteractiveChooser = () => {
                       borderRadius="15px"
                       hoverEffect="scaleForward"
                     >
-                      Předvyplnit formulář
+                      Vyplnit formulář
                     </Btn>
                     <Btn
                       functionOnClick={"TODO"}
@@ -831,6 +858,160 @@ const InteractiveChooser = () => {
                   </div>
                   <div className={`${styles.infoContainer}`}>
                     <h4>~ 45.000 CZK</h4>
+                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Cena je pouze orientační, odvíjí se primárně od náročnosti a velikosti obsahu stránky, standartně je počítána podle hodin strávených na projektu.</p></div>
+                  </div>
+                </div>
+              </>
+            ) : firstCardPick === 2 && secondCardPick === 1 ? (
+              <>
+                <h1>E-shop pro jedince</h1>
+                <div className={`${styles.contentContainer}`}>
+                  <div className={`${styles.categoryDescription}`}>
+                    <p>
+                      E-shop je ideální pro jedince, kteří chtějí začít prodávat své produkty online, ale nechtějí platit poplatky platební bráně. V případě, že si produkty vyrábíte a chcete svým zákazníkům umožnit jejich koupi za co nejnižší cenu, je tento typ e-shopu přesně pro Vás.
+                    </p>
+                  </div>
+                  <div className={`${styles.checkboxDescription}`}>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>5+ stránek</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Responzivita webu</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Optimalizace SEO</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní doména včetně možnosti firemního e-mailu</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace na stránce</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Správa objednávek</p></div>
+                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Možnost rozšíření - denní a noční režim, vícejazyčnost, databáze produktů a uživatelské rozhraní</p></div>
+                  </div>
+                  <div className={`${styles.ctaBtns}`}>
+                    <Btn
+                      functionOnClick={"TODO"}
+                      width="clamp(100px, 100%, 250px)"
+                      bgColor="var(--color-secondary)"
+                      textColor="var(--color-text)"
+                      borderSize="none"
+                      borderRadius="15px"
+                      hoverEffect="scaleForward"
+                    >
+                      Vyplnit formulář
+                    </Btn>
+                    <Btn
+                      functionOnClick={"TODO"}
+                      width="clamp(100px, 100%, 250px)"
+                      bgColor="transparent"
+                      borderSize="none"
+                      borderRadius="15px"
+                      bgHoverColor="var(--color-primary)"
+                      textHoverColor="var(--color-text-reverse)"
+                      hoverEffect="cfLeft"
+                    >
+                      Zavolejte mi
+                    </Btn>
+                  </div>
+                  <div className={`${styles.infoContainer}`}>
+                    <h4>~ 45.000 CZK</h4>
+                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Cena je pouze orientační, odvíjí se primárně od náročnosti a velikosti obsahu stránky, standartně je počítána podle hodin strávených na projektu.</p></div>
+                  </div>
+                </div>
+              </>
+            ) : firstCardPick === 2 && secondCardPick === 2 ? (
+              <>
+                <h1>E-Shop pro maloobchod</h1>
+                <div className={`${styles.contentContainer}`}>
+                  <div className={`${styles.categoryDescription}`}>
+                    <p>
+                      E-Shop pro maloobchod je navržen pro firmy, které potřebují robustní online prodejní platformu a mají více produktů. Tento typ e-shopu zahrnuje napojení na platební bránu, což oceníte v případě většího počtu zákazníků.
+                    </p>
+                  </div>
+                  <div className={`${styles.checkboxDescription}`}>
+                  <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>5+ stránek</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Responzivita webu</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Optimalizace SEO</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní doména včetně možnosti firemního e-mailu</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace na stránce</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Správa objednávek</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčnost</p></div>
+                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Možnost rozšíření - databáze produktů a uživatelské rozhraní</p></div>
+                  </div>
+                  <div className={`${styles.ctaBtns}`}>
+                    <Btn
+                      functionOnClick={"TODO"}
+                      width="clamp(100px, 100%, 250px)"
+                      bgColor="var(--color-secondary)"
+                      textColor="var(--color-text)"
+                      borderSize="none"
+                      borderRadius="15px"
+                      hoverEffect="scaleForward"
+                    >
+                      Vyplnit formulář
+                    </Btn>
+                    <Btn
+                      functionOnClick={"TODO"}
+                      width="clamp(100px, 100%, 250px)"
+                      bgColor="transparent"
+                      borderSize="none"
+                      borderRadius="15px"
+                      bgHoverColor="var(--color-primary)"
+                      textHoverColor="var(--color-text-reverse)"
+                      hoverEffect="cfLeft"
+                    >
+                      Zavolejte mi
+                    </Btn>
+                  </div>
+                  <div className={`${styles.infoContainer}`}>
+                    <h4>~ 75.000 CZK</h4>
+                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Cena je pouze orientační, odvíjí se primárně od náročnosti a velikosti obsahu stránky, standartně je počítána podle hodin strávených na projektu.</p></div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <h1>E-Shop pro velkoobchod</h1>
+                <div className={`${styles.contentContainer}`}>
+                  <div className={`${styles.categoryDescription}`}>
+                    <p>
+                      E-Shop pro velkoobchod je určen pro společnosti, které potřebují komplexní a rozsáhlé e-shopové řešení s vlastním rozhraním pro uživatele a přístupem do vlastní databáze produktů. Tento typ e-shopu podporuje velké množství produktů.
+                    </p>
+                  </div>
+                  <div className={`${styles.checkboxDescription}`}>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Responzivita webu</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Optimalizace SEO</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní doména včetně možnosti firemního e-mailu</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace na stránce</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Správa objednávek</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčnost</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Databáze produktů</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Uživatelské rozhraní</p></div>
+                  </div>
+                  <div className={`${styles.ctaBtns}`}>
+                    <Btn
+                      functionOnClick={"TODO"}
+                      width="clamp(100px, 100%, 250px)"
+                      bgColor="var(--color-secondary)"
+                      textColor="var(--color-text)"
+                      borderSize="none"
+                      borderRadius="15px"
+                      hoverEffect="scaleForward"
+                    >
+                      Vyplnit formulář
+                    </Btn>
+                    <Btn
+                      functionOnClick={"TODO"}
+                      width="clamp(100px, 100%, 250px)"
+                      bgColor="transparent"
+                      borderSize="none"
+                      borderRadius="15px"
+                      bgHoverColor="var(--color-primary)"
+                      textHoverColor="var(--color-text-reverse)"
+                      hoverEffect="cfLeft"
+                    >
+                      Zavolejte mi
+                    </Btn>
+                  </div>
+                  <div className={`${styles.infoContainer}`}>
+                    <h4>~ 100.000 CZK</h4>
                     <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Cena je pouze orientační, odvíjí se primárně od náročnosti a velikosti obsahu stránky, standartně je počítána podle hodin strávených na projektu.</p></div>
                   </div>
                 </div>

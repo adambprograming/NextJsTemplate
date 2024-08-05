@@ -223,8 +223,11 @@
         flex-direction: column;
         gap: 30px;
         justify-content: center;
-        @media (max-width: 450px) {
-          gap: 10px;
+        @media (max-width: 880px) {
+          gap: 20px;
+        }
+        @media (max-width: 600px) {
+          gap: 5px;
         }
         .categoryDescription {
           margin: auto;
@@ -234,7 +237,10 @@
           flex-wrap: wrap;
           gap: 20px;
           max-width: 75%;
-          @media (max-width: 450px) {
+          @media (max-width: 880px) {
+            max-width: 90%;
+          }
+          @media (max-width: 600px) {
             max-width: 100%;
           }
           // img {
@@ -242,7 +248,7 @@
           // }
           p {
             margin: 0 0 0 0;
-            // width: clamp(100px, 75%, 500px);
+            // width: clamp(100px, 75%, 600px);
             font-family: var(--font-secondary);
             text-align: left;
           }
@@ -254,10 +260,13 @@
           justify-content: left;
           flex-wrap: wrap;
           max-width: 75%;
-          @media (max-width: 450px) {
+          @media (max-width: 880px) {
+            max-width: 90%;
+          }
+          @media (max-width: 600px) {
             max-width: 100%;
           }
-          @media (max-width: 860px) {
+          @media (max-width: 600px) {
             flex-direction: column;
           }
           div {
@@ -293,13 +302,20 @@
           flex-wrap: wrap;
           gap: 10px;
           width: 75%;
-          @media (max-width: 450px) {
+          @media (max-width: 880px) {
+            max-width: 90%;
+          }
+          @media (max-width: 600px) {
             width: 100%;
+            gap: 5px;
           }
         }
         .infoContainer {
           max-width: 75%;
-          @media (max-width: 450px) {
+          @media (max-width: 880px) {
+            max-width: 90%;
+          }
+          @media (max-width: 600px) {
             max-width: 100%;
           }
           div {
