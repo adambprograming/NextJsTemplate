@@ -1,0 +1,45 @@
+{
+  "lang": "en",
+  "notFound": {
+    "title": "Page Not Found",
+    "msg": "The page you requested could not be found. It might be unavailable or removed.",
+    "btn": "Go back to home page"
+  },
+  "root": {
+
+  },
+  "components": {
+    "colorThemeSwitch": {
+        "btnArialabel": "Button that change color theme of website on click."
+    }
+  },
+  "containers": {
+    "header": {
+      "nav": {
+
+      }
+    },
+    "footer": {
+      "nav": {
+        "title": "Menu",
+        "homePage": "Home Page"
+      },
+      "contacts": {
+        "title": "Contacts",
+        "copy": "Copied!",
+        "labels": {
+          "facebook": "Link to our Facebook profile.",
+          "instagram": "Link to our Instagram profile.",
+          "tiktok": "Link to our Tiktok profile.",
+          "linkedin": "Link to our Linkedin profile.",
+          "twitter": "Link to our Twitter profile.",
+          "github": "Link to our GitHub profile."
+        }
+      },
+      "created": {
+        "part1": "Developed by",
+        "part2": "All rights reserved."
+      }
+    }
+  }
+}

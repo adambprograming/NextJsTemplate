@@ -1,0 +1,183 @@
+// \/\/\/ RESET START \/\/\/
+
+/* HTML5 display-role reset for older browsers */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: auto;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+//  /\/\/\ RESET END /\/\/\
+
+body{
+    --font-primary: var(--font-anton, sans-serif);
+    --font-secondary: var(--font-roboto, sans-serif);
+    --fontsize-p: clamp(1.2rem, 0.9632rem + 0.7895vw, 2.1rem);
+    --fontsize-h1: clamp(2.433rem, 1.9530rem + 1.6000vw, 4.257rem);
+    --fontsize-h2: clamp(2.162rem, 1.7352rem + 1.4228vw, 3.784rem);
+    --fontsize-h3: clamp(1.922rem, 1.5425rem + 1.2649vw, 3.364rem);
+    --fontsize-h4: clamp(1.709rem, 1.3719rem + 1.1237vw, 2.99rem);
+    --fontsize-h5: clamp(1.519rem, 1.2193rem + 0.9991vw, 2.658rem);
+    --fontsize-h6: clamp(1.2rem, 0.9632rem + 0.7895vw, 2.1rem);
+    --fontsize-small: clamp(1rem, 0.8421rem + 0.5263vw, 1.6rem);
+    --fontsize-smaller: clamp(0.8rem, 0.6947rem + 0.3509vw, 1.2rem);
+}
+
+:root {
+    --color-primary: #005f99; /* Medium Blue */
+    --color-secondary: #3399ff; /* Light Blue */
+    --color-ascent: #ff9933; /* Warm Orange */
+    --color-background: #f0f8ff; /* Alice Blue */
+    --color-text: #00080E; /* Dark Navy */
+    --color-text-reverse: #f0f8ff; /* Alice Blue */
+    --color-text-light-still: #f0f8ff; /* Alice Blue */
+    --color-text-dark-still: #00264d; /* Dark Navy */
+    --color-border: rgba(33, 33, 38, 0.25);
+    --color-boxshadow: rgba(0, 0, 0, 0.5);
+    --color-error: rgb(243, 18, 96);
+    --color-warning: rgb(245, 165, 36);
+    --color-success: rgb(23, 201, 100);
+    --black-100: #212126;
+    --black-75: rgba(33, 33, 38, 0.75);
+    --black-50: rgba(33, 33, 38, 0.50);
+    --black-25: rgba(33, 33, 38, 0.25);
+    --black-15: rgba(33, 33, 38, 0.15);
+    --black-10: rgba(33, 33, 38, 0.10);
+    --black-5: rgba(33, 33, 38, 0.05);
+    --shadow-100: #212126;
+    --shadow-75: rgba(33, 33, 38, 0.75);
+    --shadow-50: rgba(33, 33, 38, 0.50);
+    --shadow-35: rgba(33, 33, 38, 0.35);
+    --shadow-25: rgba(33, 33, 38, 0.25);
+    --shadow-15: rgba(33, 33, 38, 0.15);
+    --shadow-10: rgba(33, 33, 38, 0.10);
+    --shadow-5: rgba(33, 33, 38, 0.05);
+    --breakpoint-1440: 1440px; // Largest monitor width (It should be set at max width of body)
+    --breakpoint-1024: 1024px; // < Monitor
+    --breakpoint-768: 768px; // < Tablet < 1024px
+    --breakpoint-480: 480px; // > Mobile (Between 480px & 768px is small tablet)
+    --breakpoint-300: 320px; // Smallest phone width
+    --padding-page: 2rem clamp(1rem, 5%, 4rem);
+    --padding-page-sides: clamp(1rem, 5%, 4rem);
+}
+
+.dark-theme {
+    --color-primary: #3399ff; /* Light Blue */
+    --color-secondary: #80bfff; /* Pastel Blue */
+    --color-ascent: #ffcc00; /* Golden Yellow */
+    --color-background: #00264d; /* Dark Navy */
+    --color-text: #f0f5ff; /* Very Light Blue */
+    --color-text-reverse: #00264d; /* Dark Navy */
+    --color-text-light-still: #f0f5ff; /* Very Light Blue */
+    --color-text-dark-still: #00264d; /* Dark Navy */
+    --color-border: rgba(222, 222, 217, 0.25);
+    --color-boxshadow: rgba(255, 255, 255, 0.5);
+    --shadow-100: #DEDED9;
+    --shadow-75: rgba(222, 222, 217, 0.75);
+    --shadow-50: rgba(222, 222, 217, 0.50);
+    --shadow-35: rgba(222, 222, 217, 0.35);
+    --shadow-25: rgba(222, 222, 217, 0.25);
+    --shadow-15: rgba(222, 222, 217, 0.15);
+    --shadow-10: rgba(222, 222, 217, 0.10);
+    --shadow-5: rgba(222, 222, 217, 0.05);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+main {
+    margin: auto;
+    padding: var(--padding-page);
+    max-width: var(--breakpoint-1440)
+}
+
+body  {
+    transition: background-color 0.1s linear, color 0.1s linear, fill 0.1s linear;
+}
+
+body{
+    background: var(--color-background);
+    color: var(--color-text);
+    text-align: center;
+}
+
+p {
+    font-size: var(--fontsize-p);
+    font-family: var(--font-secondary);
+}
+
+h1 {
+    font-size: var(--fontsize-h1);
+    font-family: var(--font-primary);
+}
+
+h2 {
+    font-size: var(--fontsize-h2);
+    font-family: var(--font-primary);
+}
+
+h3 {
+    font-size: var(--fontsize-h3);
+    font-family: var(--font-primary);
+}
+h4 {
+    font-size: var(--fontsize-h4);
+    font-family: var(--font-primary);
+}
+h5 {
+    font-size: var(--fontsize-h5);
+    font-family: var(--font-primary);
+}
+
+h6 {
+    font-size: var(--fontsize-h6);
+    font-family: var(--font-primary);
+}
+
+// .g-enable-text-selection {
+//     -webkit-user-select: text; /* Safari */
+//     -ms-user-select: text; /* IE 10 and IE 11 */
+//     user-select: text; /* Standard syntax */
+// }
+
+// * {
+//     -webkit-user-select: none; /* Safari */
+//     -ms-user-select: none; /* IE 10 and IE 11 */
+//     user-select: none; /* Standard syntax */
+// }
