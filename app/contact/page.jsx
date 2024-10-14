@@ -9,17 +9,15 @@ import IconInstagram from "@/components/svgs/footer-icons/icon-instagram.compone
 import IconLinkedin from "@/components/svgs/footer-icons/icon-linkedin.component";
 import IconGithub from "@/components/svgs/footer-icons/icon-github.component";
 // React/Next Functions
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 // Context & Actions
-import { LanguageContext } from "@/context/lang.context";
+
 // Componenets
 import Btn from "@/components/btn/btn.component";
 import FormContact from "@/components/forms/form-contant/form-contact.component";
 import Popup from "@/components/popup/popup.component";
 
 const Page = () => {
-  const { languageDict, language } = useContext(LanguageContext);
-  // const dict = languageDict.pages.contact;
   const [phoneNumberCopied, setPhoneNumberCopied] = useState(false);
   const [emailAddressCopied, setEmailAddressCopied] = useState(false);
   const phoneNumber = "+42077780333073";
@@ -153,9 +151,7 @@ const Page = () => {
               </div>
             </Btn>
             <Btn
-              href={`https://www.linkedin.com/in/adam-bart%C5%AF%C5%A1ek-251107286/${
-                language === "cs" ? "?locale=cs_CZ" : ""
-              }`}
+              href={`https://www.linkedin.com/in/adam-bart%C5%AF%C5%A1ek-251107286/?locale=cs_CZ`}
               borderSize="none"
               paddingOfBtn="0"
               hoverEffect="scaleForward"

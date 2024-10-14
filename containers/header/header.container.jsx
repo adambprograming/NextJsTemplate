@@ -4,14 +4,12 @@ import "./header.styles.scss";
 // Public & Assets
 import Logo from "@/components/svgs/logo.component.jsx";
 // React/Next Functions
-import { useContext } from "react";
 import Link from "next/link";
 // Context & Actions
-import { LanguageContext } from "@/context/lang.context";
+
 // Components
 import Menu from "@/components/menu/menu.component.jsx";
 import MenuItem from "@/components/menu/menu-item.component.jsx";
-import MenuLanguage from "@/components/menu-language/menu-language.component";
 import ColorThemeSwitch from "@/components/color-theme-switch/color-theme-switch.component";
 
 /*
@@ -22,20 +20,18 @@ INSTRUCTIONS
               leftmenu-centerlogo-rightsettings
 */
 const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
-  const { languageDict, language } = useContext(LanguageContext);
-  const dict = languageDict.containers.header;
   const renderMenu = (location) => {
     return (
       <Menu location={location} paddingOfEachLinkBlock="10px 20px">
         <MenuItem content="‎ TEST ‎">
-          <MenuItem content="TEST" href={`/${language}/test`}></MenuItem>
-          <MenuItem content="TEST" href={`/${language}/test`}></MenuItem>
-          <MenuItem content="TEST" href={`/${language}/test`}></MenuItem>
+          <MenuItem content="TEST" href="/test" ></MenuItem>
+          <MenuItem content="TEST" href="/test" ></MenuItem>
+          <MenuItem content="TEST" href="/test" ></MenuItem>
         </MenuItem>
-        <MenuItem content="O mně" href={`/${language}/about-me`} />
-        {/* <MenuItem content="Portfolio" href={`/${language}/portfolio`} /> */}
-        <MenuItem content="Služby" href={`/${language}/services`} />
-        <MenuItem content="Kontakt" href={`/${language}/contact`} />
+        <MenuItem content="O mně" href="/about-me" />
+        {/* <MenuItem content="Portfolio" href="/portfolio" /> */}
+        <MenuItem content="Služby" href="/services" />
+        <MenuItem content="Kontakt" href="/contact" />
       </Menu>
     );
   };
@@ -44,18 +40,13 @@ const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
     return (
       <div className="header-settings">
         <ColorThemeSwitch variant="third" />
-        <MenuLanguage
-          iconOnly={true}
-          variant="second"
-          languages={["cs", "en" /*, "sk", "de", "pl", "hu"*/]}
-        />
       </div>
     );
   };
 
   const renderLogo = () => {
     return (
-      <Link href={`/${language}`}>
+      <Link href="/" >
         <Logo alt="Logo" id="logo-header" aria-label="Go to home page" />
       </Link>
     );

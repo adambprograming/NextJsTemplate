@@ -1,17 +1,15 @@
-"use client";
 // Styles
 
 // Public & Assets
 
 // React/Next Functions
-import { useContext } from "react";
+
 // Context & Actions
-import { LanguageContext } from "@/context/lang.context";
+
 // Componenets
 import Btn from "@/components/btn/btn.component";
 
 export default function NotFound() {
-  const { languageDict, language } = useContext(LanguageContext);
   return (
     <div
       style={{
@@ -25,12 +23,12 @@ export default function NotFound() {
         padding: "2rem",
       }}
     >
-      <h1 style={{ fontSize: "2rem", margin: 0 }}>404: {languageDict.notFound.title}</h1>
+      <h1 style={{ fontSize: "2rem", margin: 0 }}>404: Stránka nenalezena</h1>
       <p style={{ margin: 0 }}>
-        {languageDict.notFound.msg}
+        Vámi požadovaná stránka nebyla nalezena. Možná není dostupná nebo byla odstraněna.
       </p>
       <Btn
-        href={`/${language}`}
+        href="/"
         fontFamily="var(--font-secondary)"
         fontSize="var(--fontsize-h6)"
         borderRadius="25px"
@@ -38,7 +36,7 @@ export default function NotFound() {
         opacity={0.2}
         paddingOfBtn="8px 16px"
       >
-        {languageDict.notFound.btn}
+        Zpět na domovskou stránku
       </Btn>
     </div>
   );

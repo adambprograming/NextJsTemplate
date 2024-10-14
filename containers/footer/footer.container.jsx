@@ -13,9 +13,9 @@ import IconX from "../../components/svgs/footer-icons/icon-x.component";
 import IconGithub from "@/components/svgs/footer-icons/icon-github.component";
 // React/Next Functions
 import Link from "next/link";
-import { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useRef } from "react";
 // Context & Actions
-import { LanguageContext } from "@/context/lang.context";
+
 // Components
 import Btn from "@/components/btn/btn.component";
 import Popup from "../../components/popup/popup.component";
@@ -26,8 +26,6 @@ const Footer = () => {
   const [popupPhone, setPopupPhone] = useState(false);
   const [popupEmail, setPopupEmail] = useState(false);
   const footerRef = useRef(null);
-  const { languageDict, language } = useContext(LanguageContext);
-  const dict = languageDict.containers.footer;
   function listenForDomChanges(targetNode, callback) {
     // Check browser compatibility
     if (!window.MutationObserver) {
@@ -128,15 +126,15 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-container-info">
           <div className="footer-nav">
-            <span>{dict.nav.title}</span>
+            <span>Menu</span>
             <ul>
               <li>
-                <Link href={`/${language}`}>{dict.nav.homePage}</Link>
+                <Link href="/" >Domovská stránka</Link>
               </li>
             </ul>
           </div>
           <div className="footer-contacts">
-            <span>{dict.contacts.title}</span>
+            <span>Kontakty</span>
             <div className="footer-icons">
               <span
                 className="footer-phone"
@@ -167,7 +165,7 @@ const Footer = () => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={dict.contacts.labels.facebook}
+                aria-label="Odkaz na náš Facebook profil."
               >
                 <IconFacebook />
               </Link> */}
@@ -175,7 +173,7 @@ const Footer = () => {
                 href="https://www.instagram.com/_adaamb/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={dict.contacts.labels.instagram}
+                aria-label="Odkaz na náš Instagram profil."
               >
                 <IconInstagram />
               </Link>
@@ -183,17 +181,15 @@ const Footer = () => {
                 href="https://www.tiktok.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={dict.contacts.labels.tiktok}
+                aria-label="Odkaz na náš TikTok profil."
               >
                 <IconTiktok />
               </Link> */}
               <Link
-                href={`https://www.linkedin.com/in/adam-bart%C5%AF%C5%A1ek-251107286/${
-                  language === "cs" ? "?locale=cs_CZ" : ""
-                }`}
+                href={`https://www.linkedin.com/in/adam-bart%C5%AF%C5%A1ek-251107286/?locale=cs_CZ`}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={dict.contacts.labels.linkedin}
+                aria-label="Odkaz na náš Linkedin profil."
               >
                 <IconLinkedin />
               </Link>
@@ -201,7 +197,7 @@ const Footer = () => {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={dict.contacts.labels.twitter}
+                aria-label="Odkaz na náš Twitter profil."
               >
                 <IconX />
               </Link> */}
@@ -209,7 +205,7 @@ const Footer = () => {
                 href="https://github.com/adambprograming"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={dict.contacts.labels.linkedin}
+                aria-label="Odkaz na náš GitHub profil."
               >
                 <IconGithub />
               </Link>
@@ -219,7 +215,7 @@ const Footer = () => {
         <div className="footer-container-copyright">
           <p> Adam Bartůšek &copy; 2022-2024.</p>
           <p>
-            <span>{dict.created.part1}</span>
+            <span>Vytvořil</span>
             <Btn
               href="https://www.adam-bartusek.cz/"
               ariaLabel="Created by Adam Bartůšek. Visit the developer website."
@@ -234,7 +230,7 @@ const Footer = () => {
               Adam Bartůšek
             </Btn>
             <span>.</span>
-            <span>{dict.created.part2}</span>
+            <span>Všechna práva vyhrazena.</span>
           </p>
         </div>
       </div>
