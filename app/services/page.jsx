@@ -1,7 +1,7 @@
 // Styles
 import styles from "./page.module.scss";
 // Public & Assets
-import img from "@/public/hero.png";
+
 // React/Next Functions
 
 // Context & Actions
