@@ -3,8 +3,7 @@ import styles from "./page.module.scss";
 // Public & Assets
 import img from "@/public/hero.png";
 // React/Next Functions
-import Image from "next/image";
-import Link from "next/link";
+
 // Context & Actions
 
 // Componenets
