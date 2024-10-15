@@ -7,8 +7,6 @@ import styles from "./page.module.scss";
 // Context & Actions
 
 // Componenets
-import Card from "@/components/card/card.component";
-import Btn from "@/components/btn/btn.component";
 import InteractiveChooser from "@/components/interactive-chooser/interactive-chooser.component";
 
 const ServicesPage = () => {
