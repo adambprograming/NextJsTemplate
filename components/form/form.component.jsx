@@ -32,6 +32,14 @@ export const Form = ({ children, onSubmit }) => {
 };
 
 /*
+TITLE
+*/
+
+export const FormTitle = ({children}) => {
+  return <h2 className={`${styles.formTitle}`}>{children}</h2>
+}
+
+/*
 ROW
 Should be used if more items should be in one row
 */

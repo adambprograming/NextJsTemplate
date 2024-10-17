@@ -9,7 +9,7 @@ import HeroImg from "@/public/hero.png"
 
 // Componenets
 import HeroSection from "@/containers/hero/hero.container";
-import { Form, FormRow, FormBtnSubmit } from "@/components/form/form.component";
+import { Form, FormTitle, FormRow, FormBtnSubmit } from "@/components/form/form.component";
 import FormInputName from "@/components/form/form-input-name.component";
 
 export default function Home() {
@@ -19,12 +19,16 @@ export default function Home() {
   return (
     <main className={`${styles.main}`}>
       <HeroSection imgSrc={HeroImg} />
+      <div style={{width: "450px"}}>
+
       <Form onSubmit={handleSubmit}>
+        <FormTitle>Xd</FormTitle>
         <FormRow>
           <FormInputName />
         </FormRow>
         <FormBtnSubmit />
       </Form>
+      </div>
     </main>
   );
 }
