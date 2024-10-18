@@ -1,9 +1,58 @@
+$padding-inputs: 10px 20px;
+
 .form {
-    margin: auto 0;
+  margin: auto 0;
+  width: 100%;
+  position: relative;
+}
+
+.formRow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.formTitle {
+}
+
+.formFieldsetName {
+  position: relative;
+  margin: 3rem 0 0 0;
+  height: min-content;
+  .formLabelName {
+    left: 5px;
+    position: absolute;
+    z-index: 20;
+    top: 50%;
+    white-space: nowrap;
+    transform: translateY(-50%);
+    transition: top 0.4s ease-in-out, color 0.4s ease-in-out;
+    color: var(--black-50);
+    pointer-events: none; // Disable click interaction on label
+    font-family: var(--font-secondary);
+  }
+  .active {
+    top: -10%;
+    // color: var(--color-ascent);
+  }
+
+  .formInputName {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     width: 100%;
-    position: relative;
-    .formRow {
-        width: 100%;
-        
+    outline: none;
+    transition: border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    font-family: var(--font-secondary);
+    padding: $padding-inputs;
+    &:focus {
+      border-color: var(--color-ascent);
+      box-shadow: 0 0 5px var(--black-50);
     }
+  }
+  .infoIcon {
+    position: absolute;
+  }
 }

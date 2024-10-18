@@ -9,8 +9,8 @@ import HeroImg from "@/public/hero.png"
 
 // Componenets
 import HeroSection from "@/containers/hero/hero.container";
-import { Form, FormTitle, FormRow, FormBtnSubmit } from "@/components/form/form.component";
-import FormInputName from "@/components/form/form-input-name.component";
+import { Form, FormTitle, FormRow, FormBtnSubmit, FormInputName } from "@/components/form/form.component";
+import InputFloatingLabel from "@/components/inputs/input-floatinglabel/input-floatinglabel.component";
 
 export default function Home() {
   const handleSubmit = (formdata) => {
@@ -21,10 +21,10 @@ export default function Home() {
       <HeroSection imgSrc={HeroImg} />
       <div style={{width: "450px"}}>
 
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} borderRadiusOfInputsAndBtnsForm="5px" >
         <FormTitle>Xd</FormTitle>
         <FormRow>
-          <FormInputName />
+          <FormInputName label="Jméno" />
         </FormRow>
         <FormBtnSubmit />
       </Form>
