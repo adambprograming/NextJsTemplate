@@ -14,8 +14,8 @@ $padding-inputs: 10px 20px;
   gap: 10px;
 }
 
-.formTitle {
-}
+// .formTitle {
+// }
 
 .formFieldsetName {
   position: relative;
@@ -37,7 +37,6 @@ $padding-inputs: 10px 20px;
     top: -10%;
     // color: var(--color-ascent);
   }
-
   .formInputName {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -46,13 +45,41 @@ $padding-inputs: 10px 20px;
     outline: none;
     transition: border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
     font-family: var(--font-secondary);
+    color: var(--color-text);
     padding: $padding-inputs;
     &:focus {
       border-color: var(--color-ascent);
       box-shadow: 0 0 5px var(--black-50);
     }
   }
-  .infoIcon {
+  .hintIcon {
     position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: var(--black-25);
+    // cursor: pointer;
+  }
+  .hintText {
+    position: absolute;
+    font-family: var(--font-secondary);
+    color: var(--color-text);
+    font-size: var(--fontsize-small);
+    white-space: nowrap;
+    background-color: var(--color-background);
+    padding: 5px 10px;
+    border-radius: 5px;
+    top: 20%;
+    transform: translateY(-80%);
+    right: 5%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    display: none;
+  }
+  .hintIcon:hover + .hintText, /* Show hint on hover */
+  .hintIcon:focus + .hintText,
+  .hintText:hover {
+    /* Or on click/focus for accessibility */
+    display: block; /* Display the hint text when the icon is hovered or clicked */
   }
 }

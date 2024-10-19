@@ -191,6 +191,7 @@ export const FormInputName = ({
   functionOnFocus,
   functionOnKeyDown,
   width = "100%",
+  hintText = "Vyplňte prosím Vaše jméno.",
   fontSizeOfInputsAndBtnsForm,
   fontSizeOfLabelsForm,
   fontWeightOfLabelForm,
@@ -290,7 +291,12 @@ export const FormInputName = ({
           backgroundColor: `${bgColor ? bgColor : bgColorOfInputsAndBtnsForm}`,
         }}
       ></input>
-      {/* <IconInfoCircle className={`${styles.infoIcon}`} /> */}
+      {hintText && 
+        <>
+          <IconInfoCircle className={`${styles.hintIcon}`} />
+          <span className={`${styles.hintText}`}>{hintText}</span>
+        </>
+      }
     </fieldset>
   );
 };
