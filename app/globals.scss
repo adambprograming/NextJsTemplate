@@ -127,9 +127,12 @@ main {
     max-width: var(--breakpoint-1440)
 }
 
-body  {
-    transition: background-color 0.1s linear, color 0.1s linear, fill 0.1s linear;
-}
+// body  {
+    // transition: background-color 0.1s linear, color 0.1s linear, fill 0.1s linear;
+// }
+// * {
+    // transition: background-color 0.1s linear, color 0.1s linear, fill 0.1s linear;
+// }
 
 body{
     background: var(--color-background);
