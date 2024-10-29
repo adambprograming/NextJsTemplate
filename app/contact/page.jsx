@@ -16,6 +16,18 @@ import { useState, useEffect } from "react";
 import Btn from "@/components/btn/btn.component";
 import FormContact from "@/components/forms/form-contant/form-contact.component";
 import Popup from "@/components/popup/popup.component";
+import {
+  Form,
+  FormTitle,
+  FormRow,
+  FormBtnSubmit,
+  FormInputName,
+  FormInputSurname,
+  FormInputPhone,
+  FormInputEmail,
+  FormInputPrice,
+  FormInput,
+} from "@/components/form/form.component";
 
 const Page = () => {
   const [phoneNumberCopied, setPhoneNumberCopied] = useState(false);
@@ -32,8 +44,8 @@ const Page = () => {
         setPhoneNumberCopied(false);
       }, 2500);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phoneNumberCopied])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phoneNumberCopied]);
 
   useEffect(() => {
     if (emailAddressCopied) {
@@ -44,12 +56,10 @@ const Page = () => {
         setEmailAddressCopied(false);
       }, 2500);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [emailAddressCopied])
-  
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [emailAddressCopied]);
 
   const handleCallOrCopyNumber = () => {
-    
     const userAgent = navigator.userAgent || window.opera;
     // Check, if device have phone functions
     if (/android|iphone|ipad|iPod/i.test(userAgent)) {
@@ -78,6 +88,10 @@ const Page = () => {
     window.location.href = mailtoLink;
   };
 
+  const handleSubmit = (formdata) => {
+    console.log(formdata);
+  };
+
   return (
     <main className={styles.main}>
       <section className={`${styles.introduction}`}>
@@ -103,8 +117,12 @@ const Page = () => {
                 <IconPhone />
               </div>
               <div className={`${styles.specContainer}`}>
-                <h6 className={`${styles.contactTitle}`}>Mobil{phoneNumberCopied && <span>Zkopírováno!</span>}</h6>
-                <span className={`${styles.contactValue}`}>+42077780333073</span>
+                <h6 className={`${styles.contactTitle}`}>
+                  Mobil{phoneNumberCopied && <span>Zkopírováno!</span>}
+                </h6>
+                <span className={`${styles.contactValue}`}>
+                  +42077780333073
+                </span>
               </div>
             </div>
 
@@ -113,11 +131,20 @@ const Page = () => {
                 <IconEmail />
               </div>
               <div className={`${styles.specContainer}`}>
-                <h6 className={`${styles.contactTitle}`}>E-mail{emailAddressCopied && <span>Zkopírováno!</span>}</h6>
-                <span className={`${styles.contactValue}`}>ab@adam-bartusek.cz</span>
+                <h6 className={`${styles.contactTitle}`}>
+                  E-mail{emailAddressCopied && <span>Zkopírováno!</span>}
+                </h6>
+                <span className={`${styles.contactValue}`}>
+                  ab@adam-bartusek.cz
+                </span>
               </div>
             </div>
-            <a href="https://www.google.com/maps/place/Pardubice/@50.0342266,15.4292331,10z/data=!3m1!4b1!4m6!3m5!1s0x470dc94b239307b5:0x12d59894ccf624ae!8m2!3d50.0343092!4d15.7811994!16zL20vMGNoNTQ?entry=ttu" target="_blank" rel="noopener noreferrer" className={`${styles.address}`}>
+            <a
+              href="https://www.google.com/maps/place/Pardubice/@50.0342266,15.4292331,10z/data=!3m1!4b1!4m6!3m5!1s0x470dc94b239307b5:0x12d59894ccf624ae!8m2!3d50.0343092!4d15.7811994!16zL20vMGNoNTQ?entry=ttu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.address}`}
+            >
               <div className={`${styles.iconContainer}`}>
                 <IconLocation />
               </div>
@@ -164,6 +191,65 @@ const Page = () => {
         </div>
         <div className={`${styles.form}`}>
           <FormContact />
+        </div>
+        <div className={`${styles.form}`}></div>
+        <div className={`${styles.form}`}>
+          <Form onSubmit={handleSubmit} styleOfLabels="above">
+            <FormTitle>Formulář</FormTitle>
+            {/* <FormRow>
+              <FormInputName label="Jméno:" isRequired={true} />
+              <FormInputSurname label="Prijmeni:" isRequired={true} />
+            </FormRow>
+            <FormRow>
+              <FormInputPhone label="Telefonní číslo:" isRequired={true} />
+              <FormInputEmail label="E-mail:" isRequired={true} />
+            </FormRow> */}
+            <FormInputPrice label="Jaký je Váš rozpočet?" />
+            <FormInput
+              tag="age"
+              label="Věk:"
+              placeholder="Uveďte Váš věk"
+              validationPattern={/^[0-9]{1,3}$/}
+              hintText="Věk musí obsahovat 1 až 3 znaky a může obsahovat pouze čísla."
+            />
+            <FormRow>
+              <FormInput
+                tag="name"
+                label="Jméno:"
+                placeholder="Uveďte Vaše jméno"
+                validationPattern={/^[a-zA-ZěščřžýáíéúůóďťňĚŠČŘŽÝÁÍÉÚŮÓĎŤŇ\s'-]{2,30}$/}
+                hintText="Jméno musí obsahovat 2 až 30 znaků a může obsahovat pouze písmena, mezery a pomlčky."
+                isRequired={true}
+              />
+              <FormInput
+                tag="surname"
+                label="Příjmení:"
+                placeholder="Uveďte Vaše příjmení"
+                validationPattern={/^[a-zA-ZěščřžýáíéúůóďťňĚŠČŘŽÝÁÍÉÚŮÓĎŤŇ\s'-]{2,35}$/}
+                hintText="Příjmení musí obsahovat 2 až 35 znaků a může obsahovat pouze písmena, mezery a pomlčky."
+                isRequired={true}
+              />
+            </FormRow>
+            <FormRow>
+              <FormInput
+                tag="phone"
+                label="Telefonní číslo:"
+                placeholder="Uveďte Vaše telefonní číslo"
+                validationPattern={/^\+?[0-9]{7,15}$/}
+                hintText="Telefonní číslo musí obsahovat 7 až 15 číslic."
+                isRequired={true}
+              />
+              <FormInput
+                tag="email"
+                label="E-mail:"
+                placeholder="Uveďte Váš e-mail"
+                validationPattern={/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,320}$/}
+                hintText="Zadejte platnou e-mailovou adresu ve formátu např. uzivatel@email.com."
+                isRequired={true}
+              />
+            </FormRow>
+            <FormBtnSubmit/>
+          </Form>
         </div>
       </section>
       <section className={`${styles.process}`}>

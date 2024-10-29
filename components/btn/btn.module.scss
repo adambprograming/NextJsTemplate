@@ -45,7 +45,7 @@
       transition: background-color 0.4s ease;
     }
     .btnText {
-      transition: color 0.1s ease;
+      transition: color 0.4s ease;
     }
   }
   &.cfLeft {
@@ -190,7 +190,7 @@
         background-color: var(--localBgHoverColor) !important;
       }
       .btnText {
-        color: var(--localTextHoverColor);
+        color: var(--localTextHoverColor) !important;
       }
     }
     &.cfLeft:hover {
