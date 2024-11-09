@@ -28,10 +28,10 @@ const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
           <MenuItem content="TEST" href="/test" ></MenuItem>
           <MenuItem content="TEST" href="/test" ></MenuItem>
         </MenuItem>
-        <MenuItem content="O mně" href="/about-me" />
+        <MenuItem content="O mně" href="/o-mne" />
         {/* <MenuItem content="Portfolio" href="/portfolio" /> */}
-        <MenuItem content="Služby" href="/services" />
-        <MenuItem content="Kontakt" href="/contact" />
+        <MenuItem content="Služby" href="/sluzby" />
+        <MenuItem content="Kontakt" href="/kontakt" />
       </Menu>
     );
   };

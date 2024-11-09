@@ -32,7 +32,7 @@ export async function generateMetadata() {
 
 export default function RootLayout({ children }) {
   return (
-    <html>
+    <html lang="cs">
       <body
         className={`${anton.variable} ${roboto.variable}`}
         suppressHydrationWarning={true}
