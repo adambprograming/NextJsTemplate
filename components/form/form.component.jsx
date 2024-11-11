@@ -20,6 +20,12 @@ INSTRUCTIONS
   children                                        Child element
   onSubmit                                        what should happen on submit
   styleOfLabels                                   can contain floating, above or none (defines style of labels across form) (floating cant handle selects)
+  width                                           style attr for width of whole form element
+  padding                                         style attr for padding of whole form element
+  bgColor                                         style attr for background-color for whole form element
+  borderRadius                                    style attr for border-radius of whole form element
+  borderSize                                      style attr for border-size of whole form element
+  borderColor                                     style attr for border-color of whole form element
   fontSizeOfLabelsForm                            style attribute for every label - can be overwritten individauly for each label element by setting fontSizeLabel there
   fontWeightOfLabelsForm                          style attribute for every label - can be overwritten individauly for each label element by setting fontWeightLabel there
   textColorOfLabelsForm                           style attribute for every label - can be overwritten individauly for each label element by setting textColorLabel there
@@ -40,6 +46,12 @@ export const Form = ({
   children,
   onSubmit,
   styleOfLabels = "above",
+  width = "100%",
+  padding = "0px",
+  bgColor = "transparent",
+  borderRadius = "5px",
+  borderSize = "0px",
+  borderColor = "var(--color-border)",
   fontSizeOfLabelsForm = "var(--fontsize-small)",
   fontWeightOfLabelsForm = "400",
   textColorOfLabelsForm = "var(--shadow-75)",
@@ -111,6 +123,13 @@ export const Form = ({
   return (
     <form
       className={`${styles.form}`}
+      style={{
+        width: `${width}`,
+        padding: `${padding}`,
+        backgroundColor: `${bgColor}`,
+        borderRadius: `${borderRadius}`,
+        border: `${borderSize} solid ${borderColor}`
+      }}
       ref={formRef}
       onSubmit={handleSubmit}
       noValidate={true}

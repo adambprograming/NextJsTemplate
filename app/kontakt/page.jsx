@@ -8,22 +8,21 @@ import IconLocation from "@/components/svgs/footer-icons/icon-location.component
 import IconInstagram from "@/components/svgs/footer-icons/icon-instagram.component";
 import IconLinkedin from "@/components/svgs/footer-icons/icon-linkedin.component";
 import IconGithub from "@/components/svgs/footer-icons/icon-github.component";
+import IconInvoice from "@/components/svgs/footer-icons/icon-email.component copy";
+import HeroImg from "@/public/hero.png";
 // React/Next Functions
 import { useState, useEffect } from "react";
+import Image from "next/image";
 // Context & Actions
 
 // Componenets
 import Btn from "@/components/btn/btn.component";
-import FormContact from "@/components/forms/form-contant/form-contact.component";
-import Popup from "@/components/popup/popup.component";
 import {
   Form,
-  FormTitle,
   FormRow,
   FormBtnSubmit,
   FormInput,
   FormTextarea,
-  FormSelect,
   FormPicker,
   FormPickerOption,
 } from "@/components/form/form.component";
@@ -31,8 +30,10 @@ import {
 const Page = () => {
   const [phoneNumberCopied, setPhoneNumberCopied] = useState(false);
   const [emailAddressCopied, setEmailAddressCopied] = useState(false);
+  const [icoCopied, setIcoCopied] = useState(false);
   const phoneNumber = "+42077780333073";
   const emailAddress = "ab@adam-bartusek.cz";
+  const ico = "44798744654";
 
   const [choosedOptionForm, setChoosedOptionForm] = useState("Ano");
 
@@ -40,6 +41,9 @@ const Page = () => {
     if (phoneNumberCopied) {
       if (emailAddressCopied) {
         setEmailAddressCopied(false);
+      }
+      if (icoCopied) {
+        setIcoCopied(false);
       }
       setTimeout(() => {
         setPhoneNumberCopied(false);
@@ -53,12 +57,30 @@ const Page = () => {
       if (phoneNumberCopied) {
         setPhoneNumberCopied(false);
       }
+      if (icoCopied) {
+        setIcoCopied(false);
+      }
       setTimeout(() => {
         setEmailAddressCopied(false);
       }, 2500);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [emailAddressCopied]);
+
+  useEffect(() => {
+    if (icoCopied) {
+      if (phoneNumberCopied) {
+        setPhoneNumberCopied(false);
+      }
+      if (emailAddressCopied) {
+        setEmailAddressCopied(false);
+      }
+      setTimeout(() => {
+        setIcoCopied(false);
+      }, 2500);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [icoCopied]);
 
   const handleCallOrCopyNumber = () => {
     const userAgent = navigator.userAgent || window.opera;
@@ -89,29 +111,25 @@ const Page = () => {
     window.location.href = mailtoLink;
   };
 
+  const handleIcoCopy = () => {
+    // Copy the ico to clipboard
+    navigator.clipboard.writeText(ico).then(
+      () => {
+        setIcoCopied(true);
+      },
+      () => {}
+    );
+  }
+
   const handleSubmit = (formdata) => {
     console.log(formdata);
   };
 
   return (
     <main className={styles.main}>
-      {/* <section className={`${styles.introduction}`}>
-        <h1>Kontaktujte mě</h1>
-        <p>
-          Neváhejte mě kontaktovat! V případě, že již máte na úvod jasno, můžete
-          vyplnit kontaktní formulář a já se Vám do pár dní ozvu, abysme
-          domluvili další postup a první schůzku.V případě, že Vám není formulář
-          příjmený, můžete rovnou zavolat a domluvíme se po telefonu.
-        </p>
-      </section> */}
-      <section className={`${styles.contactsAndForm}`}>
-        <div className={`${styles.contacts}`}>
-          <h2>Kontakty</h2>
-          {/* <p>
-            Po úvodním hovoru rád upřednostním osobní setkání a na všem se tak
-            lépe domluvíme. Pokud bych zrovna nemohl vzít telefon, ozvu se jak
-            jen to bude možné. Případně můžete využít SMS či e-mail.
-          </p> */}
+      <section className={`${styles.contacts}`}>
+        <div className={`${styles.contactsContainer}`}>
+          <h2 className={`${styles.sectionTitle}`}>Kontakty</h2>
           <div className={`${styles.mainContacts}`}>
             <div onClick={handleCallOrCopyNumber} className={`${styles.phone}`}>
               <div className={`${styles.iconContainer}`}>
@@ -122,11 +140,10 @@ const Page = () => {
                   Mobil{phoneNumberCopied && <span>Zkopírováno!</span>}
                 </h6>
                 <span className={`${styles.contactValue}`}>
-                  +42077780333073
+                  {phoneNumber}
                 </span>
               </div>
             </div>
-
             <div onClick={handleEmailOrCopy} className={`${styles.email}`}>
               <div className={`${styles.iconContainer}`}>
                 <IconEmail />
@@ -136,7 +153,7 @@ const Page = () => {
                   E-mail{emailAddressCopied && <span>Zkopírováno!</span>}
                 </h6>
                 <span className={`${styles.contactValue}`}>
-                  ab@adam-bartusek.cz
+                {emailAddress}
                 </span>
               </div>
             </div>
@@ -151,9 +168,22 @@ const Page = () => {
               </div>
               <div className={`${styles.specContainer}`}>
                 <h6 className={`${styles.contactTitle}`}>Město</h6>
-                <span className={`${styles.contactValue}`}>Pardubice</span>
+                <span className={`${styles.contactValue}`}>Pardubice (CZ)</span>
               </div>
             </a>
+            <div onClick={handleIcoCopy} className={`${styles.ico}`}>
+              <div className={`${styles.iconContainer}`}>
+                <IconInvoice />
+              </div>
+              <div className={`${styles.specContainer}`}>
+                <h6 className={`${styles.contactTitle}`}>
+                 IČO{icoCopied && <span>Zkopírováno!</span>}
+                </h6>
+                <span className={`${styles.contactValue}`}>
+                  {ico}
+                </span>
+              </div>
+            </div>
           </div>
           <hr style={{ width: "100%" }} />
           <h6>Sledujte mě</h6>
@@ -190,143 +220,147 @@ const Page = () => {
             </Btn>
           </div>
         </div>
-        {/* <div className={`${styles.form}`}>
-          <FormContact />
-        </div> */}
-        {/* <div className={`${styles.form}`}></div> */}
-        <div className={`${styles.form}`}>
-          <Form onSubmit={handleSubmit} styleOfLabels="above">
-            <FormTitle>Formulář</FormTitle>
-            <FormRow>
-              <FormInput
-                tag="name"
-                label="Jméno:"
-                placeholder="Uveďte Vaše jméno"
-                validationPattern={
-                  /^[a-zA-ZěščřžýáíéúůóďťňĚŠČŘŽÝÁÍÉÚŮÓĎŤŇ\s'-]{2,30}$/
-                }
-                maxLength={30}
-                hintText="Jméno musí obsahovat 2 až 30 znaků a může obsahovat pouze písmena, mezery a pomlčky."
-                isRequired={true}
-              />
-              <FormInput
-                tag="surname"
-                label="Příjmení:"
-                placeholder="Uveďte Vaše příjmení"
-                validationPattern={
-                  /^[a-zA-ZěščřžýáíéúůóďťňĚŠČŘŽÝÁÍÉÚŮÓĎŤŇ\s'-]{2,35}$/
-                }
-                maxLength={35}
-                hintText="Příjmení musí obsahovat 2 až 35 znaků a může obsahovat pouze písmena, mezery a pomlčky."
-                isRequired={true}
-              />
-            </FormRow>
-            <FormRow>
-              <FormInput
-                tag="phone"
-                label="Telefonní číslo:"
-                placeholder="Uveďte Vaše telefonní číslo"
-                validationPattern={/^\+?[0-9]{7,15}$/}
-                maxLength={15}
-                hintText="Telefonní číslo musí obsahovat 7 až 15 číslic."
-                isRequired={true}
-              />
-              <FormInput
-                tag="email"
-                label="E-mail:"
-                placeholder="Uveďte Váš e-mail"
-                validationPattern={
-                  /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,320}$/
-                }
-                maxLength={320}
-                hintText="Zadejte platnou e-mailovou adresu ve formátu např. uzivatel@email.com."
-                isRequired={true}
-              />
-            </FormRow>
-            <FormPicker label="Dokážete konkrétně specifikovat Vaši poptávku?">
-              <FormPickerOption
-                functionOnClick={(option) => {
-                  setChoosedOptionForm(option);
-                }}
-                selected={choosedOptionForm === "Ano"}
-              >
-                Ano
-              </FormPickerOption>
-              <FormPickerOption
-                functionOnClick={(option) => {
-                  setChoosedOptionForm(option);
-                }}
-                selected={choosedOptionForm === "Ne"}
-              >
-                Ne
-              </FormPickerOption>
-            </FormPicker>
-            {choosedOptionForm === "Ano" && (
-              <FormTextarea
-                tag="scope"
-                label="Rozsah zakázky:"
-                placeholder="Uveďte, na jaké podstránky chcete mít zakázku rozdělenou, případně i strukturu zakázky."
-                maxLength={500}
-                rows={4}
-              />
-            )}
-            {choosedOptionForm === "Ano" && (
-              <FormTextarea
-                tag="functions"
-                label="Funkce zakázky:"
-                placeholder="Uveďte funkce, které chcete mít v zakázce. (Např. vícejazyčnost, tmavý/světlý režim, platební bránu, databázi, nebo cokoliv co Vás napadne)"
-                maxLength={500}
-                rows={4}
-              />
-            )}
-            {choosedOptionForm === "Ano" && (
-              <FormInput
-                tag="exemple-url"
-                label="Web, který se Vám líbí:"
-                placeholder="Uveďte odkaz na web v případě, že znáte web ,který se Vám graficky líbí"
-                maxLength={60}
-              />
-            )}
-            {choosedOptionForm === "Ano" && (
-              <FormInput
-                tag="price"
-                label="Váš rozpočet:"
-                placeholder="Uveďte Vaši představu o ceně zakázky"
-                maxLength={50}
-              />
-            )}
-            {choosedOptionForm === "Ano" && (
-              <FormInput
-                tag="deadline"
-                label="Ideální datum dodání:"
-                placeholder="Uveďte v případě, že na zakázku opravdu spěcháte"
-                maxLength={50}
-              />
-            )}
-            {choosedOptionForm === "Ano" && (
-              <FormTextarea
-                tag="other-specs"
-                label="Ostatní specifikace:"
-                placeholder="Uveďte dodatečné informace, či požadavky, k zakázce."
-                maxLength={1000}
-                rows={4}
-              />
-            )}
-            {choosedOptionForm === "Ne" && (
-              <FormTextarea
-                tag="general-specs"
-                label="Popište Vaší poptávku / dotaz:"
-                placeholder="Popište, co potřebujete, jak to jen půjde. Ideálně zaklikněte možnost 'Ano' výše a pokuste se vyplnit konkrétní formulář."
-                maxLength={1000}
-                rows={6}
-              />
-            )}
-            <FormBtnSubmit />
-          </Form>
+        <div className={`${styles.photoContainer}`}>
+          <Image src={HeroImg} alt="Contact photo" />
         </div>
       </section>
-      <section className={`${styles.process}`}>
-        Jak bude naše spolupráce probíhat?
+      <section className={`${styles.form}`}>
+        <h1 className={`${styles.sectionTitle}`}>Vyplňte kontaktní formulář</h1>
+        <Form
+          onSubmit={handleSubmit}
+          styleOfLabels="above"
+          width="calc(100% - (2 * clamp(8px, 2vw, 32px)))"
+          padding="clamp(8px, 2vw, 32px)"
+          bgColor="var(--shadow-5)"
+          borderRadius="15px"
+          bgColorOfLabelsForm="transparent"
+        >
+          <FormRow>
+            <FormInput
+              tag="name"
+              label="Jméno:"
+              placeholder="Uveďte Vaše jméno"
+              validationPattern={
+                /^[a-zA-ZěščřžýáíéúůóďťňĚŠČŘŽÝÁÍÉÚŮÓĎŤŇ\s'-]{2,30}$/
+              }
+              maxLength={30}
+              hintText="Jméno musí obsahovat 2 až 30 znaků a může obsahovat pouze písmena, mezery a pomlčky."
+              isRequired={true}
+            />
+            <FormInput
+              tag="surname"
+              label="Příjmení:"
+              placeholder="Uveďte Vaše příjmení"
+              validationPattern={
+                /^[a-zA-ZěščřžýáíéúůóďťňĚŠČŘŽÝÁÍÉÚŮÓĎŤŇ\s'-]{2,35}$/
+              }
+              maxLength={35}
+              hintText="Příjmení musí obsahovat 2 až 35 znaků a může obsahovat pouze písmena, mezery a pomlčky."
+              isRequired={true}
+            />
+          </FormRow>
+          <FormRow>
+            <FormInput
+              tag="phone"
+              label="Telefonní číslo:"
+              placeholder="Uveďte Vaše telefonní číslo"
+              validationPattern={/^\+?[0-9]{7,15}$/}
+              maxLength={15}
+              hintText="Telefonní číslo musí obsahovat 7 až 15 číslic."
+              isRequired={true}
+            />
+            <FormInput
+              tag="email"
+              label="E-mail:"
+              placeholder="Uveďte Váš e-mail"
+              validationPattern={
+                /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,320}$/
+              }
+              maxLength={320}
+              hintText="Zadejte platnou e-mailovou adresu ve formátu např. uzivatel@email.com."
+              isRequired={true}
+            />
+          </FormRow>
+          <FormPicker label="Dokážete konkrétně specifikovat Vaši poptávku?">
+            <FormPickerOption
+              functionOnClick={(option) => {
+                setChoosedOptionForm(option);
+              }}
+              selected={choosedOptionForm === "Ano"}
+            >
+              Ano
+            </FormPickerOption>
+            <FormPickerOption
+              functionOnClick={(option) => {
+                setChoosedOptionForm(option);
+              }}
+              selected={choosedOptionForm === "Ne"}
+            >
+              Ne
+            </FormPickerOption>
+          </FormPicker>
+          {choosedOptionForm === "Ano" && (
+            <FormTextarea
+              tag="scope"
+              label="Rozsah zakázky:"
+              placeholder="Uveďte, na jaké podstránky chcete mít zakázku rozdělenou, případně i strukturu zakázky."
+              maxLength={500}
+              rows={4}
+            />
+          )}
+          {choosedOptionForm === "Ano" && (
+            <FormTextarea
+              tag="functions"
+              label="Funkce zakázky:"
+              placeholder="Uveďte funkce, které chcete mít v zakázce. (Např. vícejazyčnost, tmavý/světlý režim, platební bránu, databázi, nebo cokoliv co Vás napadne)"
+              maxLength={500}
+              rows={4}
+            />
+          )}
+          {choosedOptionForm === "Ano" && (
+            <FormInput
+              tag="exemple-url"
+              label="Web, který se Vám líbí:"
+              placeholder="Uveďte odkaz na web v případě, že znáte web ,který se Vám graficky líbí"
+              maxLength={60}
+            />
+          )}
+          {choosedOptionForm === "Ano" && (
+            <FormInput
+              tag="price"
+              label="Váš rozpočet:"
+              placeholder="Uveďte Vaši představu o ceně zakázky"
+              maxLength={50}
+            />
+          )}
+          {choosedOptionForm === "Ano" && (
+            <FormInput
+              tag="deadline"
+              label="Ideální datum dodání:"
+              placeholder="Uveďte v případě, že na zakázku opravdu spěcháte"
+              maxLength={50}
+            />
+          )}
+          {choosedOptionForm === "Ano" && (
+            <FormTextarea
+              tag="other-specs"
+              label="Ostatní specifikace:"
+              placeholder="Uveďte dodatečné informace, či požadavky, k zakázce."
+              maxLength={1000}
+              rows={4}
+            />
+          )}
+          {choosedOptionForm === "Ne" && (
+            <FormTextarea
+              tag="general-specs"
+              label="Popište Vaší poptávku / dotaz:"
+              placeholder="Popište, co potřebujete, jak to jen půjde. Ideálně zaklikněte možnost 'Ano' výše a pokuste se vyplnit konkrétní formulář."
+              maxLength={1000}
+              rows={6}
+            />
+          )}
+          <FormBtnSubmit />
+        </Form>
       </section>
     </main>
   );
