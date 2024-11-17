@@ -20,7 +20,7 @@ fullWidth       if true, one item take full potential width, else take 86% and 7
 animation       animation of carousel, options:
                   "cube": 
 */
-const Carousel = ({ children, infinite = "notInfinite", fullWidth = true, animation = "none" }) => {
+export const Carousel = ({ children, infinite = "notInfinite", fullWidth = true, animation = "none" }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [startPosition, setStartPosition] = useState(0);
@@ -226,4 +226,10 @@ const Carousel = ({ children, infinite = "notInfinite", fullWidth = true, animat
   );
 };
 
-export default Carousel;
+export const CarouselItem = ({children, active, height}) => {
+  return (
+      <div className={`${styles.carouselItem} ${styles[active]}`} style={{height: `${height}`}}>
+          {children}
+      </div>
+  );
+}

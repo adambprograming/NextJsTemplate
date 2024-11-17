@@ -3,12 +3,21 @@
 import styles from "./interactive-chooser.module.scss";
 // Public & Assets
 import IconWeb from "@/public/web.png";
-import IconEshop from "@/public/eshop.png";
-import IconWebapp from "@/public/webapp.png";
-import IconCheckCircle from "@/components/svgs/check-circle.component";
-import IconInfoCircle from "@/components/svgs/info-circle.component";
-import IconArrowBack from "@/components/svgs/arrow-left-circle.component";
-import IconXCircle from "../svgs/x-circle.component";
+// import IconEshop from "@/public/eshop.png";
+// import IconWebapp from "@/public/webapp.png";
+import IconCheckCircle from "@/components/svgs/icon-check-circle.component";
+import IconInfoCircle from "@/components/svgs/icon-info-circle.component";
+import IconArrowBack from "@/components/svgs/icon-arrow-left-circle.component";
+import IconXCircle from "../svgs/icon-x-circle.component";
+import IconGlobe from "../svgs/interactive-picker-icons/icon-globe.component";
+import IconEshop from "../svgs/interactive-picker-icons/icon-eshop.component";
+import IconGears from "../svgs/interactive-picker-icons/icon-gears.component";
+import IconCheck from "../svgs/interactive-picker-icons/icon-check.component";
+import IconTarget from "../svgs/interactive-picker-icons/icon-target.component";
+import IconRocket from "../svgs/interactive-picker-icons/icon-rocket.component";
+import IconPerson from "../svgs/interactive-picker-icons/icon-person.component";
+import IconShop from "../svgs/interactive-picker-icons/icon-shop.component";
+import IconWarehouse from "../svgs/interactive-picker-icons/icon-warehouse.component";
 // React/Next Functions
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -17,8 +26,7 @@ import { useEffect, useState } from "react";
 // Componenets
 import Card from "@/components/card/card.component";
 import Btn from "@/components/btn/btn.component";
-import Carousel from "../carousel/carousel.component";
-import CarouselItem from "../carousel/carousel-item.component";
+import { Carousel, CarouselItem } from "../carousel/carousel.component";
 import Popup from "../popup/popup.component";
 
 /*
@@ -227,7 +235,7 @@ const InteractiveChooser = () => {
                     hoverEffect="bgHover"
                   >
                     <div className={`${styles.imgContainer}`}>
-                      <Image src={IconWeb} alt="" height="100" />
+                      <IconGlobe alt="" height={75}  />
                     </div>
                     <div className={`${styles.descriptionContainer}`}>
                       <h3 className={`${styles.btnTitle}`}>Webové stránky</h3>
@@ -250,7 +258,7 @@ const InteractiveChooser = () => {
                     hoverEffect="bgHover"
                   >
                     <div className={`${styles.imgContainer}`}>
-                      <Image src={IconEshop} alt="" height="100" />
+                      <IconEshop alt="" height={75} />
                     </div>
                     <div className={`${styles.descriptionContainer}`}>
                       <h3 className={`${styles.btnTitle}`}>E-shop</h3>
@@ -271,7 +279,7 @@ const InteractiveChooser = () => {
                     hoverEffect="bgHover"
                   >
                     <div className={`${styles.imgContainer}`}>
-                      <Image src={IconWebapp} alt="" height="100" />
+                      <IconGears alt="" height={75} />
                     </div>
                     <div className={`${styles.descriptionContainer}`}>
                       <h3 className={`${styles.btnTitle}`}>Webová aplikace</h3>
@@ -294,7 +302,7 @@ const InteractiveChooser = () => {
                   hoverEffect="bgHover"
                 >
                   <div className={`${styles.imgContainer}`}>
-                    <Image src={IconWeb} alt="" height="100" />
+                    <IconGlobe alt="" height={75}  />
                   </div>
                   <div className={`${styles.descriptionContainer}`}>
                     <h3 className={`${styles.btnTitle}`}>Webové stránky</h3>
@@ -315,7 +323,7 @@ const InteractiveChooser = () => {
                   hoverEffect="bgHover"
                 >
                   <div className={`${styles.imgContainer}`}>
-                    <Image src={IconEshop} alt="" height="100" />
+                    <IconEshop alt="" height={75}  />
                   </div>
                   <div className={`${styles.descriptionContainer}`}>
                     <h3 className={`${styles.btnTitle}`}>E-shop</h3>
@@ -334,7 +342,7 @@ const InteractiveChooser = () => {
                   hoverEffect="bgHover"
                 >
                   <div className={`${styles.imgContainer}`}>
-                    <Image src={IconWebapp} alt="" height="100" />
+                    <IconGears alt="" height={75}  />
                   </div>
                   <div className={`${styles.descriptionContainer}`}>
                     <h3 className={`${styles.btnTitle}`}>Webová aplikace</h3>
@@ -380,7 +388,7 @@ const InteractiveChooser = () => {
                           hoverEffect="bgHover"
                         >
                           <div className={`${styles.imgContainer}`}>
-                            <Image src={IconWeb} alt="" height="100" />
+                            <IconCheck alt="" height={75}  />
                           </div>
                           <div className={`${styles.descriptionContainer}`}>
                             <h3 className={`${styles.btnTitle}`}>
@@ -404,7 +412,7 @@ const InteractiveChooser = () => {
                           hoverEffect="bgHover"
                         >
                           <div className={`${styles.imgContainer}`}>
-                            <Image src={IconWeb} alt="" height="100" />
+                            <IconTarget alt="" height={75}  />
                           </div>
                           <div className={`${styles.descriptionContainer}`}>
                             <h3 className={`${styles.btnTitle}`}>
@@ -428,7 +436,7 @@ const InteractiveChooser = () => {
                           hoverEffect="bgHover"
                         >
                           <div className={`${styles.imgContainer}`}>
-                            <Image src={IconWeb} alt="" height="100" />
+                            <IconRocket alt="" height={75}  />
                           </div>
                           <div className={`${styles.descriptionContainer}`}>
                             <h3 className={`${styles.btnTitle}`}>
@@ -454,7 +462,7 @@ const InteractiveChooser = () => {
                         hoverEffect="bgHover"
                       >
                         <div className={`${styles.imgContainer}`}>
-                          <Image src={IconWeb} alt="" height="100" />
+                          <IconCheck alt="" height={75}  />
                         </div>
                         <div className={`${styles.descriptionContainer}`}>
                           <h3 className={`${styles.btnTitle}`}>
@@ -476,7 +484,7 @@ const InteractiveChooser = () => {
                         hoverEffect="bgHover"
                       >
                         <div className={`${styles.imgContainer}`}>
-                          <Image src={IconWeb} alt="" height="100" />
+                          <IconTarget alt="" height={75}  />
                         </div>
                         <div className={`${styles.descriptionContainer}`}>
                           <h3 className={`${styles.btnTitle}`}>
@@ -498,7 +506,7 @@ const InteractiveChooser = () => {
                         hoverEffect="bgHover"
                       >
                         <div className={`${styles.imgContainer}`}>
-                          <Image src={IconWeb} alt="" height="100" />
+                          <IconRocket alt="" height={75}  />
                         </div>
                         <div className={`${styles.descriptionContainer}`}>
                           <h3 className={`${styles.btnTitle}`}>
@@ -535,7 +543,7 @@ const InteractiveChooser = () => {
                           hoverEffect="bgHover"
                           >
                           <div className={`${styles.imgContainer}`}>
-                            <Image src={IconWeb} alt="" height="60" />
+                            <IconPerson alt="" height={75}  />
                           </div>
                           <div className={`${styles.descriptionContainer}`}>
                             <h3 className={`${styles.btnTitle}`}>
@@ -559,7 +567,7 @@ const InteractiveChooser = () => {
                           hoverEffect="bgHover"
                           >
                           <div className={`${styles.imgContainer}`}>
-                            <Image src={IconWeb} alt="" height="60" />
+                            <IconShop alt="" height={75}  />
                           </div>
                           <div className={`${styles.descriptionContainer}`}>
                             <h3 className={`${styles.btnTitle}`}>
@@ -583,7 +591,7 @@ const InteractiveChooser = () => {
                           hoverEffect="bgHover"
                           >
                           <div className={`${styles.imgContainer}`}>
-                            <Image src={IconWeb} alt="" height="60" />
+                            <IconWarehouse alt="" height={75}  />
                           </div>
                           <div className={`${styles.descriptionContainer}`}>
                             <h3 className={`${styles.btnTitle}`}>
@@ -609,7 +617,7 @@ const InteractiveChooser = () => {
                         hoverEffect="bgHover"
                         >
                         <div className={`${styles.imgContainer}`}>
-                          <Image src={IconWeb} alt="" height="60" />
+                          <IconPerson alt="" height={75}  />
                         </div>
                         <div className={`${styles.descriptionContainer}`}>
                           <h3 className={`${styles.btnTitle}`}>
@@ -631,7 +639,7 @@ const InteractiveChooser = () => {
                         hoverEffect="bgHover"
                         >
                         <div className={`${styles.imgContainer}`}>
-                          <Image src={IconWeb} alt="" height="60" />
+                          <IconShop alt="" height={75}  />
                         </div>
                         <div className={`${styles.descriptionContainer}`}>
                           <h3 className={`${styles.btnTitle}`}>
@@ -653,7 +661,7 @@ const InteractiveChooser = () => {
                         hoverEffect="bgHover"
                         >
                         <div className={`${styles.imgContainer}`}>
-                          <Image src={IconWeb} alt="" height="60" />
+                         <IconWarehouse alt="" height={75}  />
                         </div>
                         <div className={`${styles.descriptionContainer}`}>
                           <h3 className={`${styles.btnTitle}`}>

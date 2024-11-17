@@ -2,7 +2,7 @@
 // Styles
 import styles from "./form.module.scss";
 // Public & Assets
-import IconInfoCircle from "../svgs/info-circle.component";
+import IconInfoCircle from "../svgs/icon-info-circle.component";
 // React/Next Functions
 import { Children, cloneElement, useState } from "react";
 import { useRef } from "react";

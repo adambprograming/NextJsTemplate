@@ -33,7 +33,7 @@ const Page = () => {
   const [icoCopied, setIcoCopied] = useState(false);
   const phoneNumber = "+42077780333073";
   const emailAddress = "ab@adam-bartusek.cz";
-  const ico = "44798744654";
+  const ico = `10700561`;
 
   const [choosedOptionForm, setChoosedOptionForm] = useState("Ano");
 
@@ -180,7 +180,7 @@ const Page = () => {
                  IČO{icoCopied && <span>Zkopírováno!</span>}
                 </h6>
                 <span className={`${styles.contactValue}`}>
-                  {ico}
+                  {ico}{`\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0`}
                 </span>
               </div>
             </div>
