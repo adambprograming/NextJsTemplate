@@ -1,5 +1,5 @@
 // Fonts
-import { Anton, Roboto } from "next/font/google";
+import { Inter, Work_Sans } from "next/font/google";
 // Styles
 import "./globals.scss";
 // Public & Assets
@@ -12,15 +12,15 @@ import "./globals.scss";
 import Header from "@/containers/header/header.container.jsx";
 import Footer from "@/containers/footer/footer.container.jsx";
 
-const anton = Anton({
-  weight: "400",
+const fontPrimary = Inter({
+  weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
-  variable: "--font-anton",
+  variable: "--font-1",
 });
-const roboto = Roboto({
+const fontSecondary = Work_Sans({
   weight: ["400", "500", "700", "900"],
   subsets: ["latin"],
-  variable: "--font-roboto",
+  variable: "--font-2",
 });
 
 export async function generateMetadata() {
@@ -32,9 +32,9 @@ export async function generateMetadata() {
 
 export default function RootLayout({ children }) {
   return (
-    <html>
+    <html lang="cs">
       <body
-        className={`${anton.variable} ${roboto.variable}`}
+        className={`${fontPrimary.variable} ${fontSecondary.variable}`}
         suppressHydrationWarning={true}
       >
         <Header variant="leftsettings-centerlogo-rightmenu" />

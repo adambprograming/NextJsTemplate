@@ -45,8 +45,8 @@ table {
 //  /\/\/\ RESET END /\/\/\
 
 body{
-    --font-primary: var(--font-anton, sans-serif);
-    --font-secondary: var(--font-roboto, sans-serif);
+    --font-primary: var(--font-1, sans-serif);
+    --font-secondary: var(--font-2, sans-serif);
     --fontsize-p: clamp(1.2rem, 0.9632rem + 0.7895vw, 2.1rem);
     --fontsize-h1: clamp(2.433rem, 1.9530rem + 1.6000vw, 4.257rem);
     --fontsize-h2: clamp(2.162rem, 1.7352rem + 1.4228vw, 3.784rem);
@@ -61,7 +61,7 @@ body{
 :root {
     --color-primary: #005f99; /* Medium Blue */
     --color-secondary: #3399ff; /* Light Blue */
-    --color-ascent: #ff9933; /* Warm Orange */
+    --color-ascent: #ff8000; /* Warm Orange */
     --color-background: #f0f8ff; /* Alice Blue */
     --color-text: #00080E; /* Dark Navy */
     --color-text-reverse: #f0f8ff; /* Alice Blue */
@@ -79,6 +79,13 @@ body{
     --black-15: rgba(33, 33, 38, 0.15);
     --black-10: rgba(33, 33, 38, 0.10);
     --black-5: rgba(33, 33, 38, 0.05);
+    --white-100: #fff;
+    --white-75: rgba(255, 255, 255, 0.75);
+    --white-50: rgba(255, 255, 255, 0.50);
+    --white-25: rgba(255, 255, 255, 0.25);
+    --white-15: rgba(255, 255, 255, 0.15);
+    --white-10: rgba(255, 255, 255, 0.10);
+    --white-5: rgba(255, 255, 255, 0.05);    
     --shadow-100: #212126;
     --shadow-75: rgba(33, 33, 38, 0.75);
     --shadow-50: rgba(33, 33, 38, 0.50);
@@ -138,6 +145,7 @@ body{
     background: var(--color-background);
     color: var(--color-text);
     text-align: center;
+    overflow-x: hidden;
 }
 
 p {
@@ -148,29 +156,35 @@ p {
 h1 {
     font-size: var(--fontsize-h1);
     font-family: var(--font-primary);
+    font-weight: 600;
 }
 
 h2 {
     font-size: var(--fontsize-h2);
     font-family: var(--font-primary);
+    font-weight: 600;
 }
 
 h3 {
     font-size: var(--fontsize-h3);
     font-family: var(--font-primary);
+    font-weight: 500;
 }
 h4 {
     font-size: var(--fontsize-h4);
     font-family: var(--font-primary);
+    font-weight: 500;
 }
 h5 {
     font-size: var(--fontsize-h5);
     font-family: var(--font-primary);
+    font-weight: 500;
 }
 
 h6 {
     font-size: var(--fontsize-h6);
     font-family: var(--font-primary);
+    font-weight: 500;
 }
 
 // .g-enable-text-selection {
