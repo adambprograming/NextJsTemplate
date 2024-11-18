@@ -8,8 +8,7 @@ import Link from "next/link";
 // Context & Actions
 
 // Components
-import Menu from "@/components/menu/menu.component.jsx";
-import MenuItem from "@/components/menu/menu-item.component.jsx";
+import { Menu, MenuItem } from "@/components/menu/menu.component.jsx";
 import ColorThemeSwitch from "@/components/color-theme-switch/color-theme-switch.component";
 
 /*
@@ -23,11 +22,11 @@ const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
   const renderMenu = (location) => {
     return (
       <Menu location={location} paddingOfEachLinkBlock="10px 20px">
-        <MenuItem content="‎ TEST ‎">
-          <MenuItem content="TEST" href="/test" ></MenuItem>
-          <MenuItem content="TEST" href="/test" ></MenuItem>
-          <MenuItem content="TEST" href="/test" ></MenuItem>
-        </MenuItem>
+        {/* <MenuItem content="‎ TEST ‎">
+          <MenuItem content="TEST" href="/test"></MenuItem>
+          <MenuItem content="TEST" href="/test"></MenuItem>
+          <MenuItem content="TEST" href="/test"></MenuItem>
+        </MenuItem> */}
         <MenuItem content="O mně" href="/o-mne" />
         {/* <MenuItem content="Portfolio" href="/portfolio" /> */}
         <MenuItem content="Služby" href="/sluzby" />
@@ -46,7 +45,7 @@ const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
 
   const renderLogo = () => {
     return (
-      <Link href="/" >
+      <Link href="/">
         <Logo alt="Logo" id="logo-header" aria-label="Go to home page" />
       </Link>
     );
