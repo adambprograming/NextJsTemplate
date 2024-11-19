@@ -21,7 +21,7 @@ import { useEffect, useState } from "react";
 // Context & Actions
 
 // Componenets
-import Card from "@/components/card/card.component";
+import { Card } from "@/components/card/card.component";
 import Btn from "@/components/btn/btn.component";
 import { Carousel, CarouselItem } from "../carousel/carousel.component";
 import Popup from "../popup/popup.component";
