@@ -4,22 +4,26 @@ import styles from "./showcase.module.scss";
 // Public & Assets
 
 // React/Next Functions
+import { Children, cloneElement } from "react";
 import { useEffect, useState, useRef } from "react";
-import Image from "next/image";
 // Context & Actions
 
 // Componenets
 
 /*
 INSTRUCTIONS
-
+  children                            children of showcase
+  alwaysAnimate                       default false (if true showcase will always animate)
+  paddingTopAndBottomOfShowcase       padding of showcase (just apply to top and bottom)
+  gap                                 gap between items
+  heightOfItem                        height of each item
+  widthOfItem                         width of each item
 */
 
-export const ShowcaseImg = ({
-  showcaseItems,
-  showcaseItemsAlts,
+export const Showcase = ({
+  children,
   alwaysAnimate = false,
-  paddingOfShowcase = "24px 0px",
+  paddingTopAndBottomOfShowcase = "36px",
   gap = "4rem",
   heightOfItem = "var(--fontsize-h2)",
   widthOfItem = "auto",
@@ -28,7 +32,7 @@ export const ShowcaseImg = ({
   const showcaseRef = useRef(null);
 
   useEffect(() => {
-    const updateIsOverflow = () => {      
+    const updateIsOverflow = () => {
       const isOverflowing =
         showcaseRef.current.parentElement.clientWidth <
         showcaseRef.current.clientWidth;
@@ -49,50 +53,55 @@ export const ShowcaseImg = ({
           alwaysAnimate || isOverflow ? styles.animated : ""
         }`}
         style={{
-          padding: `${paddingOfShowcase}`,
+          padding: `${paddingTopAndBottomOfShowcase} 0px`,
           gap: `${gap}`,
           paddingRight: `${gap}`,
         }}
         ref={showcaseRef}
       >
-        {showcaseItems.map((showcaseItem, index) => (
-          <Image
-            src={showcaseItem}
-            alt={showcaseItemsAlts ? showcaseItemsAlts[index] : ""}
-            key={index}
-            style={{
-              height: `${heightOfItem}`,
-              width: `${widthOfItem}`,
-            }}
-          />
-        ))}
+        {Children.map(children, (child) => {
+          return cloneElement(child, {
+            heightOfItem: heightOfItem,
+            widthOfItem: widthOfItem,
+          });
+        })}
       </div>
-      {(alwaysAnimate || isOverflow) && 
-      <div
-      aria-hidden
-      className={`${styles.showcaseImgGroup} ${
-        alwaysAnimate || isOverflow ? styles.animated : ""
-        }`}
-        style={{
-          padding: `${paddingOfShowcase}`,
-          gap: `${gap}`,
-          paddingRight: `${gap}`,
-        }}
-        >
-        {showcaseItems.map((showcaseItem, index) => (
-          <Image
-          src={showcaseItem}
-          alt={showcaseItemsAlts ? showcaseItemsAlts[index] : ""}
-          key={index}
+      {(alwaysAnimate || isOverflow) && (
+        <div
+          aria-hidden
+          className={`${styles.showcaseImgGroup} ${
+            alwaysAnimate || isOverflow ? styles.animated : ""
+          }`}
           style={{
-            height: `${heightOfItem}`,
-            width: `${widthOfItem}`,
+            padding: `${paddingTopAndBottomOfShowcase} 0px`,
+            gap: `${gap}`,
+            paddingRight: `${gap}`,
           }}
-          />
-        ))}
-      </div>
-      }
-      
+        >
+          {Children.map(children, (child) => {
+            return cloneElement(child, {
+              heightOfItem: heightOfItem,
+              widthOfItem: widthOfItem,
+            });
+          })}
+        </div>
+      )}
     </div>
   );
+};
+
+export const ShowcaseItem = ({
+  children,
+  heightOfItem,
+  widthOfItem,
+}) => {
+
+  return (
+    <div className={`${styles.showcaseItem}`} style={{
+      height: `${heightOfItem}`,
+      width: `${widthOfItem}`
+    }}>
+      {children}
+    </div>
+  )
 };

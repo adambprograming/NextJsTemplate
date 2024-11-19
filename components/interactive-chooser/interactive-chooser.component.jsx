@@ -2,9 +2,6 @@
 // Styles
 import styles from "./interactive-chooser.module.scss";
 // Public & Assets
-import IconWeb from "@/public/web.png";
-// import IconEshop from "@/public/eshop.png";
-// import IconWebapp from "@/public/webapp.png";
 import IconCheckCircle from "@/components/svgs/icon-check-circle.component";
 import IconInfoCircle from "@/components/svgs/icon-info-circle.component";
 import IconArrowBack from "@/components/svgs/icon-arrow-left-circle.component";
