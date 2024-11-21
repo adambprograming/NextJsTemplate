@@ -133,7 +133,7 @@ const Page = () => {
         </p>
         <Btn
           href="/kontakt"
-          bgColor="var(--color-primary)"
+          bgColor="var(--color-secondary)"
           textColor="var(--color-text)"
           borderSize="none"
           borderRadius="15px"

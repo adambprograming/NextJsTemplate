@@ -1,10 +1,71 @@
 .main {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
   .benefits {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
+    & > * {
+    }
+    .flipedContent {
+      font-size: var(--fontsize-p);
+    }
+    .frontContent {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      span {
+        color: var(--color-text-reverse);
+        font-family: var(--font-primary);
+        font-size: var(--fontsize-h4);
+        font-weight: 600;
+      }
+    }
+  }
+  .checkAlso {
+    
+    .borderBox {
+      position: relative;
+      width: 150px;
+      height: 100px;
+      border: 2px solid white; /* White border */
+      border-radius: 15px; /* Rounded corners */
+      background-color: #004D40; /* Match the background */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    
+    .icon {
+      position: absolute;
+      top: -30px; /* Adjust to place it above the box */
+      width: 60px;
+      height: 60px;
+      border: 2px solid white; /* Circle border */
+      background-color: #004D40; /* Match background */
+      border-radius: 50%; /* Make it circular */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .icon img {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .border-box p {
+      margin: 0;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    
   }
       
 }

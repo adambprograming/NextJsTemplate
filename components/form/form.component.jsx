@@ -289,7 +289,7 @@ export const FormBtnSubmit = ({
   borderSize = "",
   borderColor = "",
   fontFamily = "",
-  bgColor = "var(--color-secondary)",
+  bgColor = "var(--color-primary)",
   textHoverColor = "var(--color-text)",
   borderHoverRadius = "",
   bgHoverBorderRadius = "",
@@ -1281,7 +1281,7 @@ export const FormPickerOption = ({
         borderRadius: `${borderRadius}`,
         border: `${borderSize} solid ${borderColor}`,
         fontFamily: `${fontFamily}`,
-        backgroundColor: `${selected ? "var(--color-secondary)" : bgColor}`,
+        backgroundColor: `${selected ? "var(--color-primary)" : bgColor}`,
       }}
       onClick={(e) => {
         e.preventDefault();

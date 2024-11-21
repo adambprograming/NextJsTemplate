@@ -213,7 +213,7 @@ const InteractiveChooser = () => {
           <Card
             gapFlex="25px"
             paddingOfCard="100px 25px 160px 25px"
-            bgColor="rgb(from var(--color-secondary) r g b / 0.15)"
+            bgColor="rgb(from var(--color-primary) r g b / 0.15)"
             borderSize="none"
             borderRadius="15px"
           >
@@ -363,7 +363,7 @@ const InteractiveChooser = () => {
             height="calc(100% - 160px)"
             gapFlex="25px"
             paddingOfCard="80px 25px"
-            bgColor="rgb(from var(--color-secondary) r g b / 0.2)"
+            bgColor="rgb(from var(--color-primary) r g b / 0.2)"
             borderSize="none"
             borderRadius="15px"
           >
@@ -702,6 +702,7 @@ const InteractiveChooser = () => {
                       textColor="var(--color-text)"
                       borderSize="none"
                       borderRadius="15px"
+                      fontWeight="600"
                       hoverEffect="scaleForward"
                     >
                       Vyplnit formulář
@@ -715,6 +716,7 @@ const InteractiveChooser = () => {
                         borderRadius="15px"
                         bgHoverColor="var(--color-primary)"
                         textHoverColor="var(--color-text-reverse)"
+                        fontWeight="600"
                         hoverEffect="cfLeft"
                         >
                         Zavolejte mi
@@ -740,7 +742,7 @@ const InteractiveChooser = () => {
             height="calc(100% - 120px)"
             gapFlex="25px"
             paddingOfCard="60px 25px"
-            bgColor="rgb(from var(--color-secondary) r g b / 0.25)"
+            bgColor="rgb(from var(--color-primary) r g b / 0.25)"
             borderSize="none"
             borderRadius="15px"
           >
@@ -771,6 +773,7 @@ const InteractiveChooser = () => {
                       textColor="var(--color-text)"
                       borderSize="none"
                       borderRadius="15px"
+                      fontWeight="600"
                       hoverEffect="scaleForward"
                     >
                       Vyplnit formulář
@@ -783,6 +786,7 @@ const InteractiveChooser = () => {
                       borderRadius="15px"
                       bgHoverColor="var(--color-primary)"
                       textHoverColor="var(--color-text-reverse)"
+                      fontWeight="600"
                       hoverEffect="cfLeft"
                     >
                       Zavolejte mi
@@ -822,6 +826,7 @@ const InteractiveChooser = () => {
                       textColor="var(--color-text)"
                       borderSize="none"
                       borderRadius="15px"
+                      fontWeight="600"
                       hoverEffect="scaleForward"
                     >
                       Vyplnit formulář
@@ -834,6 +839,7 @@ const InteractiveChooser = () => {
                       borderRadius="15px"
                       bgHoverColor="var(--color-primary)"
                       textHoverColor="var(--color-text-reverse)"
+                      fontWeight="600"
                       hoverEffect="cfLeft"
                     >
                       Zavolejte mi
@@ -874,6 +880,7 @@ const InteractiveChooser = () => {
                       textColor="var(--color-text)"
                       borderSize="none"
                       borderRadius="15px"
+                      fontWeight="600"
                       hoverEffect="scaleForward"
                     >
                       Vyplnit formulář
@@ -886,6 +893,7 @@ const InteractiveChooser = () => {
                       borderRadius="15px"
                       bgHoverColor="var(--color-primary)"
                       textHoverColor="var(--color-text-reverse)"
+                      fontWeight="600"
                       hoverEffect="cfLeft"
                     >
                       Zavolejte mi
@@ -924,6 +932,7 @@ const InteractiveChooser = () => {
                       textColor="var(--color-text)"
                       borderSize="none"
                       borderRadius="15px"
+                      fontWeight="600"
                       hoverEffect="scaleForward"
                     >
                       Vyplnit formulář
@@ -936,6 +945,7 @@ const InteractiveChooser = () => {
                       borderRadius="15px"
                       bgHoverColor="var(--color-primary)"
                       textHoverColor="var(--color-text-reverse)"
+                      fontWeight="600"
                       hoverEffect="cfLeft"
                     >
                       Zavolejte mi
@@ -976,6 +986,7 @@ const InteractiveChooser = () => {
                       textColor="var(--color-text)"
                       borderSize="none"
                       borderRadius="15px"
+                      fontWeight="600"
                       hoverEffect="scaleForward"
                     >
                       Vyplnit formulář
@@ -988,6 +999,7 @@ const InteractiveChooser = () => {
                       borderRadius="15px"
                       bgHoverColor="var(--color-primary)"
                       textHoverColor="var(--color-text-reverse)"
+                      fontWeight="600"
                       hoverEffect="cfLeft"
                     >
                       Zavolejte mi
@@ -1028,6 +1040,7 @@ const InteractiveChooser = () => {
                       textColor="var(--color-text)"
                       borderSize="none"
                       borderRadius="15px"
+                      fontWeight="600"
                       hoverEffect="scaleForward"
                     >
                       Vyplnit formulář
@@ -1040,6 +1053,7 @@ const InteractiveChooser = () => {
                       borderRadius="15px"
                       bgHoverColor="var(--color-primary)"
                       textHoverColor="var(--color-text-reverse)"
+                      fontWeight="600"
                       hoverEffect="cfLeft"
                     >
                       Zavolejte mi
