@@ -59,8 +59,8 @@ body{
 }
 
 :root {
-    --color-primary: #005f99; /* Medium Blue */
-    --color-secondary: #3399ff; /* Light Blue */
+    --color-primary: #3399ff; /* Medium Blue */
+    --color-secondary: #92C9FF; /* Light Blue */
     --color-ascent: #ff8000; /* Warm Orange */
     --color-background: #f0f8ff; /* Alice Blue */
     --color-text: #00080E; /* Dark Navy */
@@ -104,8 +104,8 @@ body{
 }
 
 .dark-theme {
-    --color-primary: #3399ff; /* Light Blue */
-    --color-secondary: #80bfff; /* Pastel Blue */
+    --color-primary: #80bfff; /* Light Blue */
+    --color-secondary: #4073A6; /* Pastel Blue */
     --color-ascent: #ffcc00; /* Golden Yellow */
     --color-background: #00264d; /* Dark Navy */
     --color-text: #f0f5ff; /* Very Light Blue */
@@ -151,6 +151,7 @@ body{
 p {
     font-size: var(--fontsize-p);
     font-family: var(--font-secondary);
+    line-height: 1.2;
 }
 
 h1 {

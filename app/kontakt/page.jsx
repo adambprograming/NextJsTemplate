@@ -8,7 +8,7 @@ import IconLocation from "@/components/svgs/footer-icons/icon-location.component
 import IconInstagram from "@/components/svgs/footer-icons/icon-instagram.component";
 import IconLinkedin from "@/components/svgs/footer-icons/icon-linkedin.component";
 import IconGithub from "@/components/svgs/footer-icons/icon-github.component";
-import IconInvoice from "@/components/svgs/footer-icons/icon-email.component copy";
+import IconInvoice from "@/components/svgs/footer-icons/icon-invoice.component";
 import HeroImg from "@/public/hero.png";
 // React/Next Functions
 import { useState, useEffect } from "react";
@@ -232,6 +232,7 @@ const Page = () => {
           width="calc(100% - (2 * clamp(8px, 2vw, 32px)))"
           padding="clamp(8px, 2vw, 32px)"
           bgColor="var(--shadow-5)"
+          fontWeightOfLabelsForm="500"
           borderRadius="15px"
           bgColorOfLabelsForm="transparent"
         >
@@ -281,7 +282,7 @@ const Page = () => {
               isRequired={true}
             />
           </FormRow>
-          <FormPicker label="Dokážete konkrétně specifikovat Vaši poptávku?">
+          <FormPicker fontWeightInput="500" label="Dokážete konkrétně specifikovat Vaši poptávku?">
             <FormPickerOption
               functionOnClick={(option) => {
                 setChoosedOptionForm(option);

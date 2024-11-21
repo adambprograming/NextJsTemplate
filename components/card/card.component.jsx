@@ -139,9 +139,6 @@ export const FlipCard = ({
       <div
         className={styles.cardInner}
         style={{
-          padding: `${paddingOfCard}`,
-          border: `${borderSize} solid ${borderColor}`,
-          borderRadius: `${borderRadius}`,
           width: `${width}`,
           height: `${height}`,
           "--localFilter": `${filter}`,
@@ -151,10 +148,13 @@ export const FlipCard = ({
           "--localBgColor": `${bgColor}`,
           "--localBgHoverColor": `${bgHoverColor}`,
         }}
-      >
+        >
         <div
           className={`${styles.cardFront}`}
           style={{
+            border: `${borderSize} solid ${borderColor}`,
+            borderRadius: `${borderRadius}`,
+            padding: `${paddingOfCard}`,
             rowGap: `${gapFlexRow ? gapFlexRow : gapFlex}`,
             columnGap: `${gapFlexColumn ? gapFlexColumn : gapFlex}`,
           }}
@@ -165,6 +165,9 @@ export const FlipCard = ({
           <div
             className={`${styles.cardBack}`}
             style={{
+              border: `${borderSize} solid ${borderColor}`,
+              borderRadius: `${borderRadius}`,
+              padding: `${paddingOfCard}`,
               rowGap: `${gapFlexRow ? gapFlexRow : gapFlex}`,
               columnGap: `${gapFlexColumn ? gapFlexColumn : gapFlex}`,
             }}

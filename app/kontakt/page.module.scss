@@ -108,7 +108,7 @@
             height: 100%;
             z-index: -1;
             border-radius: 25px;
-            background-color: var(--color-secondary) !important;
+            background-color: var(--color-primary) !important;
             transform: translateX(-100%);
             transition: transform 0.4s ease;
           }
@@ -151,7 +151,7 @@
     }
     .iconContainer {
       margin: auto 0;
-      background-color: var(--color-secondary);
+      background-color: var(--color-primary);
       padding: clamp(10px, 1.5vw, 15px);
       border-radius: 50px;
       height: clamp(16px, 2vw, 24px);
