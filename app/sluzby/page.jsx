@@ -21,8 +21,8 @@ const ServicesPage = () => {
       </section>
       <section className={`${styles.benefits}`}>
         <FlipCard
-          width="clamp(120px, 33vw, 250px)"
-          height="clamp(120px, 33vw, 250px)"
+          width="clamp(180px, 33vw, 250px)"
+          height="clamp(180px, 33vw, 250px)"
           borderSize="0"
           borderRadius="25px"
           bgColor="var(--color-primary)"
@@ -40,8 +40,8 @@ const ServicesPage = () => {
           </div>
         </FlipCard>
         <FlipCard
-          width="clamp(120px, 33vw, 250px)"
-          height="clamp(120px, 33vw, 250px)"
+          width="clamp(180px, 33vw, 250px)"
+          height="clamp(180px, 33vw, 250px)"
           borderSize="0"
           borderRadius="25px"
           bgColor="var(--color-primary)"
@@ -58,8 +58,8 @@ const ServicesPage = () => {
           </div>
         </FlipCard>
         <FlipCard
-          width="clamp(120px, 33vw, 250px)"
-          height="clamp(120px, 33vw, 250px)"
+          width="clamp(180px, 33vw, 250px)"
+          height="clamp(180px, 33vw, 250px)"
           borderSize="0"
           borderRadius="25px"
           bgColor="var(--color-primary)"
@@ -76,8 +76,8 @@ const ServicesPage = () => {
           </div>
         </FlipCard>
         <FlipCard
-          width="clamp(120px, 33vw, 250px)"
-          height="clamp(120px, 33vw, 250px)"
+          width="clamp(180px, 33vw, 250px)"
+          height="clamp(180px, 33vw, 250px)"
           borderSize="0"
           borderRadius="25px"
           bgColor="var(--color-primary)"
@@ -94,8 +94,8 @@ const ServicesPage = () => {
           </div>
         </FlipCard>
         <FlipCard
-          width="clamp(120px, 33vw, 250px)"
-          height="clamp(120px, 33vw, 250px)"
+          width="clamp(180px, 33vw, 250px)"
+          height="clamp(180px, 33vw, 250px)"
           borderSize="0"
           borderRadius="25px"
           bgColor="var(--color-primary)"
@@ -112,8 +112,8 @@ const ServicesPage = () => {
           </div>
         </FlipCard>
         <FlipCard
-          width="clamp(120px, 33vw, 250px)"
-          height="clamp(120px, 33vw, 250px)"
+          width="clamp(180px, 33vw, 250px)"
+          height="clamp(180px, 33vw, 250px)"
           borderSize="0"
           borderRadius="25px"
           bgColor="var(--color-primary)"

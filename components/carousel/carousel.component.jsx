@@ -12,15 +12,16 @@ import { useState, useEffect, useRef } from "react";
 
 /*
 INSTRUCTIONS
-infinite        three options 
-                  1: notInfinite for swiping just right to last item and there is no right arrow
-                  2: pseudoInfinite for swiping to last element and at last element right arrow do swipe back to first element
-                  3: infinite for endless swiping
-fullWidth       if true, one item take full potential width, else take 86% and 7% on each side take previous and next item
-animation       animation of carousel, options:
-                  "cube": 
+infinite              three options 
+                        1: notInfinite for swiping just right to last item and there is no right arrow
+                        2: pseudoInfinite for swiping to last element and at last element right arrow do swipe back to first element
+                        3: infinite for endless swiping
+fullWidth             if true, one item take full potential width, else take 86% and 7% on each side take previous and next item
+backdropFilterArrows  backdropfilter of arrows
+animation             animation of carousel, options:
+                        "cube": 
 */
-export const Carousel = ({ children, infinite = "notInfinite", fullWidth = true, animation = "none" }) => {
+export const Carousel = ({ children, infinite = "notInfinite", fullWidth = true, backdropFilterArrows = "blur(4px)", animation = "none" }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [startPosition, setStartPosition] = useState(0);
@@ -195,6 +196,9 @@ export const Carousel = ({ children, infinite = "notInfinite", fullWidth = true,
       onMouseLeave={handleMouseLeave}
       tabIndex={0} // Add tabIndex to make the div focusable
       ref={carouselRef}
+      style={{
+        "--localBackdropFilterArrows": `${backdropFilterArrows}`,
+      }}
     >
       {(infinite === "infinite" || infinite === "pseudoInfinite" || currentIndex > 0) && (
         <button onClick={prev} className={`${styles.navBtn} ${styles.leftBtn}`}>

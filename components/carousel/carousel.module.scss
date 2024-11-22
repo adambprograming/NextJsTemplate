@@ -23,7 +23,7 @@
       height: 10%;
       width: 80%;
       background-color: transparent;
-      backdrop-filter: blur(4px);
+      backdrop-filter: var(--localBackdropFilterArrows);
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
