@@ -47,15 +47,24 @@ table {
 body{
     --font-primary: var(--font-1, sans-serif);
     --font-secondary: var(--font-2, sans-serif);
-    --fontsize-p: clamp(1.2rem, 0.9632rem + 0.7895vw, 2.1rem);
-    --fontsize-h1: clamp(2.433rem, 1.9530rem + 1.6000vw, 4.257rem);
-    --fontsize-h2: clamp(2.162rem, 1.7352rem + 1.4228vw, 3.784rem);
-    --fontsize-h3: clamp(1.922rem, 1.5425rem + 1.2649vw, 3.364rem);
-    --fontsize-h4: clamp(1.709rem, 1.3719rem + 1.1237vw, 2.99rem);
-    --fontsize-h5: clamp(1.519rem, 1.2193rem + 0.9991vw, 2.658rem);
-    --fontsize-h6: clamp(1.2rem, 0.9632rem + 0.7895vw, 2.1rem);
-    --fontsize-small: clamp(1rem, 0.8421rem + 0.5263vw, 1.6rem);
-    --fontsize-smaller: clamp(0.8rem, 0.6947rem + 0.3509vw, 1.2rem);
+    // --fontsize-p: clamp(1.2rem, 0.9632rem + 0.7895vw, 2.1rem);
+    // --fontsize-h1: clamp(2.433rem, 1.9530rem + 1.6000vw, 4.257rem);
+    // --fontsize-h2: clamp(2.162rem, 1.7352rem + 1.4228vw, 3.784rem);
+    // --fontsize-h3: clamp(1.922rem, 1.5425rem + 1.2649vw, 3.364rem);
+    // --fontsize-h4: clamp(1.709rem, 1.3719rem + 1.1237vw, 2.99rem);
+    // --fontsize-h5: clamp(1.519rem, 1.2193rem + 0.9991vw, 2.658rem);
+    // --fontsize-h6: clamp(1.2rem, 0.9632rem + 0.7895vw, 2.1rem);
+    // --fontsize-small: clamp(1rem, 0.8421rem + 0.5263vw, 1.6rem);
+    // --fontsize-smaller: clamp(0.8rem, 0.6947rem + 0.3509vw, 1.2rem);
+    --fontsize-p: clamp(1.2rem, 1rem + 0.5vw, 1.6rem); /* 12px - 16px */
+    --fontsize-h1: clamp(2rem, 1.8rem + 2vw, 3.5rem); /* 20px - 35px */
+    --fontsize-h2: clamp(1.75rem, 1.6rem + 1.8vw, 3rem); /* 17.5px - 30px */
+    --fontsize-h3: clamp(1.5rem, 1.4rem + 1.5vw, 2.5rem); /* 15px - 25px */
+    --fontsize-h4: clamp(1.25rem, 1.2rem + 1.2vw, 2rem); /* 12.5px - 20px */
+    --fontsize-h5: clamp(1.125rem, 1.05rem + 1vw, 1.75rem); /* 11.25px - 17.5px */
+    --fontsize-h6: clamp(1rem, 0.9rem + 0.8vw, 1.5rem); /* 10px - 15px */
+    --fontsize-small: clamp(0.875rem, 0.8rem + 0.5vw, 1.25rem); /* 8.75px - 12.5px */
+    --fontsize-smaller: clamp(0.75rem, 0.7rem + 0.3vw, 1rem); /* 7.5px - 10px */
 }
 
 :root {
