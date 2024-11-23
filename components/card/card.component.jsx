@@ -99,6 +99,7 @@ INSTRUCTIONS
   borderHoverRadius     its new radius of card
   borderSize            size of border (default set to 1px)
   borderColor           color of border
+  boxShadow             boxShadow of cardFront and cardBack
   paddingOfCard         padding of card
   width                 width of card
   height                height of card
@@ -108,6 +109,10 @@ INSTRUCTIONS
   filterHover           filter of cardBack
   bgColor               color of cardFront
   bgHoverColor          background color of cardBack
+  flippedContent        JSX that will be on cardBack (children of cardBack)
+  hoverEffect           (*)hover effect (choose from preset of effects)
+                        1: horizontal (horizontal flip) (default without any hoverEffect)
+                        2: vertical (vertical flip)
 */
 
 export const FlipCard = ({
@@ -118,6 +123,7 @@ export const FlipCard = ({
   borderRadius = "0px",
   borderSize = "1px",
   borderColor = "var(--color-border)",
+  boxShadow = "0px 0px 5px var(--color-boxshadow)",
   paddingOfCard = "10px 20px",
   width = "",
   height = "",
@@ -128,10 +134,11 @@ export const FlipCard = ({
   bgColor = "",
   bgHoverColor = "",
   flippedContent,
+  hoverEffect = "horizontal",
 }) => {
   return (
     <div
-      className={`${styles.flipCard}`}
+      className={`${styles.flipCard} ${styles[hoverEffect]}`}
       onClick={(e) => {
         e.currentTarget.classList.toggle(styles.clicked);
       }}
@@ -152,6 +159,7 @@ export const FlipCard = ({
         <div
           className={`${styles.cardFront}`}
           style={{
+            boxShadow: `${boxShadow}`,
             border: `${borderSize} solid ${borderColor}`,
             borderRadius: `${borderRadius}`,
             padding: `${paddingOfCard}`,
@@ -165,6 +173,7 @@ export const FlipCard = ({
           <div
             className={`${styles.cardBack}`}
             style={{
+              boxShadow: `${boxShadow}`,
               border: `${borderSize} solid ${borderColor}`,
               borderRadius: `${borderRadius}`,
               padding: `${paddingOfCard}`,

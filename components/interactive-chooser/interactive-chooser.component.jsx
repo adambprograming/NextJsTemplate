@@ -132,7 +132,7 @@ const InteractiveChooser = () => {
     }
   };
   return (
-    <section className={`${styles.interactiveChooserSection}`}>
+    <div className={`${styles.interactiveChooserContainer}`}>
       {/* PATH */}
       <div className={`${styles.pathChooser}`}>
         <div
@@ -212,7 +212,7 @@ const InteractiveChooser = () => {
         <div className={`${styles.cardContainer} ${styles.firstCardContainer}`}>
           <Card
             gapFlex="25px"
-            paddingOfCard="100px 25px 160px 25px"
+            paddingOfCard="100px 0px 160px 0px"
             bgColor="rgb(from var(--color-primary) r g b / 0.15)"
             borderSize="none"
             borderRadius="15px"
@@ -220,7 +220,7 @@ const InteractiveChooser = () => {
             <h1>O jaké služby máte zájem?</h1>
             <div className={`${styles.chooseContainer} ${widthOfWindow < 880 ? styles.carousel : styles.inline}`}>
             {widthOfWindow < 880 ?
-              <Carousel fullWidth={true} infinite="pseudoInfinite">
+              <Carousel fullWidth={true} backdropFilterArrows="" infinite="pseudoInfinite">
                 <CarouselItem>
                   <Btn
                     functionOnClick={handleFirstCardFirstOptionClick}
@@ -374,7 +374,7 @@ const InteractiveChooser = () => {
                 </h1>
                 <div className={`${styles.chooseContainer} ${widthOfWindow < 880 ? styles.carousel : styles.inline}`}>
                   {widthOfWindow < 880 ?
-                    <Carousel fullWidth={true} infinite="pseudoInfinite">
+                    <Carousel fullWidth={true} backdropFilterArrows="" infinite="pseudoInfinite">
                       <CarouselItem>
                         <Btn
                           functionOnClick={handleSecondCardFirstOptionClick}
@@ -529,7 +529,7 @@ const InteractiveChooser = () => {
                 <h1>Jaký typ podnikání vlastníte?</h1>
                 <div className={`${styles.chooseContainer} ${widthOfWindow < 880 ? styles.carousel : styles.inline}`}>
                   {widthOfWindow < 880 ?
-                    <Carousel fullWidth={true} infinite="pseudoInfinite">
+                    <Carousel fullWidth={true} backdropFilterArrows="" infinite="pseudoInfinite">
                       <CarouselItem>
                         <Btn
                           functionOnClick={handleSecondCardFirstOptionClick}
@@ -1069,7 +1069,7 @@ const InteractiveChooser = () => {
           </Card>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
