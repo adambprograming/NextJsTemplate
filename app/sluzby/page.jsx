@@ -2,8 +2,10 @@
 import styles from "./page.module.scss";
 // Public & Assets
 import HeroImg from "@/public/hero.png";
-import IconHtml from "../../public/techstack/html.svg";
-
+import IconPerformance from "@/components/svgs/services-benefits-icons/icon-performance.component";
+import IconResponsiveness from "@/components/svgs/services-benefits-icons/icon-responsiveness.component";
+import IconSeo from "@/components/svgs/services-benefits-icons/icon-seo.component";
+import IconAuthenticity from "@/components/svgs/services-benefits-icons/icon-authenticity.component";
 // React/Next Functions
 import Image from "next/image";
 
@@ -35,7 +37,7 @@ const ServicesPage = () => {
           }
         >
           <div className={`${styles.frontContent}`}>
-            <Image src={IconHtml} alt="x" />
+            <IconPerformance alt="x" />
             <span className={`${styles.frontTitle}`}>Výkon</span>
           </div>
         </FlipCard>
@@ -53,7 +55,7 @@ const ServicesPage = () => {
           }
         >
           <div className={`${styles.frontContent}`}>
-            <Image src={IconHtml} alt="x" />
+            <IconResponsiveness alt="x" />
             <span className={`${styles.frontTitle}`}>Responsivita</span>
           </div>
         </FlipCard>
@@ -71,7 +73,7 @@ const ServicesPage = () => {
           }
         >
           <div className={`${styles.frontContent}`}>
-            <Image src={IconHtml} alt="x" />
+            <IconSeo alt="x" />
             <span className={`${styles.frontTitle}`}>SEO</span>
           </div>
         </FlipCard>
@@ -89,7 +91,7 @@ const ServicesPage = () => {
           }
         >
           <div className={`${styles.frontContent}`}>
-            <Image src={IconHtml} alt="x" />
+            <IconAuthenticity alt="x" />
             <span className={`${styles.frontTitle}`}>Autentičnost</span>
           </div>
         </FlipCard>

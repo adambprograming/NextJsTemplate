@@ -19,12 +19,17 @@
     .frontContent {
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 2rem;
       span {
         color: var(--color-text-reverse);
         font-family: var(--font-primary);
         font-size: var(--fontsize-h4);
         font-weight: 600;
+      }
+      svg {
+        color: var(--color-text-dark-still);
+        opacity: 0.5;
       }
     }
   }
