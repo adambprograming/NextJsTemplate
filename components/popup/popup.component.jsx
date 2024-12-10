@@ -8,12 +8,21 @@ import "./popup.styles.scss";
 
 // Components
 
-const Popup = ({children, state, top}) => {
-    return (
-        <div className="popup" style={{display: `${state ? "inherit" : "none"}`, top: `${top}`}}>
-            {children}
-        </div>
-    );
-}
+const Popup = ({ children, state, top, right, bottom, left }) => {
+  return (
+    <div
+      className="popup"
+      style={{
+        display: `${state ? "inherit" : "none"}`,
+        top: `${top}`,
+        right: `${right}`,
+        bottom: `${bottom}`,
+        left: `${left}`,
+      }}
+    >
+      {children}
+    </div>
+  );
+};
 
 export default Popup;

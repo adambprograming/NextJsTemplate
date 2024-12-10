@@ -113,6 +113,7 @@ INSTRUCTIONS
   hoverEffect           (*)hover effect (choose from preset of effects)
                         1: horizontal (horizontal flip) (default without any hoverEffect)
                         2: vertical (vertical flip)
+                        3: sticker
 */
 
 export const FlipCard = ({
