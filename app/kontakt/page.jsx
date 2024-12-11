@@ -128,8 +128,14 @@ const Page = () => {
   return (
     <main className={styles.main}>
       <section className={`${styles.contacts}`}>
-        <div className={`${styles.contactsContainer}`}>
-          <h2 className={`${styles.sectionTitle}`}>Kontakty</h2>
+        <div className={`${styles.contentContainer}`}>
+          <div className={`${styles.titleContainer}`}>
+            <span>KONTAKTY</span>
+            <h1>
+              Neváhejte mě <strong>kontaktovat</strong>
+            </h1>
+            <hr />
+          </div>
           <div className={`${styles.mainContacts}`}>
             <div onClick={handleCallOrCopyNumber} className={`${styles.phone}`}>
               <div className={`${styles.iconContainer}`}>
@@ -220,12 +226,18 @@ const Page = () => {
             </Btn>
           </div>
         </div>
-        <div className={`${styles.photoContainer}`}>
+        <div className={`${styles.imgContainer}`}>
           <Image src={HeroImg} alt="Contact photo" />
         </div>
       </section>
       <section className={`${styles.form}`}>
-        <h1 className={`${styles.sectionTitle}`}>Vyplňte kontaktní formulář</h1>
+        <div className={`${styles.titleContainer}`}>
+          <span>FORMULÁŘ</span>
+          <h1>
+          <strong>Vyplňte</strong> kontaktní formulář
+          </h1>
+          <hr />
+        </div>
         <Form
           onSubmit={handleSubmit}
           styleOfLabels="above"

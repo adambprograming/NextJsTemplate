@@ -32,24 +32,29 @@ const Page = () => {
           <Image src={HeroImg} alt="portrait" />
         </div>
         <div className={`${styles.contentContainer}`}>
-          <span>O MNĚ</span>
-          <h1>
-            Zdravím,
-            <br />
-            jmenuji se Adam <strong>Bartůšek</strong>
-          </h1>
-          <hr />
-          <p>
-            Jsem programátor specializující se na moderní webové technologie.
-            Nabízím komplexní služby v oblasti vývoje webových stránek, e-shopů
-            a webových aplikací. Moje práce klade důraz na rychlost, funkčnost a
-            uživatelskou přívětivost.
-          </p>
-          <p>
-            Každý projekt tvořím na míru, s ohledem na vaše potřeby a cíle. Mým
-            cílem je nejen splnit vaše očekávání, ale také je překonat. Společně
-            vytvoříme řešení, které vás odliší a posune vaše podnikání kupředu.
-          </p>
+          <div className={`${styles.titleContainer}`}>
+            <span>O MNĚ</span>
+            <h1>
+              Zdravím,
+              <br />
+              jmenuji se Adam <strong>Bartůšek</strong>
+            </h1>
+            <hr />
+          </div>
+          <div className={`${styles.textContainer}`}>
+            <p>
+              Jsem programátor specializující se na moderní webové technologie.
+              Nabízím komplexní služby v oblasti vývoje webových stránek,
+              e-shopů a webových aplikací. Moje práce klade důraz na rychlost,
+              funkčnost a uživatelskou přívětivost.
+            </p>
+            <p>
+              Každý projekt tvořím na míru, s ohledem na vaše potřeby a cíle.
+              Mým cílem je nejen splnit vaše očekávání, ale také je překonat.
+              Společně vytvoříme řešení, které vás odliší a posune vaše
+              podnikání kupředu.
+            </p>
+          </div>
         </div>
       </section>
       <section className={`${styles.showcase}`}>
@@ -87,50 +92,63 @@ const Page = () => {
         </Showcase>
       </section>
       <section className={`${styles.specialization}`}>
-        <span>VIZE</span>
-        <h1>
-          Vyvíjím <strong>autentické</strong> weby
-        </h1>
-        <hr />
-        <p>
-          Specializuji se na Next.js, což mi umožňuje vytvářet výkonné,
-          škálovatelné a moderní webové aplikace. Nepoužívám předvytvořené
-          šablony ani knihovny – každý projekt je navržen a implementován od
-          základů tak, aby dokonale odpovídal vašim potřebám.
-        </p>
-        <p>
-          Díky tomuto přístupu je váš web nejen unikátní, ale také
-          optimalizovaný pro výkon a přizpůsobený specifikám vašeho podnikání.
-        </p>
+        <div className={`${styles.titleContainer}`}>
+          <span>VIZE</span>
+          <h1>
+            Vyvíjím <strong>autentické</strong> weby
+          </h1>
+          <hr />
+        </div>
+        <div className={`${styles.textContainer}`}>
+          <p>
+            Specializuji se na Next.js, což mi umožňuje vytvářet výkonné,
+            škálovatelné a moderní webové aplikace. Nepoužívám předvytvořené
+            šablony ani knihovny – každý projekt je navržen a implementován od
+            základů tak, aby dokonale odpovídal vašim potřebám.
+          </p>
+          <p>
+            Díky tomuto přístupu je váš web nejen unikátní, ale také
+            optimalizovaný pro výkon a přizpůsobený specifikám vašeho podnikání.
+          </p>
+        </div>
       </section>
       <section className={`${styles.experience}`}>
         <div className={`${styles.contentContainer}`}>
-          <span>MOJE CESTA</span>
-          <h1>
-            Zkušenosti s <strong>webovými</strong> technologiemi
-          </h1>
-          <hr />
-          <p>
-            TODO mapu
-            {/* Jsem programátor specializující se na moderní webové technologie.
+          <div className={`${styles.titleContainer}`}>
+            <span>MOJE CESTA</span>
+            <h1>
+              Zkušenosti s <strong>webovými</strong> technologiemi
+            </h1>
+            <hr />
+          </div>
+          <div className={`${styles.textContainer}`}>
+            <p>
+              TODO mapu
+              {/* Jsem programátor specializující se na moderní webové technologie.
             Nabízím komplexní služby v oblasti vývoje webových stránek, e-shopů
             a webových aplikací. Moje práce klade důraz na rychlost, funkčnost a
             uživatelskou přívětivost. */}
-          </p>
+            </p>
+          </div>
         </div>
         <div className={`${styles.pathContainer}`}></div>
       </section>
       <section className={`${styles.cta}`}>
-        <span>SPOLUPRÁCE</span>
-        <h1>
-          Připraven realizovat <strong>Váš</strong> projekt?
-        </h1>
-        <hr />
-        <p>
-          Pokud hledáte webového vývojáře, který Vám vytvoří autentický, moderní
-          a výkonný web na míru, jste na správném místě. Společně vytvoříme
-          řešení, které bude nejen funkční, ale také vynikat v konkurenci.
-        </p>
+        <div className={`${styles.titleContainer}`}>
+          <span>SPOLUPRÁCE</span>
+          <h1>
+            Připraven realizovat <strong>Váš</strong> projekt?
+          </h1>
+          <hr />
+        </div>
+        <div className={`${styles.textContainer}`}>
+          <p>
+            Pokud hledáte webového vývojáře, který Vám vytvoří autentický,
+            moderní a výkonný web na míru, jste na správném místě. Společně
+            vytvoříme řešení, které bude nejen funkční, ale také vynikat v
+            konkurenci.
+          </p>
+        </div>
         <Btn
           href="/kontakt"
           bgColor="var(--color-secondary)"

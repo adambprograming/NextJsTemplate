@@ -1,13 +1,11 @@
 .main {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+  // Main element have defaults styles inside globals.scss
   .introduction {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     @media only screen and (max-width: 480px) {
-        flex-direction: column;
+      flex-direction: column;
     }
     div {
       flex: 1 1 30%;
@@ -22,33 +20,46 @@
       display: flex;
       flex-direction: column;
       justify-content: left;
-      gap: 0.5rem;
-      & > span {
-        margin: auto 0;
-        text-align: left;
-        font-family: var(--font-primary);
-        font-weight: 700;
-        color: var(--color-ascent);
-      }
-      & > h1 {
-        margin: auto 0;
-        text-align: left;
-        strong {
+      gap: 1.5rem;
+      .titleContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        & > span {
+          margin: auto 0;
+          text-align: left;
+          font-family: var(--font-primary);
+          font-weight: 700;
           color: var(--color-ascent);
         }
+        & > h1 {
+          margin: auto 0;
+          text-align: left;
+          strong {
+            color: var(--color-ascent);
+          }
+        }
+        & > hr {
+          margin: 0.5rem 0;
+          width: 33%;
+          border: 1px solid var(--color-ascent);
+        }
       }
-      & > hr {
-        margin: 0.5rem 0;
-        width: 33%;
-
-        border: 1px solid var(--color-ascent);
-      }
-      & > p {
+      .textContainer {
         margin: auto 0;
-        text-align: left;
-        font-size: var(--fontsize-small);
-        line-height: 1.1;
-        max-width: 50ch;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        gap: 0.5rem;
+        & > p {
+          margin: auto 0;
+          text-align: left;
+          font-size: var(--fontsize-small);
+          max-width: 50ch;
+        }
       }
     }
   }
@@ -77,35 +88,50 @@
     display: flex;
     flex-direction: column;
     justify-content: left;
-    gap: 0.5rem;
-    & > span {
-      font-family: var(--font-primary);
-      font-weight: 700;
-      color: var(--color-ascent);
-    }
-    & > h1 {
-      strong {
+    gap: 1.5rem;
+    .titleContainer {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      & > span {
+        font-family: var(--font-primary);
+        font-weight: 700;
         color: var(--color-ascent);
       }
-    }
-    & > hr {
-      margin: 0.5rem auto;
-      width: 33%;
+      & > h1 {
+        strong {
+          color: var(--color-ascent);
+        }
+      }
+      & > hr {
+        margin: 0.5rem auto;
+        width: 33%;
 
-      border: 1px solid var(--color-ascent);
+        border: 1px solid var(--color-ascent);
+      }
     }
-    & > p {
-      font-size: var(--fontsize-small);
-      line-height: 1.1;
-      max-width: 75ch;
+    .textContainer {
+      margin: auto 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      gap: 0.5rem;
+      & > p {
+        font-size: var(--fontsize-small);
+        max-width: 75ch;
+      }
     }
   }
   .experience {
+    margin: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     @media only screen and (max-width: 480px) {
-        flex-direction: column;
+      flex-direction: column;
     }
     div {
       flex: 1 1 30%;
@@ -114,33 +140,46 @@
       display: flex;
       flex-direction: column;
       justify-content: left;
-      gap: 0.5rem;
-      & > span {
-        margin: auto 0;
-        text-align: left;
-        font-family: var(--font-primary);
-        font-weight: 700;
-        color: var(--color-ascent);
-      }
-      & > h1 {
-        margin: auto 0;
-        text-align: left;
-        strong {
+      gap: 1.5rem;
+      .titleContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        & > span {
+          margin: auto 0;
+          text-align: left;
+          font-family: var(--font-primary);
+          font-weight: 700;
           color: var(--color-ascent);
         }
+        & > h1 {
+          margin: auto 0;
+          text-align: left;
+          strong {
+            color: var(--color-ascent);
+          }
+        }
+        & > hr {
+          margin: 0.5rem 0;
+          width: 33%;
+          border: 1px solid var(--color-ascent);
+        }
       }
-      & > hr {
-        margin: 0.5rem 0;
-        width: 33%;
-
-        border: 1px solid var(--color-ascent);
-      }
-      & > p {
+      .textContainer {
         margin: auto 0;
-        text-align: left;
-        font-size: var(--fontsize-small);
-        line-height: 1.1;
-        max-width: 50ch;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        gap: 0.5rem;
+        & > p {
+          margin: auto 0;
+          text-align: left;
+          font-size: var(--fontsize-small);
+          max-width: 50ch;
+        }
       }
     }
     .pathContainer {
@@ -154,27 +193,41 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    & > span {
-      font-family: var(--font-primary);
-      font-weight: 700;
-      color: var(--color-ascent);
-    }
-    & > h1 {
-      strong {
+    gap: 1.5rem;
+    .titleContainer {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      & > span {
+        font-family: var(--font-primary);
+        font-weight: 700;
         color: var(--color-ascent);
       }
-    }
-    & > hr {
-      margin: 0.5rem auto;
-      width: 33%;
+      & > h1 {
+        strong {
+          color: var(--color-ascent);
+        }
+      }
+      & > hr {
+        margin: 0.5rem auto;
+        width: 33%;
 
-      border: 1px solid var(--color-ascent);
+        border: 1px solid var(--color-ascent);
+      }
     }
-    & > p {
-      font-size: var(--fontsize-small);
-      line-height: 1.1;
-      max-width: 75ch;
+    .textContainer {
+      margin: auto 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      gap: 0.5rem;
+      & > p {
+        font-size: var(--fontsize-small);
+        max-width: 75ch;
+      }
     }
   }
 }

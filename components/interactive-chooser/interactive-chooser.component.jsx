@@ -217,7 +217,11 @@ const InteractiveChooser = () => {
             borderSize="none"
             borderRadius="15px"
           >
-            <h1>O jaké služby máte zájem?</h1>
+            <div className={`${styles.titleContainer}`}>
+              <span>VÝBĚR SLUŽBY</span>
+              <h1>O jaké <strong>služby</strong> máte zájem?</h1>
+              <hr />
+            </div>
             <div className={`${styles.chooseContainer} ${widthOfWindow < 880 ? styles.carousel : styles.inline}`}>
             {widthOfWindow < 880 ?
               <Carousel fullWidth={true} backdropFilterArrows="" infinite="pseudoInfinite">
@@ -369,9 +373,11 @@ const InteractiveChooser = () => {
           >
             {firstCardPick === 1 ? (
               <>
-                <h1>
-                  O jaké webové stránky máte zájem?
-                </h1>
+                <div className={`${styles.titleContainer}`}>
+                  <span>WEBY</span>
+                  <h1>O jaké <strong>webové</strong> stránky máte zájem?</h1>
+                  <hr />
+                </div>
                 <div className={`${styles.chooseContainer} ${widthOfWindow < 880 ? styles.carousel : styles.inline}`}>
                   {widthOfWindow < 880 ?
                     <Carousel fullWidth={true} backdropFilterArrows="" infinite="pseudoInfinite">
@@ -526,7 +532,11 @@ const InteractiveChooser = () => {
               </>
             ) : firstCardPick === 2 ? (
               <>
-                <h1>Jaký typ podnikání vlastníte?</h1>
+                <div className={`${styles.titleContainer}`}>
+                  <span>E-SHOPY</span>
+                  <h1>Jaký typ <strong>podnikání</strong> vlastníte?</h1>
+                  <hr />
+                </div>
                 <div className={`${styles.chooseContainer} ${widthOfWindow < 880 ? styles.carousel : styles.inline}`}>
                   {widthOfWindow < 880 ?
                     <Carousel fullWidth={true} backdropFilterArrows="" infinite="pseudoInfinite">
@@ -680,7 +690,11 @@ const InteractiveChooser = () => {
               </>
             ) : (
               <>
-                <h1>Webová aplikace na míru</h1>
+                <div className={`${styles.titleContainer}`}>
+                  <span>VÝVOJ</span>
+                  <h1>Webová aplikace <strong>na míru</strong></h1>
+                  <hr />
+                </div>
                 <div className={`${styles.contentContainer}`}>
                   <div className={`${styles.categoryDescription}`}>
                     <p>
@@ -707,22 +721,20 @@ const InteractiveChooser = () => {
                     >
                       Vyplnit formulář
                     </Btn>
-                    <div style={{width: "clamp(100px, 100%, 250px)", position: "relative"}}>
-                      <Btn
-                        functionOnClick={handleCallOrCopyNumber}
-                        width="100%"
-                        bgColor="transparent"
-                        borderSize="none"
-                        borderRadius="15px"
-                        bgHoverColor="var(--color-primary)"
-                        textHoverColor="var(--color-text-reverse)"
-                        fontWeight="600"
-                        hoverEffect="cfLeft"
-                        >
-                        Zavolejte mi
-                      </Btn>
-                      <Popup top="-45%" state={popupPhone}>Zkopírováno!</Popup>
-                    </div>
+                    <Btn
+                      functionOnClick={handleCallOrCopyNumber}
+                      width="clamp(100px, 100%, 250px)"
+                      bgColor="transparent"
+                      borderSize="none"
+                      borderRadius="15px"
+                      bgHoverColor="var(--color-primary)"
+                      textHoverColor="var(--color-text-reverse)"
+                      fontWeight="600"
+                      hoverEffect="cfLeft"
+                    >
+                      Zavolejte mi
+                    </Btn>
+                    <Popup top="105%" left="calc(50% + clamp(50px, 50%, 125px))" state={popupPhone}>Zkopírováno!</Popup>
                   </div>
                   <div className={`${styles.infoContainer}`}>
                     <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Cena zde nejde přesně určit, odvíjí se primárně od složitosti a velikosti webové aplikace, standartně je počítána podle hodin strávených na projektu.</p></div>
@@ -748,7 +760,11 @@ const InteractiveChooser = () => {
           >
             {firstCardPick === 1 && secondCardPick === 1 ? (
               <>
-                <h1>Jednoduché webové stránky</h1>
+                <div className={`${styles.titleContainer}`}>
+                  <span>PREZENTACE</span>
+                  <h1><strong>Jednoduché</strong> webové stránky</h1>
+                  <hr />
+                </div>
                 <div className={`${styles.contentContainer}`}>
                   <div className={`${styles.categoryDescription}`}>
                     <p>
@@ -779,7 +795,7 @@ const InteractiveChooser = () => {
                       Vyplnit formulář
                     </Btn>
                     <Btn
-                      functionOnClick={"TODO"}
+                      functionOnClick={handleCallOrCopyNumber}
                       width="clamp(100px, 100%, 250px)"
                       bgColor="transparent"
                       borderSize="none"
@@ -791,6 +807,7 @@ const InteractiveChooser = () => {
                     >
                       Zavolejte mi
                     </Btn>
+                    <Popup top="105%" left="calc(50% + clamp(50px, 50%, 125px))" state={popupPhone}>Zkopírováno!</Popup>
                   </div>
                   <div className={`${styles.infoContainer}`}>
                     <h4>~ 10.000 CZK</h4>
@@ -800,7 +817,11 @@ const InteractiveChooser = () => {
               </>
             ) : firstCardPick === 1 && secondCardPick === 2 ? (
               <>
-                <h1>Komplexní webové stránky</h1>
+                <div className={`${styles.titleContainer}`}>
+                  <span>PREZENTACE</span>
+                  <h1><strong>Komplexní</strong> webové stránky</h1>
+                  <hr />
+                </div>
                 <div className={`${styles.contentContainer}`}>
                   <div className={`${styles.categoryDescription}`}>
                     <p>
@@ -832,7 +853,7 @@ const InteractiveChooser = () => {
                       Vyplnit formulář
                     </Btn>
                     <Btn
-                      functionOnClick={"TODO"}
+                      functionOnClick={handleCallOrCopyNumber}
                       width="clamp(100px, 100%, 250px)"
                       bgColor="transparent"
                       borderSize="none"
@@ -844,6 +865,7 @@ const InteractiveChooser = () => {
                     >
                       Zavolejte mi
                     </Btn>
+                    <Popup top="105%" left="calc(50% + clamp(50px, 50%, 125px))" state={popupPhone}>Zkopírováno!</Popup>
                   </div>
                   <div className={`${styles.infoContainer}`}>
                     <h4>~ 25.000 CZK</h4>
@@ -853,7 +875,11 @@ const InteractiveChooser = () => {
               </>
             ) : firstCardPick === 1 && secondCardPick === 3 ? (
               <>
-                <h1>Profesionální webové stránky</h1>
+                <div className={`${styles.titleContainer}`}>
+                  <span>PREZENTACE</span>
+                  <h1><strong>Profesionální</strong> webové stránky</h1>
+                  <hr />
+                </div>
                 <div className={`${styles.contentContainer}`}>
                   <div className={`${styles.categoryDescription}`}>
                     <p>
@@ -886,7 +912,7 @@ const InteractiveChooser = () => {
                       Vyplnit formulář
                     </Btn>
                     <Btn
-                      functionOnClick={"TODO"}
+                      functionOnClick={handleCallOrCopyNumber}
                       width="clamp(100px, 100%, 250px)"
                       bgColor="transparent"
                       borderSize="none"
@@ -898,6 +924,7 @@ const InteractiveChooser = () => {
                     >
                       Zavolejte mi
                     </Btn>
+                    <Popup top="105%" left="calc(50% + clamp(50px, 50%, 125px))" state={popupPhone}>Zkopírováno!</Popup>
                   </div>
                   <div className={`${styles.infoContainer}`}>
                     <h4>~ 45.000 CZK</h4>
@@ -907,7 +934,11 @@ const InteractiveChooser = () => {
               </>
             ) : firstCardPick === 2 && secondCardPick === 1 ? (
               <>
-                <h1>E-shop pro jedince</h1>
+                <div className={`${styles.titleContainer}`}>
+                  <span>PRODEJ</span>
+                  <h1>E-shop pro <strong>jedince</strong></h1>
+                  <hr />
+                </div>
                 <div className={`${styles.contentContainer}`}>
                   <div className={`${styles.categoryDescription}`}>
                     <p>
@@ -938,7 +969,7 @@ const InteractiveChooser = () => {
                       Vyplnit formulář
                     </Btn>
                     <Btn
-                      functionOnClick={"TODO"}
+                      functionOnClick={handleCallOrCopyNumber}
                       width="clamp(100px, 100%, 250px)"
                       bgColor="transparent"
                       borderSize="none"
@@ -950,6 +981,7 @@ const InteractiveChooser = () => {
                     >
                       Zavolejte mi
                     </Btn>
+                    <Popup top="105%" left="calc(50% + clamp(50px, 50%, 125px))" state={popupPhone}>Zkopírováno!</Popup>
                   </div>
                   <div className={`${styles.infoContainer}`}>
                     <h4>~ 45.000 CZK</h4>
@@ -959,7 +991,11 @@ const InteractiveChooser = () => {
               </>
             ) : firstCardPick === 2 && secondCardPick === 2 ? (
               <>
-                <h1>E-Shop pro maloobchod</h1>
+                <div className={`${styles.titleContainer}`}>
+                  <span>PRODEJ</span>
+                  <h1>E-shop pro <strong>maloobchod</strong></h1>
+                  <hr />
+                </div>
                 <div className={`${styles.contentContainer}`}>
                   <div className={`${styles.categoryDescription}`}>
                     <p>
@@ -992,7 +1028,7 @@ const InteractiveChooser = () => {
                       Vyplnit formulář
                     </Btn>
                     <Btn
-                      functionOnClick={"TODO"}
+                      functionOnClick={handleCallOrCopyNumber}
                       width="clamp(100px, 100%, 250px)"
                       bgColor="transparent"
                       borderSize="none"
@@ -1004,6 +1040,7 @@ const InteractiveChooser = () => {
                     >
                       Zavolejte mi
                     </Btn>
+                    <Popup top="105%" left="calc(50% + clamp(50px, 50%, 125px))" state={popupPhone}>Zkopírováno!</Popup>
                   </div>
                   <div className={`${styles.infoContainer}`}>
                     <h4>~ 75.000 CZK</h4>
@@ -1013,7 +1050,11 @@ const InteractiveChooser = () => {
               </>
             ) : (
               <>
-                <h1>E-Shop pro velkoobchod</h1>
+                <div className={`${styles.titleContainer}`}>
+                  <span>PRODEJ</span>
+                  <h1>E-shop pro <strong>velkoobchod</strong></h1>
+                  <hr />
+                </div>
                 <div className={`${styles.contentContainer}`}>
                   <div className={`${styles.categoryDescription}`}>
                     <p>
@@ -1046,7 +1087,7 @@ const InteractiveChooser = () => {
                       Vyplnit formulář
                     </Btn>
                     <Btn
-                      functionOnClick={"TODO"}
+                      functionOnClick={handleCallOrCopyNumber}
                       width="clamp(100px, 100%, 250px)"
                       bgColor="transparent"
                       borderSize="none"
@@ -1058,6 +1099,7 @@ const InteractiveChooser = () => {
                     >
                       Zavolejte mi
                     </Btn>
+                    <Popup top="105%" left="calc(50% + clamp(50px, 50%, 125px))" state={popupPhone}>Zkopírováno!</Popup>
                   </div>
                   <div className={`${styles.infoContainer}`}>
                     <h4>~ 100.000 CZK</h4>

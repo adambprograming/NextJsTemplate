@@ -108,7 +108,7 @@ body{
     --breakpoint-768: 768px; // < Tablet < 1024px
     --breakpoint-480: 480px; // > Mobile (Between 480px & 768px is small tablet)
     --breakpoint-300: 320px; // Smallest phone width
-    --padding-page: 2rem clamp(1rem, 5%, 4rem);
+    --padding-page: 3rem clamp(1rem, 5%, 4rem);
     --padding-page-sides: clamp(1rem, 5%, 4rem);
 }
 
@@ -140,7 +140,10 @@ html {
 main {
     margin: auto;
     padding: var(--padding-page);
-    max-width: var(--breakpoint-1440)
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
 }
 
 // body  {
