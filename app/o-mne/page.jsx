@@ -91,27 +91,6 @@ const Page = () => {
           </ShowcaseItem>
         </Showcase>
       </section>
-      <section className={`${styles.specialization}`}>
-        <div className={`${styles.titleContainer}`}>
-          <span>VIZE</span>
-          <h1>
-            Vyvíjím <strong>autentické</strong> weby
-          </h1>
-          <hr />
-        </div>
-        <div className={`${styles.textContainer}`}>
-          <p>
-            Specializuji se na Next.js, což mi umožňuje vytvářet výkonné,
-            škálovatelné a moderní webové aplikace. Nepoužívám předvytvořené
-            šablony ani knihovny – každý projekt je navržen a implementován od
-            základů tak, aby dokonale odpovídal vašim potřebám.
-          </p>
-          <p>
-            Díky tomuto přístupu je váš web nejen unikátní, ale také
-            optimalizovaný pro výkon a přizpůsobený specifikám vašeho podnikání.
-          </p>
-        </div>
-      </section>
       <section className={`${styles.experience}`}>
         <div className={`${styles.contentContainer}`}>
           <div className={`${styles.titleContainer}`}>
@@ -121,17 +100,60 @@ const Page = () => {
             </h1>
             <hr />
           </div>
-          <div className={`${styles.textContainer}`}>
+        </div>
+        <div className={`${styles.boxContainer}`}>
+          <div className={`${styles.box}`}>
+            <h6>březen 2022</h6>
+            <hr />
             <p>
-              TODO mapu
-              {/* Jsem programátor specializující se na moderní webové technologie.
-            Nabízím komplexní služby v oblasti vývoje webových stránek, e-shopů
-            a webových aplikací. Moje práce klade důraz na rychlost, funkčnost a
-            uživatelskou přívětivost. */}
+              Započal jsem svoji cestu programování, která se stala základem mé
+              profesní dráhy v oblasti webového vývoje.
+            </p>
+          </div>
+          <div className={`${styles.box}`}>
+            <h6>leden 2024</h6>
+            <hr />
+            <p>
+              Začal jsem pracovat ve firmě ComArr jako webový vývojář. Vyvíjím
+              zde webovou aplikaci pro tisíce uživatelů.
+            </p>
+          </div>
+          <div className={`${styles.box}`}>
+            <h6>květen 2024</h6>
+            <hr />
+            <p>
+              Úspěšně jsem dokončil bakalářské studium v oboru informačního
+              managementu na Univerzitě Hradec Králové.
             </p>
           </div>
         </div>
-        <div className={`${styles.pathContainer}`}></div>
+      </section>
+      <section className={`${styles.specialization}`}>
+        <div className={`${styles.contentContainer}`}>
+          <div className={`${styles.titleContainer}`}>
+            <span>VIZE</span>
+            <h1>
+              Vyvíjím <strong>autentické</strong> weby
+            </h1>
+            <hr />
+          </div>
+          <div className={`${styles.textContainer}`}>
+            <p>
+              Specializuji se na Next.js, což mi umožňuje vytvářet výkonné,
+              škálovatelné a moderní webové aplikace. Nepoužívám předvytvořené
+              šablony ani knihovny – každý projekt je navržen a implementován od
+              základů tak, aby dokonale odpovídal vašim potřebám.
+            </p>
+            <p>
+              Díky tomuto přístupu je váš web nejen unikátní, ale také
+              optimalizovaný pro výkon a přizpůsobený specifikám vašeho
+              podnikání.
+            </p>
+          </div>
+        </div>
+        <div className={`${styles.imgContainer}`}>
+          <Image src={HeroImg} alt="portrait" />
+        </div>
       </section>
       <section className={`${styles.cta}`}>
         <div className={`${styles.titleContainer}`}>
@@ -151,8 +173,8 @@ const Page = () => {
         </div>
         <Btn
           href="/kontakt"
-          bgColor="var(--color-secondary)"
-          textColor="var(--color-text)"
+          bgColor="var(--color-primary)"
+          textColor="var(--color-text-reverse)"
           borderSize="none"
           borderRadius="15px"
           hoverEffect="scaleForward"
