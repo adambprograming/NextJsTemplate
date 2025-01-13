@@ -243,7 +243,7 @@ const InteractiveChooser = () => {
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Osobní či firemní prezentace</p></div>
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčnost</p></div>
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
-                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace</p></div>
                     </div>
                   </Btn>
@@ -310,7 +310,7 @@ const InteractiveChooser = () => {
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Osobní či firemní prezentace</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčnost</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace</p></div>
                   </div>
                 </Btn>
@@ -401,7 +401,7 @@ const InteractiveChooser = () => {
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Optimalizavané</p></div>
                             <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Denní a noční režim</p></div>
                             <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Vícejazyčné</p></div>
-                            <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Redakční systém</p></div>
+                            <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                           </div>
                         </Btn>
                       </CarouselItem>
@@ -425,7 +425,7 @@ const InteractiveChooser = () => {
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
                             <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Vícejazyčné</p></div>
-                            <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Redakční systém</p></div>
+                            <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                           </div>
                         </Btn>
                       </CarouselItem>
@@ -449,7 +449,7 @@ const InteractiveChooser = () => {
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Interaktivní</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčné</p></div>
-                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                           </div>
                         </Btn>
                       </CarouselItem>
@@ -475,7 +475,7 @@ const InteractiveChooser = () => {
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Optimalizavané</p></div>
                           <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Denní a noční režim</p></div>
                           <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Vícejazyčné</p></div>
-                          <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Redakční systém</p></div>
+                          <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                         </div>
                       </Btn>
                       <Btn
@@ -497,7 +497,7 @@ const InteractiveChooser = () => {
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
                           <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Vícejazyčné</p></div>
-                          <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Redakční systém</p></div>
+                          <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                         </div>
                       </Btn>
                       <Btn
@@ -519,7 +519,7 @@ const InteractiveChooser = () => {
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Interaktivní</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčné</p></div>
-                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                         </div>
                       </Btn>
                     </> 
@@ -558,7 +558,7 @@ const InteractiveChooser = () => {
                             </h3>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>1-3 produkty</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Řešení prodeje bez platební brány</p></div>
-                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                             <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Vícejazyčné</p></div>
                             <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Uživatelské rozhraní</p></div>
                           </div>
@@ -582,7 +582,7 @@ const InteractiveChooser = () => {
                             </h3>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Do 10 produktů</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
-                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčné</p></div>
                             <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Uživatelské rozhraní</p></div>
                           </div>
@@ -606,7 +606,7 @@ const InteractiveChooser = () => {
                             </h3>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>10+ produktů</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
-                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                            <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčné</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Uživatelské rozhraní</p></div>
                           </div>
@@ -632,7 +632,7 @@ const InteractiveChooser = () => {
                           </h3>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>1-3 produkty</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Řešení prodeje bez platební brány</p></div>
-                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                           <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Vícejazyčné</p></div>
                           <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Uživatelské rozhraní</p></div>
                         </div>
@@ -654,7 +654,7 @@ const InteractiveChooser = () => {
                           </h3>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Do 10 produktů</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
-                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčné</p></div>
                           <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Uživatelské rozhraní</p></div>
                         </div>
@@ -676,7 +676,7 @@ const InteractiveChooser = () => {
                           </h3>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>10+ produktů</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
-                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                          <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčné</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Uživatelské rozhraní</p></div>
                         </div>
@@ -779,7 +779,7 @@ const InteractiveChooser = () => {
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Optimalizace SEO</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní doména včetně možnosti firemního e-mailu</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace na stránce</p></div>
-                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Možnost rozšíření - denní a noční režim, vícejazyčnost a redakční systém</p></div>
+                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Možnost rozšíření - denní a noční režim, vícejazyčnost a Systém úpravy obsahu</p></div>
                   </div>
                   <div className={`${styles.ctaBtns}`}>
                     <Btn
@@ -837,7 +837,7 @@ const InteractiveChooser = () => {
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní doména včetně možnosti firemního e-mailu.</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace na stránce</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
-                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Možnost rozšíření - vícejazyčnost a redakční systém</p></div>
+                    <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Možnost rozšíření - vícejazyčnost a Systém úpravy obsahu</p></div>
                   </div>
                   <div className={`${styles.ctaBtns}`}>
                     <Btn
@@ -884,7 +884,7 @@ const InteractiveChooser = () => {
                   <div className={`${styles.categoryDescription}`}>
                     <p>
                     Profesionální webové stránky jsou ideální pro firmy, které potřebují rozsáhlý a
-                    interaktivní web s více než 5 stránkami. Tento typ webu zahrnuje redakční systém,
+                    interaktivní web s více než 5 stránkami. Tento typ webu zahrnuje Systém úpravy obsahu,
                     vícejazyčnou podporu a denní/noční režim.
                     </p>
                   </div>
@@ -896,7 +896,7 @@ const InteractiveChooser = () => {
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace na stránce</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčnost</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                   </div>
                   <div className={`${styles.ctaBtns}`}>
                     <Btn
@@ -951,7 +951,7 @@ const InteractiveChooser = () => {
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Optimalizace SEO</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní doména včetně možnosti firemního e-mailu</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace na stránce</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Správa objednávek</p></div>
                     <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Možnost rozšíření - denní a noční režim, vícejazyčnost, databáze produktů a uživatelské rozhraní</p></div>
                   </div>
@@ -1008,7 +1008,7 @@ const InteractiveChooser = () => {
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Optimalizace SEO</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní doména včetně možnosti firemního e-mailu</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace na stránce</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Správa objednávek</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčnost</p></div>
@@ -1066,7 +1066,7 @@ const InteractiveChooser = () => {
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Optimalizace SEO</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní doména včetně možnosti firemního e-mailu</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace na stránce</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Redakční systém</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Správa objednávek</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčnost</p></div>

@@ -108,7 +108,8 @@ body{
     --breakpoint-768: 768px; // < Tablet < 1024px
     --breakpoint-480: 480px; // > Mobile (Between 480px & 768px is small tablet)
     --breakpoint-300: 320px; // Smallest phone width
-    --padding-page: 3rem clamp(1rem, 5%, 4rem);
+    --padding-page: 7.5rem clamp(1rem, 5%, 4rem);
+    --padding-header: 2.5rem clamp(1rem, 5%, 4rem) 0 clamp(1rem, 5%, 4rem);
     --padding-page-sides: clamp(1rem, 5%, 4rem);
 }
 
@@ -143,7 +144,7 @@ main {
     max-width: 1440px;
     display: flex;
     flex-direction: column;
-    gap: 10rem;
+    gap: 12rem;
 }
 
 // body  {

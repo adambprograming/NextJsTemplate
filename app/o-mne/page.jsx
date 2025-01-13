@@ -48,6 +48,7 @@ const Page = () => {
               e-shopů a webových aplikací. Moje práce klade důraz na rychlost,
               funkčnost a uživatelskou přívětivost.
             </p>
+            <br />
             <p>
               Každý projekt tvořím na míru, s ohledem na vaše potřeby a cíle.
               Mým cílem je nejen splnit vaše očekávání, ale také je překonat.
@@ -144,6 +145,7 @@ const Page = () => {
               šablony ani knihovny – každý projekt je navržen a implementován od
               základů tak, aby dokonale odpovídal vašim potřebám.
             </p>
+            <br />
             <p>
               Díky tomuto přístupu je váš web nejen unikátní, ale také
               optimalizovaný pro výkon a přizpůsobený specifikám vašeho
