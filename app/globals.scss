@@ -65,6 +65,12 @@ body{
     --fontsize-h6: clamp(1rem, 0.9rem + 0.8vw, 1.5rem); /* 10px - 15px */
     --fontsize-small: clamp(0.875rem, 0.8rem + 0.5vw, 1.25rem); /* 8.75px - 12.5px */
     --fontsize-smaller: clamp(0.75rem, 0.7rem + 0.3vw, 1rem); /* 7.5px - 10px */
+    // INDIVIDAL FOR PAGE
+    --fontsize-title: var(--fontsize-h1);
+    --fontsize-subtitle: var(--fontsize-smaller);
+    --fontsize-text: var(--fontsize-p);
+    --fontsize-btn: var(--fontsize-h5);
+    --fontsize-input: var(--fontsize-h6)
 }
 
 :root {
@@ -111,6 +117,8 @@ body{
     --padding-page: 7.5rem clamp(1rem, 5%, 4rem);
     --padding-header: 2.5rem clamp(1rem, 5%, 4rem) 0 clamp(1rem, 5%, 4rem);
     --padding-page-sides: clamp(1rem, 5%, 4rem);
+    // INDIVIDUAL FOR PROJECT
+    --border-radius-btn: 15px;
 }
 
 .dark-theme {

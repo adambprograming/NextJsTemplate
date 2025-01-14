@@ -29,12 +29,7 @@ export default function NotFound() {
       </p>
       <Btn
         href="/"
-        fontFamily="var(--font-secondary)"
-        fontSize="var(--fontsize-h6)"
-        borderRadius="25px"
         bgColor="var(--color-secondary)"
-        opacity={0.2}
-        paddingOfBtn="8px 16px"
       >
         Zpět na domovskou stránku
       </Btn>

@@ -1,3 +1,4 @@
+'use server'
 // Styles
 import styles from "./page.module.scss";
 // Public & Assets
@@ -12,10 +13,11 @@ import Icon3 from "@/components/svgs/number-icons/icon-3.component";
 import Icon4 from "@/components/svgs/number-icons/icon-4.component";
 // React/Next Functions
 import Image from "next/image";
-
+import dynamic from 'next/dynamic'
 // Context & Actions
 
 // Componenets
+// const LazyInteractiveChooser = dynamic(() => import("@/components/interactive-chooser/interactive-chooser.component"))
 import InteractiveChooser from "@/components/interactive-chooser/interactive-chooser.component";
 import { FlipCard } from "@/components/card/card.component";
 import Btn from "@/components/btn/btn.component";
@@ -38,7 +40,7 @@ const ServicesPage = () => {
           <li>
             <Icon1 />
             <div>
-              <h6>Společně najdeme směr</h6>
+              <h5>Společně najdeme směr</h5>
               <hr />
               <p>
                 Na první schůzce společně zjistíme, co přesně potřebujete.
@@ -50,7 +52,7 @@ const ServicesPage = () => {
           <li>
             <Icon2 />
             <div>
-              <h6>Postavím Vaše řešení</h6>
+              <h5>Postavím Vaše řešení</h5>
               <hr />
               <p>
                 Navrhnu a vytvořím projekt, který bude rychlý, responzivní a
@@ -61,7 +63,7 @@ const ServicesPage = () => {
           <li>
             <Icon3 />
             <div>
-              <h6>Doladíme vše k dokonalosti</h6>
+              <h5>Doladíme vše k dokonalosti</h5>
               <hr />
               <p>
                 Společně projdeme hotový projekt, získám od vás zpětnou vazbu a
@@ -72,7 +74,7 @@ const ServicesPage = () => {
           <li>
             <Icon4 />
             <div>
-              <h6>Postarám se i po spuštění</h6>
+              <h5>Postarám se i po spuštění</h5>
               <hr />
               <p>
                 Po spuštění webu se postarám o aktualizace, údržbu a dlouhodobou
@@ -175,6 +177,36 @@ const ServicesPage = () => {
           </FlipCard>
         </div>
       </section>
+      <section className={`${styles.checkAlso}`}>
+        <div className={`${styles.titleContainer}`}>
+          <span>JINÉ SLUŽBY</span>
+          <h1>
+            Potřebujete <strong>zazářit</strong> v social media světě?
+          </h1>
+          <hr />
+        </div>
+        <div className={`${styles.textContainer}`}>
+          <p>
+            
+          </p>
+        </div>
+        <Btn
+          href="/kontakt"
+          bgColor="var(--color-primary)"
+          textColor="var(--color-text-reverse)"
+          borderSize="none"
+          hoverEffect="scaleForward"
+        >
+          Zjistit více
+        </Btn>
+      </section>
+    </main>
+  );
+};
+
+export default ServicesPage;
+
+
       {/* <section className={`${styles.checkAlso}`}>
         <div className={`${styles.imgContainer}`}>
           <Image src={HeroImg} alt="portrait" />
@@ -200,39 +232,9 @@ const ServicesPage = () => {
             bgColor="var(--color-primary)"
             textColor="var(--color-text-reverse)"
             borderSize="none"
-            borderRadius="15px"
             hoverEffect="scaleForward"
           >
             Kontaktujte mě
           </Btn>
         </div>
       </section> */}
-      <section className={`${styles.checkAlso}`}>
-        <div className={`${styles.titleContainer}`}>
-          <span>JINÉ SLUŽBY</span>
-          <h1>
-            Potřebujete <strong>zazářit</strong> v social media světě?
-          </h1>
-          <hr />
-        </div>
-        <div className={`${styles.textContainer}`}>
-          <p>
-            
-          </p>
-        </div>
-        <Btn
-          href="/kontakt"
-          bgColor="var(--color-primary)"
-          textColor="var(--color-text-reverse)"
-          borderSize="none"
-          borderRadius="15px"
-          hoverEffect="scaleForward"
-        >
-          Zjistit více
-        </Btn>
-      </section>
-    </main>
-  );
-};
-
-export default ServicesPage;

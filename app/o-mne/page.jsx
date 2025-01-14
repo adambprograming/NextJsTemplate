@@ -178,7 +178,6 @@ const Page = () => {
           bgColor="var(--color-primary)"
           textColor="var(--color-text-reverse)"
           borderSize="none"
-          borderRadius="15px"
           hoverEffect="scaleForward"
         >
           Kontaktujte mě

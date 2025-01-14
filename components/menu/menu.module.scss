@@ -66,7 +66,6 @@
         display: block;
         text-wrap: nowrap;
         text-decoration: none;
-        font-size: var(--fontsize-h6);
         color: var(--color-text);
         & > ul {
           visibility: hidden;
@@ -102,7 +101,6 @@
               display: block;
               text-wrap: nowrap;
               text-decoration: none;
-              font-size: var(--fontsize-h6);
               color: var(--color-text);
             }
           }
@@ -191,7 +189,6 @@
         text-wrap: nowrap;
         text-decoration: none;
         color: var(--color-text);
-        font-size: var(--fontsize-h6);
         & > ul {
           visibility: hidden;
           position: absolute;
@@ -219,7 +216,6 @@
               text-wrap: nowrap;
               text-decoration: none;
               color: var(--color-text);
-              font-size: var(--fontsize-h6);
             }
           }
         }

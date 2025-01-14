@@ -13,10 +13,17 @@ import HeroImg from "@/public/hero.png";
 // React/Next Functions
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 // Context & Actions
 
 // Componenets
-import Btn from "@/components/btn/btn.component";
+// import Btn from "@/components/btn/btn.component";
+const Btn = dynamic(() => import("@/components/btn/btn.component"), {
+  ssr: false,
+});
+
+
+
 import {
   Form,
   FormRow,
@@ -119,7 +126,7 @@ const Page = () => {
       },
       () => {}
     );
-  }
+  };
 
   const handleSubmit = (formdata) => {
     console.log(formdata);
@@ -145,9 +152,7 @@ const Page = () => {
                 <h6 className={`${styles.contactTitle}`}>
                   Mobil{phoneNumberCopied && <span>Zkopírováno!</span>}
                 </h6>
-                <span className={`${styles.contactValue}`}>
-                  {phoneNumber}
-                </span>
+                <span className={`${styles.contactValue}`}>{phoneNumber}</span>
               </div>
             </div>
             <div onClick={handleEmailOrCopy} className={`${styles.email}`}>
@@ -158,9 +163,7 @@ const Page = () => {
                 <h6 className={`${styles.contactTitle}`}>
                   E-mail{emailAddressCopied && <span>Zkopírováno!</span>}
                 </h6>
-                <span className={`${styles.contactValue}`}>
-                {emailAddress}
-                </span>
+                <span className={`${styles.contactValue}`}>{emailAddress}</span>
               </div>
             </div>
             <a
@@ -183,10 +186,11 @@ const Page = () => {
               </div>
               <div className={`${styles.specContainer}`}>
                 <h6 className={`${styles.contactTitle}`}>
-                 IČO{icoCopied && <span>Zkopírováno!</span>}
+                  IČO{icoCopied && <span>Zkopírováno!</span>}
                 </h6>
                 <span className={`${styles.contactValue}`}>
-                  {ico}{`\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0`}
+                  {ico}
+                  {`\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0`}
                 </span>
               </div>
             </div>
@@ -234,7 +238,7 @@ const Page = () => {
         <div className={`${styles.titleContainer}`}>
           <span>FORMULÁŘ</span>
           <h1>
-          <strong>Vyplňte</strong> kontaktní formulář
+            <strong>Vyplňte</strong> kontaktní formulář
           </h1>
           <hr />
         </div>
@@ -294,7 +298,10 @@ const Page = () => {
               isRequired={true}
             />
           </FormRow>
-          <FormPicker fontWeightInput="500" label="Dokážete konkrétně specifikovat Vaši poptávku?">
+          <FormPicker
+            fontWeightInput="500"
+            label="Dokážete konkrétně specifikovat Vaši poptávku?"
+          >
             <FormPickerOption
               functionOnClick={(option) => {
                 setChoosedOptionForm(option);

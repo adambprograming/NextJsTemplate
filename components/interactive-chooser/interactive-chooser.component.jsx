@@ -158,7 +158,6 @@ const InteractiveChooser = () => {
           <Btn
             functionOnClick={handleResetFromFirst}
             bgColor="none"
-            fontSize="var(--fontsize-h6)"
             borderSize="0"
             hoverEffect="scaleBackward"
             paddingOfBtn="10px"
@@ -174,7 +173,6 @@ const InteractiveChooser = () => {
           <Btn
             functionOnClick={handleResetFromSecond}
             bgColor="none"
-            fontSize="var(--fontsize-h6)"
             borderSize="0"
             hoverEffect="scaleBackward"
             paddingOfBtn="10px"
@@ -194,7 +192,6 @@ const InteractiveChooser = () => {
           <Btn
             functionOnClick={handleResetFromSecond}
             bgColor="none"
-            fontSize="var(--fontsize-h6)"
             borderSize="0"
             hoverEffect="scaleBackward"
             paddingOfBtn="10px"

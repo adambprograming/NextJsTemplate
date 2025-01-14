@@ -224,7 +224,6 @@ const Footer = () => {
               textColor="var(--color-text-dark-still)"
               bgColor="var(--color-text-light-still)"
               opacity="0.75"
-              borderRadius="20px"
               filter="brightness(1.15) drop-shadow(0 0 5px var(--black-50))"
             >
               Adam Bartůšek

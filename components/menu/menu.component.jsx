@@ -16,7 +16,7 @@ INSTRUCTIONS
   children                MenuItem components should be there (If MenuItem have more Menu items, it will create submenu, else it will be Link)
   location                define if menu is on the left or right side of the header
   menuInLine              define if menu can be inline (if there is eneugh space) (default true)
-  fontSize                fontSize in px for mobile (it will be * by multiplier for desktop) (default set to var(--fontsize-h5))
+  fontSize                fontSize in px for mobile (it will be * by multiplier for desktop) (default set to var(--fontsize-btn))
   fontFamily              fontFamily (could be like var(--font-primary), if fonts are set in variables) (default set to var(--font-primary))
   paddingOfEachLinkBlock  defines padding of each link block (default set to "10px 10px 5px 10px")
 */
@@ -25,7 +25,7 @@ export const Menu = ({
   children,
   location = "left",
   menuInLine = true,
-  fontSize = "var(--fontsize-h5)",
+  fontSize = "var(--fontsize-btn)",
   fontFamily = "var(--font-primary), sans-serif",
   paddingOfEachLinkBlock = "10px 10px 5px 10px",
 }) => {
@@ -232,7 +232,7 @@ INSTRUCTIONS
   content                   Text for MenuItem (Adjust spaces with this ‎)
   href                      Href, if MenuItem has more children dont use href in params, just content
   \/\/\/ These props are taken from Menu component (dont decalre in MenuItem) \/\/\/
-  fontSize                  fontSize of text (default var(--fontsize-h5))
+  fontSize                  fontSize of text (default var(--fontsize-btn))
   paddingOfEachLinkBlock    defines padding of each link block (default set to "10px 10px 5px 10px")
 */
 export const MenuItem = ({
