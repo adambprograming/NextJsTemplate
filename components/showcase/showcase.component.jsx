@@ -37,7 +37,6 @@ export const Showcase = ({
         showcaseRef.current.parentElement.clientWidth <
         showcaseRef.current.clientWidth;
       setIsOverflow(isOverflowing);
-      console.log(isOverflowing);
     };
     updateIsOverflow();
     window.addEventListener("resize", updateIsOverflow);

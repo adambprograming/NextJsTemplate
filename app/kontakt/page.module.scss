@@ -79,6 +79,8 @@
               width: calc(100% - calc(clamp(16px, 2vw, 24px) + 2 * clamp(10px, 1.5vw, 15px) + 1rem));
               margin: 0;
               text-align: left;
+              font-family: var(--font-primary);
+              font-size: var(--fontsize-h6);
               span {
                 position: absolute;
                 margin: -4px 0 0 5px;
@@ -86,7 +88,7 @@
                 border-radius: 20px;
                 font-family: var(--font-secondary);
                 font-size: var(--fontsize-small);
-                color: var(--color-text);
+                color: var(--color-text-reverse);
                 background: var(--color-ascent);
                 background-clip: none;
                 -webkit-background-clip: none;
@@ -132,9 +134,10 @@
           }
         }
       }
-      h6 {
+      h2 {
         margin: 0;
         text-align: left;
+        font-size: var(--fontsize-h6);
       }
       .additionalContacts {
         margin: 0;

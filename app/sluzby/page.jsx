@@ -40,7 +40,7 @@ const ServicesPage = () => {
           <li>
             <Icon1 />
             <div>
-              <h5>Společně najdeme směr</h5>
+              <span>Společně najdeme směr</span>
               <hr />
               <p>
                 Na první schůzce společně zjistíme, co přesně potřebujete.
@@ -52,7 +52,7 @@ const ServicesPage = () => {
           <li>
             <Icon2 />
             <div>
-              <h5>Postavím Vaše řešení</h5>
+              <span>Postavím Vaše řešení</span>
               <hr />
               <p>
                 Navrhnu a vytvořím projekt, který bude rychlý, responzivní a
@@ -63,7 +63,7 @@ const ServicesPage = () => {
           <li>
             <Icon3 />
             <div>
-              <h5>Doladíme vše k dokonalosti</h5>
+              <span>Doladíme vše k dokonalosti</span>
               <hr />
               <p>
                 Společně projdeme hotový projekt, získám od vás zpětnou vazbu a
@@ -74,7 +74,7 @@ const ServicesPage = () => {
           <li>
             <Icon4 />
             <div>
-              <h5>Postarám se i po spuštění</h5>
+              <span>Postarám se i po spuštění</span>
               <hr />
               <p>
                 Po spuštění webu se postarám o aktualizace, údržbu a dlouhodobou

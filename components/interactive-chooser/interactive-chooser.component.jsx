@@ -146,6 +146,7 @@ const InteractiveChooser = () => {
             bgColor="none"
             borderSize="0"
             hoverEffect="scaleBackward"
+            ariaLabel="go back"
           >
             <IconArrowBack alt="go back" width={25} height={25} />
           </Btn>
@@ -161,6 +162,7 @@ const InteractiveChooser = () => {
             borderSize="0"
             hoverEffect="scaleBackward"
             paddingOfBtn="10px"
+            ariaLabel="go back to services choice"
           >
             / Výběr služby
           </Btn>
@@ -176,6 +178,7 @@ const InteractiveChooser = () => {
             borderSize="0"
             hoverEffect="scaleBackward"
             paddingOfBtn="10px"
+            ariaLabel="go back to subchoice"
           >{`/ ${
             firstCardPick === 1
               ? "Výběr typu webových stránek"
@@ -236,7 +239,7 @@ const InteractiveChooser = () => {
                       <IconGlobe alt="" height={75}  />
                     </div>
                     <div className={`${styles.descriptionContainer}`}>
-                      <h3 className={`${styles.btnTitle}`}>Webové stránky</h3>
+                      <span className={`${styles.btnTitle}`}>Webové stránky</span>
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Osobní či firemní prezentace</p></div>
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčnost</p></div>
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
@@ -259,7 +262,7 @@ const InteractiveChooser = () => {
                       <IconEshop alt="" height={75} />
                     </div>
                     <div className={`${styles.descriptionContainer}`}>
-                      <h3 className={`${styles.btnTitle}`}>E-shop</h3>
+                      <span className={`${styles.btnTitle}`}>E-shop</span>
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Uživatelské rozhranní</p></div>
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní řešení pro malé<br />podnikatele bez zbytečných<br />poplatků</p></div>
@@ -280,7 +283,7 @@ const InteractiveChooser = () => {
                       <IconGears alt="" height={75} />
                     </div>
                     <div className={`${styles.descriptionContainer}`}>
-                      <h3 className={`${styles.btnTitle}`}>Webová aplikace</h3>
+                      <span className={`${styles.btnTitle}`}>Webová aplikace</span>
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Indiviální řešení na míru</p></div>
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Interní firemní aplikace</p></div>
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Spolupráce na vytváření<br/>webových softwarů</p></div>
@@ -303,7 +306,7 @@ const InteractiveChooser = () => {
                     <IconGlobe alt="" height={75}  />
                   </div>
                   <div className={`${styles.descriptionContainer}`}>
-                    <h3 className={`${styles.btnTitle}`}>Webové stránky</h3>
+                    <span className={`${styles.btnTitle}`}>Webové stránky</span>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Osobní či firemní prezentace</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vícejazyčnost</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
@@ -324,7 +327,7 @@ const InteractiveChooser = () => {
                     <IconEshop alt="" height={75}  />
                   </div>
                   <div className={`${styles.descriptionContainer}`}>
-                    <h3 className={`${styles.btnTitle}`}>E-shop</h3>
+                    <span className={`${styles.btnTitle}`}>E-shop</span>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Uživatelské rozhranní</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní řešení pro malé<br />podnikatele bez zbytečných<br />poplatků</p></div>
@@ -343,7 +346,7 @@ const InteractiveChooser = () => {
                     <IconGears alt="" height={75}  />
                   </div>
                   <div className={`${styles.descriptionContainer}`}>
-                    <h3 className={`${styles.btnTitle}`}>Webová aplikace</h3>
+                    <span className={`${styles.btnTitle}`}>Webová aplikace</span>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Indiviální řešení na míru</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Interní firemní aplikace</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Spolupráce na vytváření<br/>webových softwarů</p></div>
@@ -391,9 +394,9 @@ const InteractiveChooser = () => {
                             <IconCheck alt="" height={75}  />
                           </div>
                           <div className={`${styles.descriptionContainer}`}>
-                            <h3 className={`${styles.btnTitle}`}>
+                            <span className={`${styles.btnTitle}`}>
                               Jednoduché
-                            </h3>
+                            </span>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>1 stránka</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Optimalizavané</p></div>
                             <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Denní a noční režim</p></div>
@@ -415,9 +418,9 @@ const InteractiveChooser = () => {
                             <IconTarget alt="" height={75}  />
                           </div>
                           <div className={`${styles.descriptionContainer}`}>
-                            <h3 className={`${styles.btnTitle}`}>
+                            <span className={`${styles.btnTitle}`}>
                               Komplexní
-                            </h3>
+                            </span>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>1-5 stránek</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
@@ -439,9 +442,9 @@ const InteractiveChooser = () => {
                             <IconRocket alt="" height={75}  />
                           </div>
                           <div className={`${styles.descriptionContainer}`}>
-                            <h3 className={`${styles.btnTitle}`}>
+                            <span className={`${styles.btnTitle}`}>
                               Profesionální
-                            </h3>
+                            </span>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>5+ stránek</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Interaktivní</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
@@ -465,9 +468,9 @@ const InteractiveChooser = () => {
                           <IconCheck alt="" height={75}  />
                         </div>
                         <div className={`${styles.descriptionContainer}`}>
-                          <h3 className={`${styles.btnTitle}`}>
+                          <span className={`${styles.btnTitle}`}>
                             Jednoduché
-                          </h3>
+                          </span>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>1 stránka</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Optimalizavané</p></div>
                           <div><span><IconXCircle style={{color: "var(--color-error)"}} alt="check" /></span><p>Denní a noční režim</p></div>
@@ -487,9 +490,9 @@ const InteractiveChooser = () => {
                           <IconTarget alt="" height={75}  />
                         </div>
                         <div className={`${styles.descriptionContainer}`}>
-                          <h3 className={`${styles.btnTitle}`}>
+                          <span className={`${styles.btnTitle}`}>
                             Komplexní
-                          </h3>
+                          </span>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>1-5 stránek</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Rychlá navigace</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
@@ -509,9 +512,9 @@ const InteractiveChooser = () => {
                           <IconRocket alt="" height={75}  />
                         </div>
                         <div className={`${styles.descriptionContainer}`}>
-                          <h3 className={`${styles.btnTitle}`}>
+                          <span className={`${styles.btnTitle}`}>
                             Profesionální
-                          </h3>
+                          </span>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>5+ stránek</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Interaktivní</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Denní a noční režim</p></div>
@@ -550,9 +553,9 @@ const InteractiveChooser = () => {
                             <IconPerson alt="" height={75}  />
                           </div>
                           <div className={`${styles.descriptionContainer}`}>
-                            <h3 className={`${styles.btnTitle}`}>
+                            <span className={`${styles.btnTitle}`}>
                               Jedinec
-                            </h3>
+                            </span>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>1-3 produkty</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Řešení prodeje bez platební brány</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
@@ -574,9 +577,9 @@ const InteractiveChooser = () => {
                             <IconShop alt="" height={75}  />
                           </div>
                           <div className={`${styles.descriptionContainer}`}>
-                            <h3 className={`${styles.btnTitle}`}>
+                            <span className={`${styles.btnTitle}`}>
                               Maloobchod
-                            </h3>
+                            </span>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Do 10 produktů</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
@@ -598,9 +601,9 @@ const InteractiveChooser = () => {
                             <IconWarehouse alt="" height={75}  />
                           </div>
                           <div className={`${styles.descriptionContainer}`}>
-                            <h3 className={`${styles.btnTitle}`}>
+                            <span className={`${styles.btnTitle}`}>
                               Velkoobchod
-                            </h3>
+                            </span>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>10+ produktů</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
                             <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
@@ -624,9 +627,9 @@ const InteractiveChooser = () => {
                           <IconPerson alt="" height={75}  />
                         </div>
                         <div className={`${styles.descriptionContainer}`}>
-                          <h3 className={`${styles.btnTitle}`}>
+                          <span className={`${styles.btnTitle}`}>
                             Jedinec
-                          </h3>
+                          </span>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>1-3 produkty</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Řešení prodeje bez platební brány</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
@@ -646,9 +649,9 @@ const InteractiveChooser = () => {
                           <IconShop alt="" height={75}  />
                         </div>
                         <div className={`${styles.descriptionContainer}`}>
-                          <h3 className={`${styles.btnTitle}`}>
+                          <span className={`${styles.btnTitle}`}>
                             Maloobchod
-                          </h3>
+                          </span>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Do 10 produktů</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
@@ -668,9 +671,9 @@ const InteractiveChooser = () => {
                          <IconWarehouse alt="" height={75}  />
                         </div>
                         <div className={`${styles.descriptionContainer}`}>
-                          <h3 className={`${styles.btnTitle}`}>
+                          <span className={`${styles.btnTitle}`}>
                             Velkoobchod
-                          </h3>
+                          </span>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>10+ produktů</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
                           <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Systém úpravy obsahu</p></div>
@@ -806,10 +809,10 @@ const InteractiveChooser = () => {
                     </Btn>
                     <Popup top="105%" left="calc(50% + clamp(50px, 50%, 125px))" state={popupPhone}>Zkopírováno!</Popup>
                   </div>
-                  <div className={`${styles.infoContainer}`}>
+                  {/* <div className={`${styles.infoContainer}`}>
                     <h4>~ 10.000 CZK</h4>
                     <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Cena je pouze orientační, odvíjí se primárně od náročnosti a velikosti obsahu stránky, standartně je počítána podle hodin strávených na projektu.</p></div>
-                  </div>
+                  </div> */}
                 </div>
               </>
             ) : firstCardPick === 1 && secondCardPick === 2 ? (
@@ -864,10 +867,10 @@ const InteractiveChooser = () => {
                     </Btn>
                     <Popup top="105%" left="calc(50% + clamp(50px, 50%, 125px))" state={popupPhone}>Zkopírováno!</Popup>
                   </div>
-                  <div className={`${styles.infoContainer}`}>
+                  {/* <div className={`${styles.infoContainer}`}>
                     <h4>~ 25.000 CZK</h4>
                     <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Cena je pouze orientační, odvíjí se primárně od náročnosti a velikosti obsahu stránky, standartně je počítána podle hodin strávených na projektu.</p></div>
-                  </div>
+                  </div> */}
                 </div>
               </>
             ) : firstCardPick === 1 && secondCardPick === 3 ? (
@@ -923,10 +926,10 @@ const InteractiveChooser = () => {
                     </Btn>
                     <Popup top="105%" left="calc(50% + clamp(50px, 50%, 125px))" state={popupPhone}>Zkopírováno!</Popup>
                   </div>
-                  <div className={`${styles.infoContainer}`}>
+                  {/* <div className={`${styles.infoContainer}`}>
                     <h4>~ 45.000 CZK</h4>
                     <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Cena je pouze orientační, odvíjí se primárně od náročnosti a velikosti obsahu stránky, standartně je počítána podle hodin strávených na projektu.</p></div>
-                  </div>
+                  </div> */}
                 </div>
               </>
             ) : firstCardPick === 2 && secondCardPick === 1 ? (
@@ -980,10 +983,10 @@ const InteractiveChooser = () => {
                     </Btn>
                     <Popup top="105%" left="calc(50% + clamp(50px, 50%, 125px))" state={popupPhone}>Zkopírováno!</Popup>
                   </div>
-                  <div className={`${styles.infoContainer}`}>
+                  {/* <div className={`${styles.infoContainer}`}>
                     <h4>~ 45.000 CZK</h4>
                     <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Cena je pouze orientační, odvíjí se primárně od náročnosti a velikosti obsahu stránky, standartně je počítána podle hodin strávených na projektu.</p></div>
-                  </div>
+                  </div> */}
                 </div>
               </>
             ) : firstCardPick === 2 && secondCardPick === 2 ? (
@@ -1039,10 +1042,10 @@ const InteractiveChooser = () => {
                     </Btn>
                     <Popup top="105%" left="calc(50% + clamp(50px, 50%, 125px))" state={popupPhone}>Zkopírováno!</Popup>
                   </div>
-                  <div className={`${styles.infoContainer}`}>
+                  {/* <div className={`${styles.infoContainer}`}>
                     <h4>~ 75.000 CZK</h4>
                     <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Cena je pouze orientační, odvíjí se primárně od náročnosti a velikosti obsahu stránky, standartně je počítána podle hodin strávených na projektu.</p></div>
-                  </div>
+                  </div> */}
                 </div>
               </>
             ) : (
@@ -1098,10 +1101,10 @@ const InteractiveChooser = () => {
                     </Btn>
                     <Popup top="105%" left="calc(50% + clamp(50px, 50%, 125px))" state={popupPhone}>Zkopírováno!</Popup>
                   </div>
-                  <div className={`${styles.infoContainer}`}>
+                  {/* <div className={`${styles.infoContainer}`}>
                     <h4>~ 100.000 CZK</h4>
                     <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Cena je pouze orientační, odvíjí se primárně od náročnosti a velikosti obsahu stránky, standartně je počítána podle hodin strávených na projektu.</p></div>
-                  </div>
+                  </div> */}
                 </div>
               </>
             )}

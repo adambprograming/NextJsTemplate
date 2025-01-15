@@ -1,4 +1,5 @@
 #article-footer {
+  margin-top: auto;
   background-color: var(--black-75);
   color: var(--color-text-light-still);
   &.fixed-footer {
@@ -127,6 +128,16 @@
         place-content: center;
         span {
           margin: auto 0;
+        }
+        a {
+          margin: 5px 5px;
+          padding: 10px 20px;
+          background-color: rgb(from var(--color-text-light-still) r g b / 0.75);;
+          border-radius: var(--border-radius-btn);
+          color: var(--color-text-dark-still);
+          text-decoration: none;
+          font-family: var(--font-secondary);
+          font-size: var(--fontsize-small);
         }
       }
     }

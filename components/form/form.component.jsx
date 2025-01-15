@@ -110,8 +110,6 @@ export const Form = ({
       } else {
         const formData = new FormData(formRef.current);
         const data = Object.fromEntries(formData);
-        console.log(data);
-
         onSubmit(data);
       }
 
