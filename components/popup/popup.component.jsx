@@ -8,11 +8,12 @@ import "./popup.styles.scss";
 
 // Components
 
-const Popup = ({ children, state, top, right, bottom, left }) => {
+const Popup = ({ children, fontSize = "var(--fontsize-input)", state, top, right, bottom, left }) => {
   return (
     <div
       className="popup"
       style={{
+        fontSize: `${fontSize}`,
         display: `${state ? "inherit" : "none"}`,
         top: `${top}`,
         right: `${right}`,

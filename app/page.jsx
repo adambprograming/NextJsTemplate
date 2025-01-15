@@ -4,11 +4,14 @@ import styles from "./page.module.scss";
 import HeroImg from "@/public/hero.png";
 // React/Next Functions
 import Image from "next/image";
+import dynamic from "next/dynamic";
 // Context
 
 // Componenets
+const LazyPortfolioRotatedGrid = dynamic(() => import("@/components/portfolio-rotated-grid/portfolio-rotated-grid.component"), {ssr: false})
+
 import Btn from "@/components/btn/btn.component";
-import PortfolioRotatedGrid from "@/components/portfolio-rotated-grid/portfolio-rotated-grid.component";
+// import PortfolioRotatedGrid from "@/components/portfolio-rotated-grid/portfolio-rotated-grid.component";
 
 export default function Home() {
   return (
@@ -36,7 +39,6 @@ export default function Home() {
               bgColor="var(--color-primary)"
               textColor="var(--color-text-reverse)"
               borderSize="none"
-              borderRadius="15px"
               hoverEffect="scaleForward"
             >
               Kontakt
@@ -55,25 +57,8 @@ export default function Home() {
           </div>
         </div>
         <div className={`${styles.imgContainer}`}>
-          <Image src={HeroImg} alt="Hero section image" />
+          <Image src={HeroImg} alt="Hero section image" priority={true} />
         </div>
-      </section>
-      <section className={`${styles.portfolio}`}>
-        <div className={`${styles.contentContainer}`}>
-        <div className={`${styles.titleContainer}`}>
-            <span>PORTFOLIO</span>
-            <h1>
-              Podívejte se na <strong>moje</strong> projekty
-            </h1>
-            <hr />
-          </div>
-          <div className={`${styles.textContainer}`}>
-            <p>
-              Níže jsou projekty, které jsem vytvořil pro inspiraci.
-            </p>
-          </div>
-        </div>
-        <PortfolioRotatedGrid />
       </section>
       <section className={`${styles.services}`}>
         <div className={`${styles.imgContainer}`}>
@@ -104,16 +89,32 @@ export default function Home() {
             bgColor="var(--color-primary)"
             textColor="var(--color-text-reverse)"
             borderSize="none"
-            borderRadius="15px"
             hoverEffect="scaleForward"
           >
             Zjistit více
           </Btn>
         </div>
       </section>
+      <section className={`${styles.portfolio}`}>
+        <div className={`${styles.contentContainer}`}>
+        <div className={`${styles.titleContainer}`}>
+            <span>PORTFOLIO</span>
+            <h1>
+              Podívejte se na <strong>moje</strong> projekty
+            </h1>
+            <hr />
+          </div>
+          <div className={`${styles.textContainer}`}>
+            <p>
+              Níže jsou projekty, které jsem vytvořil pro inspiraci.
+            </p>
+          </div>
+        </div>
+        <LazyPortfolioRotatedGrid />
+      </section>
+      <section className={`${styles.testimonials}`}>
 
-      {/* TODO PROJECTS */}
-      {/* TODO CHECK ALSO */}
+      </section>
     </main>
   );
 }

@@ -97,7 +97,7 @@ const FormContact = () => {
       <div className={`${styles.formContainer}`}>
         <form onSubmit={handleSubmit}>
           <section className={`${styles.section}`}>
-            <h3 className={`${styles.subHeading}`}>Vaše údaje</h3>
+            <h5 className={`${styles.subHeading}`}>Vaše údaje</h5>
             <div className={`${styles.containerGroup}`}>
               <div className={`${styles.containerInput}`}>
                 <span className={`${styles.label}`}>
@@ -167,7 +167,7 @@ const FormContact = () => {
             </div>
           </section>
           <section className={`${styles.section}`}>
-            <h3 className={`${styles.subHeading}`}>Váš dotaz</h3>
+            <h5 className={`${styles.subHeading}`}>Váš dotaz</h5>
             <div className={`${styles.containerInput}`}>
               <span className={`${styles.label}`}>Zvolte co potřebujete:</span>
               <div className={`${styles.btnGroup}`}>

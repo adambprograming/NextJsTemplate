@@ -40,7 +40,7 @@ const InputFloatingLabel = ({
   functionOnChange,
   functionOnBlur,
   functionOnKeyDown,
-  fontSize = "var(--fontsize-h6)",
+  fontSize = "var(--fontsize-input)",
   fontFamily = "var(--font-secondary)",
   borderRadius = "0px",
   borderSize = "1px",
