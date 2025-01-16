@@ -11,7 +11,7 @@ import Btn from "@/components/btn/btn.component";
 
 export default function NotFound() {
   return (
-    <div
+    <main
       style={{
         marginTop: "3rem",
         display: "flex",
@@ -33,6 +33,6 @@ export default function NotFound() {
       >
         Zpět na domovskou stránku
       </Btn>
-    </div>
+    </main>
   );
 }
