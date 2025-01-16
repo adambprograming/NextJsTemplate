@@ -264,7 +264,7 @@ const InteractiveChooser = () => {
                     <div className={`${styles.descriptionContainer}`}>
                       <span className={`${styles.btnTitle}`}>E-shop</span>
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
-                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Uživatelské rozhranní</p></div>
+                      <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Uživatelské rozhraní</p></div>
                       <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní řešení pro malé<br />podnikatele bez zbytečných<br />poplatků</p></div>
                     </div>
                   </Btn>
@@ -329,7 +329,7 @@ const InteractiveChooser = () => {
                   <div className={`${styles.descriptionContainer}`}>
                     <span className={`${styles.btnTitle}`}>E-shop</span>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Platební brána</p></div>
-                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Uživatelské rozhranní</p></div>
+                    <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Uživatelské rozhraní</p></div>
                     <div><span><IconCheckCircle style={{color: "var(--color-success)"}} alt="check" /></span><p>Vlastní řešení pro malé<br />podnikatele bez zbytečných<br />poplatků</p></div>
                   </div>
                 </Btn>
@@ -736,9 +736,9 @@ const InteractiveChooser = () => {
                     </Btn>
                     <Popup top="105%" left="calc(50% + clamp(50px, 50%, 125px))" state={popupPhone}>Zkopírováno!</Popup>
                   </div>
-                  <div className={`${styles.infoContainer}`}>
+                  {/* <div className={`${styles.infoContainer}`}>
                     <div><span><IconInfoCircle style={{fill: "var(--shadow-25)"}} alt="check" /></span><p>Cena zde nejde přesně určit, odvíjí se primárně od složitosti a velikosti webové aplikace, standartně je počítána podle hodin strávených na projektu.</p></div>
-                  </div>
+                  </div> */}
                 </div>
               </>
             )}

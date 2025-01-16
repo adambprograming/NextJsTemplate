@@ -152,6 +152,28 @@ html {
     font-size: 62.5%;
 }
 
+
+// body  {
+    // transition: background-color 0.1s linear, color 0.1s linear, fill 0.1s linear;
+    // }
+    // * {
+        // transition: background-color 0.1s linear, color 0.1s linear, fill 0.1s linear;
+        // }
+        
+        body{
+            background: var(--color-background);
+    color: var(--color-text);
+    text-align: center;
+    overflow-x: hidden;
+    min-height: 100svh;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    // & > * {
+    //     margin: 0;
+    // }
+}
+
 main {
     margin: auto;
     padding: var(--padding-page);
@@ -161,26 +183,6 @@ main {
     gap: 12rem;
 }
 
-// body  {
-    // transition: background-color 0.1s linear, color 0.1s linear, fill 0.1s linear;
-// }
-// * {
-    // transition: background-color 0.1s linear, color 0.1s linear, fill 0.1s linear;
-// }
-
-body{
-    background: var(--color-background);
-    color: var(--color-text);
-    text-align: center;
-    overflow-x: hidden;
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    // justify-content: space-between;
-    & > * {
-        margin: 0;
-    }
-}
 
 p {
     font-size: var(--fontsize-p);
