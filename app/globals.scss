@@ -120,8 +120,8 @@ body{
     --breakpoint-768: 768px; // < Tablet < 1024px
     --breakpoint-480: 480px; // > Mobile (Between 480px & 768px is small tablet)
     --breakpoint-300: 320px; // Smallest phone width
-    --padding-page: 7.5rem clamp(1rem, 5%, 4rem);
-    --padding-header: 2.5rem clamp(1rem, 5%, 4rem) 0 clamp(1rem, 5%, 4rem);
+    --padding-page: 7.5rem var(--padding-page-sides);
+    --padding-header: 2.5rem var(--padding-page-sides) 0 var(--padding-page-sides);
     --padding-page-sides: clamp(1rem, 5%, 4rem);
     // INDIVIDUAL FOR PROJECT
     --border-radius-btn: 15px;
@@ -152,30 +152,24 @@ html {
     font-size: 62.5%;
 }
 
-
-// body  {
-    // transition: background-color 0.1s linear, color 0.1s linear, fill 0.1s linear;
-    // }
-    // * {
-        // transition: background-color 0.1s linear, color 0.1s linear, fill 0.1s linear;
-        // }
-        
-        body{
-            background: var(--color-background);
+body{
+    background: var(--color-background);
     color: var(--color-text);
     text-align: center;
     overflow-x: hidden;
     min-height: 100svh;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-between;
-    // & > * {
-    //     margin: 0;
-    // }
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    & > * {
+        margin: 0;
+        align-self: center;
+        width: calc(100% - var(--padding-page-sides) * 2);
+    }
 }
 
 main {
-    margin: auto;
+    flex-grow: 1;
     padding: var(--padding-page);
     max-width: 1440px;
     display: flex;

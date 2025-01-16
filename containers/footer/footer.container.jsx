@@ -134,6 +134,15 @@ const Footer = ({dynamicForSmallHeightPage = false}) => {
               <li>
                 <Link href="/">Domovská stránka</Link>
               </li>
+              <li>
+                <Link href="/o-mne">O mně</Link>
+              </li>
+              <li>
+                <Link href="/sluzby">Služby</Link>
+              </li>
+              <li>
+                <Link href="/kontakt">Kontakt</Link>
+              </li>
             </ul>
           </div>
           <div className="footer-contacts">

@@ -3,13 +3,23 @@ $padding-header: var(--padding-header);
 $gap-header: 2vw;
 $width-logo: clamp(50px, 12vw, 120px);
 
+#article-header {
+  padding: var(--padding-page);
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  gap: 12rem;
+  align-self: center;
+  width: calc(100% - var(--padding-page-sides) * 2);
+}
+
 // Variant 1
 #article-header.leftsettings-centerlogo-rightmenu {
   display: flex;
   flex-direction: row;
   gap: $gap-header;
   padding: $padding-header;
-  max-width: var(--breakpoint-1440);
+  max-width: 1440px;
   .header-container-settings {
     margin: auto 0;
     width: calc(((100% - ($gap-header * 2)) - $width-logo) / 2);

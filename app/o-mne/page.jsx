@@ -53,7 +53,7 @@ const Page = () => {
               Každý projekt tvořím na míru, s ohledem na vaše potřeby a cíle.
               Mým cílem je nejen splnit vaše očekávání, ale také je překonat.
               Společně vytvoříme řešení, které vás odliší a posune vaše
-              podnikání kupředu.
+              podnikání vpřed.
             </p>
           </div>
         </div>
