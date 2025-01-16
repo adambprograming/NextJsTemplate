@@ -61,16 +61,22 @@ body{
     --fontsize-h2: clamp(1.75rem, 1.6rem + 1.8vw, 3rem); /* 17.5px - 30px */
     --fontsize-h3: clamp(1.5rem, 1.4rem + 1.5vw, 2.5rem); /* 15px - 25px */
     --fontsize-h4: clamp(1.25rem, 1.2rem + 1.2vw, 2rem); /* 12.5px - 20px */
-    --fontsize-h5: clamp(1.125rem, 1.05rem + 1vw, 1.75rem); /* 11.25px - 17.5px */
-    --fontsize-h6: clamp(1rem, 0.9rem + 0.8vw, 1.5rem); /* 10px - 15px */
-    --fontsize-small: clamp(0.875rem, 0.8rem + 0.5vw, 1.25rem); /* 8.75px - 12.5px */
-    --fontsize-smaller: clamp(0.75rem, 0.7rem + 0.3vw, 1rem); /* 7.5px - 10px */
+    // \/\/\/ old
+    // --fontsize-h5: clamp(1.125rem, 1.05rem + 1vw, 1.75rem); /* 11.25px - 17.5px */
+    // --fontsize-h6: clamp(1rem, 0.9rem + 0.8vw, 1.5rem); /* 10px - 15px */
+    // --fontsize-small: clamp(0.875rem, 0.8rem + 0.5vw, 1.25rem); /* 8.75px - 12.5px */
+    // --fontsize-smaller: clamp(0.75rem, 0.7rem + 0.3vw, 1rem); /* 7.5px - 10px */
+    // \/\/\/ new optimalized for bestpractices (not smaller than 12px)
+    --fontsize-h5: clamp(1.2rem, 1.05rem + 1vw, 1.75rem); /* 11.25px - 17.5px */
+    --fontsize-h6: clamp(1.2rem, 0.9rem + 0.8vw, 1.5rem); /* 10px - 15px */
+    --fontsize-small: clamp(1.2rem, 0.8rem + 0.5vw, 1.25rem); /* 8.75px - 12.5px */
+    --fontsize-smaller: clamp(1.2rem, 0.7rem + 0.3vw, 1.2rem); /* 7.5px - 10px */
     // INDIVIDAL FOR PAGE
     --fontsize-title: var(--fontsize-h1);
     --fontsize-subtitle: var(--fontsize-smaller);
     --fontsize-text: var(--fontsize-p);
     --fontsize-btn: var(--fontsize-h5);
-    --fontsize-input: var(--fontsize-h6)
+    --fontsize-input: var(--fontsize-h6);
 }
 
 :root {
@@ -146,6 +152,28 @@ html {
     font-size: 62.5%;
 }
 
+
+// body  {
+    // transition: background-color 0.1s linear, color 0.1s linear, fill 0.1s linear;
+    // }
+    // * {
+        // transition: background-color 0.1s linear, color 0.1s linear, fill 0.1s linear;
+        // }
+        
+        body{
+            background: var(--color-background);
+    color: var(--color-text);
+    text-align: center;
+    overflow-x: hidden;
+    min-height: 100svh;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    // & > * {
+    //     margin: 0;
+    // }
+}
+
 main {
     margin: auto;
     padding: var(--padding-page);
@@ -155,19 +183,6 @@ main {
     gap: 12rem;
 }
 
-// body  {
-    // transition: background-color 0.1s linear, color 0.1s linear, fill 0.1s linear;
-// }
-// * {
-    // transition: background-color 0.1s linear, color 0.1s linear, fill 0.1s linear;
-// }
-
-body{
-    background: var(--color-background);
-    color: var(--color-text);
-    text-align: center;
-    overflow-x: hidden;
-}
 
 p {
     font-size: var(--fontsize-p);

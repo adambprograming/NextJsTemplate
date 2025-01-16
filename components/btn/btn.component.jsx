@@ -71,6 +71,7 @@ const Btn = ({
     <button
       className={`${styles.btn} ${!disabled && styles[hoverEffect]}`}
       disabled={disabled}
+      aria-label={`${ariaLabel}`}
       style={{
         borderRadius: `${borderRadius}`,
         "--localBorderHoverRadius": `${borderHoverRadius}`,

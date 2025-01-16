@@ -13,6 +13,7 @@ import HeroImg from "@/public/hero.png";
 // React/Next Functions
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import dynamic from "next/dynamic";
 // Context & Actions
 
@@ -149,9 +150,9 @@ const Page = () => {
                 <IconPhone />
               </div>
               <div className={`${styles.specContainer}`}>
-                <h6 className={`${styles.contactTitle}`}>
+                <span className={`${styles.contactTitle}`}>
                   Mobil{phoneNumberCopied && <span>Zkopírováno!</span>}
-                </h6>
+                </span>
                 <span className={`${styles.contactValue}`}>{phoneNumber}</span>
               </div>
             </div>
@@ -160,13 +161,13 @@ const Page = () => {
                 <IconEmail />
               </div>
               <div className={`${styles.specContainer}`}>
-                <h6 className={`${styles.contactTitle}`}>
+                <span className={`${styles.contactTitle}`}>
                   E-mail{emailAddressCopied && <span>Zkopírováno!</span>}
-                </h6>
+                </span>
                 <span className={`${styles.contactValue}`}>{emailAddress}</span>
               </div>
             </div>
-            <a
+            <Link
               href="https://www.google.com/maps/place/Pardubice/@50.0342266,15.4292331,10z/data=!3m1!4b1!4m6!3m5!1s0x470dc94b239307b5:0x12d59894ccf624ae!8m2!3d50.0343092!4d15.7811994!16zL20vMGNoNTQ?entry=ttu"
               target="_blank"
               rel="noopener noreferrer"
@@ -176,18 +177,18 @@ const Page = () => {
                 <IconLocation />
               </div>
               <div className={`${styles.specContainer}`}>
-                <h6 className={`${styles.contactTitle}`}>Město</h6>
+                <title className={`${styles.contactTitle}`}>Město</title>
                 <span className={`${styles.contactValue}`}>Pardubice (CZ)</span>
               </div>
-            </a>
+            </Link>
             <div onClick={handleIcoCopy} className={`${styles.ico}`}>
               <div className={`${styles.iconContainer}`}>
                 <IconInvoice />
               </div>
               <div className={`${styles.specContainer}`}>
-                <h6 className={`${styles.contactTitle}`}>
+                <span className={`${styles.contactTitle}`}>
                   IČO{icoCopied && <span>Zkopírováno!</span>}
-                </h6>
+                </span>
                 <span className={`${styles.contactValue}`}>
                   {ico}
                   {`\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0`}
@@ -196,7 +197,7 @@ const Page = () => {
             </div>
           </div>
           <hr style={{ width: "100%" }} />
-          <h6>Sledujte mě</h6>
+          <h2>Sledujte mě</h2>
           <div className={`${styles.additionalContacts}`}>
             <Btn
               href="https://www.instagram.com/_adaamb/"
@@ -231,9 +232,9 @@ const Page = () => {
           </div>
         </div>
         <div className={`${styles.imgContainer}`}>
-          <Image src={HeroImg} alt="Contact photo" />
+          <Image src={HeroImg} alt="Contact photo" priority />
         </div>
-      </section>
+       </section>
       <section className={`${styles.form}`}>
         <div className={`${styles.titleContainer}`}>
           <span>FORMULÁŘ</span>

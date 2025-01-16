@@ -29,7 +29,7 @@ const Page = () => {
     <main className={styles.main}>
       <section className={`${styles.introduction}`}>
         <div className={`${styles.imgContainer}`}>
-          <Image src={HeroImg} alt="portrait" />
+          <Image src={HeroImg} alt="portrait" priority />
         </div>
         <div className={`${styles.contentContainer}`}>
           <div className={`${styles.titleContainer}`}>

@@ -20,9 +20,7 @@ const PortfolioRotatedGrid = () => {
   const [widthOfWindow, setWidthOfWindow] = useState(1440);
   useEffect(() => {
     const getAndSetInnerWidthOfWindow = () => {
-      setWidthOfWindow(window.innerWidth);
-      console.log(window.innerWidth);
-      
+      setWidthOfWindow(window.innerWidth);      
     };
     getAndSetInnerWidthOfWindow();
     window.addEventListener("resize", getAndSetInnerWidthOfWindow);

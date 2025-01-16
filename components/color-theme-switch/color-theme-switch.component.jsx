@@ -29,7 +29,6 @@ const ColorThemeSwitch = ({ variant = "first" }) => {
           window.matchMedia &&
           window.matchMedia("(prefers-color-scheme: dark)").matches;
       } catch (error) {}
-      console.log("prefersDarkTheme", prefersDarkTheme);
       setIsDarkTheme(prefersDarkTheme);
     }
   }, []);

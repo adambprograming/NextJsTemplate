@@ -17,15 +17,15 @@ import { useState, useEffect, useRef } from "react";
 // Context & Actions
 
 // Components
-import Btn from "@/components/btn/btn.component";
 import Popup from "../../components/popup/popup.component";
 
-const Footer = () => {
+const Footer = ({dynamicForSmallHeightPage = false}) => {
   const phoneNumber = "+42077780333073";
   const emailAddress = "ab@adam-bartusek.cz";
   const [popupPhone, setPopupPhone] = useState(false);
   const [popupEmail, setPopupEmail] = useState(false);
   const footerRef = useRef(null);
+
   function listenForDomChanges(targetNode, callback) {
     // Check browser compatibility
     if (!window.MutationObserver) {
@@ -49,12 +49,14 @@ const Footer = () => {
   }
 
   useEffect(() => {
-    window.addEventListener("resize", changeHeights);
-    const disconnectObserver = listenForDomChanges(document, changeHeights);
-    return () => {
-      disconnectObserver();
-      window.removeEventListener("resize", changeHeights);
-    };
+    if (dynamicForSmallHeightPage) {      
+      window.addEventListener("resize", changeHeights);
+      const disconnectObserver = listenForDomChanges(document, changeHeights);
+      return () => {
+        disconnectObserver();
+        window.removeEventListener("resize", changeHeights);
+      };
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -76,6 +78,7 @@ const Footer = () => {
       }
     } catch (error) {}
   };
+
   const copyToClipboard = (toClipboard, popup) => {
     navigator.clipboard.writeText(toClipboard);
     switch (popup) {
@@ -129,7 +132,7 @@ const Footer = () => {
             <span>Menu</span>
             <ul>
               <li>
-                <Link href="/" >Domovská stránka</Link>
+                <Link href="/">Domovská stránka</Link>
               </li>
             </ul>
           </div>
@@ -158,6 +161,7 @@ const Footer = () => {
                 href="https://www.google.com/maps/place/Pardubice/@50.0342266,15.4292331,10z/data=!3m1!4b1!4m6!3m5!1s0x470dc94b239307b5:0x12d59894ccf624ae!8m2!3d50.0343092!4d15.7811994!16zL20vMGNoNTQ?entry=ttu"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Odkaz k moji poloze."
               >
                 <IconLocation />
               </Link>
@@ -165,7 +169,7 @@ const Footer = () => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Odkaz na náš Facebook profil."
+                aria-label="Odkaz na můj Facebook profil."
               >
                 <IconFacebook />
               </Link> */}
@@ -173,7 +177,7 @@ const Footer = () => {
                 href="https://www.instagram.com/_adaamb/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Odkaz na náš Instagram profil."
+                aria-label="Odkaz na můj Instagram profil."
               >
                 <IconInstagram />
               </Link>
@@ -181,7 +185,7 @@ const Footer = () => {
                 href="https://www.tiktok.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Odkaz na náš TikTok profil."
+                aria-label="Odkaz na můj TikTok profil."
               >
                 <IconTiktok />
               </Link> */}
@@ -189,7 +193,7 @@ const Footer = () => {
                 href={`https://www.linkedin.com/in/adam-bart%C5%AF%C5%A1ek-251107286/?locale=cs_CZ`}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Odkaz na náš Linkedin profil."
+                aria-label="Odkaz na můj Linkedin profil."
               >
                 <IconLinkedin />
               </Link>
@@ -197,7 +201,7 @@ const Footer = () => {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Odkaz na náš Twitter profil."
+                aria-label="Odkaz na můj Twitter profil."
               >
                 <IconX />
               </Link> */}
@@ -205,7 +209,7 @@ const Footer = () => {
                 href="https://github.com/adambprograming"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Odkaz na náš GitHub profil."
+                aria-label="Odkaz na můj GitHub profil."
               >
                 <IconGithub />
               </Link>
@@ -216,18 +220,14 @@ const Footer = () => {
           <p> Adam Bartůšek &copy; 2022-2024.</p>
           <p>
             <span>Vytvořil</span>
-            <Btn
+            <Link
               href="https://www.adam-bartusek.cz/"
-              ariaLabel="Created by Adam Bartůšek. Visit the developer website."
-              fontSize="var(--fontsize-small)"
-              fontFamily="var(--font-secondary)"
-              textColor="var(--color-text-dark-still)"
-              bgColor="var(--color-text-light-still)"
-              opacity="0.75"
-              filter="brightness(1.15) drop-shadow(0 0 5px var(--black-50))"
+              target="_blank"
+              rel="noopener"
+              aria-label="Created by Adam Bartůšek. Visit the developer website."
             >
               Adam Bartůšek
-            </Btn>
+            </Link>
             <span>.</span>
             <span>Všechna práva vyhrazena.</span>
           </p>
