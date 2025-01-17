@@ -177,7 +177,7 @@ const Page = () => {
                 <IconLocation />
               </div>
               <div className={`${styles.specContainer}`}>
-                <title className={`${styles.contactTitle}`}>Město</title>
+                <span className={`${styles.contactTitle}`}>Město</span>
                 <span className={`${styles.contactValue}`}>Pardubice (CZ)</span>
               </div>
             </Link>
