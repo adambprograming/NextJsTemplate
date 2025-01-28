@@ -19,65 +19,12 @@ import { useState, useEffect, useRef } from "react";
 // Components
 import Popup from "../../components/popup/popup.component";
 
-const Footer = ({dynamicForSmallHeightPage = false}) => {
+const Footer = () => {
   const phoneNumber = "+42077780333073";
   const emailAddress = "ab@adam-bartusek.cz";
   const [popupPhone, setPopupPhone] = useState(false);
   const [popupEmail, setPopupEmail] = useState(false);
   const footerRef = useRef(null);
-
-  function listenForDomChanges(targetNode, callback) {
-    // Check browser compatibility
-    if (!window.MutationObserver) {
-      console.warn("MutationObserver is not supported by your browser.");
-      return;
-    }
-    // Create a MutationObserver instance
-    const observer = new MutationObserver(callback);
-    // Define the configuration object for the observer
-    const config = {
-      childList: true, // Observe changes in child nodes
-      subtree: true, // Observe changes in all descendant nodes
-      attributes: true, // Observe attribute changes
-    };
-    // Start observing the target node
-    observer.observe(targetNode, config);
-    // Function to disconnect the observer (optional)
-    return () => {
-      observer.disconnect();
-    };
-  }
-
-  useEffect(() => {
-    if (dynamicForSmallHeightPage) {      
-      window.addEventListener("resize", changeHeights);
-      const disconnectObserver = listenForDomChanges(document, changeHeights);
-      return () => {
-        disconnectObserver();
-        window.removeEventListener("resize", changeHeights);
-      };
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const changeHeights = () => {
-    try {
-      const heightWindow = window.innerHeight;
-      const heightContent = document.querySelector("body").scrollHeight;
-      const heightFooter = footerRef.current.scrollHeight;
-      const heightContentPlusFooter = heightContent + heightFooter;
-      const isFixed = footerRef.current.classList.contains("fixed-footer");
-      if (isFixed) {
-        if (heightWindow <= heightContentPlusFooter) {
-          footerRef.current.classList.remove("fixed-footer");
-        }
-      } else {
-        if (heightWindow >= heightContent) {
-          footerRef.current.classList.add("fixed-footer");
-        }
-      }
-    } catch (error) {}
-  };
 
   const copyToClipboard = (toClipboard, popup) => {
     navigator.clipboard.writeText(toClipboard);

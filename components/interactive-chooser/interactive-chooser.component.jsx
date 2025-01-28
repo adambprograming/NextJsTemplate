@@ -207,8 +207,8 @@ const InteractiveChooser = () => {
           }`}</Btn>
         </div>
       </div>
-      {/* FIRST PICK */}
       <div className={`${styles.interactiveChooser}`}>
+        {/* FIRST PICK */}
         <div className={`${styles.cardContainer} ${styles.firstCardContainer}`}>
           <Card
             gapFlex="25px"
