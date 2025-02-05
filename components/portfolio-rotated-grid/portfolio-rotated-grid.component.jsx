@@ -20,7 +20,7 @@ const PortfolioRotatedGrid = () => {
   const [widthOfWindow, setWidthOfWindow] = useState(1440);
   useEffect(() => {
     const getAndSetInnerWidthOfWindow = () => {
-      setWidthOfWindow(window.innerWidth);      
+      setWidthOfWindow(window.innerWidth);
     };
     getAndSetInnerWidthOfWindow();
     window.addEventListener("resize", getAndSetInnerWidthOfWindow);
@@ -33,114 +33,96 @@ const PortfolioRotatedGrid = () => {
       {widthOfWindow < 760 ? (
         <Carousel fullWidth={false} backdropFilterArrows="">
           <CarouselItem>
-            
-              <div className={`${styles.inner}`}>
-                <Image src={HeroImg} alt="Hero section image" />
-              </div>
-            
+            <div className={`${styles.inner}`}>
+              <Image src={HeroImg} alt="Náhled obrázku" />
+            </div>
           </CarouselItem>
           <CarouselItem>
-            
-              <div className={`${styles.inner}`}>
-                <Image src={HeroImg} alt="Hero section image" />
-              </div>
-            
+            <div className={`${styles.inner}`}>
+              <Image src={HeroImg} alt="Náhled obrázku" />
+            </div>
           </CarouselItem>
           <CarouselItem>
-            
-              <div className={`${styles.inner}`}>
-                <Image src={HeroImg} alt="Hero section image" />
-              </div>
-            
+            <div className={`${styles.inner}`}>
+              <Image src={HeroImg} alt="Náhled obrázku" />
+            </div>
           </CarouselItem>
           <CarouselItem>
-            
-              <div className={`${styles.inner}`}>
-                <Image src={HeroImg} alt="Hero section image" />
-              </div>
-            
+            <div className={`${styles.inner}`}>
+              <Image src={HeroImg} alt="Náhled obrázku" />
+            </div>
           </CarouselItem>
           <CarouselItem>
-            
-              <div className={`${styles.inner}`}>
-                <Image src={HeroImg} alt="Hero section image" />
-              </div>
-            
+            <div className={`${styles.inner}`}>
+              <Image src={HeroImg} alt="Náhled obrázku" />
+            </div>
           </CarouselItem>
           <CarouselItem>
-            
-              <div className={`${styles.inner}`}>
-                <Image src={HeroImg} alt="Hero section image" />
-              </div>
-            
+            <div className={`${styles.inner}`}>
+              <Image src={HeroImg} alt="Náhled obrázku" />
+            </div>
           </CarouselItem>
           <CarouselItem>
-            
-              <div className={`${styles.inner}`}>
-                <Image src={HeroImg} alt="Hero section image" />
-              </div>
-            
+            <div className={`${styles.inner}`}>
+              <Image src={HeroImg} alt="Náhled obrázku" />
+            </div>
           </CarouselItem>
           <CarouselItem>
-            
-              <div className={`${styles.inner}`}>
-                <Image src={HeroImg} alt="Hero section image" />
-              </div>
-            
+            <div className={`${styles.inner}`}>
+              <Image src={HeroImg} alt="Náhled obrázku" />
+            </div>
           </CarouselItem>
           <CarouselItem>
-            
-              <div className={`${styles.inner}`}>
-                <Image src={HeroImg} alt="Hero section image" />
-              </div>
-            
+            <div className={`${styles.inner}`}>
+              <Image src={HeroImg} alt="Náhled obrázku" />
+            </div>
           </CarouselItem>
         </Carousel>
       ) : (
         <div className={`${styles.portfolioRotatedGridContainer}`}>
           <div className={`${styles.box}`}>
             <div className={`${styles.inner}`}>
-              <Image src={HeroImg} alt="Hero section image" />
+              <Image src={HeroImg} alt="Náhled obrázku" />
             </div>
           </div>
           <div className={`${styles.box}`}>
             <div className={`${styles.inner}`}>
-              <Image src={HeroImg} alt="Hero section image" />
+              <Image src={HeroImg} alt="Náhled obrázku" />
             </div>
           </div>
           <div className={`${styles.box}`}>
             <div className={`${styles.inner}`}>
-              <Image src={HeroImg} alt="Hero section image" />
+              <Image src={HeroImg} alt="Náhled obrázku" />
             </div>
           </div>
           <div className={`${styles.box}`}>
             <div className={`${styles.inner}`}>
-              <Image src={HeroImg} alt="Hero section image" />
+              <Image src={HeroImg} alt="Náhled obrázku" />
             </div>
           </div>
           <div className={`${styles.box}`}>
             <div className={`${styles.inner}`}>
-              <Image src={HeroImg} alt="Hero section image" />
+              <Image src={HeroImg} alt="Náhled obrázku" />
             </div>
           </div>
           <div className={`${styles.box}`}>
             <div className={`${styles.inner}`}>
-              <Image src={HeroImg} alt="Hero section image" />
+              <Image src={HeroImg} alt="Náhled obrázku" />
             </div>
           </div>
           <div className={`${styles.box}`}>
             <div className={`${styles.inner}`}>
-              <Image src={HeroImg} alt="Hero section image" />
+              <Image src={HeroImg} alt="Náhled obrázku" />
             </div>
           </div>
           <div className={`${styles.box}`}>
             <div className={`${styles.inner}`}>
-              <Image src={HeroImg} alt="Hero section image" />
+              <Image src={HeroImg} alt="Náhled obrázku" />
             </div>
           </div>
           <div className={`${styles.box}`}>
             <div className={`${styles.inner}`}>
-              <Image src={HeroImg} alt="Hero section image" />
+              <Image src={HeroImg} alt="Náhled obrázku" />
             </div>
           </div>
         </div>

@@ -45,8 +45,8 @@ const Header = ({ variant = "leftsettings-centerlogo-rightmenu" }) => {
 
   const renderLogo = () => {
     return (
-      <Link href="/">
-        <Logo alt="Logo" id="logo-header" aria-label="Go to home page" />
+      <Link href="/" aria-label="Navigovat na domovskou stránku">
+        <Logo alt="Logo" id="logo-header" aria-label="Logo" />
       </Link>
     );
   };

@@ -9,8 +9,8 @@ $width-logo: clamp(50px, 12vw, 120px);
   display: flex;
   flex-direction: column;
   gap: 12rem;
-  // align-self: center;
-  // width: calc(100% - var(--padding-page-sides) * 2);
+  align-self: center;
+  width: calc(100% - var(--padding-page-sides) * 2);
 }
 
 // Variant 1

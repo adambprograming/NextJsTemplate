@@ -16,14 +16,13 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 // Context & Actions
-
+import { sendEmail } from "@/actions/nodemailer";
 // Componenets
 // import Btn from "@/components/btn/btn.component";
 const Btn = dynamic(() => import("@/components/btn/btn.component"), {
   ssr: false,
 });
-
-
+import LoaderForResponse from "@/components/loader-for-response/loader-for-response.component";
 
 import {
   Form,
@@ -35,15 +34,39 @@ import {
   FormPickerOption,
 } from "@/components/form/form.component";
 
+function getInitialValuesFromSessionStorage() {
+  const initialValues = sessionStorage.getItem("initialFormValues");
+  if (initialValues) {
+    return JSON.parse(initialValues);
+  } else {
+    return null;
+  }
+}
+
 const Page = () => {
   const [phoneNumberCopied, setPhoneNumberCopied] = useState(false);
   const [emailAddressCopied, setEmailAddressCopied] = useState(false);
   const [icoCopied, setIcoCopied] = useState(false);
-  const phoneNumber = "+42077780333073";
+  const phoneNumber = "+420 778 033 073";
   const emailAddress = "ab@adam-bartusek.cz";
   const ico = `10700561`;
+  // 0 is No, 1 is Yes
+  const [choosedOptionForm, setChoosedOptionForm] = useState(0);
+  const [initialValues, setInitialValues] = useState({});
+  const [loaderProps, setLoaderProps] = useState({
+    isLoading: false,
+    status: null,
+    message: "",
+  });
 
-  const [choosedOptionForm, setChoosedOptionForm] = useState("Ano");
+  useEffect(() => {
+    const initialValuesFromSessionStorage =
+      getInitialValuesFromSessionStorage();
+    if (initialValuesFromSessionStorage) {
+      setChoosedOptionForm(1);
+      setInitialValues(initialValuesFromSessionStorage);
+    }
+  }, []);
 
   useEffect(() => {
     if (phoneNumberCopied) {
@@ -129,8 +152,46 @@ const Page = () => {
     );
   };
 
-  const handleSubmit = (formdata) => {
-    console.log(formdata);
+  const handleSubmit = async (formData) => {
+    setLoaderProps({ isLoading: true, status: null, message: "" });
+    var message;
+    try {
+      if (choosedOptionForm === 0) {
+        message = `${formData["general-specs"]}`;
+      } else if (choosedOptionForm === 1) {
+        message = `\nRozsah: ${formData["scope"]}\nFunkce: ${formData["functions"]}\nVzorový web: ${formData["exemple-url"]}\nRozpočet: ${formData["price"]}\nDatum dodání: ${formData["deadline"]}\nOstatní specifikace: ${formData["other-specs"]}`;
+      }
+      const response = await sendEmail({
+        name: `${formData["name"]}`,
+        surname: `${formData["surname"]}`,
+        email: `${formData["email"]}`,
+        phoneNumber: `${formData["phone"]}`,
+        message: `${message}`,
+      });
+      if (response && response.success) {
+        setLoaderProps({
+          isLoading: false,
+          status: "success",
+        });
+      } else {
+        throw new Error(response.error);
+      }
+    } catch (error) {
+      setLoaderProps({
+        isLoading: false,
+        status: "error",
+        message: `${
+          ["Povinná pole musí být vyplněna", "Odeslání se nepovedlo."][
+            error.message
+          ]
+        }`,
+      });
+    } finally {
+      setTimeout(
+        () => setLoaderProps({ isLoading: false, status: null, message: "" }),
+        15000
+      ); // Reset after 5s
+    }
   };
 
   return (
@@ -172,6 +233,7 @@ const Page = () => {
               target="_blank"
               rel="noopener noreferrer"
               className={`${styles.address}`}
+              aria-label="Navigovat na mapu lokace"
             >
               <div className={`${styles.iconContainer}`}>
                 <IconLocation />
@@ -204,6 +266,7 @@ const Page = () => {
               borderSize="none"
               paddingOfBtn="0"
               hoverEffect="scaleForward"
+              ariaLabel="Navigovat na instagram"
             >
               <div className={`${styles.iconContainer}`}>
                 <IconInstagram />
@@ -214,6 +277,7 @@ const Page = () => {
               borderSize="none"
               paddingOfBtn="0"
               hoverEffect="scaleForward"
+              ariaLabel="Navigovat na github"
             >
               <div className={`${styles.iconContainer}`}>
                 <IconLinkedin />
@@ -224,6 +288,7 @@ const Page = () => {
               borderSize="none"
               paddingOfBtn="0"
               hoverEffect="scaleForward"
+              ariaLabel="Navigovat na linkedin"
             >
               <div className={`${styles.iconContainer}`}>
                 <IconGithub />
@@ -232,10 +297,15 @@ const Page = () => {
           </div>
         </div>
         <div className={`${styles.imgContainer}`}>
-          <Image src={HeroImg} alt="Contact photo" priority />
+          <Image
+            src={HeroImg}
+            alt="Obrázek"
+            aria-label="Obrázek této sekce"
+            priority
+          />
         </div>
-       </section>
-      <section className={`${styles.form}`}>
+      </section>
+      <section className={`${styles.form}`} id="form">
         <div className={`${styles.titleContainer}`}>
           <span>FORMULÁŘ</span>
           <h1>
@@ -246,6 +316,7 @@ const Page = () => {
         <Form
           onSubmit={handleSubmit}
           styleOfLabels="above"
+          initialValues={initialValues}
           width="calc(100% - (2 * clamp(8px, 2vw, 32px)))"
           padding="clamp(8px, 2vw, 32px)"
           bgColor="var(--shadow-5)"
@@ -304,23 +375,23 @@ const Page = () => {
             label="Dokážete konkrétně specifikovat Vaši poptávku?"
           >
             <FormPickerOption
-              functionOnClick={(option) => {
-                setChoosedOptionForm(option);
+              functionOnClick={() => {
+                setChoosedOptionForm(0);
               }}
-              selected={choosedOptionForm === "Ano"}
+              selected={choosedOptionForm === 0}
             >
               Ano
             </FormPickerOption>
             <FormPickerOption
-              functionOnClick={(option) => {
-                setChoosedOptionForm(option);
+              functionOnClick={() => {
+                setChoosedOptionForm(1);
               }}
-              selected={choosedOptionForm === "Ne"}
+              selected={choosedOptionForm === 1}
             >
               Ne
             </FormPickerOption>
           </FormPicker>
-          {choosedOptionForm === "Ano" && (
+          {choosedOptionForm === 1 && (
             <FormTextarea
               tag="scope"
               label="Rozsah zakázky:"
@@ -329,7 +400,7 @@ const Page = () => {
               rows={4}
             />
           )}
-          {choosedOptionForm === "Ano" && (
+          {choosedOptionForm === 1 && (
             <FormTextarea
               tag="functions"
               label="Funkce zakázky:"
@@ -338,7 +409,7 @@ const Page = () => {
               rows={4}
             />
           )}
-          {choosedOptionForm === "Ano" && (
+          {choosedOptionForm === 1 && (
             <FormInput
               tag="exemple-url"
               label="Web, který se Vám líbí:"
@@ -346,7 +417,7 @@ const Page = () => {
               maxLength={60}
             />
           )}
-          {choosedOptionForm === "Ano" && (
+          {choosedOptionForm === 1 && (
             <FormInput
               tag="price"
               label="Váš rozpočet:"
@@ -354,7 +425,7 @@ const Page = () => {
               maxLength={50}
             />
           )}
-          {choosedOptionForm === "Ano" && (
+          {choosedOptionForm === 1 && (
             <FormInput
               tag="deadline"
               label="Ideální datum dodání:"
@@ -362,7 +433,7 @@ const Page = () => {
               maxLength={50}
             />
           )}
-          {choosedOptionForm === "Ano" && (
+          {choosedOptionForm === 1 && (
             <FormTextarea
               tag="other-specs"
               label="Ostatní specifikace:"
@@ -371,7 +442,7 @@ const Page = () => {
               rows={4}
             />
           )}
-          {choosedOptionForm === "Ne" && (
+          {choosedOptionForm === 0 && (
             <FormTextarea
               tag="general-specs"
               label="Popište Vaší poptávku / dotaz:"
@@ -380,7 +451,20 @@ const Page = () => {
               rows={6}
             />
           )}
-          <FormBtnSubmit />
+          <FormBtnSubmit
+            ariaLabel="Odeslání formuláře"
+            textHoverColor="var(--color-text-reverse)"
+          >
+            Odeslat
+          </FormBtnSubmit>
+          <LoaderForResponse
+            isLoading={loaderProps.isLoading}
+            status={loaderProps.status}
+            message={loaderProps.message}
+            onClose={() =>
+              setLoaderProps({ isLoading: false, status: null, message: "" })
+            }
+          />
         </Form>
       </section>
     </main>

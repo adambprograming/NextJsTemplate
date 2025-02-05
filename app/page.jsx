@@ -8,10 +8,14 @@ import dynamic from "next/dynamic";
 // Context
 
 // Componenets
-const LazyPortfolioRotatedGrid = dynamic(() => import("@/components/portfolio-rotated-grid/portfolio-rotated-grid.component"), {ssr: false})
-
+const LazyPortfolioRotatedGrid = dynamic(
+  () =>
+    import(
+      "@/components/portfolio-rotated-grid/portfolio-rotated-grid.component"
+    ),
+  { ssr: false }
+);
 import Btn from "@/components/btn/btn.component";
-// import PortfolioRotatedGrid from "@/components/portfolio-rotated-grid/portfolio-rotated-grid.component";
 
 export default function Home() {
   return (
@@ -40,29 +44,24 @@ export default function Home() {
               textColor="var(--color-text-reverse)"
               borderSize="none"
               hoverEffect="scaleForward"
+              ariaLabel="Navigovat do sekce kontakt"
             >
               Kontakt
             </Btn>
-            {/* <Btn
-              borderSize="none"
-              borderRadius="20px"
-              bgColor="var(--color-background)"
-              filter="drop-shadow(0 0 5px var(--black-50))"
-              bgHoverColor="var(--color-ascent)"
-              textHoverColor="var(--color-text-reverse)"
-              hoverEffect="cfLeft"
-            >
-              Nabídka
-            </Btn> */}
           </div>
         </div>
         <div className={`${styles.imgContainer}`}>
-          <Image src={HeroImg} alt="Hero section image" priority={true} />
+          <Image
+            src={HeroImg}
+            alt="Obrázek"
+            aria-label="Obrázek této sekce"
+            priority={true}
+          />
         </div>
       </section>
       <section className={`${styles.services}`}>
         <div className={`${styles.imgContainer}`}>
-          <Image src={HeroImg} alt="Hero section image" />
+          <Image src={HeroImg} alt="Obrázek" aria-label="Obrázek této sekce" />
         </div>
         <div className={`${styles.contentContainer}`}>
           <div className={`${styles.titleContainer}`}>
@@ -90,6 +89,7 @@ export default function Home() {
             textColor="var(--color-text-reverse)"
             borderSize="none"
             hoverEffect="scaleForward"
+            ariaLabel="Navigovat do sekce služby"
           >
             Zjistit více
           </Btn>
@@ -97,7 +97,7 @@ export default function Home() {
       </section>
       <section className={`${styles.portfolio}`}>
         <div className={`${styles.contentContainer}`}>
-        <div className={`${styles.titleContainer}`}>
+          <div className={`${styles.titleContainer}`}>
             <span>PORTFOLIO</span>
             <h1>
               Podívejte se na <strong>moje</strong> projekty
@@ -105,16 +105,14 @@ export default function Home() {
             <hr />
           </div>
           <div className={`${styles.textContainer}`}>
-            <p>
-              Níže jsou projekty, které jsem vytvořil pro inspiraci.
-            </p>
+            <p>Níže jsou projekty, které jsem vytvořil pro inspiraci.</p>
           </div>
         </div>
         <LazyPortfolioRotatedGrid />
       </section>
-      <section className={`${styles.testimonials}`}>
-          {/* TODO TESTIMONIALS */}
-      </section>
+      {/* <section className={`${styles.testimonials}`}>
+        TODO TESTIMONIALS
+      </section> */}
     </main>
   );
 }
