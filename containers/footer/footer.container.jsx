@@ -79,16 +79,16 @@ const Footer = () => {
             <span>Menu</span>
             <ul>
               <li>
-                <Link href="/">Domovská stránka</Link>
+                <Link href="/" aria-label="Navigovat na domovskou stránku">Domovská stránka</Link>
               </li>
               <li>
-                <Link href="/o-mne">O mně</Link>
+                <Link href="/o-mne" aria-label="Navigovat do sekce o mně">O mně</Link>
               </li>
               <li>
-                <Link href="/sluzby">Služby</Link>
+                <Link href="/sluzby" aria-label="Navigovat do sekce služby">Služby</Link>
               </li>
               <li>
-                <Link href="/kontakt">Kontakt</Link>
+                <Link href="/kontakt" aria-label="Navigovat do sekce kontakt">Kontakt</Link>
               </li>
             </ul>
           </div>
@@ -173,14 +173,16 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-container-copyright">
-          <p> Adam Bartůšek &copy; 2022-2024.</p>
+          <p>
+          Adam Bartůšek &copy; 2022-2025.
+          </p>
           <p>
             <span>Vytvořil</span>
             <Link
               href="https://www.adam-bartusek.cz/"
               target="_blank"
               rel="noopener"
-              aria-label="Created by Adam Bartůšek. Visit the developer website."
+              aria-label="Vytvořil Adam Bartůšek. Navštivte stránky vývojáře."
             >
               Adam Bartůšek
             </Link>

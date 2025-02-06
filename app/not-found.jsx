@@ -25,12 +25,10 @@ export default function NotFound() {
     >
       <h1 style={{ fontSize: "2rem", margin: 0 }}>404: Stránka nenalezena</h1>
       <p style={{ margin: 0 }}>
-        Vámi požadovaná stránka nebyla nalezena. Možná není dostupná nebo byla odstraněna.
+        Vámi požadovaná stránka nebyla nalezena. Možná není dostupná nebo byla
+        odstraněna.
       </p>
-      <Btn
-        href="/"
-        bgColor="var(--color-secondary)"
-      >
+      <Btn href="/" bgColor="var(--color-secondary)">
         Zpět na domovskou stránku
       </Btn>
     </main>

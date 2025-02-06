@@ -14,7 +14,6 @@ import IconPython from "../../public/techstack/python.svg";
 import IconFigma from "../../public/techstack/figma.svg";
 // React/Next Functions
 import Image from "next/image";
-import Link from "next/link";
 // Context & Actions
 
 // Componenets
@@ -29,7 +28,12 @@ const Page = () => {
     <main className={styles.main}>
       <section className={`${styles.introduction}`}>
         <div className={`${styles.imgContainer}`}>
-          <Image src={HeroImg} alt="portrait" priority />
+          <Image
+            src={HeroImg}
+            alt="Obrázek"
+            aria-label="Obrázek této sekce"
+            priority
+          />
         </div>
         <div className={`${styles.contentContainer}`}>
           <div className={`${styles.titleContainer}`}>
@@ -61,34 +65,74 @@ const Page = () => {
       <section className={`${styles.showcase}`}>
         <Showcase>
           <ShowcaseItem>
-            <Image src={IconHtml} alt="" />
+            <Image
+              src={IconHtml}
+              alt="Ikonka"
+              aria-label="Ikonka programovacího jazyku"
+            />
           </ShowcaseItem>
           <ShowcaseItem>
-            <Image src={IconCss} alt="" />
+            <Image
+              src={IconCss}
+              alt="Ikonka"
+              aria-label="Ikonka programovacího jazyku"
+            />
           </ShowcaseItem>
           <ShowcaseItem>
-            <Image src={IconSass} alt="" />
+            <Image
+              src={IconSass}
+              alt="Ikonka"
+              aria-label="Ikonka programovacího jazyku"
+            />
           </ShowcaseItem>
           <ShowcaseItem>
-            <Image src={IconJs} alt="" />
+            <Image
+              src={IconJs}
+              alt="Ikonka"
+              aria-label="Ikonka programovacího jazyku"
+            />
           </ShowcaseItem>
           <ShowcaseItem>
-            <Image src={IconReact} alt="" />
+            <Image
+              src={IconReact}
+              alt="Ikonka"
+              aria-label="Ikonka programovacího jazyku"
+            />
           </ShowcaseItem>
           <ShowcaseItem>
-            <Image src={IconNextjs} alt="" />
+            <Image
+              src={IconNextjs}
+              alt="Ikonka"
+              aria-label="Ikonka programovacího jazyku"
+            />
           </ShowcaseItem>
           <ShowcaseItem>
-            <Image src={IconGit} alt="" />
+            <Image
+              src={IconGit}
+              alt="Ikonka"
+              aria-label="Ikonka programovacího jazyku"
+            />
           </ShowcaseItem>
           <ShowcaseItem>
-            <Image src={IconGithub} alt="" />
+            <Image
+              src={IconGithub}
+              alt="Ikonka"
+              aria-label="Ikonka programovacího jazyku"
+            />
           </ShowcaseItem>
           <ShowcaseItem>
-            <Image src={IconPython} alt="" />
+            <Image
+              src={IconPython}
+              alt="Ikonka"
+              aria-label="Ikonka programovacího jazyku"
+            />
           </ShowcaseItem>
           <ShowcaseItem>
-            <Image src={IconFigma} alt="" />
+            <Image
+              src={IconFigma}
+              alt="Ikonka"
+              aria-label="Ikonka programovacího jazyku"
+            />
           </ShowcaseItem>
         </Showcase>
       </section>
@@ -154,7 +198,7 @@ const Page = () => {
           </div>
         </div>
         <div className={`${styles.imgContainer}`}>
-          <Image src={HeroImg} alt="portrait" />
+          <Image src={HeroImg} alt="Obrázek" aria-label="Obrázek této sekce" />
         </div>
       </section>
       <section className={`${styles.cta}`}>
@@ -179,8 +223,9 @@ const Page = () => {
           textColor="var(--color-text-reverse)"
           borderSize="none"
           hoverEffect="scaleForward"
+          ariaLabel="Navigovat do sekce kontakt"
         >
-          Kontaktujte mě
+          Kontakt
         </Btn>
       </section>
     </main>

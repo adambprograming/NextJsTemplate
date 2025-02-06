@@ -26,27 +26,29 @@ const fontSecondary = Work_Sans({
 export async function generateMetadata() {
   return {
     title: "Adam Bartůšek - webový vývojář",
-    description: "Profesionální webový vývojář specializující se na tvorbu webových stránek a aplikací.",
-    keywords: "webové stránky, e-shop, web, tvorba webu, aplikace, tvorba e-shopu, vývoj webových aplikací",
+    description:
+      "Profesionální webový vývojář specializující se na tvorbu webových stránek a aplikací.",
+    keywords:
+      "webové stránky, e-shop, web, tvorba webu, aplikace, tvorba e-shopu, vývoj webových aplikací",
     openGraph: {
       title: "Adam Bartůšek - webový vývojář",
-      description: "Webový vývojář s odborností v Next.js, SEO, a responzivním designu.",
-      url: "https://www.adam-bartusek.cz", // Zde doplňte URL vaší stránky
+      description:
+        "Webový vývojář s odborností v Next.js, SEO, a responzivním designu.",
+      url: "https://www.adam-bartusek.cz",
       siteName: "Adam Bartůšek",
       images: [
         {
-          url: "https://www.adam-bartusek.cz/hero.png", // Zde doplňte URL obrázku
+          url: "https://www.adam-bartusek.cz/hero.png",
           width: 1200,
           height: 630,
           alt: "Profesionální webový vývojář Adam Bartůšek",
         },
       ],
-      locale: "cs_CZ", // Jazyk a lokalita
-      type: "website", // Typ obsahu (může být 'website' nebo 'profile' apod.)
+      locale: "cs_CZ", // Language and locale
+      type: "website",
     },
   };
 }
-
 export default function RootLayout({ children }) {
   return (
     <html lang="cs">

@@ -1,8 +1,7 @@
-'use server'
+"use server";
 // Styles
 import styles from "./page.module.scss";
 // Public & Assets
-import HeroImg from "@/public/hero.png";
 import IconPerformance from "@/components/svgs/services-benefits-icons/icon-performance.component";
 import IconResponsiveness from "@/components/svgs/services-benefits-icons/icon-responsiveness.component";
 import IconSeo from "@/components/svgs/services-benefits-icons/icon-seo.component";
@@ -12,8 +11,7 @@ import Icon2 from "@/components/svgs/number-icons/icon-2.component";
 import Icon3 from "@/components/svgs/number-icons/icon-3.component";
 import Icon4 from "@/components/svgs/number-icons/icon-4.component";
 // React/Next Functions
-import Image from "next/image";
-import dynamic from 'next/dynamic'
+
 // Context & Actions
 
 // Componenets
@@ -186,9 +184,7 @@ const ServicesPage = () => {
           <hr />
         </div>
         <div className={`${styles.textContainer}`}>
-          <p>
-            
-          </p>
+          <p></p>
         </div>
         <Btn
           href="/kontakt"
@@ -196,6 +192,7 @@ const ServicesPage = () => {
           textColor="var(--color-text-reverse)"
           borderSize="none"
           hoverEffect="scaleForward"
+          ariaLabel="Navigovat do sekce kontakt"
         >
           Zjistit více
         </Btn>
@@ -205,36 +202,3 @@ const ServicesPage = () => {
 };
 
 export default ServicesPage;
-
-
-      {/* <section className={`${styles.checkAlso}`}>
-        <div className={`${styles.imgContainer}`}>
-          <Image src={HeroImg} alt="portrait" />
-        </div>
-        <div className={`${styles.contentContainer}`}>
-          <div className={`${styles.titleContainer}`}>
-            <span>SPOLUPRÁCE</span>
-            <h1>
-              Připraveni realizovat <strong>Váš</strong> projekt?
-            </h1>
-            <hr />
-          </div>
-          <div className={`${styles.textContainer}`}>
-            <p>
-              Pokud hledáte webového vývojáře, který Vám vytvoří autentický,
-              moderní a výkonný web na míru, jste na správném místě. Společně
-              vytvoříme řešení, které bude nejen funkční, ale také vynikat v
-              konkurenci.
-            </p>
-          </div>
-          <Btn
-            href="/kontakt"
-            bgColor="var(--color-primary)"
-            textColor="var(--color-text-reverse)"
-            borderSize="none"
-            hoverEffect="scaleForward"
-          >
-            Kontaktujte mě
-          </Btn>
-        </div>
-      </section> */}
