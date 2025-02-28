@@ -23,6 +23,7 @@ const Btn = dynamic(() => import("@/components/btn/btn.component"), {
   ssr: false,
 });
 import LoaderForResponse from "@/components/loader-for-response/loader-for-response.component";
+import Popup from "@/components/popup/popup.component";
 
 import {
   Form,
@@ -130,7 +131,7 @@ const Page = () => {
   };
 
   const handleEmailOrCopy = () => {
-    const mailtoLink = `mailto:${emailAddress}?subject=Hello%20there&body=Dear%20Adam%2C%0D%0A%0D%0AI'm%20interested%20in%20your%20services.%0D%0A%0D%0ABest%20regards%2C%0D%0A[Your%20Name]`;
+    const mailtoLink = `mailto:${emailAddress}?subject=Zájem%20o%20webové%20stránky&body=Dobrý%20den%2C%0D%0A%0D%0AMám%20zájem%20o%20Vaše%20služby%2C%20konkrétně%20o%20%7C%0D%0A%0D%0AS%20pozdravem`;
     // Copy the email address to clipboard regardless of mailto success
     navigator.clipboard.writeText(emailAddress).then(
       () => {
@@ -212,7 +213,27 @@ const Page = () => {
               </div>
               <div className={`${styles.specContainer}`}>
                 <span className={`${styles.contactTitle}`}>
-                  Mobil{phoneNumberCopied && <span>Zkopírováno!</span>}
+                  Mobil
+                  <Popup
+                    state={phoneNumberCopied}
+                    stylesForPopup={{
+                      position: "absolute",
+                      right: "10px",
+                      zIndex: 20,
+                      padding: "5px 15px",
+                      borderRadius: "20px",
+                      fontFamily: "var(--font-secondary)",
+                      fontSize: "var(--fontsize-small)",
+                      color: "var(--color-text-reverse)",
+                      background: "var(--color-ascent)",
+                      WebkitTextFillColor: "initial",
+                      top: "0",
+                      left: "unset",
+                      transform: "unset",
+                    }}
+                  >
+                    Zkopírováno!
+                  </Popup>
                 </span>
                 <span className={`${styles.contactValue}`}>{phoneNumber}</span>
               </div>
@@ -223,7 +244,27 @@ const Page = () => {
               </div>
               <div className={`${styles.specContainer}`}>
                 <span className={`${styles.contactTitle}`}>
-                  E-mail{emailAddressCopied && <span>Zkopírováno!</span>}
+                  E-mail
+                  <Popup
+                    state={emailAddressCopied}
+                    stylesForPopup={{
+                      position: "absolute",
+                      right: "10px",
+                      zIndex: 20,
+                      padding: "5px 15px",
+                      borderRadius: "20px",
+                      fontFamily: "var(--font-secondary)",
+                      fontSize: "var(--fontsize-small)",
+                      color: "var(--color-text-reverse)",
+                      background: "var(--color-ascent)",
+                      WebkitTextFillColor: "initial",
+                      top: "0",
+                      left: "unset",
+                      transform: "unset",
+                    }}
+                  >
+                    Zkopírováno!
+                  </Popup>
                 </span>
                 <span className={`${styles.contactValue}`}>{emailAddress}</span>
               </div>
@@ -249,7 +290,27 @@ const Page = () => {
               </div>
               <div className={`${styles.specContainer}`}>
                 <span className={`${styles.contactTitle}`}>
-                  IČO{icoCopied && <span>Zkopírováno!</span>}
+                  IČO
+                  <Popup
+                    state={icoCopied}
+                    stylesForPopup={{
+                      position: "absolute",
+                      right: "10px",
+                      zIndex: 20,
+                      padding: "5px 15px",
+                      borderRadius: "20px",
+                      fontFamily: "var(--font-secondary)",
+                      fontSize: "var(--fontsize-small)",
+                      color: "var(--color-text-reverse)",
+                      background: "var(--color-ascent)",
+                      WebkitTextFillColor: "initial",
+                      top: "0",
+                      left: "unset",
+                      transform: "unset",
+                    }}
+                  >
+                    Zkopírováno!
+                  </Popup>
                 </span>
                 <span className={`${styles.contactValue}`}>
                   {ico}
