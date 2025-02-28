@@ -1,12 +1,13 @@
 "use client";
 // Styles
 import styles from "./menu.module.scss";
+import stylesHeader from "../../containers/header/header.module.scss";
 // Public & Assets
 
 // React/Next Functions
 import { Children, cloneElement } from "react";
 import { useState, useEffect, useRef } from "react";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 // Context & Actions
 
 // Componenets
@@ -61,7 +62,7 @@ export const Menu = ({
 
   useEffect(() => {
     function getAndSetHeightOfHeader() {
-      const headerEl = document.getElementById("article-header");
+      const headerEl = document.getElementById(stylesHeader.articleHeader);
       if (headerEl) {
         setHeightOfHeader(headerEl.offsetHeight);
       }
@@ -129,7 +130,7 @@ export const Menu = ({
   const updateWidthOfContainer = () => {
     try {
       const newWidth = document.getElementById(
-        "header-container-menu"
+        stylesHeader.headerContainerMenu
       ).offsetWidth;
       setWidthOfContainer(newWidth);
     } catch (error) {}
@@ -276,7 +277,7 @@ export const Menu = ({
       }
     }
     if ([2].includes(menuOption)) {
-      const header = document.getElementById("article-header");
+      const header = document.getElementById(stylesHeader.articleHeader);
       if (header) {
         header.style.backgroundColor = "var(--color-background)";
       }
@@ -296,7 +297,7 @@ export const Menu = ({
       }
     }
     if ([2].includes(menuOption)) {
-      const header = document.getElementById("article-header");
+      const header = document.getElementById(stylesHeader.articleHeader);
       if (header) {
         header.style.backgroundColor = headerOriginalBgColor;
       }

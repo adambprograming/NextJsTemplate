@@ -56,7 +56,7 @@ export default function RootLayout({ children }) {
         className={`${fontPrimary.variable} ${fontSecondary.variable}`}
         suppressHydrationWarning={true}
       >
-        <Header variant="leftsettings-centerlogo-rightmenu" />
+        <Header variant="leftsettingsCenterlogoRightmenu" />
         {children}
         <Footer />
       </body>
