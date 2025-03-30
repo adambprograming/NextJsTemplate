@@ -8,6 +8,7 @@ import Link from "next/link";
 INSTRUCTIONS 
   disabled              (*)defines if button is disabled (default false)
   itsScroll             (*)if link should be just on page (scroll)
+  targetBlank           (*)if link should be open in new tab
   href                  (*)link or id of element to scroll to
   ariaLabel             (*)label for link
   functionOnClick       (*)function that happend onClick
@@ -43,6 +44,7 @@ const Btn = ({
   children,
   disabled = false,
   itsScroll = false,
+  targetBlank = false,
   href = "",
   ariaLabel = `${children}`,
   functionOnClick,
@@ -103,6 +105,8 @@ const Btn = ({
         <Link
           className={`${styles.btnLink}`}
           href={href}
+          target={`${targetBlank ? "_blank" : ""}`}
+          rel={`${targetBlank ? "noopener noreferrer" : ""}`}
           aria-label={`${ariaLabel}`}
         ></Link>
       )}
