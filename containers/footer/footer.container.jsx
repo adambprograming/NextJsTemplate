@@ -25,6 +25,7 @@ const Footer = () => {
   const [popupPhone, setPopupPhone] = useState(false);
   const [popupEmail, setPopupEmail] = useState(false);
   const footerRef = useRef(null);
+  const currentYear = new Date().getFullYear();
 
   const copyToClipboard = (toClipboard, popup) => {
     navigator.clipboard.writeText(toClipboard);
@@ -79,16 +80,24 @@ const Footer = () => {
             <span>Menu</span>
             <ul>
               <li>
-                <Link href="/" aria-label="Navigovat na domovskou stránku">Domovská stránka</Link>
+                <Link href="/" aria-label="Navigovat na domovskou stránku">
+                  Domovská stránka
+                </Link>
               </li>
               <li>
-                <Link href="/o-mne" aria-label="Navigovat do sekce o mně">O mně</Link>
+                <Link href="/o-mne" aria-label="Navigovat do sekce o mně">
+                  O mně
+                </Link>
               </li>
               <li>
-                <Link href="/sluzby" aria-label="Navigovat do sekce služby">Služby</Link>
+                <Link href="/sluzby" aria-label="Navigovat do sekce služby">
+                  Služby
+                </Link>
               </li>
               <li>
-                <Link href="/kontakt" aria-label="Navigovat do sekce kontakt">Kontakt</Link>
+                <Link href="/kontakt" aria-label="Navigovat do sekce kontakt">
+                  Kontakt
+                </Link>
               </li>
             </ul>
           </div>
@@ -173,9 +182,7 @@ const Footer = () => {
           </div>
         </div>
         <div className={`${styles.footerContainerCopyright}`}>
-          <p>
-          Adam Bartůšek &copy; 2022-2025.
-          </p>
+          <p>Adam Bartůšek &copy; 2022-{currentYear}. Všechna práva vyhrazena.</p>
           <p>
             <span>Vytvořil</span>
             <Link
@@ -187,7 +194,6 @@ const Footer = () => {
               Adam Bartůšek
             </Link>
             <span>.</span>
-            <span>Všechna práva vyhrazena.</span>
           </p>
         </div>
       </div>

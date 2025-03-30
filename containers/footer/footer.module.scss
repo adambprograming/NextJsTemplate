@@ -114,7 +114,7 @@
       text-align: center;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 1rem;
       p {
         font-size: var(--fontsize-small);
         font-family: var(--font-secondary);
@@ -130,15 +130,19 @@
         }
         a {
           margin: 5px 5px;
-          padding: 10px 20px;
+          padding: 4px 8px;
           background-color: rgb(
             from var(--color-text-light-still) r g b / 0.75
           );
           border-radius: var(--border-radius-btn);
           color: var(--color-text-dark-still);
           text-decoration: none;
-          font-family: var(--font-secondary);
-          font-size: var(--fontsize-small);
+          transition: background-color 0.2s ease-in-out;
+          &:hover {
+            background-color: rgb(
+              from var(--color-text-light-still) r g b / 1
+            );
+          }
         }
       }
     }
