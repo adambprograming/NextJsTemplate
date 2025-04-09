@@ -1,0 +1,113 @@
+.gallery {
+  width: 100%;
+  &.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  &.masonry {
+    column-width: 450px;
+    column-gap: 1rem;
+    .galleryItem {
+      margin-bottom: 1rem;
+    }
+  }
+  .galleryItem {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    .imageThumb {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .caption {
+      margin-top: 0.5rem;
+      color: var(--color-text);
+      font-family: var(--font-secondary);
+      font-size: var(--fontsize-p);
+      text-align: left;
+    }
+  }
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    .modalContent {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      // overflow: auto;
+      text-align: center;
+      .closeBtn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        font-size: 1.5rem;
+        padding: 0.2rem 0.5rem;
+        cursor: pointer;
+      }
+      .modalImage {
+        max-width: 100%;
+        max-height: 100%;
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+      .modalCaption {
+        margin-top: 0.5rem;
+        color: var(--color-text-reverse);
+        font-size: var(--fontsize-h3);
+        text-align: left;
+      }
+    }
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2.5rem;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.1s ease;
+    }
+    .prev {
+      left: 20px;
+    }
+    .next {
+      right: 20px;
+    }
+  }
+}
+
+@media only screen and (pointer: fine) {
+  .gallery {
+    .galleryItem:hover .imageThumb {
+      opacity: 0.85;
+    }
+    .modalOverlay {
+      .prev:hover,
+      .next:hover {
+        color: var(--color-ascent);
+      }
+    }
+  }
+}
