@@ -108,6 +108,7 @@ const Btn = ({
           target={`${targetBlank ? "_blank" : ""}`}
           rel={`${targetBlank ? "noopener noreferrer" : ""}`}
           aria-label={`${ariaLabel}`}
+          prefetch={true}
         ></Link>
       )}
       <span
