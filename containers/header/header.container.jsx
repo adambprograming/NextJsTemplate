@@ -95,7 +95,7 @@ const Header = ({
 
   const renderSettings = () => {
     return (
-      <div className="header-settings">
+      <div className={`${styles.headerSettings}`}>
         <ColorThemeSwitch variant="third" />
       </div>
     );
@@ -104,7 +104,7 @@ const Header = ({
   const renderLogo = () => {
     return (
       <Link href="/" aria-label="Navigovat na domovskou stránku">
-        <Logo alt="Logo" id="logo-header" aria-label="Logo" />
+        <Logo alt="Logo" id={`${styles.logoHeader}`} aria-label="Logo" />
       </Link>
     );
   };

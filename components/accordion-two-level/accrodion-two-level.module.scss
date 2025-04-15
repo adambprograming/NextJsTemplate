@@ -1,0 +1,176 @@
+.accordionParentLevel {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .accordionItemSection {
+    width: 100%;
+    border-bottom: 1px solid var(--color-border);
+    &:last-child {
+      border-bottom: none;
+    }
+    .accordionHeader {
+      width: 100%;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      span {
+        margin: auto 0;
+        font-family: var(--font-secondary);
+        font-size: var(--fontsize-h6);
+      }
+      .plusIcon {
+        margin: auto 0;
+        position: relative;
+        width: 10px;
+        height: 10px;
+        .horizontalLine,
+        .verticalLine {
+          position: absolute;
+          background-color: #000;
+          transition: transform 0.3s ease;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        .horizontalLine {
+          width: 100%;
+          height: 2px;
+        }
+        .verticalLine {
+          width: 2px;
+          height: 100%;
+        }
+        &.open {
+          .verticalLine {
+            transform: translate(-50%, -50%) rotate(90deg);
+          }
+        }
+      }
+    }
+    .accordionSectionContent {
+      max-height: 0;
+      overflow: hidden;
+      transition: all var(--TRANSTION-DURATION) linear;
+      opacity: 0;
+      padding: 0 1rem;
+      &.open {
+        max-height: 1000px;
+        opacity: 1;
+        padding: 1rem;
+      }
+      display: flex;
+      flex-direction: row;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        .accordionChildLevel.firstHalf .accordionItemSection:last-child {
+          border-bottom: 1px solid var(--color-border) !important;
+        }
+      }
+      .accordionChildLevel {
+        margin: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        .accordionItemSection {
+          margin: 0;
+          width: 100%;
+          border-bottom: 1px solid var(--color-border);
+          &:last-child {
+            border-bottom: none;
+          }
+          .accordionHeader {
+            width: 100%;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            span {
+              margin: auto 0;
+              font-size: var(--fontsize-h4);
+              font-family: var(--font-secondary);
+              font-weight: 400;
+              &.active {
+                font-weight: 600;
+              }
+            }
+            .plusIcon {
+              margin: auto 0;
+              position: relative;
+              width: 10px;
+              height: 10px;
+              .horizontalLine,
+              .verticalLine {
+                position: absolute;
+                background-color: #000;
+                transition: transform 0.3s ease;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+              }
+              .horizontalLine {
+                width: 100%;
+                height: 2px;
+              }
+              .verticalLine {
+                width: 2px;
+                height: 100%;
+              }
+              &.open {
+                .verticalLine {
+                  transform: translate(-50%, -50%) rotate(90deg);
+                }
+              }
+            }
+          }
+          .accordionSectionContent {
+            max-height: 0;
+            overflow: hidden;
+            transition: all var(--TRANSTION-DURATION) linear;
+            opacity: 0;
+            padding: 0 1rem;
+            &.open {
+              max-height: 1000px;
+              opacity: 1;
+              padding: 1rem;
+            }
+            margin: auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            .text {
+              text-align: left;
+              margin: auto 0;
+            }
+            .meta {
+              margin: auto 0;
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+              column-gap: 2rem;
+              color: var(--color-text);
+              text-align: left;
+              .price,
+              .duration {
+                margin: auto 0;
+                font-family: var(--font-secondary);
+                font-size: var(--fontsize-small);
+                font-weight: 600;
+                white-space: nowrap;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
