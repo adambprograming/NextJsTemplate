@@ -430,6 +430,7 @@ export const MenuItem = ({
           href={href}
           style={{ padding: paddingOfEachLinkBlock, fontSize: fontSize }}
           onClick={closeMenuFunction}
+          prefetch={true}
         >
           {content}
         </Link>
