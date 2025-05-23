@@ -73,7 +73,7 @@ export const Menu = forwardRef(
 
     useImperativeHandle(ref, () => ({
       handleLogoClick: () => {
-        handleMenuClick();
+        closeMenuFunction();
       },
     }));
 
