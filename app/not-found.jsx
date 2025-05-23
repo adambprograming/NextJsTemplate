@@ -17,7 +17,7 @@ export default function NotFound() {
         display: "flex",
         flexDirection: "column",
         gap: "2rem",
-        justifyContent: "start",
+        justifyContent: "flex-start",
         alignItems: "center",
         backgroundColor: "var(--color-background)",
         padding: "2rem",

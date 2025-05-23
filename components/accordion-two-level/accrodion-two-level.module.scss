@@ -3,12 +3,9 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 8rem;
   .accordionItemSection {
     width: 100%;
-    border-bottom: 1px solid var(--color-border);
-    &:last-child {
-      border-bottom: none;
-    }
     .accordionHeader {
       width: 100%;
       padding: 1rem;
@@ -17,12 +14,14 @@
       align-items: center;
       background: none;
       border: none;
+      border-bottom: 2px solid var(--color-border);
       cursor: pointer;
       text-align: left;
+      color: var(--color-text);
       span {
         margin: auto 0;
         font-family: var(--font-secondary);
-        font-size: var(--fontsize-h6);
+        font-size: var(--fontsize-h3);
       }
       .plusIcon {
         margin: auto 0;
@@ -62,15 +61,12 @@
       &.open {
         max-height: 1000px;
         opacity: 1;
-        padding: 1rem;
+        padding: 1rem 0 1rem 1rem;
       }
       display: flex;
       flex-direction: row;
       @media screen and (max-width: 768px) {
         flex-direction: column;
-        .accordionChildLevel.firstHalf .accordionItemSection:last-child {
-          border-bottom: 1px solid var(--color-border) !important;
-        }
       }
       .accordionChildLevel {
         margin: 0;
@@ -80,10 +76,6 @@
         .accordionItemSection {
           margin: 0;
           width: 100%;
-          border-bottom: 1px solid var(--color-border);
-          &:last-child {
-            border-bottom: none;
-          }
           .accordionHeader {
             width: 100%;
             padding: 1rem;
@@ -92,8 +84,10 @@
             align-items: center;
             background: none;
             border: none;
+            border-bottom: 2px solid var(--color-border);
             cursor: pointer;
             text-align: left;
+            color: var(--color-text);
             span {
               margin: auto 0;
               font-size: var(--fontsize-h4);

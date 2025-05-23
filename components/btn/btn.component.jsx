@@ -87,7 +87,7 @@ const Btn = ({
           ? itsScroll &&
             document
               .getElementById(`${href}`)
-              .scrollIntoView({ behavior: "smooth" })
+              .scrollIntoView({ behavior: "smooth", block: "center" })
           : functionOnClick();
       }}
     >

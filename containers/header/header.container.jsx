@@ -36,6 +36,7 @@ const Header = ({
   const headerRef = useRef();
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
+  const menuRef = useRef();
 
   useEffect(() => {
     function setPaddingTopOfBody() {
@@ -79,6 +80,7 @@ const Header = ({
         headerOption={headerOption}
         paddingOfEachLinkBlock="10px 20px"
         headerOriginalBgColor={bgColor}
+        ref={menuRef}
       >
         {/* <MenuItem content="‎ TEST ‎">
           <MenuItem content="TEST" href="/test"></MenuItem>
@@ -103,7 +105,13 @@ const Header = ({
 
   const renderLogo = () => {
     return (
-      <Link href="/" aria-label="Navigovat na domovskou stránku">
+      <Link
+        href="/"
+        aria-label="Navigovat na domovskou stránku"
+        onClick={() => {
+          menuRef.current?.handleLogoClick();
+        }}
+      >
         <Logo alt="Logo" id={`${styles.logoHeader}`} aria-label="Logo" />
       </Link>
     );

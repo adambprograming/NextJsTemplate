@@ -4,12 +4,11 @@ import styles from "./accrodion-two-level.module.scss";
 // Public & Assets
 
 // React/Next Functions
-import { useState, useRef, useLayoutEffect, useEffect } from "react";
-
+import { useState, useRef, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 // Context & Actions
 
 // Componenets
-import { Accordion, AccordionItem } from "../accordion/accordion.component";
 
 /*
 INSTRUCTIONS
@@ -17,12 +16,40 @@ INSTRUCTIONS
 */
 
 const TwoLevelAccordion = ({ data }) => {
-  const [openSections, setOpenSections] = useState([]);
+  const [openSections, setOpenSections] = useState([0, 1, 2]);
   const [openItems, setOpenItems] = useState([]);
   const [heightsOfSections, setHeightsOfSections] = useState([]);
   const [heightsOfItems, setHeightsOfItems] = useState({});
   const sectionsRef = useRef([]);
   const itemsRef = useRef({});
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const target = searchParams.get("service");
+    if (!target) return;
+
+    let matched = false;
+    data.forEach((section, sectionIdx) => {
+      section.services.forEach((service, sIdx) => {
+        if (service.sectionId === target) {
+          const itemKey = `${sectionIdx}-${sIdx}`;
+          setOpenSections((prev) =>
+            prev.includes(sectionIdx) ? prev : [...prev, sectionIdx]
+          );
+          setOpenItems((prev) =>
+            prev.includes(itemKey) ? prev : [...prev, itemKey]
+          );
+
+          setTimeout(() => {
+            const el = document.getElementById(target);
+            if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+          }, 1000);
+
+          matched = true;
+        }
+      });
+    });
+  }, [data, searchParams]);
 
   const transitionDuration = 0.3;
 
@@ -135,6 +162,7 @@ const TwoLevelAccordion = ({ data }) => {
                   return (
                     <div
                       key={itemKey}
+                      id={`${service.sectionId}`}
                       className={`${styles.accordionItemSection} ${
                         openItems.includes(itemKey) ? styles.open : ""
                       }`}

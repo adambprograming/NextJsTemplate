@@ -47,30 +47,18 @@ table {
 body{
     --font-primary: var(--font-1, sans-serif);
     --font-secondary: var(--font-2, sans-serif);
-    // --fontsize-p: clamp(1.2rem, 0.9632rem + 0.7895vw, 2.1rem);
-    // --fontsize-h1: clamp(2.433rem, 1.9530rem + 1.6000vw, 4.257rem);
-    // --fontsize-h2: clamp(2.162rem, 1.7352rem + 1.4228vw, 3.784rem);
-    // --fontsize-h3: clamp(1.922rem, 1.5425rem + 1.2649vw, 3.364rem);
-    // --fontsize-h4: clamp(1.709rem, 1.3719rem + 1.1237vw, 2.99rem);
-    // --fontsize-h5: clamp(1.519rem, 1.2193rem + 0.9991vw, 2.658rem);
-    // --fontsize-h6: clamp(1.2rem, 0.9632rem + 0.7895vw, 2.1rem);
-    // --fontsize-small: clamp(1rem, 0.8421rem + 0.5263vw, 1.6rem);
-    // --fontsize-smaller: clamp(0.8rem, 0.6947rem + 0.3509vw, 1.2rem);
-    --fontsize-p: clamp(1.2rem, 1rem + 0.5vw, 1.6rem); /* 12px - 16px */
-    --fontsize-h1: clamp(2rem, 1.8rem + 2vw, 3.5rem); /* 20px - 35px */
-    --fontsize-h2: clamp(1.75rem, 1.6rem + 1.8vw, 3rem); /* 17.5px - 30px */
-    --fontsize-h3: clamp(1.5rem, 1.4rem + 1.5vw, 2.5rem); /* 15px - 25px */
-    --fontsize-h4: clamp(1.25rem, 1.2rem + 1.2vw, 2rem); /* 12.5px - 20px */
-    // \/\/\/ old
-    // --fontsize-h5: clamp(1.125rem, 1.05rem + 1vw, 1.75rem); /* 11.25px - 17.5px */
-    // --fontsize-h6: clamp(1rem, 0.9rem + 0.8vw, 1.5rem); /* 10px - 15px */
-    // --fontsize-small: clamp(0.875rem, 0.8rem + 0.5vw, 1.25rem); /* 8.75px - 12.5px */
-    // --fontsize-smaller: clamp(0.75rem, 0.7rem + 0.3vw, 1rem); /* 7.5px - 10px */
-    // \/\/\/ new optimalized for bestpractices (not smaller than 12px)
-    --fontsize-h5: clamp(1.2rem, 1.05rem + 1vw, 1.75rem); /* 11.25px - 17.5px */
-    --fontsize-h6: clamp(1.2rem, 0.9rem + 0.8vw, 1.5rem); /* 10px - 15px */
-    --fontsize-small: clamp(1.2rem, 0.8rem + 0.5vw, 1.25rem); /* 8.75px - 12.5px */
-    --fontsize-smaller: clamp(1.2rem, 0.7rem + 0.3vw, 1.2rem); /* 7.5px - 10px */
+    --font-tertiary: var(--font-3, sans-serif);
+    --fontsize-larger: clamp(3rem, 6vw, 8rem);
+    --fontsize-large: clamp(2.4rem, 4.5vw, 5rem);
+    --fontsize-h1: clamp(2.2rem, 4vw, 4.2rem);
+    --fontsize-h2: clamp(2rem, 3.2vw, 3.4rem);
+    --fontsize-h3: clamp(1.8rem, 2.6vw, 2.8rem);
+    --fontsize-h4: clamp(1.6rem, 1.4rem + 0.5vw, 2rem);
+    --fontsize-h5: clamp(1.6rem, 1.3rem + 0.4vw, 1.9rem);
+    --fontsize-h6: clamp(1.6rem, 1.2rem + 0.3vw, 1.7rem);
+    --fontsize-p: clamp(1.6rem, 1.3rem + 0.3vw, 1.8rem);
+    --fontsize-small: clamp(1.4rem, 1.2rem + 0.2vw, 1.6rem);
+    --fontsize-smaller: clamp(1.2rem, 1rem + 0.2vw, 1.4rem);
     // INDIVIDAL FOR PAGE
     --fontsize-title: var(--fontsize-h1);
     --fontsize-subtitle: var(--fontsize-smaller);
@@ -162,7 +150,7 @@ body{
     min-height: 100svh;
     display: flex;
     flex-direction: column;
-    gap: var(--gap-section);
+    // gap: var(--gap-section);
     margin: 0;
     & > * {
         margin: 0;
@@ -173,10 +161,10 @@ body{
 main {
     flex-grow: 1;
     width: 100%;
-    max-width: calc(1440px + var(--padding-page-sides) * 2);
+    max-width: calc(2140px + var(--padding-page-sides) * 2);
     display: flex;
     flex-direction: column;
-    gap: var(--gap-section);
+    // gap: var(--gap-section);
     & > * {
         margin: 0;
     }
@@ -184,14 +172,15 @@ main {
 
 section {
     width: calc(100% - var(--padding-page-sides) * 2);
-    padding: var(--padding-page);
+    padding: clamp(5rem, 8vw, 12rem) var(--padding-page-sides);
     gap: var(--gap-section);
 }
 
 p {
     font-size: var(--fontsize-p);
     font-family: var(--font-secondary);
-    line-height: 1.2;
+    line-height: 1.6;
+    max-width: 75ch;
 }
 
 h1 {

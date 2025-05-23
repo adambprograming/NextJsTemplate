@@ -1,17 +1,6 @@
 .gallery {
   width: 100%;
-  &.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-  }
-  &.masonry {
-    column-width: 450px;
-    column-gap: 1rem;
-    .galleryItem {
-      margin-bottom: 1rem;
-    }
-  }
+  overflow-anchor: none;
   .galleryItem {
     display: block;
     position: relative;
@@ -20,6 +9,12 @@
     -webkit-column-break-inside: avoid;
     -moz-column-break-inside: avoid;
     .imageThumb {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .videoThumb {
       width: 100%;
       height: auto;
       display: block;
@@ -48,7 +43,6 @@
       position: relative;
       max-width: 90%;
       max-height: 90%;
-      // overflow: auto;
       text-align: center;
       .closeBtn {
         position: absolute;
@@ -60,13 +54,20 @@
         font-size: 1.5rem;
         padding: 0.2rem 0.5rem;
         cursor: pointer;
+        z-index: 10;
       }
       .modalImage {
-        max-width: 100%;
-        max-height: 100%;
-        width: 100%;
-        height: auto;
-        display: block;
+        margin: 0 auto;
+        max-width: 80vw;
+        width: auto;
+        max-height: 80vh;
+        object-fit: contain;
+      }
+      .modalVideo {
+        max-width: 80vw;
+        max-height: 80vh;
+        object-fit: contain;
+        width: auto;
         margin: 0 auto;
       }
       .modalCaption {
@@ -96,12 +97,58 @@
       right: 20px;
     }
   }
+  &.grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    @media only screen and (max-width: 1200px) {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    @media only screen and (max-width: 860px) {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    @media only screen and (max-width: 520px) {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .galleryItem {
+      .imageThumb,
+      .videoThumb {
+        aspect-ratio: 1 / 1;
+      }
+    }
+  }
+  &.masonry {
+    columns: var(--localMasonryColumnsDesktop);
+    column-gap: 1rem;
+
+    @media only screen and (max-width: 1200px) {
+      columns: var(--localMasonryColumnsTablet);
+    }
+    @media only screen and (max-width: 860px) {
+      columns: var(--localMasonryColumnsMobile);
+    }
+
+    .galleryItem {
+      padding-bottom: 1rem;
+      // display: inline-block;
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+      -moz-column-break-inside: avoid;
+      page-break-inside: avoid;
+      contain: layout;
+      will-change: transform;
+      overflow-anchor: none;
+    }
+  }
 }
 
 @media only screen and (pointer: fine) {
   .gallery {
     .galleryItem:hover .imageThumb {
-      opacity: 0.85;
+      opacity: 0.95;
+    }
+    .galleryItem:hover .videoThumb {
+      opacity: 0.95;
     }
     .modalOverlay {
       .prev:hover,
@@ -109,5 +156,26 @@
         color: var(--color-ascent);
       }
     }
+  }
+}
+
+.skeletonWrapper {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 37%, #e0e0e0 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
   }
 }

@@ -4,7 +4,7 @@ import styles from "./gallery.module.scss";
 // Public & Assets
 
 // React/Next Functions
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 // Context & Actions
 
@@ -12,39 +12,246 @@ import Image from "next/image";
 
 /*
 INSTRUCTIONS 
-  images                (*)array of image sources – can be array of strings or objects { src, alt?, caption? }
-  layout                (grid | masonry) layout style for displaying images (default: grid)
-  masonryColumnWidth    (number) column width in px for masonry layout (default: 450)
-  modalSize             (number) size (px) of modal image (default: 1440)
-  loop                  (true | false) defines if navigation in modal loops from end to start (default: true)
-  onOpen                (function(index)) function that fires when modal is opened with given image index
-  onClose               (function()) function that fires when modal is closed
+  images                              (*)array of image sources – can be array of strings or objects { src, alt?, caption? }
+  layout                              (grid | masonry) layout style for displaying images (default: grid)
+  masonryColumnsDesktop               (number) column count for masonry layout for desktop (default: 3)
+  masonryColumnsDesktop               (number) column count for masonry layout for tablet (default: 3)
+  masonryColumnsMobile                (number) column count for masonry layout for mobile (default: 3)
+  modalSize                           (number) size (px) of modal image (default: 1440)
+  loop                                (true | false) defines if navigation in modal loops from end to start (default: true)
+  onOpen                              (function(index)) function that fires when modal is opened with given image index
+  onClose                             (function()) function that fires when modal is closed
 */
 
 export default function Gallery({
   images = [],
   layout = "grid",
-  masonryColumnWidth = 450,
+  masonryColumnsDesktop = 5,
+  masonryColumnsTablet = 4,
+  masonryColumnsMobile = 3,
   modalSize = 1440,
+  loop = true,
   onOpen = () => {},
   onClose = () => {},
-  loop = true,
 }) {
+  const {
+    currentIndex,
+    isModalOpen,
+    openModal,
+    closeModal,
+    showNext,
+    showPrev,
+    modalRef,
+    touchHandlers,
+  } = useGalleryNavigation({ images, loop, onOpen, onClose });
+
+  return (
+    <div
+      className={`${styles.gallery} ${
+        layout === "masonry" ? styles.masonry : styles.grid
+      }`}
+      style={{
+        "--localMasonryColumnsDesktop": masonryColumnsDesktop,
+        "--localMasonryColumnsMobile": masonryColumnsMobile,
+        "--localMasonryColumnsTablet": masonryColumnsTablet,
+      }}
+    >
+      {images.map((img, index) => (
+        <GalleryItem
+          key={index}
+          item={img}
+          index={index}
+          openModal={openModal}
+        />
+      ))}
+
+      {isModalOpen && currentIndex !== null && (
+        <GalleryModal
+          item={images[currentIndex]}
+          onClose={closeModal}
+          showNext={showNext}
+          showPrev={showPrev}
+          modalSize={modalSize}
+          modalRef={modalRef}
+          touchHandlers={touchHandlers}
+        />
+      )}
+    </div>
+  );
+}
+
+function GalleryItem({ item, index, openModal }) {
+  const [loaded, setLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef(null);
+
+  const isVideo =
+    typeof item === "string"
+      ? item.endsWith(".mp4")
+      : item.type === "video" || item.src.endsWith(".mp4");
+
+  const src = typeof item === "string" ? item : item.src;
+  const alt =
+    typeof item === "string"
+      ? "Gallery item"
+      : item.alt || item.caption || "Gallery item";
+  const caption = typeof item === "string" ? "" : item.caption || "";
+  const poster =
+    typeof item === "string" ? "/fallback.jpg" : item.poster || "/fallback.jpg";
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <figure
+      className={styles.galleryItem}
+      onClick={() => openModal(index)}
+      ref={containerRef}
+    >
+      {!loaded && <div className={styles.skeletonWrapper} />}
+
+      {isVisible &&
+        (isVideo ? (
+          <video
+            className={styles.videoThumb}
+            muted
+            playsInline
+            preload="metadata"
+            loading="lazy"
+            poster={poster}
+            onLoadStart={() => setLoaded(true)}
+          >
+            <source src={`${src}#t=0.001`} type="video/mp4" />
+          </video>
+        ) : (
+          <Image
+            src={src}
+            alt={alt}
+            loading="lazy"
+            decoding="async"
+            className={styles.imageThumb}
+            width={800}
+            height={1000}
+            onLoad={() => setLoaded(true)}
+          />
+        ))}
+
+      {caption && <figcaption className={styles.caption}>{caption}</figcaption>}
+    </figure>
+  );
+}
+
+function GalleryModal({
+  item,
+  onClose,
+  showNext,
+  showPrev,
+  modalSize,
+  modalRef,
+  touchHandlers,
+}) {
+  const isVideo =
+    typeof item === "string"
+      ? item.endsWith(".mp4")
+      : item.src.endsWith(".mp4");
+  const src = typeof item === "string" ? item : item.src;
+  const alt =
+    typeof item === "string"
+      ? "Gallery item"
+      : item.alt || item.caption || "Gallery item";
+  const caption = typeof item === "string" ? "" : item.caption || "";
+
+  return (
+    <div
+      className={styles.modalOverlay}
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        className={styles.modalContent}
+        ref={modalRef}
+        onClick={(e) => e.stopPropagation()}
+        onTouchStart={touchHandlers.onTouchStart}
+        onTouchEnd={touchHandlers.onTouchEnd}
+      >
+        <button
+          className={styles.closeBtn}
+          onClick={onClose}
+          aria-label="Zavřít"
+        >
+          ×
+        </button>
+        {isVideo ? (
+          <video
+            controls
+            playsInline
+            autoPlay
+            className={styles.modalVideo}
+            width={modalSize}
+            height={modalSize}
+          >
+            <source src={`${src}#t=0.001`} type="video/mp4" />
+          </video>
+        ) : (
+          <Image
+            src={src}
+            alt={alt}
+            loading="lazy"
+            className={styles.modalImage}
+            width={modalSize}
+            height={modalSize}
+          />
+        )}
+        {caption && <div className={styles.modalCaption}>{caption}</div>}
+      </div>
+
+      <button
+        className={styles.prev}
+        onClick={(e) => {
+          e.stopPropagation();
+          showPrev();
+        }}
+        aria-label="Předchozí"
+      >
+        ❮
+      </button>
+      <button
+        className={styles.next}
+        onClick={(e) => {
+          e.stopPropagation();
+          showNext();
+        }}
+        aria-label="Další"
+      >
+        ❯
+      </button>
+    </div>
+  );
+}
+
+function useGalleryNavigation({ images, loop, onOpen, onClose }) {
   const [currentIndex, setCurrentIndex] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const touchStartX = useRef(null);
   const modalRef = useRef(null);
-
-  const getImageData = (img) => {
-    if (typeof img === "string") {
-      return { src: img, alt: "Gallery image", caption: "" };
-    }
-    return {
-      src: img.src,
-      alt: img.alt || img.caption || "Gallery image",
-      caption: img.caption || "",
-    };
-  };
+  const touchStartX = useRef(null);
 
   const openModal = (index) => {
     setCurrentIndex(index);
@@ -59,50 +266,44 @@ export default function Gallery({
   };
 
   const showPrev = () => {
-    if (images.length === 0 || currentIndex === null) return;
-    setCurrentIndex((idx) => {
-      if (idx === 0 && !loop) return idx;
-      return (idx - 1 + images.length) % images.length;
-    });
+    if (!images.length || currentIndex === null) return;
+    setCurrentIndex((idx) =>
+      idx === 0 && !loop ? idx : (idx - 1 + images.length) % images.length
+    );
   };
 
   const showNext = () => {
-    if (images.length === 0 || currentIndex === null) return;
-    setCurrentIndex((idx) => {
-      if (idx === images.length - 1 && !loop) return idx;
-      return (idx + 1) % images.length;
-    });
+    if (!images.length || currentIndex === null) return;
+    setCurrentIndex((idx) =>
+      idx === images.length - 1 && !loop ? idx : (idx + 1) % images.length
+    );
   };
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!isModalOpen) return;
       if (e.key === "Escape") closeModal();
-      else if (e.key === "ArrowLeft") showPrev();
-      else if (e.key === "ArrowRight") showNext();
-      else if (e.key === "Tab") {
-        const focusableEls = modalRef.current?.querySelectorAll(
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
+      if (e.key === "Tab") {
+        const els = modalRef.current?.querySelectorAll(
           "button, [tabindex]:not([tabindex='-1'])"
         );
-        const firstEl = focusableEls?.[0];
-        const lastEl = focusableEls?.[focusableEls.length - 1];
-        if (!firstEl || !lastEl) return;
-
-        if (e.shiftKey && document.activeElement === firstEl) {
+        if (!els?.length) return;
+        const [first, last] = [els[0], els[els.length - 1]];
+        if (e.shiftKey && document.activeElement === first) {
           e.preventDefault();
-          lastEl.focus();
-        } else if (!e.shiftKey && document.activeElement === lastEl) {
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
           e.preventDefault();
-          firstEl.focus();
+          first.focus();
         }
       }
     };
 
     if (isModalOpen) {
-      document.body.style.overflow = "hidden"; // prevent scroll
+      document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleKeyDown);
-    } else {
-      document.body.style.overflow = "";
     }
 
     return () => {
@@ -112,115 +313,25 @@ export default function Gallery({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isModalOpen, currentIndex, loop]);
 
-  const handleTouchStart = (e) => {
+  const onTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
   };
 
-  const handleTouchEnd = (e) => {
+  const onTouchEnd = (e) => {
     if (touchStartX.current === null) return;
-    const diffX = e.changedTouches[0].clientX - touchStartX.current;
-    if (Math.abs(diffX) > 50) {
-      diffX < 0 ? showNext() : showPrev();
-    }
+    const delta = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(delta) > 50) delta < 0 ? showNext() : showPrev();
     touchStartX.current = null;
   };
 
-  const renderedThumbnails = useMemo(() => {
-    return images.map((img, index) => {
-      const { src, alt, caption } = getImageData(img);
-      return (
-        <figure
-          key={index}
-          className={styles.galleryItem}
-          onClick={() => openModal(index)}
-        >
-          <Image
-            src={src}
-            alt={alt}
-            loading="lazy"
-            className={styles.imageThumb}
-            width={1440}
-            height={1440}
-          />
-          {caption && (
-            <figcaption className={styles.caption}>{caption}</figcaption>
-          )}
-        </figure>
-      );
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [images]);
-
-  return (
-    <div
-      className={`${styles.gallery} ${
-        layout === "masonry" ? styles.masonry : styles.grid
-      }`}
-      style={
-        layout === "masonry" ? { columnWidth: masonryColumnWidth } : undefined
-      }
-    >
-      {renderedThumbnails}
-
-      {isModalOpen && currentIndex !== null && (
-        <div
-          className={styles.modalOverlay}
-          onClick={closeModal}
-          role="dialog"
-          aria-modal="true"
-        >
-          <div
-            className={styles.modalContent}
-            ref={modalRef}
-            onClick={(e) => e.stopPropagation()}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            <button
-              className={styles.closeBtn}
-              onClick={closeModal}
-              aria-label="Zavřít"
-            >
-              ×
-            </button>
-            <Image
-              src={getImageData(images[currentIndex]).src}
-              alt={getImageData(images[currentIndex]).alt}
-              loading="lazy"
-              className={styles.modalImage}
-              width={modalSize}
-              height={modalSize}
-            />
-            {getImageData(images[currentIndex]).caption && (
-              <div className={styles.modalCaption}>
-                {getImageData(images[currentIndex]).caption}
-              </div>
-            )}
-          </div>
-
-          <button
-            className={styles.prev}
-            onClick={(e) => {
-              e.stopPropagation();
-              showPrev();
-            }}
-            aria-label="Předchozí"
-          >
-            ❮
-          </button>
-
-          <button
-            className={styles.next}
-            onClick={(e) => {
-              e.stopPropagation();
-              showNext();
-            }}
-            aria-label="Další"
-          >
-            ❯
-          </button>
-        </div>
-      )}
-    </div>
-  );
+  return {
+    currentIndex,
+    isModalOpen,
+    openModal,
+    closeModal,
+    showNext,
+    showPrev,
+    modalRef,
+    touchHandlers: { onTouchStart, onTouchEnd },
+  };
 }
